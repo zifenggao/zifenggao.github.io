@@ -87,20 +87,24 @@
 
 
 
-<meta name="description" content="Java入门（一）Java作为一种面向对象语言。支持以下基本概念：  多态 继承 封装 抽象 类 对象 实例 方法 重载Java中工程（项目）、包、类区别   项目就是project，包就是package，而class就是类了，项目里面包括所有的包，包是用来便于管理类，防止命名冲突，类是代码的容器，它们的关系就是上级与下级的关系，项目的下一级就是包，包的下级就是类 工程相当于一个软件，包相当于模块">
+<meta name="description" content="Java入门（一）Java作为一种面向对象语言。支持以下基本概念：  多态 继承 封装 抽象 类 对象 实例 方法 重载  成员变量包括：实例变量、类变量 成员方法包括：实例方法、类方法、构造方法 Java中工程（项目）、包、类区别 项目就是project，包就是package，而class就是类了，项目里面包括所有的包，包是用来便于管理类，防止命名冲突，类是代码的容器，它们的关系就是上级与下级的">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java入门（一）">
 <meta property="og:url" content="http://yoursite.com/2017/04/15/Java入门/index.html">
 <meta property="og:site_name" content="Rodeirc">
-<meta property="og:description" content="Java入门（一）Java作为一种面向对象语言。支持以下基本概念：  多态 继承 封装 抽象 类 对象 实例 方法 重载Java中工程（项目）、包、类区别   项目就是project，包就是package，而class就是类了，项目里面包括所有的包，包是用来便于管理类，防止命名冲突，类是代码的容器，它们的关系就是上级与下级的关系，项目的下一级就是包，包的下级就是类 工程相当于一个软件，包相当于模块">
+<meta property="og:description" content="Java入门（一）Java作为一种面向对象语言。支持以下基本概念：  多态 继承 封装 抽象 类 对象 实例 方法 重载  成员变量包括：实例变量、类变量 成员方法包括：实例方法、类方法、构造方法 Java中工程（项目）、包、类区别 项目就是project，包就是package，而class就是类了，项目里面包括所有的包，包是用来便于管理类，防止命名冲突，类是代码的容器，它们的关系就是上级与下级的">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170415/161537201.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170415/181615378.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170415/164500781.png">
-<meta property="og:updated_time" content="2017-04-15T10:28:49.520Z">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170415/195648646.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170415/195855894.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205727588.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205830991.png">
+<meta property="og:updated_time" content="2017-04-15T13:16:27.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java入门（一）">
-<meta name="twitter:description" content="Java入门（一）Java作为一种面向对象语言。支持以下基本概念：  多态 继承 封装 抽象 类 对象 实例 方法 重载Java中工程（项目）、包、类区别   项目就是project，包就是package，而class就是类了，项目里面包括所有的包，包是用来便于管理类，防止命名冲突，类是代码的容器，它们的关系就是上级与下级的关系，项目的下一级就是包，包的下级就是类 工程相当于一个软件，包相当于模块">
+<meta name="twitter:description" content="Java入门（一）Java作为一种面向对象语言。支持以下基本概念：  多态 继承 封装 抽象 类 对象 实例 方法 重载  成员变量包括：实例变量、类变量 成员方法包括：实例方法、类方法、构造方法 Java中工程（项目）、包、类区别 项目就是project，包就是package，而class就是类了，项目里面包括所有的包，包是用来便于管理类，防止命名冲突，类是代码的容器，它们的关系就是上级与下级的">
 <meta name="twitter:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170415/161537201.png">
 
 
@@ -368,9 +372,11 @@
 <li>对象</li>
 <li>实例</li>
 <li>方法</li>
-<li>重载<h2 id="Java中工程（项目）、包、类区别"><a href="#Java中工程（项目）、包、类区别" class="headerlink" title="Java中工程（项目）、包、类区别"></a>Java中工程（项目）、包、类区别</h2></li>
+<li>重载</li>
 </ul>
-<ol>
+<p><strong>成员变量</strong>包括：实例变量、类变量</p>
+<p><strong>成员方法</strong>包括：实例方法、类方法、构造方法</p>
+<h2 id="Java中工程（项目）、包、类区别"><a href="#Java中工程（项目）、包、类区别" class="headerlink" title="Java中工程（项目）、包、类区别"></a>Java中工程（项目）、包、类区别</h2><ol>
 <li>项目就是project，包就是package，而class就是类了，项目里面包括所有的包，包是用来便于管理类，防止命名冲突，类是代码的容器，它们的关系就是上级与下级的关系，项目的下一级就是包，包的下级就是类</li>
 <li>工程相当于一个软件，包相当于模块，类相当于模块下各个功能的实现</li>
 <li>类下再有各种自己具体完成任务需要的成员变量和实现方法。主方法也在某一个public类中</li>
@@ -448,11 +454,70 @@ return x++;
 <li>子类只继承父类的默认(缺省)构造函数（即无形参构造函数），如果父类没有默认构造函数，那子类不能从父类继承默认构造函数。</li>
 <li>子类从父类处继承来的父类默认构造函数，不能成为子类的默认构造函数。</li>
 <li>在创建对象时，先调用父类默认构造函数对对象进行初始化，然后调用子类自身自己定义的构造函数。</li>
-<li>如果子类想调用父类的非默认构造函数，则必须使用super来实现<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2></li>
+<li>如果子类想调用父类的非默认构造函数，则必须使用super来实现</li>
 </ul>
 </li>
 </ul>
-<p>不同于其他面向对象语言，Java在内存管理是动态的、自动的，当你创建对象时，Java自动分配相应的内存，当使用完对象后，Java虚拟机自动查找未用的对象并回收这些对象占用的内存</p>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><p>不同于其他面向对象语言，Java在内存管理是动态的、自动的，当你创建对象时，Java自动分配相应的内存，当使用完对象后，Java虚拟机自动查找未用的对象并回收这些对象占用的内存</p>
+<h2 id="权限问题"><a href="#权限问题" class="headerlink" title="权限问题"></a>权限问题</h2><h3 id="Java类的访问控制"><a href="#Java类的访问控制" class="headerlink" title="Java类的访问控制"></a>Java类的访问控制</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/195648646.png" alt="mark"></p>
+<h3 id="Java中不同控制符对应的权限"><a href="#Java中不同控制符对应的权限" class="headerlink" title="Java中不同控制符对应的权限"></a>Java中不同控制符对应的权限</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/195855894.png" alt="mark"></p>
+<h2 id="实例变量与类变量的区别，实例方法和类方法的区别"><a href="#实例变量与类变量的区别，实例方法和类方法的区别" class="headerlink" title="实例变量与类变量的区别，实例方法和类方法的区别"></a>实例变量与类变量的区别，实例方法和类方法的区别</h2><p><a href="http://www.cnblogs.com/scf141592/p/5726347.html" target="_blank" rel="external">详细链接一</a><br><a href="http://www.360doc.com/content/15/1112/14/27263348_512582044.shtml" target="_blank" rel="external">详细链接二</a></p>
+<ul>
+<li>类变量：静态域，静态字段，或叫<strong>静态变量</strong>，它属于该类所有实例共有的属性，在内存中只有一个地方存储这个变量</li>
+<li>类变量、类方法就是类中的变量、方法，必须是静态的，<strong>要加static</strong>；故其又称静态变量、静态方法。</li>
+<li>实例变量：实例域，实例字段，或叫成员变量。</li>
+<li>实例方法：或叫成员方法，必须先有实例，然后才能通过实例调用该实例方法</li>
+<li><strong>类变量和实例变量都必须在方法和语句块之外，区别在于类变量static而实例变量不是，类方法和实例方法的区别也是在有没有static上</strong></li>
+<li>类方法是属于整个类，而不属于某个对象</li>
+<li>类方法的调用可以通过<strong>类名.类方法</strong>和<strong>对象.类方法</strong>，而实例方法只能通过<strong>对象.实例方法</strong>访问</li>
+<li>类方法只能访问类方法，而实例方法可以访问类方法和实例方法。</li>
+<li>类方法不能被覆盖，实例方法可以被覆盖（待验证）</li>
+<li><strong>使用方法</strong>：<ul>
+<li>类方法可以直接调用类变量和类方法</li>
+<li>类方法不可以直接调用实例变量和实例方法</li>
+<li>类方法中没有this，因为没有实例，this不知道调用哪个实例，super也不行</li>
+<li>类方法可以从类里面直接访问类成员</li>
+<li>实例方法可以调用类方法，访问类变量，但是不提倡这样做，会把类方法和类变量混淆成实例方法和实例变量</li>
+</ul>
+</li>
+</ul>
+<p><em>例子</em>：</p>
+<pre><code>    package Mypackage;
+
+    class AnIntegerNamedX {
+     static int x; 
+    // 这里写成static，结果就变成全是2了，因为类变量是被实例所共享的，
+    //包括myX和anotherX调用anotherX时所有的实例都改变了。
+
+    public int x() {
+
+    return x;
+    }
+
+    public void setX(int newX) {
+    x = newX;
+    }
+}
+
+public class Practice {
+public static void main(String args[]) {
+    AnIntegerNamedX myX = new AnIntegerNamedX();
+    AnIntegerNamedX anotherX = new AnIntegerNamedX();
+
+    myX.setX(1);
+    anotherX.x = 2; // 这里把X的值改成2，所有实例的X都是2了，因为类变量是被
+    //所有实例共享的，任何实例都可以对类变量做最终的修改
+
+    System.out.println(&quot;myX.x = &quot; + myX.x());
+    System.out.println(&quot;anotherX.x = &quot; + anotherX.x());
+
+}
+}
+</code></pre><p>结果为：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205727588.png" alt="mark"></p>
+<p>若将<code>static int x;</code>改成<code>int x;</code>，则结果为：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205830991.png" alt="mark"></p>
+<p>若将<code>static int x;</code>改成<code>int x;</code>，将x()方法和setX()加上static变成静态方法，则会提示错误让把X变成静态，是因为类方法不能直接访问实例变量！</p>
 
       
     </div>
@@ -643,7 +708,7 @@ return x++;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java入门（一）"><span class="nav-number">1.</span> <span class="nav-text">Java入门（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中工程（项目）、包、类区别"><span class="nav-number">1.1.</span> <span class="nav-text">Java中工程（项目）、包、类区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类、实例、对象区别"><span class="nav-number">1.2.</span> <span class="nav-text">类、实例、对象区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造方法（即构造函数）"><span class="nav-number">1.3.</span> <span class="nav-text">构造方法（即构造函数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理"><span class="nav-number">1.4.</span> <span class="nav-text">内存管理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java入门（一）"><span class="nav-number">1.</span> <span class="nav-text">Java入门（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中工程（项目）、包、类区别"><span class="nav-number">1.1.</span> <span class="nav-text">Java中工程（项目）、包、类区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类、实例、对象区别"><span class="nav-number">1.2.</span> <span class="nav-text">类、实例、对象区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造方法（即构造函数）"><span class="nav-number">1.3.</span> <span class="nav-text">构造方法（即构造函数）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理"><span class="nav-number">1.4.</span> <span class="nav-text">内存管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限问题"><span class="nav-number">1.5.</span> <span class="nav-text">权限问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java类的访问控制"><span class="nav-number">1.5.1.</span> <span class="nav-text">Java类的访问控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中不同控制符对应的权限"><span class="nav-number">1.5.2.</span> <span class="nav-text">Java中不同控制符对应的权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例变量与类变量的区别，实例方法和类方法的区别"><span class="nav-number">1.6.</span> <span class="nav-text">实例变量与类变量的区别，实例方法和类方法的区别</span></a></li></ol></li></ol></div>
             
 
           </div>
