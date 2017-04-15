@@ -283,7 +283,7 @@
               
                 
                 <a class="post-title-link" href="/2017/04/15/Java入门/" itemprop="url">
-                  Java入门
+                  Java入门（一）
                 </a>
               
             
@@ -359,7 +359,19 @@
       
         
           
-            <h1 id="Java入门"><a href="#Java入门" class="headerlink" title="Java入门"></a>Java入门</h1><h2 id="Java中工程（项目）、包、类介绍"><a href="#Java中工程（项目）、包、类介绍" class="headerlink" title="Java中工程（项目）、包、类介绍"></a>Java中工程（项目）、包、类介绍</h2><ol>
+            <h1 id="Java入门（一）"><a href="#Java入门（一）" class="headerlink" title="Java入门（一）"></a>Java入门（一）</h1><p><strong>Java作为一种面向对象语言。支持以下基本概念：</strong></p>
+<ul>
+<li>多态</li>
+<li>继承</li>
+<li>封装</li>
+<li>抽象</li>
+<li>类</li>
+<li>对象</li>
+<li>实例</li>
+<li>方法</li>
+<li>重载<h2 id="Java中工程（项目）、包、类区别"><a href="#Java中工程（项目）、包、类区别" class="headerlink" title="Java中工程（项目）、包、类区别"></a>Java中工程（项目）、包、类区别</h2></li>
+</ul>
+<ol>
 <li>项目就是project，包就是package，而class就是类了，项目里面包括所有的包，包是用来便于管理类，防止命名冲突，类是代码的容器，它们的关系就是上级与下级的关系，项目的下一级就是包，包的下级就是类</li>
 <li>工程相当于一个软件，包相当于模块，类相当于模块下各个功能的实现</li>
 <li>类下再有各种自己具体完成任务需要的成员变量和实现方法。主方法也在某一个public类中</li>
@@ -375,6 +387,31 @@
 </ul>
 </li>
 </ol>
+<h2 id="类、实例、对象区别"><a href="#类、实例、对象区别" class="headerlink" title="类、实例、对象区别"></a>类、实例、对象区别</h2><ul>
+<li><strong>类</strong>是对一项事物的抽象概括，是一个模板，可以包含该事物的一些<strong>属性</strong>定义，以及操作属性的<strong>方法</strong></li>
+<li><strong>实例</strong>简单理解，就是new，就是对类的<strong>实例化</strong>，创建这个类对应的实际对象，类只是对事物的描述，而<span style="color:red">实例化就相当于为这个描述新开辟了一块内存</span>，可以改变这块区域里的各种属性（成员变量），当然，也可以实例化多块区域，只是不同的对象而已。</li>
+<li>类跟对象<img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/181615378.png" alt="mark"></li>
+<li><p>可以这么说，对象就是实例，new的过程就是对象实例化的过程</p>
+<ul>
+<li><p>例：</p>
+<pre><code>//ps就是对象的一个**引用**，要对这个对象进行操作的时候，就可以通过这个引用
+public class Peason 
+{ 
+String name; 
+String sex; 
+int age; 
+public static void main(String [] args) 
+{ 
+Peason ps=new Peason(); 
+ps.name=”张三”; 
+ps.sex=”男”; 
+ps.age=10; 
+} 
+}
+</code></pre></li>
+</ul>
+</li>
+</ul>
 <h2 id="构造方法（即构造函数）"><a href="#构造方法（即构造函数）" class="headerlink" title="构造方法（即构造函数）"></a>构造方法（即构造函数）</h2><ol>
 <li>是一种特殊的方法，它是一个<span style="color:red">与类同名且没有返回值类型</span>的方法</li>
 <li>对象的创建就是通过构造方法来完成，其功能主要是完成对象的初始化</li>
@@ -406,16 +443,17 @@ return x++;
 </ol>
 <p><strong>注意</strong>：</p>
 <ul>
-<li>构造方法可以重载，以参数的个数，类型，顺序</li>
+<li>构造方法可以<span style="color:red">重载</span>，以参数的数目，类型，顺序</li>
 <li>如果在定义类时没有定义构造方法，则编译系统会自动插入一个无参数的默认构造器，这个构造器不执行任何代码。</li>
 <li>构造方法不能被继承：<ul>
 <li>子类只继承父类的默认(缺省)构造函数（即无形参构造函数），如果父类没有默认构造函数，那子类不能从父类继承默认构造函数。</li>
 <li>子类从父类处继承来的父类默认构造函数，不能成为子类的默认构造函数。</li>
 <li>在创建对象时，先调用父类默认构造函数对对象进行初始化，然后调用子类自身自己定义的构造函数。</li>
-<li>如果子类想调用父类的非默认构造函数，则必须使用super来实现</li>
+<li>如果子类想调用父类的非默认构造函数，则必须使用super来实现<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2></li>
 </ul>
 </li>
 </ul>
+<p>不同于其他面向对象语言，Java在内存管理是动态的、自动的，当你创建对象时，Java自动分配相应的内存，当使用完对象后，Java虚拟机自动查找未用的对象并回收这些对象占用的内存</p>
 
           
         
