@@ -391,7 +391,7 @@ System.out.println(&quot;Point2:&quot;+pt2.x+&quot;,&quot;+pt2.y);
 <li>若<code>pt2=pt1</code>，此时用“==”来判断pt1和pt2是否相等，得到的结果是“true”,因为指向同一个对象，用“pt2.equals(pt1)”得到的结果也将是“true”，因为两个字符串值相同</li>
 <li>若<code>pt1=new Point(100,100);pt2=new Point(100,100);</code>，此时用“==”来判断pt1和pt2是否相等，得到的结果是“false”,因为它们现在在内存中不是同一个对象，用“pt2.equals(pt1)”得到的结果也将是“true”，因为两个字符串值相同</li>
 </ul>
-<h2 id="方法重写与方法重载"><a href="#方法重写与方法重载" class="headerlink" title="方法重写与方法重载"></a>方法重写与方法重载</h2><h2 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h2><ol>
+<h2 id="方法重写与方法重载"><a href="#方法重写与方法重载" class="headerlink" title="方法重写与方法重载"></a>方法重写与方法重载</h2><h3 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h3><ol>
 <li>子类可以定义新的特征，当子类需要修改父类的一些方法进行扩展，增大功能，程序设计者常常把这样的一种操作方法称为<strong>重写</strong>，也叫称为<strong>覆写或覆盖</strong>，重写是建立在<strong>继承</strong>关系上</li>
 <li>所谓方法的重写是指子类中的方法与父类中继承的方法有<strong>完全相同的返回值类型、方法名、参数个数以及参数类型</strong>。这样，就可以实现对父类方法的覆盖</li>
 </ol>
@@ -448,7 +448,7 @@ s.print();
 <li>当父类中方法的访问权限修饰符为private时，该方法只能被自己的类访问，不能被外部的类访问，在子类是不能被重写的。如果定义父类的方法为public，在子类定义为private，程序运行时就会报错</li>
 <li>在继承过程中如果父类当中的方法抛出异常，那么在子类中重写父类的该方法时，也要抛出异常，而且抛出的异常不能多于父类中抛出的异常(可以等于父类中抛出的异常)。换句话说，重写方法一定不能抛出新的检查异常，或者比被重写方法声明更加宽泛的检查型异常。例如，父类的一个方法申明了一个检查异常IOException，在重写这个方法时就不能抛出Exception，只能抛出IOException的子类异常，可以抛出非检查异常</li>
 </ul>
-<h2 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h2><ol>
+<h3 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h3><ol>
 <li>方法重载是让类以统一的方式处理不同类型数据的一种手段。调用方法时通过传递给它们的不同个数和类型的参数来决定具体使用哪个方法，这就是<strong>多态性</strong></li>
 <li>所谓方法重载是指在一个类中，多个方法的方法名相同，但是参数列表不同，参数列表不同指的是参数个数、参数类型或者<strong>参数的顺序</strong>不同</li>
 <li>不仅是一般的方法，构造方法也可以重载</li>
@@ -488,7 +488,7 @@ p1.print("婉宁",25,110903);
 <li>可以有不同的访问修饰符</li>
 <li>可以抛出不同的异常</li>
 </ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/110951053.png" alt="mark"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/110951053.png" alt="mark"></p>
 <p>在面向对象程序设计的思想中，类的继承和多态性主要就是体现在子类重写父类的方法。而构造方法的重载作为方法重载的一个典型特例，可以通过重载构造方法来表达对象的多种初始化行为。灵活的运用方法重写与方法重载，不仅能减少编码的工作量，也能大大提高程序的可维护性及可扩展性</p>
 <p><a href="http://blog.csdn.net/zhangyabinsky/article/details/7047330" target="_blank" rel="external">参考文章链接</a></p>
 <p><strong>注意以下这个方法重载的例子</strong>，实例方法可以用类名来作为返回类型创建！！</p>
