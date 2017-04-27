@@ -304,6 +304,202 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/17/Java入门（三）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/17/Java入门（三）/" itemprop="url">
+                  Java入门（三）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T13:13:16+08:00">
+                2017-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/17/Java入门（三）/" class="leancloud_visitors" data-flag-title="Java入门（三）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="有关读取用户输入的问题"><a href="#有关读取用户输入的问题" class="headerlink" title="有关读取用户输入的问题"></a>有关读取用户输入的问题</h1><p>首先导入包<code>import java.util.Scanner;</code>这里面有处理用户输入的方法。</p>
+<h2 id="输入数字情况"><a href="#输入数字情况" class="headerlink" title="输入数字情况"></a>输入数字情况</h2><pre>
+public static void main(String[] args) {
+
+  //创建输入对象
+  Scanner sc=new Scanner(System.in);
+
+  //获取用户输入的数字
+  System.out.print("请输入任意数字:");
+  int str=sc.nextInt();        //用来获取数字
+
+  System.out.println("你输入的数字为:"+str);
+
+ }
+</pre>
+
+<h2 id="输入字符串"><a href="#输入字符串" class="headerlink" title="输入字符串"></a>输入字符串</h2><pre>
+public static void main(String[] args) {
+
+  //创建输入对象
+  Scanner sc=new Scanner(System.in);
+
+  //获取用户输入的字符串
+  String str=null;
+  System.out.print("请输入任意字符:");
+  str=sc.nextLine();        //用来获取字符串
+
+  System.out.println("你输入的字符为:"+str);
+
+ }
+</pre>
+
+<h2 id="若要输入字符数组"><a href="#若要输入字符数组" class="headerlink" title="若要输入字符数组"></a>若要输入字符数组</h2><p>思路：先用输入字符串的方法读入字符串，然后再将其转换为字符数组</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170417/134343486.png" alt="mark"></p>
+<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><p>经过测试，一个输入对象只能接受一种数据类型，要想输入不同的数据对象，就得现创建不同的输入对象</p>
+<pre>
+Scanner in1=new Scanner(System.in);    //接受数字输入
+int x1=in1.nextInt();    
+int x2=in1.nextInt();    //同种类型不必再new输入对象
+
+Scanner sc2=new Scanner(System.in);    //接受字符串输入，不同类型得创新new输入对象，而且不同名
+String str=sc2.nextLine();        
+String str=sc2.nextLine();
+</pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/Java入门（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2277,165 +2473,6 @@ $git clone https://github.com/iissnan/hexo-theme-next themes/next
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/php环境问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/php环境问题/" itemprop="url">
-                  php环境问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T09:51:41+08:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/15/php环境问题/" class="leancloud_visitors" data-flag-title="php环境问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>用的是phpstorm和wamp搭建的环境，php版本为5.6</strong></p>
-<hr>
-<p>提交表单后，运行老是报错“Deprecated: Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set ‘always_populate_raw_post_data’ to ‘-1’ in php.ini and use the php://input stream instead. in Unknown on line 0”</p>
-<p>我运行是直接点的phpstorm里面的chrome快捷键，结果出现上面的错误，<br>网上的方法试了，更改php.ini文件的always_populate_raw_post_data的值无效。</p>
-<p>后来发现，从phpstorm直接运行的页面地址跟wamp根目录运行的页面地址是不一样的（废话，肯定不一样，因为我phpstorm的项目地址跟wamp的不在一起），而且很奇怪的一点，wamp提供的更改php.ini的地址不是php安装目录里的那个php.ini。搞得我有点晕。</p>
-<p>后来索性把要运行的那个项目移动到wamp根目录，用localhost（wamp根地址）运行，结果就成功了，成功了，没错，不报错了，就是这么简单，具体为什么等我把这项目弄完了再好好研究吧。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2485,7 +2522,7 @@ $git clone https://github.com/iissnan/hexo-theme-next themes/next
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
