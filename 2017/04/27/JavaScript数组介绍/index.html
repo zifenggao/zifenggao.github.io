@@ -91,7 +91,7 @@
 <meta name="keywords" content="编程基础,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript数组介绍">
-<meta property="og:url" content="http://yoursite.com/2017/04/27/JavaScript算法编程基础/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/04/27/JavaScript数组介绍/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="JavaScript的数组中的元素可以具有不同的类型，即var a=[&amp;#39;hello&amp;#39;,12,&amp;#39;kk&amp;#39;];是合法的。 对于一维数组，可直接用console.log(数组名)来输出数组内容，若是多维数组则需要自行构建函数来输出  创建和初始化数组var everyday=new Array(); var everyday=new Array(); var everyd">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170427/215254983.png">
@@ -103,7 +103,13 @@
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170427/223252765.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170427/223543502.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170427/224022818.png">
-<meta property="og:updated_time" content="2017-04-27T15:27:44.802Z">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170429/154459103.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170429/155611910.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170429/160013324.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170429/161659564.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162309077.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162842256.png">
+<meta property="og:updated_time" content="2017-04-29T08:29:01.189Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript数组介绍">
 <meta name="twitter:description" content="JavaScript的数组中的元素可以具有不同的类型，即var a=[&amp;#39;hello&amp;#39;,12,&amp;#39;kk&amp;#39;];是合法的。 对于一维数组，可直接用console.log(数组名)来输出数组内容，若是多维数组则需要自行构建函数来输出  创建和初始化数组var everyday=new Array(); var everyday=new Array(); var everyd">
@@ -135,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/27/JavaScript算法编程基础/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/27/JavaScript数组介绍/"/>
 
 
 
@@ -314,7 +320,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/JavaScript算法编程基础/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/JavaScript数组介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roderic">
@@ -391,7 +397,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/04/27/JavaScript算法编程基础/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/04/27/JavaScript数组介绍/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -400,7 +406,7 @@
 
           
           
-             <span id="/2017/04/27/JavaScript算法编程基础/" class="leancloud_visitors" data-flag-title="JavaScript数组介绍">
+             <span id="/2017/04/27/JavaScript数组介绍/" class="leancloud_visitors" data-flag-title="JavaScript数组介绍">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -492,6 +498,45 @@ printfMatrix(数组名);
 <h4 id="数组自动排序–sort方法"><a href="#数组自动排序–sort方法" class="headerlink" title="数组自动排序–sort方法"></a>数组自动排序–sort方法</h4><p>sort在排序的时候，是默认把元素当成字符串来比较。比如底下这样用就会出错：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/224022818.png" alt="mark"></p>
 <p>那应该怎么办？    <strong>自己写比较函数</strong></p>
+<pre><code>var a=[2,6,18,19,1];
+
+console.log(a.sort(function(a,b){return a-b;}));
+</code></pre><p>主要的是代码a.sort(function(a,b){return a-b;})，此代码表示当a小于b时返回负数，当a大于b时返回正数，相等时放回0，这样sort方法就会根据返回值的情况给数组排序，当然这行代码额可以改写成比较好理解的以下以下代码：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/154459103.png" alt="mark"></p>
+<p>注意比较函数的调用方法（没有传参）</p>
+<h5 id="自定义排序"><a href="#自定义排序" class="headerlink" title="自定义排序"></a>自定义排序</h5><p>可以创建任何对象类型的数组排序，也可以创建compareFunction来比较元素：</p>
+<pre><code>var person=[{name:&apos;小明&apos;,age:15},{name:&apos;小王&apos;,age:14},{name:&apos;小东&apos;,age:18}];
+
+function comparePerson(a,b){
+    if(a.age&lt;b.age){
+        return -1;
+    }
+    if(a.age&gt;b.age){
+        return 1;
+    }
+    return 0;
+}
+
+console.log(person.sort(comparePerson));
+</code></pre><p>结果:</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/155611910.png" alt="mark"></p>
+<h5 id="字符串排序"><a href="#字符串排序" class="headerlink" title="字符串排序"></a>字符串排序</h5><p>对于字符创的比较，sort是根据ASCII值来比较的，比如：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/160013324.png" alt="mark"></p>
+<p>即Jmn会排在apple的前面，如果我们想让它排序正确，则需要自己写一个忽略大小写的比较函数：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/161659564.png" alt="mark"></p>
+<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><ul>
+<li>indexOf()方法：返回与参数匹配的第一个元素的索引</li>
+<li>lastIndexOf()方法：返回与参数匹配的最后一个元素的索引。</li>
+</ul>
+<p>例子：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162309077.png" alt="mark"></p>
+<p>结果分析，前两个没什么好说的，第三个查找10，因为没有这个元素，所以返回-1</p>
+<h3 id="输出数组为字符串及指定分隔符"><a href="#输出数组为字符串及指定分隔符" class="headerlink" title="输出数组为字符串及指定分隔符"></a>输出数组为字符串及指定分隔符</h3><ul>
+<li>toString()将数组里的所有元素输出为一个字符串</li>
+<li>join()用一个不同的分隔符把元素隔开</li>
+</ul>
+<p>例子：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162842256.png" alt="mark"></p>
 
       
     </div>
@@ -686,7 +731,7 @@ printfMatrix(数组名);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和初始化数组"><span class="nav-number">1.</span> <span class="nav-text">创建和初始化数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加和删除数组元素"><span class="nav-number">2.</span> <span class="nav-text">添加和删除数组元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加到数组末尾"><span class="nav-number">2.1.</span> <span class="nav-text">添加到数组末尾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加到数组首部"><span class="nav-number">2.2.</span> <span class="nav-text">添加到数组首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除最靠后元素"><span class="nav-number">2.3.</span> <span class="nav-text">删除最靠后元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除第一个元素"><span class="nav-number">2.4.</span> <span class="nav-text">删除第一个元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除任意位置的元素"><span class="nav-number">2.5.</span> <span class="nav-text">删除任意位置的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入任意为位置-任意值"><span class="nav-number">2.6.</span> <span class="nav-text">插入任意为位置 任意值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维和多维数组"><span class="nav-number">3.</span> <span class="nav-text">二维和多维数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作数组的方法（函数）"><span class="nav-number">4.</span> <span class="nav-text">操作数组的方法（函数）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组合并–concat方法"><span class="nav-number">4.1.</span> <span class="nav-text">数组合并–concat方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器函数"><span class="nav-number">4.2.</span> <span class="nav-text">迭代器函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#every方法"><span class="nav-number">4.2.1.</span> <span class="nav-text">every方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#some方法"><span class="nav-number">4.2.2.</span> <span class="nav-text">some方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#forEach方法"><span class="nav-number">4.2.3.</span> <span class="nav-text">forEach方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map方法"><span class="nav-number">4.2.4.</span> <span class="nav-text">map方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter方法"><span class="nav-number">4.2.5.</span> <span class="nav-text">filter方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce方法"><span class="nav-number">4.2.6.</span> <span class="nav-text">reduce方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索和排序"><span class="nav-number">4.3.</span> <span class="nav-text">搜索和排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组反序–reverse方法"><span class="nav-number">4.3.1.</span> <span class="nav-text">数组反序–reverse方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组自动排序–sort方法"><span class="nav-number">4.3.2.</span> <span class="nav-text">数组自动排序–sort方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和初始化数组"><span class="nav-number">1.</span> <span class="nav-text">创建和初始化数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加和删除数组元素"><span class="nav-number">2.</span> <span class="nav-text">添加和删除数组元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加到数组末尾"><span class="nav-number">2.1.</span> <span class="nav-text">添加到数组末尾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加到数组首部"><span class="nav-number">2.2.</span> <span class="nav-text">添加到数组首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除最靠后元素"><span class="nav-number">2.3.</span> <span class="nav-text">删除最靠后元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除第一个元素"><span class="nav-number">2.4.</span> <span class="nav-text">删除第一个元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除任意位置的元素"><span class="nav-number">2.5.</span> <span class="nav-text">删除任意位置的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入任意为位置-任意值"><span class="nav-number">2.6.</span> <span class="nav-text">插入任意为位置 任意值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维和多维数组"><span class="nav-number">3.</span> <span class="nav-text">二维和多维数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作数组的方法（函数）"><span class="nav-number">4.</span> <span class="nav-text">操作数组的方法（函数）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组合并–concat方法"><span class="nav-number">4.1.</span> <span class="nav-text">数组合并–concat方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器函数"><span class="nav-number">4.2.</span> <span class="nav-text">迭代器函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#every方法"><span class="nav-number">4.2.1.</span> <span class="nav-text">every方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#some方法"><span class="nav-number">4.2.2.</span> <span class="nav-text">some方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#forEach方法"><span class="nav-number">4.2.3.</span> <span class="nav-text">forEach方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map方法"><span class="nav-number">4.2.4.</span> <span class="nav-text">map方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter方法"><span class="nav-number">4.2.5.</span> <span class="nav-text">filter方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce方法"><span class="nav-number">4.2.6.</span> <span class="nav-text">reduce方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索和排序"><span class="nav-number">4.3.</span> <span class="nav-text">搜索和排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组反序–reverse方法"><span class="nav-number">4.3.1.</span> <span class="nav-text">数组反序–reverse方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组自动排序–sort方法"><span class="nav-number">4.3.2.</span> <span class="nav-text">数组自动排序–sort方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义排序"><span class="nav-number">4.3.2.1.</span> <span class="nav-text">自定义排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串排序"><span class="nav-number">4.3.2.2.</span> <span class="nav-text">字符串排序</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索"><span class="nav-number">4.3.3.</span> <span class="nav-text">搜索</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出数组为字符串及指定分隔符"><span class="nav-number">4.4.</span> <span class="nav-text">输出数组为字符串及指定分隔符</span></a></li></ol></li></ol></div>
             
 
           </div>

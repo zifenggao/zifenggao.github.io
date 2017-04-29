@@ -304,7 +304,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/JavaScript算法编程基础/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/JavaScript数组介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roderic">
@@ -326,7 +326,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/27/JavaScript算法编程基础/" itemprop="url">
+                <a class="post-title-link" href="/2017/04/27/JavaScript数组介绍/" itemprop="url">
                   JavaScript数组介绍
                 </a>
               
@@ -383,7 +383,7 @@
 
           
           
-             <span id="/2017/04/27/JavaScript算法编程基础/" class="leancloud_visitors" data-flag-title="JavaScript数组介绍">
+             <span id="/2017/04/27/JavaScript数组介绍/" class="leancloud_visitors" data-flag-title="JavaScript数组介绍">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -477,6 +477,45 @@ printfMatrix(数组名);
 <h4 id="数组自动排序–sort方法"><a href="#数组自动排序–sort方法" class="headerlink" title="数组自动排序–sort方法"></a>数组自动排序–sort方法</h4><p>sort在排序的时候，是默认把元素当成字符串来比较。比如底下这样用就会出错：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/224022818.png" alt="mark"></p>
 <p>那应该怎么办？    <strong>自己写比较函数</strong></p>
+<pre><code>var a=[2,6,18,19,1];
+
+console.log(a.sort(function(a,b){return a-b;}));
+</code></pre><p>主要的是代码a.sort(function(a,b){return a-b;})，此代码表示当a小于b时返回负数，当a大于b时返回正数，相等时放回0，这样sort方法就会根据返回值的情况给数组排序，当然这行代码额可以改写成比较好理解的以下以下代码：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/154459103.png" alt="mark"></p>
+<p>注意比较函数的调用方法（没有传参）</p>
+<h5 id="自定义排序"><a href="#自定义排序" class="headerlink" title="自定义排序"></a>自定义排序</h5><p>可以创建任何对象类型的数组排序，也可以创建compareFunction来比较元素：</p>
+<pre><code>var person=[{name:&apos;小明&apos;,age:15},{name:&apos;小王&apos;,age:14},{name:&apos;小东&apos;,age:18}];
+
+function comparePerson(a,b){
+    if(a.age&lt;b.age){
+        return -1;
+    }
+    if(a.age&gt;b.age){
+        return 1;
+    }
+    return 0;
+}
+
+console.log(person.sort(comparePerson));
+</code></pre><p>结果:</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/155611910.png" alt="mark"></p>
+<h5 id="字符串排序"><a href="#字符串排序" class="headerlink" title="字符串排序"></a>字符串排序</h5><p>对于字符创的比较，sort是根据ASCII值来比较的，比如：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/160013324.png" alt="mark"></p>
+<p>即Jmn会排在apple的前面，如果我们想让它排序正确，则需要自己写一个忽略大小写的比较函数：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/161659564.png" alt="mark"></p>
+<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><ul>
+<li>indexOf()方法：返回与参数匹配的第一个元素的索引</li>
+<li>lastIndexOf()方法：返回与参数匹配的最后一个元素的索引。</li>
+</ul>
+<p>例子：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162309077.png" alt="mark"></p>
+<p>结果分析，前两个没什么好说的，第三个查找10，因为没有这个元素，所以返回-1</p>
+<h3 id="输出数组为字符串及指定分隔符"><a href="#输出数组为字符串及指定分隔符" class="headerlink" title="输出数组为字符串及指定分隔符"></a>输出数组为字符串及指定分隔符</h3><ul>
+<li>toString()将数组里的所有元素输出为一个字符串</li>
+<li>join()用一个不同的分隔符把元素隔开</li>
+</ul>
+<p>例子：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162842256.png" alt="mark"></p>
 
           
         
