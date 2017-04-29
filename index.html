@@ -304,6 +304,201 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/29/简单排序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/29/简单排序算法/" itemprop="url">
+                  简单排序算法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-29T21:08:10+08:00">
+                2017-04-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/29/简单排序算法/" class="leancloud_visitors" data-flag-title="简单排序算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这里用JavaScript实现冒泡排序、选择排序、插入排序、归并排序以及快速排序这些基本的排序算法</p>
+<p>首先给本文规定一个实现的框架，定义一个包含数组生成、元素添加、排序、数组输出的类，各个排序算法的实现框架程序都一样，主要是排序方法的实现过程不同。</p>
+<p><strong>代码框架：</strong></p>
+<pre><code>function ArrayList(){
+    var array=[];
+
+    this.insert=function(item){ //添加单个数组元素
+        array.push(item);
+    };
+​
+    this.排序算法=function(){   ...各种排序方式的实现方法...   };
+​
+    this.toString=function(separator){  //将数组按指定分隔符生成字符串方便输出
+        return array.join(separator);
+    };
+
+}
+</code></pre><p>以下代码用来生成数组元素（为了简单起见，这里产生的是已经排好序的倒序数组）：</p>
+<pre><code>function inputArraymember(size){   //创建拥有指定个数元素的数组
+    var array=new ArrayList;
+    for(var i=size;i&gt;0;i--){
+       array.insert(i);
+    }
+
+    return array;
+}
+</code></pre><p>测试输出代码：</p>
+<pre><code>var a=inputArraymember(数组长度);
+console.log(a.toString(&apos;-&apos;));
+a.bubbleSort();
+console.log(a.toString(&apos;-&apos;));
+</code></pre><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>排序方法实现：</p>
+<pre><code>this.bubbleSort=function(){ 
+    var length=array.length;
+    for(var i=0;i&lt;length;i++){
+        for(var j=0;j&lt;length-1-i;j++){
+            if(array[j]&gt;array[j+1]){
+                var t=array[j];    array[j]=array[j+1];array[j+1]=t;
+            }
+        }
+    }
+};
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/JavaScript数组介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2195,170 +2390,6 @@ void My()
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/19/挂载Hexo主题的Github绑定自己的域名/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/19/挂载Hexo主题的Github绑定自己的域名/" itemprop="url">
-                  挂载Hexo主题的Github绑定自己的域名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-19T10:14:52+08:00">
-                2017-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/19/挂载Hexo主题的Github绑定自己的域名/" class="leancloud_visitors" data-flag-title="挂载Hexo主题的Github绑定自己的域名">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>用的Hexo的博客框架，本地生成并托管到github上之后，通过“username.github.io”便能访问自己的博客了，但是如何将url改成自己想要的域名，需要如下一些步骤。</p>
-<ol>
-<li>到域名提供商那注册自己想要的域名，国内比较大的有阿里云、百度云等等、国外有godaddy、bluehost等，bluehost还支持支付宝，还不错，其实一个域名也不用纠结太多，毕竟域名不管在国内还是国外买的，只要服务器是国外的就不用走中国内地的备案套路，比如本篇文章讲的博客在github上就不用担心什么备案，不过要注意的是如果买的是.cn这种中国域名，就需要购买人提供身份证电子照片进行验证，政府部门通过后才能用。</li>
-<li>到github的username.github.io目录下，创建新文件CNAME（一定要大写，而且不加任何后缀）,其中包含你注册的域名，注意要填的是顶级域名，比如<code>roderic.cn</code></li>
-<li><p>第二步是告诉github你要将该博客地址转到你CNAME文件中指定的域名。现在到你购买域名的服务商那为你购买的域名添加三条解析记录，如下：<br><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170419/105717156.png" alt="mark"></p>
-<p> 前两条记录是指定该域名跳转的IP（github pages的，固定的，照抄，不用管）地址，第三条是指定该域名跳转到username.github.io（注意这里的username都得用你github的用户名替换）</p>
-</li>
-<li><p>这样经过短时间的等待，你就可以用你注册的域名访问你的博客了，当然此时用username。github.io也还是能访问博客的。</p>
-</li>
-<li>本例讲的是Hexo的博客框架，都知道Hexo每次都要重新生成静态文件再上传，这样每次CNAME都得重新创建很麻烦，解决方法是把CNAME文件放在source文件夹下，这样生成静态文件的时候，就会自动添加CNAME这个文件了。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2408,7 +2439,7 @@ void My()
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2419,7 +2450,7 @@ void My()
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2430,7 +2461,7 @@ void My()
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
