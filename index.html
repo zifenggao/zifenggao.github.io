@@ -304,7 +304,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/29/简单排序算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/29/Js实现简单排序算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roderic">
@@ -326,8 +326,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/29/简单排序算法/" itemprop="url">
-                  简单排序算法
+                <a class="post-title-link" href="/2017/04/29/Js实现简单排序算法/" itemprop="url">
+                  Js实现简单排序算法
                 </a>
               
             
@@ -383,7 +383,7 @@
 
           
           
-             <span id="/2017/04/29/简单排序算法/" class="leancloud_visitors" data-flag-title="简单排序算法">
+             <span id="/2017/04/29/Js实现简单排序算法/" class="leancloud_visitors" data-flag-title="Js实现简单排序算法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -415,37 +415,34 @@
         
           
             <p>这里用JavaScript实现冒泡排序、选择排序、插入排序、归并排序以及快速排序这些基本的排序算法</p>
-<p>首先给本文规定一个实现的框架，定义一个包含数组生成、元素添加、排序、数组输出的类，各个排序算法的实现框架程序都一样，主要是排序方法的实现过程不同。</p>
+<p>首先我们给本文约定一个实现的框架：定义一个ArrayList类里面包含排序数组声明、数组元素添加、排序算法实现以及数组输出的方法。</p>
 <p><strong>代码框架：</strong></p>
 <pre><code>function ArrayList(){
     var array=[];
 
-    this.insert=function(item){ //添加单个数组元素
-        array.push(item);
+    this.inputArraymember=function(){   //将10个大小在1~15的随机数添加到数组中
+        var ins=0;
+        for(var i=0;i&lt;10;i++){
+            ins=Math.floor(Math.random()*15+1);
+            array.push(ins);
+        }
     };
-​
-    this.排序算法=function(){   ...各种排序方式的实现方法...   };
-​
+
+    this.相应的排序算法=function(){...算法的具体实现代码...};    //代码块替换部分
+
     this.toString=function(separator){  //将数组按指定分隔符生成字符串方便输出
         return array.join(separator);
     };
 
 }
-</code></pre><p>以下代码用来生成数组元素（为了简单起见，这里产生的是已经排好序的倒序数组）：</p>
-<pre><code>function inputArraymember(size){   //创建拥有指定个数元素的数组
-    var array=new ArrayList;
-    for(var i=size;i&gt;0;i--){
-       array.insert(i);
-    }
 
-    return array;
-}
-</code></pre><p>测试输出代码：</p>
-<pre><code>var a=inputArraymember(数组长度);
-console.log(a.toString(&apos;-&apos;));
+var a = new ArrayList();
+a.inputArraymember();
+console.log(&quot;随机生成的原始数组为：&quot;+a.toString(&apos;-&apos;));
 a.bubbleSort();
-console.log(a.toString(&apos;-&apos;));
-</code></pre><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>排序方法实现：</p>
+console.log(&quot;排序后数组为：&quot;+a.toString(&apos;-&apos;));
+</code></pre><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>用两层循环，第一层用来记录剩余的还未排序的数的个数，第二层用来在剩下的未排序的数中找到最大的数并将其放到未排序数的最后面（冒泡）。</p>
+<p>代码实现：</p>
 <pre><code>this.bubbleSort=function(){ 
     var length=array.length;
     for(var i=0;i&lt;length;i++){
@@ -455,6 +452,147 @@ console.log(a.toString(&apos;-&apos;));
             }
         }
     }
+};
+</code></pre><p>冒泡排序的时间复杂度是O(n&sup2;)。将以上代码替换文章开始约定的代码框架中的“代码块替换部分”即可用于在调试工具中运行查看代码运行结果。</p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>思路很简单，每次都找出未排序的数当中最小的数并放在开头，直到所有数的位置确定下来。说清楚点就是从所有序列中先找到最小的，然后放到第一个位置。之后再看剩余元素中最小的，放到第二个位置……以此类推。</p>
+<p>代码实现：</p>
+<pre><code>this.selectsort=function(){
+    var length=array.length,currentMin;
+    for(var i=0;i&lt;length-1;i++){    //每循环一趟就会有一个数得到排序
+       currentMin=i;        //用来记录最小数的下标，默认为最开始的未排序的元素下标
+       for(var j=i;j&lt;length;j++){
+           if(array[currentMin]&gt;array[j]){
+               currentMin=j;    
+           }
+        }
+
+        if(i!==currentMin){    //若下标不是未排序的最开始的那个元素的下标，则将两者的值交换
+            var t=array[currentMin];
+            array[currentMin]=array[i];
+            array[i]=t;
+        }
+   }
+};
+</code></pre><p>可看出，选择排序也用了两个嵌套着的循环，所以时间复杂度也是O(n&sup2;)，是一种原址排序。</p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>从第二个数开始（因为第一个数只有一个，前面没得比。），与前面的数挨个比较，直到找到前一个数比当前值小，后一个数比当前值大的位置，让后将当前值置于此处，以此类推。</p>
+<p>代码实现：</p>
+<pre><code>this.insertsort=function(){
+    var length=array.length, j,temp;
+
+    for(var i=1;i&lt;length;i++){
+        j=i;
+        temp=array[i];    //先存储待比较的数
+        while(j&gt;0&amp;&amp;array[j-1]&gt;temp){    //如果这个数比上一个数小，则让上一个数占据现在这个数的位置（右移每个比当前数小的数）
+            array[j]=array[j-1];
+            j--
+        }
+        array[j]=temp;    //直到这个数不比上一个数小的时候，将这个数放在当前的位置
+    }
+};
+</code></pre><h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>时间复杂度为O(nlogn)。归并用的是分治的思想，将原始数组切分成较小的数组，直到每个小数组只有一个位置，接着讲小数组归并成较大的数组，直到最后只有一个排序完毕的大数组。</p>
+<p>代码实现：</p>
+<pre><code>this.mergeSort=function() {
+    array = mergeSortRec(array);
+};
+
+//建堆函数，将数组一直拆分成两部分，直到各部分数组长度都为1的时候停止，然后进行merge操作
+var mergeSortRec = function(array){
+    var length = array.length;
+    if (length === 1) {
+        return array;
+    }
+    var mid = Math.floor(length / 2),
+        left = array.slice(0, mid),//slice() 方法可从已有的数组中返回选定的元素,语法 arrayObject.slice(start,end)
+        right = array.slice(mid, length);
+
+    return merge(mergeSortRec(left), mergeSortRec(right));
+};
+
+//将各部分进行归并
+var merge = function(left, right) {
+    var result = [],
+        il = 0,
+        ir = 0;
+    while(il &lt; left.length &amp;&amp; ir &lt; right.length) {
+        if (left[il] &lt; right[ir]) {
+            result.push(left[il++]);
+        } else {
+            result.push(right[ir++]);
+        }
+    }
+
+    //如果il数组还有剩余，则将其剩余部分添加到结果数组中
+    while (il &lt; left.length) {
+        result.push(left[il++]);
+    }
+
+    //如果ir数组还有剩余，则将其剩余部分添加到结果数组中
+    while (ir &lt; right.length) {
+        result.push(right[ir++]);
+    }
+
+    return result;
+};
+</code></pre><h2 id="快速排序。"><a href="#快速排序。" class="headerlink" title="快速排序。"></a>快速排序。</h2><p>时间复杂度为O(logn)。用的是分治的思想。</p>
+<p>代码实现：</p>
+<pre><code>this.quickSort = function(){
+    quick(array,  0, array.length - 1);
+};
+
+var partition = function(array, left, right) {    //划分过程
+
+    //主元的选择方法最好是随机选择一个数组想或是选择中间项，这里选择中间项
+    var pivot = array[Math.floor((right + left) / 2)],
+        i = left,
+        j = right;
+
+    console.log(&apos;pivot is &apos; + pivot + &apos;; left is &apos; + left + &apos;; right is &apos; + right);
+
+    while (i &lt;= j) {
+        while (array[i] &lt; pivot) {
+            i++;
+            console.log(&apos;i = &apos; + i);
+        }
+
+        while (array[j] &gt; pivot) {
+            j--;
+            console.log(&apos;j = &apos; + j);
+        }
+
+        if (i &lt;= j) {
+            console.log(&apos;swap &apos; + array[i] + &apos; with &apos; + array[j]);
+            swapQuickStort(array, i, j);
+            i++;
+            j--;
+        }
+    }
+
+    return i;
+};
+
+var swapQuickStort = function(array, index1, index2){
+    var aux = array[index1];
+    array[index1] = array[index2];
+    array[index2] = aux;
+};
+
+var quick = function(array, left, right){//将子数组分离为较小值数组和较大值数组
+
+    var index;
+
+    if (array.length &gt; 1) {
+
+        index = partition(array, left, right);
+
+        if (left &lt; index - 1) {
+            quick(array, left, index - 1);
+        }
+
+        if (index &lt; right) {
+            quick(array, index, right);
+        }
+    }
+    return array;
 };
 </code></pre>
           
