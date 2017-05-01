@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170415/195855894.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205727588.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205830991.png">
-<meta property="og:updated_time" content="2017-04-19T03:19:15.548Z">
+<meta property="og:updated_time" content="2017-05-01T02:08:48.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java入门（一）">
 <meta name="twitter:description" content="Java作为一种面向对象语言。支持以下基本概念：  多态 继承 封装 抽象 类 对象 实例 方法 重载  成员变量包括：实例变量、类变量 成员方法包括：实例方法、类方法、构造方法 基本数据类型包括：byte、short、int、long、float、double、boolean、char 指针问题：不能说Java没有指针，它只是没有显示指针。对象引用实际上就是指针 Java中工程（项目）、包、类区">
@@ -463,24 +463,9 @@
 <li><strong>类</strong>是对一项事物的抽象概括，是一个模板，可以包含该事物的一些<strong>属性</strong>定义，以及操作属性的<strong>方法</strong></li>
 <li><strong>实例</strong>简单理解，就是new，就是对类的<strong>实例化</strong>，创建这个类对应的实际对象，类只是对事物的描述，而<span style="color:red">实例化就相当于为这个描述新开辟了一块内存</span>，可以改变这块区域里的各种属性（成员变量），当然，也可以实例化多块区域，只是不同的对象而已。</li>
 <li>类跟对象<img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/181615378.png" alt="mark"></li>
-<li><p>可以这么说，对象就是实例，new的过程就是对象实例化的过程</p>
-<ul>
-<li><p>例：</p>
-<pre><code>//ps就是对象的一个**引用**，要对这个对象进行操作的时候，就可以通过这个引用
-public class Peason 
-{ 
-String name; 
-String sex; 
-int age; 
-public static void main(String [] args) 
-{ 
-Peason ps=new Peason(); 
-ps.name=”张三”; 
-ps.sex=”男”; 
-ps.age=10; 
-} 
-}
-</code></pre></li>
+<li>可以这么说，对象就是实例，new的过程就是对象实例化的过程<ul>
+<li>例：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ps就是对象的一个**引用**，要对这个对象进行操作的时候，就可以通过这个引用</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Peason</span> </span></div><div class="line">&#123; </div><div class="line">String name; </div><div class="line">String sex; </div><div class="line"><span class="keyword">int</span> age; </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span></div><div class="line">&#123; </div><div class="line">Peason ps=<span class="keyword">new</span> Peason(); </div><div class="line">ps.name=”张三”; </div><div class="line">ps.sex=”男”; </div><div class="line">ps.age=<span class="number">10</span>; </div><div class="line">&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
@@ -496,42 +481,10 @@ ps.age=10;
 </li>
 <li><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/164500781.png" alt="mark"></li>
 <li><p> <em>例子</em>：一个类可以有多个构造方法！</p>
-<pre><code>//以下Sample类中，具有int返回类型的Sample(int x)方法只是个普通的实例方法，不能作为构造方法
-public class Sample {
-private int x;
-public Sample() { // 不带参数的构造方法
-this(1);
-}
-
-public Sample(int x) { //带参数的构造方法
-this.x=x;
-}
-
-public int Sample(int x) { //不是构造方法
-return x++;
-}
-
-}
-</code></pre></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//以下Sample类中，具有int返回类型的Sample(int x)方法只是个普通的实例方法，不能作为构造方法</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sample</span> </span>&#123;</div><div class="line"><span class="keyword">private</span> <span class="keyword">int</span> x;</div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Sample</span><span class="params">()</span> </span>&#123; <span class="comment">// 不带参数的构造方法</span></div><div class="line">      <span class="keyword">this</span>(<span class="number">1</span>);</div><div class="line">      &#125;</div><div class="line">  </div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Sample</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="comment">//带参数的构造方法</span></div><div class="line">      <span class="keyword">this</span>.x=x;</div><div class="line">  	&#125;</div><div class="line">  </div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Sample</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="comment">//不是构造方法</span></div><div class="line">  	<span class="keyword">return</span> x++;</div><div class="line">  	&#125;</div><div class="line">  </div><div class="line">  	&#125;</div></pre></td></tr></table></figure>
+</li>
 <li><p>如果构造函数的部分行为与已有的构造函数相同，可以在该构造函数中调用已有的构造函数。<br> <em>例子</em>：</p>
- <pre>
-//第二个构造函数只接受x和y的坐标作为参数，由于没有定义半径，
-//因此使用默认值1——调用第一个构造函数，并将xPoint、yPoint、1作为参数传递给它
- class Circle{
- int x,y,radius;
-
- Circle(int xPoint,int yPoint,int rediusLength){
-     this.x=xPoint;
-     this.y=yPoint;
-     this.radius=rediusLength;
- }
-
- Circle(int xPoint,int yPoint){
-     this(xPoint,yPoint,1);
- }
-}
- </pre>
-
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第二个构造函数只接受x和y的坐标作为参数，由于没有定义半径，</span></div><div class="line"><span class="comment">//因此使用默认值1——调用第一个构造函数，并将xPoint、yPoint、1作为参数传递给它</span></div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Circle</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> x,y,radius;</div><div class="line">	</div><div class="line">	Circle(<span class="keyword">int</span> xPoint,<span class="keyword">int</span> yPoint,<span class="keyword">int</span> rediusLength)&#123;</div><div class="line">		<span class="keyword">this</span>.x=xPoint;</div><div class="line">		<span class="keyword">this</span>.y=yPoint;</div><div class="line">		<span class="keyword">this</span>.radius=rediusLength;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	Circle(<span class="keyword">int</span> xPoint,<span class="keyword">int</span> yPoint)&#123;</div><div class="line">		<span class="keyword">this</span>(xPoint,yPoint,<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p><strong>注意</strong>：</p>
@@ -575,39 +528,8 @@ return x++;
 </ul>
 </li>
 </ul>
-<p><em>例子</em>：</p>
-<pre><code>    package Mypackage;
-
-    class AnIntegerNamedX {
-     static int x; 
-    // 这里写成static，结果就变成全是2了，因为类变量是被实例所共享的，
-    //包括myX和anotherX调用anotherX时所有的实例都改变了。
-
-    public int x() {
-
-    return x;
-    }
-
-    public void setX(int newX) {
-    x = newX;
-    }
-}
-
-public class Practice {
-public static void main(String args[]) {
-    AnIntegerNamedX myX = new AnIntegerNamedX();
-    AnIntegerNamedX anotherX = new AnIntegerNamedX();
-
-    myX.setX(1);
-    anotherX.x = 2; // 这里把X的值改成2，所有实例的X都是2了，因为类变量是被
-    //所有实例共享的，任何实例都可以对类变量做最终的修改
-
-    System.out.println(&quot;myX.x = &quot; + myX.x());
-    System.out.println(&quot;anotherX.x = &quot; + anotherX.x());
-
-}
-}
-</code></pre><p>结果为：</p>
+<p><em>例子</em>：<br>        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">package</span> Mypackage;</div><div class="line"></div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">AnIntegerNamedX</span> </span>&#123;</div><div class="line">	 <span class="keyword">static</span> <span class="keyword">int</span> x; </div><div class="line">	<span class="comment">// 这里写成static，结果就变成全是2了，因为类变量是被实例所共享的，</span></div><div class="line">	<span class="comment">//包括myX和anotherX调用anotherX时所有的实例都改变了。</span></div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">x</span><span class="params">()</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> x;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">int</span> newX)</span> </span>&#123;</div><div class="line">	x = newX;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Practice</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">	AnIntegerNamedX myX = <span class="keyword">new</span> AnIntegerNamedX();</div><div class="line">	AnIntegerNamedX anotherX = <span class="keyword">new</span> AnIntegerNamedX();</div><div class="line"></div><div class="line">	myX.setX(<span class="number">1</span>);</div><div class="line">	anotherX.x = <span class="number">2</span>; <span class="comment">// 这里把X的值改成2，所有实例的X都是2了，因为类变量是被</span></div><div class="line">	<span class="comment">//所有实例共享的，任何实例都可以对类变量做最终的修改</span></div><div class="line"></div><div class="line">	System.out.println(<span class="string">"myX.x = "</span> + myX.x());</div><div class="line">	System.out.println(<span class="string">"anotherX.x = "</span> + anotherX.x());</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结果为：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205727588.png" alt="mark"></p>
 <p>若将<code>static int x;</code>改成<code>int x;</code>，则结果为：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205830991.png" alt="mark"></p>

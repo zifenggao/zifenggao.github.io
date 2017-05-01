@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170426/172554002.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170426/173444817.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170426/173750396.png">
-<meta property="og:updated_time" content="2017-04-26T11:14:10.893Z">
+<meta property="og:updated_time" content="2017-05-01T02:20:52.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS动画入门">
 <meta name="twitter:description" content="css3常用动画+动画库 transitionCSS过渡 介绍俗称“过渡”，是指某元素从一种样式逐渐转变为另一种样式的过程。即用于转换元素两个不同的状态，这个转换过程（或者说触发过程）可以是伪类比如:hover, :active 或者是通过 javascript 动态设定。IE10+支持 transitionz是简写，主要包含的是一下属性。  用法必须规定了两个属性  要添加过渡效果的属性 效果转">
@@ -435,26 +435,8 @@
 <li>效果转换的持续时间</li>
 <li>多个属性转换用逗号隔开</li>
 </ul>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre><code>&lt;!--HTML--&gt;
-&lt;div id=&quot;zi&quot;&gt;&lt;/div&gt;
-
-&lt;!--CSS--&gt;
-#zi{
-height:100px;
-width: 100px;
-background-color: yellow;
-transition: width 2s,height 2s,color 2s;&lt;!--不同属性效果用逗号隔开--&gt;
--webkit-transition: width 2s,height 2s,background-color 2s;
--o-transition: width 2s,height 2s,background-color 2s;
--moz-transition: width 2s,height 2s,background-color 2s;
-}
-
-#zi:hover{
-background-color: red;
-height: 150px;
-width: 200px;
-}
-</code></pre><h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h2><p><a href="http://www.w3school.com.cn/css3/css3_animation.asp" target="_blank" rel="external">CSS动画</a></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--HTML--&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"zi"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!--CSS--&gt;</span></div><div class="line">#zi&#123;</div><div class="line">   height:100px;</div><div class="line">   width: 100px;</div><div class="line">   background-color: yellow;</div><div class="line">   transition: width 2s,height 2s,color 2s;<span class="comment">&lt;!--不同属性效果用逗号隔开--&gt;</span></div><div class="line">   -webkit-transition: width 2s,height 2s,background-color 2s;</div><div class="line">-o-transition: width 2s,height 2s,background-color 2s;</div><div class="line">   -moz-transition: width 2s,height 2s,background-color 2s;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#zi:hover&#123;</div><div class="line">   background-color: red;</div><div class="line">   height: 150px;</div><div class="line">   width: 200px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h2><p><a href="http://www.w3school.com.cn/css3/css3_animation.asp" target="_blank" rel="external">CSS动画</a></p>
 <h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p>animation属性结合@keyframes规则,能创建由当前样式逐渐改为新样式的动画效果。<br><em>Internet Explorer 9，以及更早的版本，不支持 @keyframe 规则或 animation 属性。</em></p>
 <h3 id="用法-1"><a href="#用法-1" class="headerlink" title="用法"></a>用法</h3><p>@keyframes创建动画并制定动画的名字（随便起，主要是用来给animation选择），animation中选择相应的动画名字来使用对应的动画，还要设置动画执行的持续时间，还可设置所选动画的执行方式。即：</p>
 <ul>
@@ -481,97 +463,10 @@ width: 200px;
 </ul>
 </li>
 </ul>
-<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;style&gt; 
-div
-{
-width:100px;
-height:100px;
-background:red;
-position:relative;
-animation-name:myfirst;
-animation-duration:5s;
-animation-timing-function:linear;/*表示变换速度，linear表示从头到尾匀速*/
-animation-delay:2s;
-animation-iteration-count:infinite;/*表示动画无限次循环，可改为常数来规定执行次数*/
-animation-direction:alternate;
-animation-play-state:running;
-/* Firefox: */
--moz-animation-name:myfirst;
--moz-animation-duration:5s;
--moz-animation-timing-function:linear;
--moz-animation-delay:2s;
--moz-animation-iteration-count:infinite;
--moz-animation-direction:alternate;
--moz-animation-play-state:running;
-/* Safari and Chrome: */
--webkit-animation-name:myfirst;
--webkit-animation-duration:5s;
--webkit-animation-timing-function:linear;
--webkit-animation-delay:2s;
--webkit-animation-iteration-count:infinite;
--webkit-animation-direction:alternate;
--webkit-animation-play-state:running;
-/* Opera: */
--o-animation-name:myfirst;
--o-animation-duration:5s;
--o-animation-timing-function:linear;
--o-animation-delay:2s;
--o-animation-iteration-count:infinite;
--o-animation-direction:alternate;
--o-animation-play-state:running;
-}
-
-@keyframes myfirst
-{
-0%   {background:red; left:0px; top:0px;}
-25%  {background:yellow; left:200px; top:0px;}
-50%  {background:blue; left:200px; top:200px;}
-75%  {background:green; left:0px; top:200px;}
-100% {background:red; left:0px; top:0px;}
-}
-
-@-moz-keyframes myfirst /* Firefox */
-{
-0%   {background:red; left:0px; top:0px;}
-25%  {background:yellow; left:200px; top:0px;}
-50%  {background:blue; left:200px; top:200px;}
-75%  {background:green; left:0px; top:200px;}
-100% {background:red; left:0px; top:0px;}
-}
-
-@-webkit-keyframes myfirst /* Safari and Chrome */
-{
-0%   {background:red; left:0px; top:0px;}
-25%  {background:yellow; left:200px; top:0px;}
-50%  {background:blue; left:200px; top:200px;}
-75%  {background:green; left:0px; top:200px;}
-100% {background:red; left:0px; top:0px;}
-}
-
-@-o-keyframes myfirst /* Opera */
-{
-0%   {background:red; left:0px; top:0px;}
-25%  {background:yellow; left:200px; top:0px;}
-50%  {background:blue; left:200px; top:200px;}
-75%  {background:green; left:0px; top:200px;}
-100% {background:red; left:0px; top:0px;}
-}
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;本例在 Internet Explorer 中无效。&lt;/p&gt;
-
-&lt;div&gt;&lt;/div&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>也可以将animation简写成：</p>
-<p><code>animation：动画名称 持续时间 执行速度变化 动画延迟 循环次数 是否下一周期逆向播放</code></p>
-<pre><code>div
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"> </span></div><div class="line">div</div><div class="line">&#123;</div><div class="line">width:100px;</div><div class="line">height:100px;</div><div class="line">background:red;</div><div class="line">position:relative;</div><div class="line">animation-name:myfirst;</div><div class="line">animation-duration:5s;</div><div class="line">animation-timing-function:linear;/*表示变换速度，linear表示从头到尾匀速*/</div><div class="line">animation-delay:2s;</div><div class="line">animation-iteration-count:infinite;/*表示动画无限次循环，可改为常数来规定执行次数*/</div><div class="line">animation-direction:alternate;</div><div class="line">animation-play-state:running;</div><div class="line">/* Firefox: */</div><div class="line">-moz-animation-name:myfirst;</div><div class="line">-moz-animation-duration:5s;</div><div class="line">-moz-animation-timing-function:linear;</div><div class="line">-moz-animation-delay:2s;</div><div class="line">-moz-animation-iteration-count:infinite;</div><div class="line">-moz-animation-direction:alternate;</div><div class="line">-moz-animation-play-state:running;</div><div class="line">/* Safari and Chrome: */</div><div class="line">-webkit-animation-name:myfirst;</div><div class="line">-webkit-animation-duration:5s;</div><div class="line">-webkit-animation-timing-function:linear;</div><div class="line">-webkit-animation-delay:2s;</div><div class="line">-webkit-animation-iteration-count:infinite;</div><div class="line">-webkit-animation-direction:alternate;</div><div class="line">-webkit-animation-play-state:running;</div><div class="line">/* Opera: */</div><div class="line">-o-animation-name:myfirst;</div><div class="line">-o-animation-duration:5s;</div><div class="line">-o-animation-timing-function:linear;</div><div class="line">-o-animation-delay:2s;</div><div class="line">-o-animation-iteration-count:infinite;</div><div class="line">-o-animation-direction:alternate;</div><div class="line">-o-animation-play-state:running;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@keyframes myfirst</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-moz-keyframes myfirst /* Firefox */</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-webkit-keyframes myfirst /* Safari and Chrome */</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-o-keyframes myfirst /* Opera */</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>注释：<span class="tag">&lt;/<span class="name">b</span>&gt;</span>本例在 Internet Explorer 中无效。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>也可以将animation简写成：</p>
+<p>animation：动画名称 持续时间 执行速度变化 动画延迟 循环次数 是否下一周期逆向播放</p>
+<pre><code class="HTML">div
 {
 width:100px;
 height:100px;
@@ -586,6 +481,7 @@ animation:myfirst 5s linear 2s infinite alternate;
 -o-animation:myfirst 5s linear 2s infinite alternate;
 }
 </code></pre>
+
       
     </div>
 

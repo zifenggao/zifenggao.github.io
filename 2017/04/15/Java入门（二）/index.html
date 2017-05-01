@@ -100,7 +100,7 @@
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170416/110330205.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170416/110951053.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170416/131543033.png">
-<meta property="og:updated_time" content="2017-04-19T03:19:24.879Z">
+<meta property="og:updated_time" content="2017-05-01T02:13:14.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java入门（二）">
 <meta name="twitter:description" content="注：  同一个包下，不同java文件中的类名不能相同，因为同一包下，不同java文件中的类是可以相互继承的！ 不同java类文件中的内部类（一个类中还包含着另外一个类）可以同名，但是同一文件下的public或者是默认范围的java类是不可以同名的。 当类中方法的访问权限修饰符为private时，该方法只能被自己的类访问，不能被外部的类访问 初始化时，若没有赋值则为默认值，具体时：数字为0、对象为n">
@@ -436,23 +436,15 @@
 <h2 id="对象的引用"><a href="#对象的引用" class="headerlink" title="对象的引用"></a>对象的引用</h2><ol>
 <li>引用是一个地址，它指明了对象的变量和方法的存储位置</li>
 <li>将对象赋给变量或将其作为参数传递给方法时，实际上并没有使用对象，甚至没有使用对象的拷贝，<span style="color:red">使用的是对象的引用</span></li>
-<li><p>例子：<br> <pre><br> package Mypackage;<br> import java.awt.Point;</pre></p>
-<p> class RefTester{<br> public static void main(String[] args){</p>
-<pre><code>Point pt1,pt2;
-pt1=new Point(100,100);
-pt2=pt1;
-
-pt1.x=200;
-pt1.y=200;
-System.out.println(&quot;Point1:&quot;+pt1.x+&quot;,&quot;+pt1.y);
-System.out.println(&quot;Point2:&quot;+pt2.x+&quot;,&quot;+pt2.y);
-</code></pre><p> }<br> }<br> <br> 执行结果：</p>
-<p> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/102000896.png" alt="mark"></p>
-<p> 可以发现，pt2的值也被改变了，这是<code>pt2=pt1</code>是让pt2引用pt1，而不是将pt1的拷贝纸给pt2，<strong>pt1和pt2现在是指向同一个对象</strong></p>
-<p> 如果改成：<br> <pre><br> pt1=new Point(100,100);<br> pt2=new Point(100,100);<br> </pre><br> 结果就将是：</p>
-<p> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/102349344.png" alt="mark"></p>
+<li>例子：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Mypackage;</div><div class="line"><span class="keyword">import</span> java.awt.Point;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RefTester</span></span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">	Point pt1,pt2;</div><div class="line">	pt1=<span class="keyword">new</span> Point(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">	pt2=pt1;</div><div class="line">	</div><div class="line">	pt1.x=<span class="number">200</span>;</div><div class="line">	pt1.y=<span class="number">200</span>;</div><div class="line">	System.out.println(<span class="string">"Point1:"</span>+pt1.x+<span class="string">","</span>+pt1.y);</div><div class="line">	System.out.println(<span class="string">"Point2:"</span>+pt2.x+<span class="string">","</span>+pt2.y);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
+<p>执行结果：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/102000896.png" alt="mark"></p>
+<p>可以发现，pt2的值也被改变了，这是<code>pt2=pt1</code>是让pt2引用pt1，而不是将pt1的拷贝纸给pt2，<strong>pt1和pt2现在是指向同一个对象</strong></p>
+<p>如果改成：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pt1=<span class="keyword">new</span> Point(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">pt2=<span class="keyword">new</span> Point(<span class="number">100</span>,<span class="number">100</span>);</div></pre></td></tr></table></figure></p>
+<p>结果就将是：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/102349344.png" alt="mark"></p>
 <p><strong>注</strong>：(不想重写代码，假设pt1和pt2现在是String类型)</p>
 <ul>
 <li>若<code>pt2=pt1</code>，此时用“==”来判断pt1和pt2是否相等，得到的结果是“true”,因为指向同一个对象，用“pt2.equals(pt1)”得到的结果也将是“true”，因为两个字符串值相同</li>
@@ -463,51 +455,11 @@ System.out.println(&quot;Point2:&quot;+pt2.x+&quot;,&quot;+pt2.y);
 <li>所谓方法的重写是指子类中的方法与父类中继承的方法有<strong>完全相同的返回值类型、方法名、参数个数以及参数类型</strong>。这样，就可以实现对父类方法的覆盖</li>
 </ol>
 <p><em>例子：</em></p>
-<pre>
-class Person//定义父类
-{public void print(){//父类中的方法
-System.out.println( 父类Person的print方法! );
-}
-}
-class Student extends Person//定义子类继承Person类
-{public void print(){//方法的重写
-System.out.println( 子类Student的print方法! );
-}
-}
-public class 0verrideExampleO1
-{public static void main(String args[])
-{Student s=new Student();
-S.print();
-
-}
-}
-</pre>
-运行结果：子类Student的print方法!
-
-可见当子类重写了父类中的print()方法后，使用S调用的是子类的print()方法，如果一定要调用父类中的方法，可以用super关键字，<span style="color:red">super关键字可以从子类访问父类中的内容，如果要访问被重写过的方法，使用“super.方法名(参数列表)”的形式调用</span>
-
-*例子：*
-
-<pre>
-class Person2
-{public void print () {
-System.out.println( "父类Person的print方法! ");
-}
-}
-class Student2 extends Person2
-{public void print () {
-super.print();//访问父类中被子类覆写过的方法
-System.out.println(" 子类Student的print方法!" );
-}
-}
-public class OverrideExample02
-{public static void main(String args[])
-{Student2 s=new Student2();
-s.print();
-}
-}
-</pre>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>//定义父类</span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;<span class="comment">//父类中的方法</span></div><div class="line">System.out.println( 父类Person的print方法! );</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span>//定义子类继承<span class="title">Person</span>类</span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;<span class="comment">//方法的重写</span></div><div class="line">System.out.println( 子类Student的print方法! );</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 0<span class="title">verrideExampleO1</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></div><div class="line">&#123;Student s=<span class="keyword">new</span> Student();</div><div class="line">S.print();</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果：子类Student的print方法!</p>
+<p>可见当子类重写了父类中的print()方法后，使用S调用的是子类的print()方法，如果一定要调用父类中的方法，可以用super关键字，<span style="color:red">super关键字可以从子类访问父类中的内容，如果要访问被重写过的方法，使用“super.方法名(参数列表)”的形式调用</span></p>
+<p><em>例子：</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person2</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span> <span class="params">()</span> </span>&#123;</div><div class="line">System.out.println( <span class="string">"父类Person的print方法! "</span>);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student2</span> <span class="keyword">extends</span> <span class="title">Person2</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span> <span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">super</span>.print();<span class="comment">//访问父类中被子类覆写过的方法</span></div><div class="line">System.out.println(<span class="string">" 子类Student的print方法!"</span> );</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OverrideExample02</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></div><div class="line">&#123;Student2 s=<span class="keyword">new</span> Student2();</div><div class="line">s.print();</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>运行结果：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/105034749.png" alt="mark"></p>
 <ul>
@@ -520,36 +472,9 @@ s.print();
 <li>所谓方法重载是指在一个类中，多个方法的方法名相同，但是参数列表不同，参数列表不同指的是参数个数、参数类型或者<strong>参数的顺序</strong>不同</li>
 <li>不仅是一般的方法，构造方法也可以重载</li>
 <li><p>例子：</p>
- <pre>
- Class Person {
-{String name; 
-int age;
-void print(){ 
-System.out.println("姓名：" +name+"年龄：" +age); 
-}
-void print(String a，int b){ 
-System.out.println("姓名：" +a+"年龄："+b); 
-void print(String a，int b，intC){ 
-System.out.println("姓名："+a+"年龄：" +b+"ID号：" +c); 
-}
-void print(String a，int b，doubleC){ 
-System.out.println("姓名："+a+"年龄：" +b+"ID号："+c); 
-} 
-}
-public class OverLoadExampleOL 
-{public static void main(String[] args) 
-{Personpl=new Person();
-p1.name="李明";
-p1.age=22;
-p1.print(); 
-p1.print("王小早",19); 
-p1.print("金波",18,100325); 
-p1.print("婉宁",25,110903); 
-} 
-}
- </pre>
-
-<p> 在上面的程序中，可以看到Person类中有多个名为 void print的方法，这就是方法的重载。执行程序，运行结果如下：<br><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/110330205.png" alt="mark"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">	Class Person &#123;</div><div class="line">&#123;String name; </div><div class="line"><span class="keyword">int</span> age;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span> +name+<span class="string">"年龄："</span> +age); </div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(String a，<span class="keyword">int</span> b)</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span> +a+<span class="string">"年龄："</span>+b); </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(String a，<span class="keyword">int</span> b，intC)</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span>+a+<span class="string">"年龄："</span> +b+<span class="string">"ID号："</span> +c); </div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(String a，<span class="keyword">int</span> b，doubleC)</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span>+a+<span class="string">"年龄："</span> +b+<span class="string">"ID号："</span>+c); </div><div class="line">&#125; </div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OverLoadExampleOL</span> </span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></div><div class="line">&#123;Personpl=<span class="keyword">new</span> Person();</div><div class="line">p1.name=<span class="string">"李明"</span>;</div><div class="line">p1.age=<span class="number">22</span>;</div><div class="line">p1.print(); </div><div class="line">p1.print(<span class="string">"王小早"</span>,<span class="number">19</span>); </div><div class="line">p1.print(<span class="string">"金波"</span>,<span class="number">18</span>,<span class="number">100325</span>); </div><div class="line">p1.print(<span class="string">"婉宁"</span>,<span class="number">25</span>,<span class="number">110903</span>); </div><div class="line">&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>在上面的程序中，可以看到Person类中有多个名为 void print的方法，这就是方法的重载。执行程序，运行结果如下：
+</code></pre><p> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/110330205.png" alt="mark"></p>
 </li>
 <li>每个重载方法可以有不同的返回类型,只要参数列表不同就可以了</li>
 <li>可以有不同的访问修饰符</li>
@@ -560,66 +485,7 @@ p1.print("婉宁",25,110903);
 <p><a href="http://blog.csdn.net/zhangyabinsky/article/details/7047330" target="_blank" rel="external">参考文章链接</a></p>
 <p><strong>注意以下这个方法重载的例子</strong>，实例方法可以用类名来作为返回类型创建！！</p>
 <p><em>示例</em>：</p>
-<pre>
-import java.awt.Point;
-//该类定义了一个矩形
-class Box {
-    int x1 = 0;
-    int y1 = 0;
-    int x2 = 0;
-    int y2 = 0;
-
-    Box buildBox(int x1, int y1, int x2, int y2) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
-        return this;
-    }
-
-    Box buildBox(Point topLeft, Point bottomRight) {
-        x1 = topLeft.x;
-        y1 = topLeft.y;
-        x2 = bottomRight.x;
-        y2 = bottomRight.y;
-        return this;
-    }
-
-    Box buildBox(Point topLeft, int w, int h) {
-        x1 = topLeft.x;
-        y1 = topLeft.y;
-        x2 = (x1 + w);
-        y2 = (y1 + h); 
-        return this;
-    }
-
-    void printBox(){
-        System.out.print("Box: <" +="" x1="" ",="" "="" y1);="" system.out.println(",="" x2="" y2="">");
-    }
-
-    public static void main(String[] arguments) {
-        Box rect = new Box();
-
-        System.out.println("Calling buildBox with "
-            + "coordinates (25,25) and (50,50):");
-        rect.buildBox(25, 25, 50, 50);
-        rect.printBox();
-
-        System.out.println("\nCalling buildBox with "
-            + "points (10,10) and (20,20):");
-        rect.buildBox(new Point(10, 10), new Point(20, 20));
-        rect.printBox();
-
-        System.out.println("\nCalling buildBox with "
-            + "point (10,10), width 50 and height 50:");
-
-        rect.buildBox(new Point(10, 10), 50, 50);
-        rect.printBox();
-   }
-}
-
-</"></pre>
-
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.awt.Point;</div><div class="line"><span class="comment">//该类定义了一个矩形</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> x1 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> y1 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> x2 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> y2 = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="function">Box <span class="title">buildBox</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x1 = x1;</div><div class="line">        <span class="keyword">this</span>.y1 = y1;</div><div class="line">        <span class="keyword">this</span>.x2 = x2;</div><div class="line">        <span class="keyword">this</span>.y2 = y2;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Box <span class="title">buildBox</span><span class="params">(Point topLeft, Point bottomRight)</span> </span>&#123;</div><div class="line">        x1 = topLeft.x;</div><div class="line">        y1 = topLeft.y;</div><div class="line">        x2 = bottomRight.x;</div><div class="line">        y2 = bottomRight.y;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Box <span class="title">buildBox</span><span class="params">(Point topLeft, <span class="keyword">int</span> w, <span class="keyword">int</span> h)</span> </span>&#123;</div><div class="line">        x1 = topLeft.x;</div><div class="line">        y1 = topLeft.y;</div><div class="line">        x2 = (x1 + w);</div><div class="line">        y2 = (y1 + h); </div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printBox</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.print(<span class="string">"Box: &lt;"</span> + x1 + <span class="string">", "</span> + y1);</div><div class="line">        System.out.println(<span class="string">", "</span> + x2 + <span class="string">", "</span> + y2 + <span class="string">"&gt;"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        Box rect = <span class="keyword">new</span> Box();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"Calling buildBox with "</span></div><div class="line">            + <span class="string">"coordinates (25,25) and (50,50):"</span>);</div><div class="line">        rect.buildBox(<span class="number">25</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">50</span>);</div><div class="line">        rect.printBox();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"\nCalling buildBox with "</span></div><div class="line">            + <span class="string">"points (10,10) and (20,20):"</span>);</div><div class="line">        rect.buildBox(<span class="keyword">new</span> Point(<span class="number">10</span>, <span class="number">10</span>), <span class="keyword">new</span> Point(<span class="number">20</span>, <span class="number">20</span>));</div><div class="line">        rect.printBox();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"\nCalling buildBox with "</span></div><div class="line">            + <span class="string">"point (10,10), width 50 and height 50:"</span>);</div><div class="line"></div><div class="line">        rect.buildBox(<span class="keyword">new</span> Point(<span class="number">10</span>, <span class="number">10</span>), <span class="number">50</span>, <span class="number">50</span>);</div><div class="line">        rect.printBox();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>结果为：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/131543033.png" alt="mark"></p>
 

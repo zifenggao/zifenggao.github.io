@@ -417,184 +417,24 @@
             <p>这里用JavaScript实现冒泡排序、选择排序、插入排序、归并排序以及快速排序这些基本的排序算法</p>
 <p>首先我们给本文约定一个实现的框架：定义一个ArrayList类里面包含排序数组声明、数组元素添加、排序算法实现以及数组输出的方法。</p>
 <p><strong>代码框架：</strong></p>
-<pre><code>function ArrayList(){
-    var array=[];
-
-    this.inputArraymember=function(){   //将10个大小在1~15的随机数添加到数组中
-        var ins=0;
-        for(var i=0;i&lt;10;i++){
-            ins=Math.floor(Math.random()*15+1);
-            array.push(ins);
-        }
-    };
-
-    this.相应的排序算法=function(){...算法的具体实现代码...};    //代码块替换部分
-
-    this.toString=function(separator){  //将数组按指定分隔符生成字符串方便输出
-        return array.join(separator);
-    };
-
-}
-
-var a = new ArrayList();
-a.inputArraymember();
-console.log(&quot;随机生成的原始数组为：&quot;+a.toString(&apos;-&apos;));
-a.bubbleSort();
-console.log(&quot;排序后数组为：&quot;+a.toString(&apos;-&apos;));
-</code></pre><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>用两层循环，第一层用来记录剩余的还未排序的数的个数，第二层用来在剩下的未排序的数中找到最大的数并将其放到未排序数的最后面（冒泡）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ArrayList</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> array=[];</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.inputArraymember=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;   <span class="comment">//将10个大小在1~15的随机数添加到数组中</span></div><div class="line">        <span class="keyword">var</span> ins=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">            ins=<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">15</span>+<span class="number">1</span>);</div><div class="line">            array.push(ins);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.相应的排序算法=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...算法的具体实现代码...&#125;;	<span class="comment">//代码块替换部分</span></div><div class="line"></div><div class="line">    <span class="keyword">this</span>.toString=<span class="function"><span class="keyword">function</span>(<span class="params">separator</span>)</span>&#123;  <span class="comment">//将数组按指定分隔符生成字符串方便输出</span></div><div class="line">        <span class="keyword">return</span> array.join(separator);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> ArrayList();</div><div class="line">a.inputArraymember();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"随机生成的原始数组为："</span>+a.toString(<span class="string">'-'</span>));</div><div class="line">a.bubbleSort();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"排序后数组为："</span>+a.toString(<span class="string">'-'</span>));</div></pre></td></tr></table></figure>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>用两层循环，第一层用来记录剩余的还未排序的数的个数，第二层用来在剩下的未排序的数中找到最大的数并将其放到未排序数的最后面（冒泡）。</p>
 <p>代码实现：</p>
-<pre><code>this.bubbleSort=function(){ 
-    var length=array.length;
-    for(var i=0;i&lt;length;i++){
-        for(var j=0;j&lt;length-1-i;j++){
-            if(array[j]&gt;array[j+1]){
-                var t=array[j];    array[j]=array[j+1];array[j+1]=t;
-            }
-        }
-    }
-};
-</code></pre><p>冒泡排序的时间复杂度是O(n&sup2;)。将以上代码替换文章开始约定的代码框架中的“代码块替换部分”即可用于在调试工具中运行查看代码运行结果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.bubbleSort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">	<span class="keyword">var</span> length=array.length;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;length;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;length<span class="number">-1</span>-i;j++)&#123;</div><div class="line">			<span class="keyword">if</span>(array[j]&gt;array[j+<span class="number">1</span>])&#123;</div><div class="line">				<span class="keyword">var</span> t=array[j];	array[j]=array[j+<span class="number">1</span>];array[j+<span class="number">1</span>]=t;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>冒泡排序的时间复杂度是O(n&sup2;)。将以上代码替换文章开始约定的代码框架中的“代码块替换部分”即可用于在调试工具中运行查看代码运行结果。</p>
 <h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>思路很简单，每次都找出未排序的数当中最小的数并放在开头，直到所有数的位置确定下来。说清楚点就是从所有序列中先找到最小的，然后放到第一个位置。之后再看剩余元素中最小的，放到第二个位置……以此类推。</p>
 <p>代码实现：</p>
-<pre><code>this.selectsort=function(){
-    var length=array.length,currentMin;
-    for(var i=0;i&lt;length-1;i++){    //每循环一趟就会有一个数得到排序
-       currentMin=i;        //用来记录最小数的下标，默认为最开始的未排序的元素下标
-       for(var j=i;j&lt;length;j++){
-           if(array[currentMin]&gt;array[j]){
-               currentMin=j;    
-           }
-        }
-
-        if(i!==currentMin){    //若下标不是未排序的最开始的那个元素的下标，则将两者的值交换
-            var t=array[currentMin];
-            array[currentMin]=array[i];
-            array[i]=t;
-        }
-   }
-};
-</code></pre><p>可看出，选择排序也用了两个嵌套着的循环，所以时间复杂度也是O(n&sup2;)，是一种原址排序。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.selectsort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> length=array.length,currentMin;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;length<span class="number">-1</span>;i++)&#123;	<span class="comment">//每循环一趟就会有一个数得到排序</span></div><div class="line">       currentMin=i;		<span class="comment">//用来记录最小数的下标，默认为最开始的未排序的元素下标</span></div><div class="line">       <span class="keyword">for</span>(<span class="keyword">var</span> j=i;j&lt;length;j++)&#123;</div><div class="line">           <span class="keyword">if</span>(array[currentMin]&gt;array[j])&#123;</div><div class="line">               currentMin=j;	</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(i!==currentMin)&#123;	<span class="comment">//若下标不是未排序的最开始的那个元素的下标，则将两者的值交换</span></div><div class="line">            <span class="keyword">var</span> t=array[currentMin];</div><div class="line">            array[currentMin]=array[i];</div><div class="line">            array[i]=t;</div><div class="line">        &#125;</div><div class="line">   &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>可看出，选择排序也用了两个嵌套着的循环，所以时间复杂度也是O(n&sup2;)，是一种原址排序。</p>
 <h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>从第二个数开始（因为第一个数只有一个，前面没得比。），与前面的数挨个比较，直到找到前一个数比当前值小，后一个数比当前值大的位置，让后将当前值置于此处，以此类推。</p>
 <p>代码实现：</p>
-<pre><code>this.insertsort=function(){
-    var length=array.length, j,temp;
-
-    for(var i=1;i&lt;length;i++){
-        j=i;
-        temp=array[i];    //先存储待比较的数
-        while(j&gt;0&amp;&amp;array[j-1]&gt;temp){    //如果这个数比上一个数小，则让上一个数占据现在这个数的位置（右移每个比当前数小的数）
-            array[j]=array[j-1];
-            j--
-        }
-        array[j]=temp;    //直到这个数不比上一个数小的时候，将这个数放在当前的位置
-    }
-};
-</code></pre><h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>时间复杂度为O(nlogn)。归并用的是分治的思想，将原始数组切分成较小的数组，直到每个小数组只有一个位置，接着讲小数组归并成较大的数组，直到最后只有一个排序完毕的大数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.insertsort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> length=array.length, j,temp;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;length;i++)&#123;</div><div class="line">        j=i;</div><div class="line">        temp=array[i];	<span class="comment">//先存储待比较的数</span></div><div class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span>&amp;&amp;array[j<span class="number">-1</span>]&gt;temp)&#123;	<span class="comment">//如果这个数比上一个数小，则让上一个数占据现在这个数的位置（右移每个比当前数小的数）</span></div><div class="line">            array[j]=array[j<span class="number">-1</span>];</div><div class="line">            j--</div><div class="line">        &#125;</div><div class="line">        array[j]=temp;	<span class="comment">//直到这个数不比上一个数小的时候，将这个数放在当前的位置</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>时间复杂度为O(nlogn)。归并用的是分治的思想，将原始数组切分成较小的数组，直到每个小数组只有一个位置，接着讲小数组归并成较大的数组，直到最后只有一个排序完毕的大数组。</p>
 <p>代码实现：</p>
-<pre><code>this.mergeSort=function() {
-    array = mergeSortRec(array);
-};
-
-//建堆函数，将数组一直拆分成两部分，直到各部分数组长度都为1的时候停止，然后进行merge操作
-var mergeSortRec = function(array){
-    var length = array.length;
-    if (length === 1) {
-        return array;
-    }
-    var mid = Math.floor(length / 2),
-        left = array.slice(0, mid),//slice() 方法可从已有的数组中返回选定的元素,语法 arrayObject.slice(start,end)
-        right = array.slice(mid, length);
-
-    return merge(mergeSortRec(left), mergeSortRec(right));
-};
-
-//将各部分进行归并
-var merge = function(left, right) {
-    var result = [],
-        il = 0,
-        ir = 0;
-    while(il &lt; left.length &amp;&amp; ir &lt; right.length) {
-        if (left[il] &lt; right[ir]) {
-            result.push(left[il++]);
-        } else {
-            result.push(right[ir++]);
-        }
-    }
-
-    //如果il数组还有剩余，则将其剩余部分添加到结果数组中
-    while (il &lt; left.length) {
-        result.push(left[il++]);
-    }
-
-    //如果ir数组还有剩余，则将其剩余部分添加到结果数组中
-    while (ir &lt; right.length) {
-        result.push(right[ir++]);
-    }
-
-    return result;
-};
-</code></pre><h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>时间复杂度为O(logn)。用的是分治的思想。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">this</span>.mergeSort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">       array = mergeSortRec(array);</div><div class="line">   &#125;;</div><div class="line"></div><div class="line"><span class="comment">//建堆函数，将数组一直拆分成两部分，直到各部分数组长度都为1的时候停止，然后进行merge操作</span></div><div class="line">   <span class="keyword">var</span> mergeSortRec = <span class="function"><span class="keyword">function</span>(<span class="params">array</span>)</span>&#123;</div><div class="line">       <span class="keyword">var</span> length = array.length;</div><div class="line">       <span class="keyword">if</span> (length === <span class="number">1</span>) &#123;</div><div class="line">           <span class="keyword">return</span> array;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">var</span> mid = <span class="built_in">Math</span>.floor(length / <span class="number">2</span>),</div><div class="line">           left = array.slice(<span class="number">0</span>, mid),<span class="comment">//slice() 方法可从已有的数组中返回选定的元素,语法 arrayObject.slice(start,end)</span></div><div class="line">           right = array.slice(mid, length);</div><div class="line"></div><div class="line">       <span class="keyword">return</span> merge(mergeSortRec(left), mergeSortRec(right));</div><div class="line">   &#125;;</div><div class="line"></div><div class="line"><span class="comment">//将各部分进行归并</span></div><div class="line">   <span class="keyword">var</span> merge = <span class="function"><span class="keyword">function</span>(<span class="params">left, right</span>) </span>&#123;</div><div class="line">       <span class="keyword">var</span> result = [],</div><div class="line">           il = <span class="number">0</span>,</div><div class="line">           ir = <span class="number">0</span>;</div><div class="line">       <span class="keyword">while</span>(il &lt; left.length &amp;&amp; ir &lt; right.length) &#123;</div><div class="line">           <span class="keyword">if</span> (left[il] &lt; right[ir]) &#123;</div><div class="line">               result.push(left[il++]);</div><div class="line">           &#125; <span class="keyword">else</span> &#123;</div><div class="line">               result.push(right[ir++]);</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">	<span class="comment">//如果il数组还有剩余，则将其剩余部分添加到结果数组中</span></div><div class="line">       <span class="keyword">while</span> (il &lt; left.length) &#123;</div><div class="line">           result.push(left[il++]);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">	<span class="comment">//如果ir数组还有剩余，则将其剩余部分添加到结果数组中</span></div><div class="line">       <span class="keyword">while</span> (ir &lt; right.length) &#123;</div><div class="line">           result.push(right[ir++]);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> result;</div><div class="line">   &#125;;</div></pre></td></tr></table></figure>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>时间复杂度为O(logn)。用的是分治的思想。</p>
 <p>代码实现：</p>
-<pre><code>this.quickSort = function(){
-    quick(array,  0, array.length - 1);
-};
-
-var partition = function(array, left, right) {    //划分过程
-
-    //主元的选择方法最好是随机选择一个数组想或是选择中间项，这里选择中间项
-    var pivot = array[Math.floor((right + left) / 2)],
-        i = left,
-        j = right;
-
-    console.log(&apos;pivot is &apos; + pivot + &apos;; left is &apos; + left + &apos;; right is &apos; + right);
-
-    while (i &lt;= j) {
-        while (array[i] &lt; pivot) {
-            i++;
-            console.log(&apos;i = &apos; + i);
-        }
-
-        while (array[j] &gt; pivot) {
-            j--;
-            console.log(&apos;j = &apos; + j);
-        }
-
-        if (i &lt;= j) {
-            console.log(&apos;swap &apos; + array[i] + &apos; with &apos; + array[j]);
-            swapQuickStort(array, i, j);
-            i++;
-            j--;
-        }
-    }
-
-    return i;
-};
-
-var swapQuickStort = function(array, index1, index2){
-    var aux = array[index1];
-    array[index1] = array[index2];
-    array[index2] = aux;
-};
-
-var quick = function(array, left, right){//将子数组分离为较小值数组和较大值数组
-
-    var index;
-
-    if (array.length &gt; 1) {
-
-        index = partition(array, left, right);
-
-        if (left &lt; index - 1) {
-            quick(array, left, index - 1);
-        }
-
-        if (index &lt; right) {
-            quick(array, index, right);
-        }
-    }
-    return array;
-};
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">this</span>.quickSort = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      quick(array,  <span class="number">0</span>, array.length - <span class="number">1</span>);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> partition = <span class="function"><span class="keyword">function</span>(<span class="params">array, left, right</span>) </span>&#123;	<span class="comment">//划分过程</span></div><div class="line"></div><div class="line"><span class="comment">//主元的选择方法最好是随机选择一个数组想或是选择中间项，这里选择中间项</span></div><div class="line">      <span class="keyword">var</span> pivot = array[<span class="built_in">Math</span>.floor((right + left) / <span class="number">2</span>)],</div><div class="line">          i = left,</div><div class="line">          j = right;</div><div class="line"></div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'pivot is '</span> + pivot + <span class="string">'; left is '</span> + left + <span class="string">'; right is '</span> + right);</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (i &lt;= j) &#123;</div><div class="line">          <span class="keyword">while</span> (array[i] &lt; pivot) &#123;</div><div class="line">              i++;</div><div class="line">              <span class="built_in">console</span>.log(<span class="string">'i = '</span> + i);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          <span class="keyword">while</span> (array[j] &gt; pivot) &#123;</div><div class="line">              j--;</div><div class="line">              <span class="built_in">console</span>.log(<span class="string">'j = '</span> + j);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          <span class="keyword">if</span> (i &lt;= j) &#123;</div><div class="line">              <span class="built_in">console</span>.log(<span class="string">'swap '</span> + array[i] + <span class="string">' with '</span> + array[j]);</div><div class="line">              swapQuickStort(array, i, j);</div><div class="line">              i++;</div><div class="line">              j--;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> i;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> swapQuickStort = <span class="function"><span class="keyword">function</span>(<span class="params">array, index1, index2</span>)</span>&#123;</div><div class="line">      <span class="keyword">var</span> aux = array[index1];</div><div class="line">      array[index1] = array[index2];</div><div class="line">      array[index2] = aux;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> quick = <span class="function"><span class="keyword">function</span>(<span class="params">array, left, right</span>)</span>&#123;<span class="comment">//将子数组分离为较小值数组和较大值数组</span></div><div class="line"></div><div class="line">      <span class="keyword">var</span> index;</div><div class="line"></div><div class="line">      <span class="keyword">if</span> (array.length &gt; <span class="number">1</span>) &#123;</div><div class="line"></div><div class="line">          index = partition(array, left, right);</div><div class="line"></div><div class="line">          <span class="keyword">if</span> (left &lt; index - <span class="number">1</span>) &#123;</div><div class="line">              quick(array, left, index - <span class="number">1</span>);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          <span class="keyword">if</span> (index &lt; right) &#123;</div><div class="line">              quick(array, index, right);</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> array;</div><div class="line">  &#125;;</div></pre></td></tr></table></figure>
           
         
       
@@ -751,45 +591,23 @@ var quick = function(array, left, right){//将子数组分离为较小值数组�
 <li>JavaScript的数组中的元素可以具有不同的类型，即<code>var a=[&#39;hello&#39;,12,&#39;kk&#39;];</code>是合法的。</li>
 <li>对于一维数组，可直接用<code>console.log(数组名)</code>来输出数组内容，若是多维数组则需要自行构建函数来输出</li>
 </ul>
-<h2 id="创建和初始化数组"><a href="#创建和初始化数组" class="headerlink" title="创建和初始化数组"></a>创建和初始化数组</h2><pre><code>var everyday=new Array();
-var everyday=new Array();
-var everyday=new Array(&apos;hello&apos;,&apos;world&apos;,123,&apos;china&apos;);
-
-var evaryday=[];
-var evaryday=[&apos;hello&apos;,&apos;world&apos;,123,&apos;china&apos;];
-</code></pre><p>可使用<code>everyday.length</code>来获得数组的长度</p>
-<h2 id="添加和删除数组元素"><a href="#添加和删除数组元素" class="headerlink" title="添加和删除数组元素"></a>添加和删除数组元素</h2><h3 id="添加到数组末尾"><a href="#添加到数组末尾" class="headerlink" title="添加到数组末尾"></a>添加到数组末尾</h3><pre><code>everyday[everyday.length]=&apos;新元素&apos;;
-或
-everyday.push(&apos;新元素1&apos;,&apos;新元素2&apos;);
-</code></pre><h3 id="添加到数组首部"><a href="#添加到数组首部" class="headerlink" title="添加到数组首部"></a>添加到数组首部</h3><pre><code>eveday.unshit(&apos;新元素1&apos;,&apos;新元素2&apos;);
-</code></pre><h3 id="删除最靠后元素"><a href="#删除最靠后元素" class="headerlink" title="删除最靠后元素"></a>删除最靠后元素</h3><pre><code>everyday.pop();
-</code></pre><p><strong>用push()和pop()可以用数组来模拟栈</strong></p>
-<h3 id="删除第一个元素"><a href="#删除第一个元素" class="headerlink" title="删除第一个元素"></a>删除第一个元素</h3><pre><code>everyday.shift();
-</code></pre><p><strong>用shift()和unshift()可以用数组模拟队列</strong></p>
-<h3 id="删除任意位置的元素"><a href="#删除任意位置的元素" class="headerlink" title="删除任意位置的元素"></a>删除任意位置的元素</h3><pre><code>everyday.splice(2,3);
-</code></pre><p><em>注解</em>：表示删除了从下标2的元素开始往后的两个元素（包括下标为2的），即everyday[2]、everyday[3]、everyday[4]。</p>
-<h3 id="插入任意为位置-任意值"><a href="#插入任意为位置-任意值" class="headerlink" title="插入任意为位置 任意值"></a>插入任意为位置 任意值</h3><pre><code>everyday.splice(2,0,5,3,6)
-</code></pre><p><em>注释</em>：这才是splice()函数的完整用法。第一个参数是要执行删除操作的开始下标，第二个是要删除的个数，咱现在目的是为了添加，所以写0，第三个参数及以后则是要新添加的元素，此例执行后everyday[2]值变成5，以此类推。</p>
+<h2 id="创建和初始化数组"><a href="#创建和初始化数组" class="headerlink" title="创建和初始化数组"></a>创建和初始化数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> everyday=<span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> everyday=<span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> everyday=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">'hello'</span>,<span class="string">'world'</span>,<span class="number">123</span>,<span class="string">'china'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> evaryday=[];</div><div class="line"><span class="keyword">var</span> evaryday=[<span class="string">'hello'</span>,<span class="string">'world'</span>,<span class="number">123</span>,<span class="string">'china'</span>];</div></pre></td></tr></table></figure>
+<p>可使用<code>everyday.length</code>来获得数组的长度</p>
+<h2 id="添加和删除数组元素"><a href="#添加和删除数组元素" class="headerlink" title="添加和删除数组元素"></a>添加和删除数组元素</h2><h3 id="添加到数组末尾"><a href="#添加到数组末尾" class="headerlink" title="添加到数组末尾"></a>添加到数组末尾</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">everyday[everyday.length]=<span class="string">'新元素'</span>;</div><div class="line">或</div><div class="line">everyday.push(<span class="string">'新元素1'</span>,<span class="string">'新元素2'</span>);</div></pre></td></tr></table></figure>
+<h3 id="添加到数组首部"><a href="#添加到数组首部" class="headerlink" title="添加到数组首部"></a>添加到数组首部</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eveday.unshit(<span class="string">'新元素1'</span>,<span class="string">'新元素2'</span>);</div></pre></td></tr></table></figure>
+<h3 id="删除最靠后元素"><a href="#删除最靠后元素" class="headerlink" title="删除最靠后元素"></a>删除最靠后元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.pop();</div></pre></td></tr></table></figure>
+<p><strong>用push()和pop()可以用数组来模拟栈</strong></p>
+<h3 id="删除第一个元素"><a href="#删除第一个元素" class="headerlink" title="删除第一个元素"></a>删除第一个元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.shift();</div></pre></td></tr></table></figure>
+<p><strong>用shift()和unshift()可以用数组模拟队列</strong></p>
+<h3 id="删除任意位置的元素"><a href="#删除任意位置的元素" class="headerlink" title="删除任意位置的元素"></a>删除任意位置的元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.splice(<span class="number">2</span>,<span class="number">3</span>);</div></pre></td></tr></table></figure>
+<p><em>注解</em>：表示删除了从下标2的元素开始往后的两个元素（包括下标为2的），即everyday[2]、everyday[3]、everyday[4]。</p>
+<h3 id="插入任意为位置-任意值"><a href="#插入任意为位置-任意值" class="headerlink" title="插入任意为位置 任意值"></a>插入任意为位置 任意值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.splice(<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>)</div></pre></td></tr></table></figure>
+<p><em>注释</em>：这才是splice()函数的完整用法。第一个参数是要执行删除操作的开始下标，第二个是要删除的个数，咱现在目的是为了添加，所以写0，第三个参数及以后则是要新添加的元素，此例执行后everyday[2]值变成5，以此类推。</p>
 <h2 id="二维和多维数组"><a href="#二维和多维数组" class="headerlink" title="二维和多维数组"></a>二维和多维数组</h2><p>JavaScript只支持一维数组，但由于JavaScript数组对元素类型的宽容性，我们可以采用数组套数组的方法来实现多维数组。</p>
-<pre><code>var a1=[];
-a1[0]=[&apos;hello&apos;,23,&apos;world&apos;];
-a1[2]=[&apos;china&apos;,&apos;england&apos;];
-或
-var a2=[];
-a2[0]=[];
-a2[0][0]=&apos;hello&apos;;
-a2[0][1]=&apos;woeld&apos;;
-</code></pre><p>此时用<code>console.log(a2)</code>将不能输出数组内容，因为console.log()之只能用来输出具体的元素，应该自行创建一个函数来简化输出</p>
-<pre><code>function printfMatrix(myMatrix){
-for(var i=0;i&lt;myMatrix.length;i++){
-        for(var j=0;j&lt;myMatrix[i].length;j++){
-            console.log(myMatrix[i][j]);    
-        }
-    }
-}
-
-printfMatrix(数组名);
-</code></pre><h2 id="操作数组的方法（函数）"><a href="#操作数组的方法（函数）" class="headerlink" title="操作数组的方法（函数）"></a>操作数组的方法（函数）</h2><h3 id="数组合并–concat方法"><a href="#数组合并–concat方法" class="headerlink" title="数组合并–concat方法"></a>数组合并–concat方法</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/215254983.png" alt="mark"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a1=[];</div><div class="line">a1[<span class="number">0</span>]=[<span class="string">'hello'</span>,<span class="number">23</span>,<span class="string">'world'</span>];</div><div class="line">a1[<span class="number">2</span>]=[<span class="string">'china'</span>,<span class="string">'england'</span>];</div><div class="line">或</div><div class="line"><span class="keyword">var</span> a2=[];</div><div class="line">a2[<span class="number">0</span>]=[];</div><div class="line">a2[<span class="number">0</span>][<span class="number">0</span>]=<span class="string">'hello'</span>;</div><div class="line">a2[<span class="number">0</span>][<span class="number">1</span>]=<span class="string">'woeld'</span>;</div></pre></td></tr></table></figure>
+<p>此时用<code>console.log(a2)</code>将不能输出数组内容，因为console.log()之只能用来输出具体的元素，应该自行创建一个函数来简化输出</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printfMatrix</span>(<span class="params">myMatrix</span>)</span>&#123;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;myMatrix.length;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;myMatrix[i].length;j++)&#123;</div><div class="line">			<span class="built_in">console</span>.log(myMatrix[i][j]);	</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">printfMatrix(数组名);</div></pre></td></tr></table></figure>
+<h2 id="操作数组的方法（函数）"><a href="#操作数组的方法（函数）" class="headerlink" title="操作数组的方法（函数）"></a>操作数组的方法（函数）</h2><h3 id="数组合并–concat方法"><a href="#数组合并–concat方法" class="headerlink" title="数组合并–concat方法"></a>数组合并–concat方法</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/215254983.png" alt="mark"></p>
 <p>按照指定的顺序连接起来，很好理解</p>
 <h3 id="迭代器函数"><a href="#迭代器函数" class="headerlink" title="迭代器函数"></a>迭代器函数</h3><h4 id="every方法"><a href="#every方法" class="headerlink" title="every方法"></a>every方法</h4><p>every会迭代数组中的每一个元素，直到返回false</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/220902028.png" alt="mark"></p>
@@ -810,27 +628,13 @@ printfMatrix(数组名);
 <h4 id="数组自动排序–sort方法"><a href="#数组自动排序–sort方法" class="headerlink" title="数组自动排序–sort方法"></a>数组自动排序–sort方法</h4><p>sort在排序的时候，是默认把元素当成字符串来比较。比如底下这样用就会出错：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/224022818.png" alt="mark"></p>
 <p>那应该怎么办？    <strong>自己写比较函数</strong></p>
-<pre><code>var a=[2,6,18,19,1];
-
-console.log(a.sort(function(a,b){return a-b;}));
-</code></pre><p>主要的是代码a.sort(function(a,b){return a-b;})，此代码表示当a小于b时返回负数，当a大于b时返回正数，相等时放回0，这样sort方法就会根据返回值的情况给数组排序，当然这行代码额可以改写成比较好理解的以下以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=[<span class="number">2</span>,<span class="number">6</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> a-b;&#125;));</div></pre></td></tr></table></figure>
+<p>主要的是代码a.sort(function(a,b){return a-b;})，此代码表示当a小于b时返回负数，当a大于b时返回正数，相等时放回0，这样sort方法就会根据返回值的情况给数组排序，当然这行代码额可以改写成比较好理解的以下以下代码：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/154459103.png" alt="mark"></p>
 <p>注意比较函数的调用方法（没有传参）</p>
 <h5 id="自定义排序"><a href="#自定义排序" class="headerlink" title="自定义排序"></a>自定义排序</h5><p>可以创建任何对象类型的数组排序，也可以创建compareFunction来比较元素：</p>
-<pre><code>var person=[{name:&apos;小明&apos;,age:15},{name:&apos;小王&apos;,age:14},{name:&apos;小东&apos;,age:18}];
-
-function comparePerson(a,b){
-    if(a.age&lt;b.age){
-        return -1;
-    }
-    if(a.age&gt;b.age){
-        return 1;
-    }
-    return 0;
-}
-
-console.log(person.sort(comparePerson));
-</code></pre><p>结果:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person=[&#123;<span class="attr">name</span>:<span class="string">'小明'</span>,<span class="attr">age</span>:<span class="number">15</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'小王'</span>,<span class="attr">age</span>:<span class="number">14</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'小东'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">comparePerson</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(a.age&lt;b.age)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(a.age&gt;b.age)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(person.sort(comparePerson));</div></pre></td></tr></table></figure>
+<p>结果:</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/155611910.png" alt="mark"></p>
 <h5 id="字符串排序"><a href="#字符串排序" class="headerlink" title="字符串排序"></a>字符串排序</h5><p>对于字符创的比较，sort是根据ASCII值来比较的，比如：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/160013324.png" alt="mark"></p>
@@ -1006,31 +810,19 @@ console.log(person.sort(comparePerson));
 <p>直接上代码。</p>
 <h2 id="绘制2d线条"><a href="#绘制2d线条" class="headerlink" title="绘制2d线条"></a>绘制2d线条</h2><ol>
 <li><p>先在html页面下添加Canvas元素。设定画布的id和宽高。</p>
-<p> <code>&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot; style=&quot;border:1px solid #000;&quot;&gt;&lt;/canvas&gt;</code></p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"border:1px solid #000;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>用JavaScript在画布上面绘制图像</p>
-<pre><code>   //        获得画布
-   var c=document.getElementById(&quot;huabu&quot;);
-   //        创建基于所获得画布的2d画笔
-   var pan= c.getContext(&quot;2d&quot;);
-   pan.moveTo(10,10);//移动画笔
-   pan.lineTo(40,40);//从源点绘制到指定点（30,40）
-pan.lineTo(50,100);//从源点绘制到指定点（50,100）
- pan.lineTo(150,20);
-  pan.stroke();//之前是在构建，这里是把构思正式画到画布上，一定要这一步
-</code></pre></li>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">		 <span class="comment">//        获得画布</span></div><div class="line">		 <span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"huabu"</span>);</div><div class="line">		 <span class="comment">//        创建基于所获得画布的2d画笔</span></div><div class="line">		 <span class="keyword">var</span> pan= c.getContext(<span class="string">"2d"</span>);</div><div class="line">		 pan.moveTo(<span class="number">10</span>,<span class="number">10</span>);<span class="comment">//移动画笔</span></div><div class="line">		 pan.lineTo(<span class="number">40</span>,<span class="number">40</span>);<span class="comment">//从源点绘制到指定点（30,40）</span></div><div class="line">pan.lineTo(<span class="number">50</span>,<span class="number">100</span>);<span class="comment">//从源点绘制到指定点（50,100）</span></div><div class="line"> pan.lineTo(<span class="number">150</span>,<span class="number">20</span>);</div><div class="line">	 pan.stroke();<span class="comment">//之前是在构建，这里是把构思正式画到画布上，一定要这一步</span></div></pre></td></tr></table></figure>
+</li>
 <li><p>结果</p>
 <p> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/211927091.png" alt="mark"></p>
 </li>
 <li><p>注意</p>
 <ul>
 <li><p>如果想绘制两条线，不能想当然的moveTo(),然后再lineTo()，应该再声明一支画笔</p>
-<pre><code>var pan2= c.getContext(&quot;2d&quot;);
-   pan2.moveTo(40,10);
-pan2.lineTo(30,60);
-   pan2.lineTo(188,170);
-pan2.stroke();
-</code></pre></li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pan2= c.getContext(<span class="string">"2d"</span>);</div><div class="line">			pan2.moveTo(<span class="number">40</span>,<span class="number">10</span>);</div><div class="line">pan2.lineTo(<span class="number">30</span>,<span class="number">60</span>);</div><div class="line">			pan2.lineTo(<span class="number">188</span>,<span class="number">170</span>);</div><div class="line"> 		pan2.stroke();</div></pre></td></tr></table></figure>
+</li>
 <li><p>结果：（绘制两条线）</p>
 <p>  <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/213008339.png" alt="mark"></p>
 </li>
@@ -1039,80 +831,21 @@ pan2.stroke();
 </ol>
 <h2 id="绘制圆形"><a href="#绘制圆形" class="headerlink" title="绘制圆形"></a>绘制圆形</h2><ol>
 <li><p>先在html页面下添加Canvas元素。设定画布的id和宽高。</p>
-<p> <code>&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot; style=&quot;border:1px solid #000;&quot;&gt;&lt;/canvas&gt;</code></p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"border:1px solid #000;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>用JavaScript在画布上面绘制图像</p>
-<pre><code>//获得画布
-var c=document.getElementById(&quot;huabu&quot;);
-var pan= c.getContext(&quot;2d&quot;);
-//设置图形填充的颜色
-pan.fillStyle=&apos;#00f&apos;;
-//开始绘制图形
-pan.beginPath();
-//arc是圆的英文前几个字母
-//括号内指定（圆心x轴坐标、圆心y轴坐标、圆半径、开始角度、结束角度、顺时针(false)还是逆时针(true)）
-pan.arc(100,100,50,0,Math.PI/2,true);
-//结束绘图
-pan.closePath();
-pan.fill();//一定要有，将构建好的图形正式填充到画布上去
-</code></pre></li>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">  	<span class="comment">//获得画布</span></div><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"huabu"</span>);</div><div class="line"><span class="keyword">var</span> pan= c.getContext(<span class="string">"2d"</span>);</div><div class="line"><span class="comment">//设置图形填充的颜色</span></div><div class="line">pan.fillStyle=<span class="string">'#00f'</span>;</div><div class="line"><span class="comment">//开始绘制图形</span></div><div class="line">pan.beginPath();</div><div class="line"><span class="comment">//arc是圆的英文前几个字母</span></div><div class="line"><span class="comment">//括号内指定（圆心x轴坐标、圆心y轴坐标、圆半径、开始角度、结束角度、顺时针(false)还是逆时针(true)）</span></div><div class="line">pan.arc(<span class="number">100</span>,<span class="number">100</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI/<span class="number">2</span>,<span class="literal">true</span>);</div><div class="line"><span class="comment">//结束绘图</span></div><div class="line">pan.closePath();</div><div class="line">pan.fill();<span class="comment">//一定要有，将构建好的图形正式填充到画布上去</span></div></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="学习以下代码"><a href="#学习以下代码" class="headerlink" title="学习以下代码"></a>学习以下代码</h3><ol>
 <li>获得2d画笔后，用beginPath()方法绘制新路径</li>
 <li>用strokeStyle指定路径颜色</li>
 <li>arc()设置圆的属性</li>
 <li><p>stroke()绘制弧线</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;title&gt;HTML5 Canvas绘制弧线入门示例&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;!-- 添加canvas标签，并加上红色边框以便于在页面上查看 --&gt;
-&lt;canvas id=&quot;myCanvas&quot; width=&quot;400px&quot; height=&quot;300px&quot; style=&quot;border: 1px solid red;&quot;&gt;
-您的浏览器不支持canvas标签。
-&lt;/canvas&gt;
-
-&lt;script type=&quot;text/javascript&quot;&gt;
-//获取Canvas对象(画布)
-var canvas = document.getElementById(&quot;myCanvas&quot;);
-//简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误
-if(canvas.getContext){  
-    //获取对应的CanvasRenderingContext2D对象(画笔)
-    var ctx = canvas.getContext(&quot;2d&quot;);  
-
-    //开始一个新的绘制路径
-    ctx.beginPath();
-    //设置弧线的颜色为蓝色
-    ctx.strokeStyle = &quot;blue&quot;;
-    var circle = {
-        x : 100,    //圆心的x轴坐标值
-        y : 100,    //圆心的y轴坐标值
-        r : 50      //圆的半径
-    };
-    //沿着坐标点(100,100)为圆心、半径为50px的圆的顺时针方向绘制弧线
-    ctx.arc(circle.x, circle.y, circle.r, 0, Math.PI / 2, false);    
-    //按照指定的路径绘制弧线
-    ctx.stroke();
-}
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre></li>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML5 Canvas绘制弧线入门示例<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 添加canvas标签，并加上红色边框以便于在页面上查看 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"400px"</span> <span class="attr">height</span>=<span class="string">"300px"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid red;"</span>&gt;</span></div><div class="line">您的浏览器不支持canvas标签。</div><div class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="comment">//获取Canvas对象(画布)</span></div><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="comment">//简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误</span></div><div class="line"><span class="keyword">if</span>(canvas.getContext)&#123;  </div><div class="line">    <span class="comment">//获取对应的CanvasRenderingContext2D对象(画笔)</span></div><div class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);  </div><div class="line">    </div><div class="line">    <span class="comment">//开始一个新的绘制路径</span></div><div class="line">    ctx.beginPath();</div><div class="line">    <span class="comment">//设置弧线的颜色为蓝色</span></div><div class="line">    ctx.strokeStyle = <span class="string">"blue"</span>;</div><div class="line">    <span class="keyword">var</span> circle = &#123;</div><div class="line">        <span class="attr">x</span> : <span class="number">100</span>,    <span class="comment">//圆心的x轴坐标值</span></div><div class="line">        y : <span class="number">100</span>,    <span class="comment">//圆心的y轴坐标值</span></div><div class="line">        r : <span class="number">50</span>      <span class="comment">//圆的半径</span></div><div class="line">    &#125;;</div><div class="line">    <span class="comment">//沿着坐标点(100,100)为圆心、半径为50px的圆的顺时针方向绘制弧线</span></div><div class="line">    ctx.arc(circle.x, circle.y, circle.r, <span class="number">0</span>, <span class="built_in">Math</span>.PI / <span class="number">2</span>, <span class="literal">false</span>);    </div><div class="line">    <span class="comment">//按照指定的路径绘制弧线</span></div><div class="line">    ctx.stroke();</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
 </ol>
-<h2 id="给画布添加图像"><a href="#给画布添加图像" class="headerlink" title="给画布添加图像"></a>给画布添加图像</h2><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-
-var c=document.getElementById(&quot;myCanvas&quot;);
-var cxt=c.getContext(&quot;2d&quot;);
-var img=new Image()
-img.src=&quot;image.png&quot;
-
-//drawImage(图像元素，左上角顶点x轴坐标，左上角顶点y轴坐标)
-cxt.drawImage(img,0,0);
-
-&lt;/script&gt;
+<h2 id="给画布添加图像"><a href="#给画布添加图像" class="headerlink" title="给画布添加图像"></a>给画布添加图像</h2><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="keyword">var</span> cxt=c.getContext(<span class="string">"2d"</span>);</div><div class="line"><span class="keyword">var</span> img=<span class="keyword">new</span> Image()</div><div class="line">img.src=<span class="string">"image.png"</span></div><div class="line"></div><div class="line"><span class="comment">//drawImage(图像元素，左上角顶点x轴坐标，左上角顶点y轴坐标)</span></div><div class="line">cxt.drawImage(img,<span class="number">0</span>,<span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 </code></pre>
           
         
@@ -1277,26 +1010,8 @@ cxt.drawImage(img,0,0);
 <li>效果转换的持续时间</li>
 <li>多个属性转换用逗号隔开</li>
 </ul>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre><code>&lt;!--HTML--&gt;
-&lt;div id=&quot;zi&quot;&gt;&lt;/div&gt;
-
-&lt;!--CSS--&gt;
-#zi{
-height:100px;
-width: 100px;
-background-color: yellow;
-transition: width 2s,height 2s,color 2s;&lt;!--不同属性效果用逗号隔开--&gt;
--webkit-transition: width 2s,height 2s,background-color 2s;
--o-transition: width 2s,height 2s,background-color 2s;
--moz-transition: width 2s,height 2s,background-color 2s;
-}
-
-#zi:hover{
-background-color: red;
-height: 150px;
-width: 200px;
-}
-</code></pre><h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h2><p><a href="http://www.w3school.com.cn/css3/css3_animation.asp" target="_blank" rel="external">CSS动画</a></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--HTML--&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"zi"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!--CSS--&gt;</span></div><div class="line">#zi&#123;</div><div class="line">   height:100px;</div><div class="line">   width: 100px;</div><div class="line">   background-color: yellow;</div><div class="line">   transition: width 2s,height 2s,color 2s;<span class="comment">&lt;!--不同属性效果用逗号隔开--&gt;</span></div><div class="line">   -webkit-transition: width 2s,height 2s,background-color 2s;</div><div class="line">-o-transition: width 2s,height 2s,background-color 2s;</div><div class="line">   -moz-transition: width 2s,height 2s,background-color 2s;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#zi:hover&#123;</div><div class="line">   background-color: red;</div><div class="line">   height: 150px;</div><div class="line">   width: 200px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h2><p><a href="http://www.w3school.com.cn/css3/css3_animation.asp" target="_blank" rel="external">CSS动画</a></p>
 <h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p>animation属性结合@keyframes规则,能创建由当前样式逐渐改为新样式的动画效果。<br><em>Internet Explorer 9，以及更早的版本，不支持 @keyframe 规则或 animation 属性。</em></p>
 <h3 id="用法-1"><a href="#用法-1" class="headerlink" title="用法"></a>用法</h3><p>@keyframes创建动画并制定动画的名字（随便起，主要是用来给animation选择），animation中选择相应的动画名字来使用对应的动画，还要设置动画执行的持续时间，还可设置所选动画的执行方式。即：</p>
 <ul>
@@ -1323,97 +1038,10 @@ width: 200px;
 </ul>
 </li>
 </ul>
-<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;style&gt; 
-div
-{
-width:100px;
-height:100px;
-background:red;
-position:relative;
-animation-name:myfirst;
-animation-duration:5s;
-animation-timing-function:linear;/*表示变换速度，linear表示从头到尾匀速*/
-animation-delay:2s;
-animation-iteration-count:infinite;/*表示动画无限次循环，可改为常数来规定执行次数*/
-animation-direction:alternate;
-animation-play-state:running;
-/* Firefox: */
--moz-animation-name:myfirst;
--moz-animation-duration:5s;
--moz-animation-timing-function:linear;
--moz-animation-delay:2s;
--moz-animation-iteration-count:infinite;
--moz-animation-direction:alternate;
--moz-animation-play-state:running;
-/* Safari and Chrome: */
--webkit-animation-name:myfirst;
--webkit-animation-duration:5s;
--webkit-animation-timing-function:linear;
--webkit-animation-delay:2s;
--webkit-animation-iteration-count:infinite;
--webkit-animation-direction:alternate;
--webkit-animation-play-state:running;
-/* Opera: */
--o-animation-name:myfirst;
--o-animation-duration:5s;
--o-animation-timing-function:linear;
--o-animation-delay:2s;
--o-animation-iteration-count:infinite;
--o-animation-direction:alternate;
--o-animation-play-state:running;
-}
-
-@keyframes myfirst
-{
-0%   {background:red; left:0px; top:0px;}
-25%  {background:yellow; left:200px; top:0px;}
-50%  {background:blue; left:200px; top:200px;}
-75%  {background:green; left:0px; top:200px;}
-100% {background:red; left:0px; top:0px;}
-}
-
-@-moz-keyframes myfirst /* Firefox */
-{
-0%   {background:red; left:0px; top:0px;}
-25%  {background:yellow; left:200px; top:0px;}
-50%  {background:blue; left:200px; top:200px;}
-75%  {background:green; left:0px; top:200px;}
-100% {background:red; left:0px; top:0px;}
-}
-
-@-webkit-keyframes myfirst /* Safari and Chrome */
-{
-0%   {background:red; left:0px; top:0px;}
-25%  {background:yellow; left:200px; top:0px;}
-50%  {background:blue; left:200px; top:200px;}
-75%  {background:green; left:0px; top:200px;}
-100% {background:red; left:0px; top:0px;}
-}
-
-@-o-keyframes myfirst /* Opera */
-{
-0%   {background:red; left:0px; top:0px;}
-25%  {background:yellow; left:200px; top:0px;}
-50%  {background:blue; left:200px; top:200px;}
-75%  {background:green; left:0px; top:200px;}
-100% {background:red; left:0px; top:0px;}
-}
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;p&gt;&lt;b&gt;注释：&lt;/b&gt;本例在 Internet Explorer 中无效。&lt;/p&gt;
-
-&lt;div&gt;&lt;/div&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>也可以将animation简写成：</p>
-<p><code>animation：动画名称 持续时间 执行速度变化 动画延迟 循环次数 是否下一周期逆向播放</code></p>
-<pre><code>div
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"> </span></div><div class="line">div</div><div class="line">&#123;</div><div class="line">width:100px;</div><div class="line">height:100px;</div><div class="line">background:red;</div><div class="line">position:relative;</div><div class="line">animation-name:myfirst;</div><div class="line">animation-duration:5s;</div><div class="line">animation-timing-function:linear;/*表示变换速度，linear表示从头到尾匀速*/</div><div class="line">animation-delay:2s;</div><div class="line">animation-iteration-count:infinite;/*表示动画无限次循环，可改为常数来规定执行次数*/</div><div class="line">animation-direction:alternate;</div><div class="line">animation-play-state:running;</div><div class="line">/* Firefox: */</div><div class="line">-moz-animation-name:myfirst;</div><div class="line">-moz-animation-duration:5s;</div><div class="line">-moz-animation-timing-function:linear;</div><div class="line">-moz-animation-delay:2s;</div><div class="line">-moz-animation-iteration-count:infinite;</div><div class="line">-moz-animation-direction:alternate;</div><div class="line">-moz-animation-play-state:running;</div><div class="line">/* Safari and Chrome: */</div><div class="line">-webkit-animation-name:myfirst;</div><div class="line">-webkit-animation-duration:5s;</div><div class="line">-webkit-animation-timing-function:linear;</div><div class="line">-webkit-animation-delay:2s;</div><div class="line">-webkit-animation-iteration-count:infinite;</div><div class="line">-webkit-animation-direction:alternate;</div><div class="line">-webkit-animation-play-state:running;</div><div class="line">/* Opera: */</div><div class="line">-o-animation-name:myfirst;</div><div class="line">-o-animation-duration:5s;</div><div class="line">-o-animation-timing-function:linear;</div><div class="line">-o-animation-delay:2s;</div><div class="line">-o-animation-iteration-count:infinite;</div><div class="line">-o-animation-direction:alternate;</div><div class="line">-o-animation-play-state:running;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@keyframes myfirst</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-moz-keyframes myfirst /* Firefox */</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-webkit-keyframes myfirst /* Safari and Chrome */</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-o-keyframes myfirst /* Opera */</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>注释：<span class="tag">&lt;/<span class="name">b</span>&gt;</span>本例在 Internet Explorer 中无效。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>也可以将animation简写成：</p>
+<p>animation：动画名称 持续时间 执行速度变化 动画延迟 循环次数 是否下一周期逆向播放</p>
+<pre><code class="HTML">div
 {
 width:100px;
 height:100px;
@@ -1428,6 +1056,7 @@ animation:myfirst 5s linear 2s infinite alternate;
 -o-animation:myfirst 5s linear 2s infinite alternate;
 }
 </code></pre>
+
           
         
       
@@ -1761,34 +1390,25 @@ animation:myfirst 5s linear 2s infinite alternate;
 <h2 id="“-”"><a href="#“-”" class="headerlink" title="“===”"></a>“===”</h2><p>先说简单的，===。</p>
 <p>用于比较的两个值，类型不相等则不相等，类型相等且值相等，则相等。</p>
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>例一：</p>
-<pre><code>console.log(&apos;test&apos;===true);    //结果为：false，以为类型不相等，一个字符串一个布尔值
-console.log(&apos;test&apos;===&apos;test&apos;);     //结果为：true，因为类型相等且值相等
-</code></pre><p>值得注意的一点是，关于对象，就算是分别定义的两个对象的内容一样，用’===’进行比较也是不相等的，因为存储的位置不同，除非是用引用的方式将一个对象的值赋给另一个对象，这才返回true。（什么是对象的引用可以看这篇文章：<a href="http://roderic.cn/2017/04/15/Java%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">对象引用问题上Java和Js是相通的–Java入门</a>）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'test'</span>===<span class="literal">true</span>);	<span class="comment">//结果为：false，以为类型不相等，一个字符串一个布尔值</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'test'</span>===<span class="string">'test'</span>); 	<span class="comment">//结果为：true，因为类型相等且值相等</span></div></pre></td></tr></table></figure>
+<p>值得注意的一点是，关于对象，就算是分别定义的两个对象的内容一样，用’===’进行比较也是不相等的，因为存储的位置不同，除非是用引用的方式将一个对象的值赋给另一个对象，这才返回true。（什么是对象的引用可以看这篇文章：<a href="http://roderic.cn/2017/04/15/Java%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">对象引用问题上Java和Js是相通的–Java入门</a>）</p>
 <p>例二：</p>
-<pre><code>var person1={a:&apos;xiao&apos;};
-var person2={a:&apos;xiao&apos;};
-console.log(person1===person2);
-//结果为：false，因为person1和person2的存储位置不一样，所以是不同的对象
-
-var person1={a:&apos;xiao&apos;};
-var person2=person1;
-console.log(person1===person2);
-//结果为：true，因为person2是对person1的引用，它们指向的是用一个内存块，所以相等
-</code></pre><h2 id="“-”-1"><a href="#“-”-1" class="headerlink" title="“==”"></a>“==”</h2><p>使用==时，<strong>不同类型的值也可以被看做相等</strong>，不过Js会对其进行一定的转化后再惊醒比较，下面来看看如果对不同类型的值使用“==”进行比较，Js会进行怎样的转化：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person1=&#123;<span class="attr">a</span>:<span class="string">'xiao'</span>&#125;;</div><div class="line"><span class="keyword">var</span> person2=&#123;<span class="attr">a</span>:<span class="string">'xiao'</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(person1===person2);</div><div class="line"><span class="comment">//结果为：false，因为person1和person2的存储位置不一样，所以是不同的对象</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> person1=&#123;<span class="attr">a</span>:<span class="string">'xiao'</span>&#125;;</div><div class="line"><span class="keyword">var</span> person2=person1;</div><div class="line"><span class="built_in">console</span>.log(person1===person2);</div><div class="line"><span class="comment">//结果为：true，因为person2是对person1的引用，它们指向的是用一个内存块，所以相等</span></div></pre></td></tr></table></figure>
+<h2 id="“-”-1"><a href="#“-”-1" class="headerlink" title="“==”"></a>“==”</h2><p>使用==时，<strong>不同类型的值也可以被看做相等</strong>，不过Js会对其进行一定的转化后再惊醒比较，下面来看看如果对不同类型的值使用“==”进行比较，Js会进行怎样的转化：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170425/215649930.png" alt="mark"></p>
 <p>若x和y类型相同，Js会比较它们的值或者对向值。如果不同，则按上面的形式进行转化后再比较。其他没有列在表格中的情况都会返回false。</p>
 <h3 id="toNumber和toPrimitive的转化结果"><a href="#toNumber和toPrimitive的转化结果" class="headerlink" title="toNumber和toPrimitive的转化结果"></a>toNumber和toPrimitive的转化结果</h3><h4 id="toNumber"><a href="#toNumber" class="headerlink" title="toNumber"></a>toNumber</h4><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170425/222709769.png" alt="mark"></p>
 <h4 id="toPrimitive"><a href="#toPrimitive" class="headerlink" title="toPrimitive"></a>toPrimitive</h4><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170425/223136318.png" alt="mark"></p>
 <h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>例一：</p>
-<pre><code>console.log(&apos;test&apos;?true:false);//结果为:true
-</code></pre><p>原因：这里是判断test字符串变成布尔值后是什么，因为字符串的长度大于一。这里涉及到Js中true和false的问题，稍微说下Js中true和false是怎么转换的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'test'</span>?<span class="literal">true</span>:<span class="literal">false</span>);<span class="comment">//结果为:true</span></div></pre></td></tr></table></figure>
+<p>原因：这里是判断test字符串变成布尔值后是什么，因为字符串的长度大于一。这里涉及到Js中true和false的问题，稍微说下Js中true和false是怎么转换的：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/095914634.png" alt="mark"></p>
 <p>例二：</p>
-<pre><code>console.log(&apos;test&apos;==true);    //结果为：false
-</code></pre><p>原因：进行比较的时候，布尔值true被toNumber变成数字1；而字符串test则被toNumber转换成NaN，进而表达式转换成判断<code>NaN==1</code>，结果自然为false。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'test'</span>==<span class="literal">true</span>);	<span class="comment">//结果为：false</span></div></pre></td></tr></table></figure>
+<p>原因：进行比较的时候，布尔值true被toNumber变成数字1；而字符串test则被toNumber转换成NaN，进而表达式转换成判断<code>NaN==1</code>，结果自然为false。</p>
 <p>例三：</p>
-<pre><code>console.log(&apos;test&apos;==false);    //结果为：false
-</code></pre><p>原因：通例二一样的道理，结果表达式被转换成判断<code>NaN==0</code>,结果仍然为false。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'test'</span>==<span class="literal">false</span>);	<span class="comment">//结果为：false</span></div></pre></td></tr></table></figure>
+<p>原因：同例二一样的道理，结果表达式被转换成判断<code>NaN==0</code>,结果仍然为false。</p>
 
           
         
@@ -2484,17 +2104,8 @@ console.log(person1===person2);
 <li>声明一般都是对函数或者类来说的，声明在前，定义在后</li>
 <li><code>int a;</code>可以说是声明，广泛的说是定义一个变量a，也不算错</li>
 </ul>
-<p>例子：</p>
-<pre><code>int a; //等价于 声明一个人：小张
-int a = 3; //等价于 定义一个人 ：小张 年龄为三岁。
-//定义是带有初始化的
-//函数的声明和定义
-void My(); // 这个是声明
-//这个是定义
-void My()
-{
-}
-</code></pre>
+<p>例子：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a; <span class="comment">//等价于 声明一个人：小张</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">3</span>; <span class="comment">//等价于 定义一个人 ：小张 年龄为三岁。</span></div><div class="line"><span class="comment">//定义是带有初始化的</span></div><div class="line"><span class="comment">//函数的声明和定义</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">My</span><span class="params">()</span></span>; <span class="comment">// 这个是声明</span></div><div class="line"><span class="comment">//这个是定义</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">My</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
           
         
       

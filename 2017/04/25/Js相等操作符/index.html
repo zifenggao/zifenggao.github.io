@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170425/222709769.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170425/223136318.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170426/095914634.png">
-<meta property="og:updated_time" content="2017-04-26T02:09:12.588Z">
+<meta property="og:updated_time" content="2017-05-01T02:16:05.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Js相等操作符">
 <meta name="twitter:description" content="对于有其他编程语言编程经验的人来说，在判断两个值是否相等时，会用“==”，但是此方法用于Js，特别是用Webstorm等前端IDE编写Js程序时，会发现此方法会报错，并提示应该更改为“===”，这到底是怎么回事，下面我们就来区别一下Js这两个相等操作符——“==”和“===”  总的一句：==不管类型相不相同，只要进行转化后条件符合（具体怎么转化请往下看），就会判定为相等；===必须比较的两个值类">
@@ -431,34 +431,25 @@
 <h2 id="“-”"><a href="#“-”" class="headerlink" title="“===”"></a>“===”</h2><p>先说简单的，===。</p>
 <p>用于比较的两个值，类型不相等则不相等，类型相等且值相等，则相等。</p>
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>例一：</p>
-<pre><code>console.log(&apos;test&apos;===true);    //结果为：false，以为类型不相等，一个字符串一个布尔值
-console.log(&apos;test&apos;===&apos;test&apos;);     //结果为：true，因为类型相等且值相等
-</code></pre><p>值得注意的一点是，关于对象，就算是分别定义的两个对象的内容一样，用’===’进行比较也是不相等的，因为存储的位置不同，除非是用引用的方式将一个对象的值赋给另一个对象，这才返回true。（什么是对象的引用可以看这篇文章：<a href="http://roderic.cn/2017/04/15/Java%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">对象引用问题上Java和Js是相通的–Java入门</a>）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'test'</span>===<span class="literal">true</span>);	<span class="comment">//结果为：false，以为类型不相等，一个字符串一个布尔值</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'test'</span>===<span class="string">'test'</span>); 	<span class="comment">//结果为：true，因为类型相等且值相等</span></div></pre></td></tr></table></figure>
+<p>值得注意的一点是，关于对象，就算是分别定义的两个对象的内容一样，用’===’进行比较也是不相等的，因为存储的位置不同，除非是用引用的方式将一个对象的值赋给另一个对象，这才返回true。（什么是对象的引用可以看这篇文章：<a href="http://roderic.cn/2017/04/15/Java%E5%85%A5%E9%97%A8%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_blank" rel="external">对象引用问题上Java和Js是相通的–Java入门</a>）</p>
 <p>例二：</p>
-<pre><code>var person1={a:&apos;xiao&apos;};
-var person2={a:&apos;xiao&apos;};
-console.log(person1===person2);
-//结果为：false，因为person1和person2的存储位置不一样，所以是不同的对象
-
-var person1={a:&apos;xiao&apos;};
-var person2=person1;
-console.log(person1===person2);
-//结果为：true，因为person2是对person1的引用，它们指向的是用一个内存块，所以相等
-</code></pre><h2 id="“-”-1"><a href="#“-”-1" class="headerlink" title="“==”"></a>“==”</h2><p>使用==时，<strong>不同类型的值也可以被看做相等</strong>，不过Js会对其进行一定的转化后再惊醒比较，下面来看看如果对不同类型的值使用“==”进行比较，Js会进行怎样的转化：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person1=&#123;<span class="attr">a</span>:<span class="string">'xiao'</span>&#125;;</div><div class="line"><span class="keyword">var</span> person2=&#123;<span class="attr">a</span>:<span class="string">'xiao'</span>&#125;;</div><div class="line"><span class="built_in">console</span>.log(person1===person2);</div><div class="line"><span class="comment">//结果为：false，因为person1和person2的存储位置不一样，所以是不同的对象</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> person1=&#123;<span class="attr">a</span>:<span class="string">'xiao'</span>&#125;;</div><div class="line"><span class="keyword">var</span> person2=person1;</div><div class="line"><span class="built_in">console</span>.log(person1===person2);</div><div class="line"><span class="comment">//结果为：true，因为person2是对person1的引用，它们指向的是用一个内存块，所以相等</span></div></pre></td></tr></table></figure>
+<h2 id="“-”-1"><a href="#“-”-1" class="headerlink" title="“==”"></a>“==”</h2><p>使用==时，<strong>不同类型的值也可以被看做相等</strong>，不过Js会对其进行一定的转化后再惊醒比较，下面来看看如果对不同类型的值使用“==”进行比较，Js会进行怎样的转化：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170425/215649930.png" alt="mark"></p>
 <p>若x和y类型相同，Js会比较它们的值或者对向值。如果不同，则按上面的形式进行转化后再比较。其他没有列在表格中的情况都会返回false。</p>
 <h3 id="toNumber和toPrimitive的转化结果"><a href="#toNumber和toPrimitive的转化结果" class="headerlink" title="toNumber和toPrimitive的转化结果"></a>toNumber和toPrimitive的转化结果</h3><h4 id="toNumber"><a href="#toNumber" class="headerlink" title="toNumber"></a>toNumber</h4><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170425/222709769.png" alt="mark"></p>
 <h4 id="toPrimitive"><a href="#toPrimitive" class="headerlink" title="toPrimitive"></a>toPrimitive</h4><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170425/223136318.png" alt="mark"></p>
 <h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>例一：</p>
-<pre><code>console.log(&apos;test&apos;?true:false);//结果为:true
-</code></pre><p>原因：这里是判断test字符串变成布尔值后是什么，因为字符串的长度大于一。这里涉及到Js中true和false的问题，稍微说下Js中true和false是怎么转换的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'test'</span>?<span class="literal">true</span>:<span class="literal">false</span>);<span class="comment">//结果为:true</span></div></pre></td></tr></table></figure>
+<p>原因：这里是判断test字符串变成布尔值后是什么，因为字符串的长度大于一。这里涉及到Js中true和false的问题，稍微说下Js中true和false是怎么转换的：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/095914634.png" alt="mark"></p>
 <p>例二：</p>
-<pre><code>console.log(&apos;test&apos;==true);    //结果为：false
-</code></pre><p>原因：进行比较的时候，布尔值true被toNumber变成数字1；而字符串test则被toNumber转换成NaN，进而表达式转换成判断<code>NaN==1</code>，结果自然为false。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'test'</span>==<span class="literal">true</span>);	<span class="comment">//结果为：false</span></div></pre></td></tr></table></figure>
+<p>原因：进行比较的时候，布尔值true被toNumber变成数字1；而字符串test则被toNumber转换成NaN，进而表达式转换成判断<code>NaN==1</code>，结果自然为false。</p>
 <p>例三：</p>
-<pre><code>console.log(&apos;test&apos;==false);    //结果为：false
-</code></pre><p>原因：通例二一样的道理，结果表达式被转换成判断<code>NaN==0</code>,结果仍然为false。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'test'</span>==<span class="literal">false</span>);	<span class="comment">//结果为：false</span></div></pre></td></tr></table></figure>
+<p>原因：同例二一样的道理，结果表达式被转换成判断<code>NaN==0</code>,结果仍然为false。</p>
 
       
     </div>
