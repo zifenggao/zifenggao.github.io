@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/26/Powershell基本命令/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="Powershell是微软在cmd基础上改进后推出的励志于提高用户开发体验的命令行程序，可以这么说，cmd有的Powershell全都有，Powershell有的cmd不全有，而且Powershell还比cmd漂亮，为什么不用呢。稍微讲下Powershell的基本命令。  Powershell用的时候会出现中文乱码，用以下命令把Encoding改成UTF8即可：$OutputEncoding =">
-<meta property="og:updated_time" content="2017-04-26T06:59:26.567Z">
+<meta property="og:updated_time" content="2017-05-01T07:19:08.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Powershell基本命令">
 <meta name="twitter:description" content="Powershell是微软在cmd基础上改进后推出的励志于提高用户开发体验的命令行程序，可以这么说，cmd有的Powershell全都有，Powershell有的cmd不全有，而且Powershell还比cmd漂亮，为什么不用呢。稍微讲下Powershell的基本命令。  Powershell用的时候会出现中文乱码，用以下命令把Encoding改成UTF8即可：$OutputEncoding =">
@@ -430,8 +430,11 @@
 <p>这种方法会覆盖掉文件原有内容，如果是追加，应用：</p>
 <p><code>echo 内容 &gt;&gt; c.txt</code></p>
 <p>这种方法，每次写入内容后面都会自动换行</p>
+<h2 id="图形化编辑txt文件"><a href="#图形化编辑txt文件" class="headerlink" title="图形化编辑txt文件"></a>图形化编辑txt文件</h2><p><code>notepad a.txt</code></p>
+<p>这会直接以记事本的形式打开指定的文件</p>
 <h2 id="读取文件内容"><a href="#读取文件内容" class="headerlink" title="读取文件内容"></a>读取文件内容</h2><p><code>cat a.txt</code>        此命令只能在操作当前目录的文件时可用</p>
 <p><code>type a.txt</code>    此命令可跨目录使用，即可添加路径</p>
+<h2 id="打开doc文件"><a href="#打开doc文件" class="headerlink" title="打开doc文件"></a>打开doc文件</h2><p>路径没错的情况下，直接输入文件名，然后回车，即可用相应的软件将其打开</p>
 <h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p><code>del a.txt</code></p>
 <h2 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h2><p><code>del 文件夹</code></p>
 <h2 id="重命名文件"><a href="#重命名文件" class="headerlink" title="重命名文件"></a>重命名文件</h2><p><code>ren a.txt b.txt</code></p>
@@ -638,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建文件夹"><span class="nav-number">1.</span> <span class="nav-text">创建文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建文件"><span class="nav-number">2.</span> <span class="nav-text">创建文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向文件内写入内容"><span class="nav-number">3.</span> <span class="nav-text">向文件内写入内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取文件内容"><span class="nav-number">4.</span> <span class="nav-text">读取文件内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">5.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件夹"><span class="nav-number">6.</span> <span class="nav-text">删除文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名文件"><span class="nav-number">7.</span> <span class="nav-text">重命名文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名文件夹"><span class="nav-number">8.</span> <span class="nav-text">重命名文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制文件"><span class="nav-number">9.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制文件夹和剪切操作之后再做补充"><span class="nav-number">10.</span> <span class="nav-text">复制文件夹和剪切操作之后再做补充</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建文件夹"><span class="nav-number">1.</span> <span class="nav-text">创建文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建文件"><span class="nav-number">2.</span> <span class="nav-text">创建文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向文件内写入内容"><span class="nav-number">3.</span> <span class="nav-text">向文件内写入内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形化编辑txt文件"><span class="nav-number">4.</span> <span class="nav-text">图形化编辑txt文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取文件内容"><span class="nav-number">5.</span> <span class="nav-text">读取文件内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开doc文件"><span class="nav-number">6.</span> <span class="nav-text">打开doc文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件"><span class="nav-number">7.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除文件夹"><span class="nav-number">8.</span> <span class="nav-text">删除文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名文件"><span class="nav-number">9.</span> <span class="nav-text">重命名文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重命名文件夹"><span class="nav-number">10.</span> <span class="nav-text">重命名文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制文件"><span class="nav-number">11.</span> <span class="nav-text">复制文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制文件夹和剪切操作之后再做补充"><span class="nav-number">12.</span> <span class="nav-text">复制文件夹和剪切操作之后再做补充</span></a></li></ol></div>
             
 
           </div>
