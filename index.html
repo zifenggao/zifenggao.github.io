@@ -1225,6 +1225,11 @@ animation:myfirst 5s linear 2s infinite alternate;
 <h2 id="读取文件内容"><a href="#读取文件内容" class="headerlink" title="读取文件内容"></a>读取文件内容</h2><p><code>cat a.txt</code>        此命令只能在操作当前目录的文件时可用</p>
 <p><code>type a.txt</code>    此命令可跨目录使用，即可添加路径</p>
 <h2 id="打开doc文件"><a href="#打开doc文件" class="headerlink" title="打开doc文件"></a>打开doc文件</h2><p>路径没错的情况下，直接输入文件名，然后回车，即可用相应的软件将其打开</p>
+<h2 id="指定用某软件打开某文件"><a href="#指定用某软件打开某文件" class="headerlink" title="指定用某软件打开某文件"></a>指定用某软件打开某文件</h2><ul>
+<li>将要使用的软件的exe文件所在的目录添加到系统环境变量里面</li>
+<li>之后就可以用该软件打开想要打开的文件了</li>
+</ul>
+<p><code>软件名或软件名.exe 文件名.文件后缀</code></p>
 <h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p><code>del a.txt</code></p>
 <h2 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h2><p><code>del 文件夹</code></p>
 <h2 id="重命名文件"><a href="#重命名文件" class="headerlink" title="重命名文件"></a>重命名文件</h2><p><code>ren a.txt b.txt</code></p>
@@ -1233,7 +1238,12 @@ animation:myfirst 5s linear 2s infinite alternate;
 <p>将文件夹名1改为文件夹名2</p>
 <h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><p><code>copy b.txt 文件夹1</code></p>
 <p>将当前文件夹下的b.txt文件拷贝到当前文件夹下的文件夹1里面，其他操作可自行添加路径解决。</p>
-<h2 id="复制文件夹和剪切操作之后再做补充"><a href="#复制文件夹和剪切操作之后再做补充" class="headerlink" title="复制文件夹和剪切操作之后再做补充"></a>复制文件夹和剪切操作之后再做补充</h2>
+<h2 id="复制文件夹和剪切操作之后再做补充"><a href="#复制文件夹和剪切操作之后再做补充" class="headerlink" title="复制文件夹和剪切操作之后再做补充"></a>复制文件夹和剪切操作之后再做补充</h2><h2 id="查看文件夹的目录结构"><a href="#查看文件夹的目录结构" class="headerlink" title="查看文件夹的目录结构"></a>查看文件夹的目录结构</h2><ul>
+<li><code>tree</code> 可以查看当前目录及以下各级的目录结构，但是查看不了文件</li>
+<li><code>tree /f</code>可以查看对当前目录及以下各级的目录结构以及相应的文件</li>
+<li><code>tree /f &gt;123.txt</code>将查询到的文件目录结构保存在123.txt（新建）文件中</li>
+</ul>
+
           
         
       
