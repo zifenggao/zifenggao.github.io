@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -87,15 +87,17 @@
 
 
 
-<meta name="description" content="我的梦想是世界和平">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Roderic">
-<meta property="og:url" content="http://yoursite.com/categories/CSS/index.html">
+<meta name="description" content="有点标题党的感觉，因为console.log()是无法实现不换行输出的，每执行一次console.log()都会自动占据一行。不过我们可以改变我的输出思路。  用数组以及其方法：toString(),join(),reverse()来解决。  例子： 1234for(var i=0;i&amp;lt;3;i++)&amp;#123;	console.log(i);&amp;#125; 结果将是： 0 1 2 但我们想在一">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现console.log不换行输出的方法">
+<meta property="og:url" content="http://yoursite.com/2017/05/06/实现console-log不换行输出/index.html">
 <meta property="og:site_name" content="Roderic">
-<meta property="og:description" content="我的梦想是世界和平">
+<meta property="og:description" content="有点标题党的感觉，因为console.log()是无法实现不换行输出的，每执行一次console.log()都会自动占据一行。不过我们可以改变我的输出思路。  用数组以及其方法：toString(),join(),reverse()来解决。  例子： 1234for(var i=0;i&amp;lt;3;i++)&amp;#123;	console.log(i);&amp;#125; 结果将是： 0 1 2 但我们想在一">
+<meta property="og:updated_time" content="2017-05-06T12:40:36.695Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Roderic">
-<meta name="twitter:description" content="我的梦想是世界和平">
+<meta name="twitter:title" content="实现console.log不换行输出的方法">
+<meta name="twitter:description" content="有点标题党的感觉，因为console.log()是无法实现不换行输出的，每执行一次console.log()都会自动占据一行。不过我们可以改变我的输出思路。  用数组以及其方法：toString(),join(),reverse()来解决。  例子： 1234for(var i=0;i&amp;lt;3;i++)&amp;#123;	console.log(i);&amp;#125; 结果将是： 0 1 2 但我们想在一">
 
 
 
@@ -123,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/CSS/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/06/实现console-log不换行输出/"/>
 
 
 
 
 
-  <title> 分类: CSS | Roderic </title>
+  <title> 实现console.log不换行输出的方法 | Roderic </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -164,7 +166,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -292,47 +294,215 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        CSS
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/26/CSS动画入门/" itemprop="url">
-              
-                <span itemprop="name">CSS动画入门</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-26T15:45:34+08:00"
-              content="2017-04-26" >
-          04-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/实现console-log不换行输出/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                实现console.log不换行输出的方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-06T20:25:59+08:00">
+                2017-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/05/06/实现console-log不换行输出/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/05/06/实现console-log不换行输出/" class="leancloud_visitors" data-flag-title="实现console.log不换行输出的方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>有点标题党的感觉，因为console.log()是无法实现不换行输出的，每执行一次console.log()都会自动占据一行。不过我们可以改变我的输出思路。</p>
+<blockquote>
+<p>用数组以及其方法：toString(),join(),reverse()来解决。</p>
+</blockquote>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">for(var i=0;i&lt;3;i++)&#123;</div><div class="line">	console.log(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果将是：</p>
+<p>0</p>
+<p>1</p>
+<p>2</p>
+<p>但我们想在一行内输出：0,1,2或者0–&gt;1–&gt;2或者2,1,0该怎么办？相信看来最开始我说的用数组及其方法的应该已经想到了。</p>
+<p><strong>先用一个数组把想输出的内容存储下来，之后再用相关的数组方法将其打印就可以了。</strong></p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> A=[],k=<span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</div><div class="line">	A[k]=i;</div><div class="line">	k++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(A.toString());</div><div class="line"><span class="built_in">console</span>.log(A.reverse().join(<span class="string">'--&gt;'</span>));</div></pre></td></tr></table></figure>
+<p>很明显，结果将是：</p>
+<p>0,1,2</p>
+<p>2–&gt;1–&gt;0</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/29/Js实现简单排序算法/" rel="prev" title="Js实现简单排序算法">
+                Js实现简单排序算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -340,6 +510,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
 
         </div>
         
@@ -542,6 +718,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
