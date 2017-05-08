@@ -304,6 +304,209 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/Github团队协作基础教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/08/Github团队协作基础教程/" itemprop="url">
+                  Github团队协作基础教程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T15:56:54+08:00">
+                2017-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工程开发规范/" itemprop="url" rel="index">
+                    <span itemprop="name">工程开发规范</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/08/Github团队协作基础教程/" class="leancloud_visitors" data-flag-title="Github团队协作基础教程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="创建组织"><a href="#创建组织" class="headerlink" title="创建组织"></a>创建组织</h2><p>既然是团队项目，说明该项目是属于某个组织的，应该先建立一个组织，如下图：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/160407996.png" alt="mark"></p>
+<p>进入组织的创建页面，填好组织名称和接收的消息的邮箱，这里我们将组织名称命名为TestWebTeam，选免费的方案，如果是真正的公司，则就会付费去创建一个组织，因为有些内容不能公开。点击create organization即完成组织的创建。（注意组织名称不能重复，接收邮箱必须添加）</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/160953319.png" alt="mark"></p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161324292.png" alt="mark"></p>
+<p>点击创建后会进入成员邀请页 ，我们先直接点击finish跳过，只有再进行邀请。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161610631.png" alt="mark"></p>
+<p>这样组织就创建完成了。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161722340.png" alt="mark"></p>
+<h2 id="创建小组"><a href="#创建小组" class="headerlink" title="创建小组"></a>创建小组</h2><p>组织就是现实意义上的组织，一个组织内部可以有很多个小组，他们之间可以共享一些仓库，拥有对不同仓库不同的控制权限，我们下面来创建一个小组，比如说这小组叫Designer，即设计小组。点击team,r然后点击create new team</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161842853.png" alt="mark"></p>
+<p>进入小组创建页，填写小组名称Team name和小组描述Description,Team visibility是用户显示的内容，英语都看得懂就不说了，默认选第一个。然后点击create创建。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/162602118.png" alt="mark"></p>
+<p>这就小组创建成功了，可以通过addmember来搜索github用户添加组员</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/162653465.png" alt="mark"></p>
+<h2 id="创建和配置代码仓库权限"><a href="#创建和配置代码仓库权限" class="headerlink" title="创建和配置代码仓库权限"></a>创建和配置代码仓库权限</h2><p>组织有了，组织内部的开发小组也有了，需要的就是代码仓库了，一个组织可以有多个代码仓库，下面先创建一个，组织主页，点击创建新的仓库。（另外也可以像建个人仓库一样点击右上角的加号创建仓库，只是到时候将所属对象从个人改成目的组织就行了）</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/162830511.png" alt="mark"></p>
+<p>跟创建个人仓库没什么区别，只是owner变了，仓库名字命名为TestRepository</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/163526089.png" alt="mark"></p>
+<p>创建成功，点击setting给这个仓库指定哪些小组可以使用，并规定访问权限</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/163700530.png" alt="mark"></p>
+<p>中途会让你输入用户密码，输入就是了。然后左边选择Collaborators&amp;team、右边选择team，选择select team添加可以操作该仓库的小组。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/163917414.png" alt="mark"></p>
+<p>添加完后，可以编辑该小组使用该仓库时的权限，三个权限，既然是想让小组来用这个代码仓库，则选择write即可，admin权限将使所有小组成员变成该项目管理员，可以随意编辑该仓库的设置，慎重选择。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/164139443.png" alt="mark"></p>
+<p>下面的collaborators是添加该仓库的个人协作者（区别于小组），可自行扩展</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/164352606.png" alt="mark"></p>
+<h2 id="为小组创建Pull-Request"><a href="#为小组创建Pull-Request" class="headerlink" title="为小组创建Pull Request"></a>为小组创建Pull Request</h2><p>组织通过Pull Request进行代码检查，当你对代码进行更改时可以邀请你的小组审核你的更改并提供反馈。下面来创建一个小的Pull Request，主要是对我们之前创建的代码仓库TestRepository的README文件进行更改。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/165536228.png" alt="mark"></p>
+<p>移到最下面，添加主要提交的描述以及选择创建一个新的分支，因为我们要使用pull request，如果选第一个选项就直接合并到主分支去了</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/165745931.png" alt="mark"></p>
+<p>点击propose file change,进入open a pull prequest界面，这个页面是让你来更加详细的描述这次更改的原因，以及更改了什么地方，另外还可以用“@”来通知全体组员（就像QQ的@全体成员），让他们知道你的这次pull request</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/170536923.png" alt="mark"></p>
+<p>然后点击create pull request,这样小组的所有成员就都将知道你创建了一个pull request</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/170831194.png" alt="mark"></p>
+<h2 id="Pull-Request的作用"><a href="#Pull-Request的作用" class="headerlink" title="Pull Request的作用"></a>Pull Request的作用</h2><p>鉴于有些人可能不大清楚Pull Request的作用，下面来讲一下。</p>
+<p>要打开一个pull request必须先拥有一个带有更改的分支，所以pull request适合团队工作，因为个人的话一般会一直工作在主分支上。</p>
+<blockquote>
+<p>Pull Request用于提出对项目的更改，是一个开始提交讨论的方式，经常用于代码审查当中，如果是 一个人工作，则可能用Pull Request比较少，因为个人可以通过git命令推送更改到主分支中，并不<br> 存在其他的分支，但如果在公司项目或者开源项目这种团队工作的情况下，就必须使用Pull Request了。</p>
+</blockquote>
+<p>Pull Request是在开发者在创建一个区别于master的分支并进行相应的更改之后，想仓库管理者提出的将自己的分支（即更改内容）合并到主分支的一个请求，发出的这个请求可以被可访问这个仓库的所有人看见，并进行讨论，看是否合并、更改是否合理等等。即Pull Request用于对正在更改的代码仓库的讨论。</p>
+<p><strong>拿上面创建的pull request为例：</strong></p>
+<p>有三个视图，conversation视图用来讨论这次的更改</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/172158184.png" alt="mark"></p>
+<p>commit 提交视图包含了有关谁对这个文件进行更改的信息，每个提交都被记录到这个视图中，让我们知道提交前后发生了什么变化</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/172434240.png" alt="mark"></p>
+<p>files changed 文件更改视图，用来查看文件的更改记录。绿色表示已经添加的内容，红色表示内容被删除</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/172612618.png" alt="mark"></p>
+<p>那如何合并分支，对于公司，一般会有人来签署更改，但如果是个人在自己仓库的操作，则自己就可以进行合并操作，在coversation视图点击merge pull request就可以将这个提交合并到主分支了。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/173520039.png" alt="mark"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/实现console-log不换行输出/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1976,195 +2179,6 @@ animation:myfirst 5s linear 2s infinite alternate;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/21/“百花齐放”的前端时代/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/21/“百花齐放”的前端时代/" itemprop="url">
-                  “百花齐放”的前端时代
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-21T17:04:54+08:00">
-                2017-04-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端江湖录/" itemprop="url" rel="index">
-                    <span itemprop="name">前端江湖录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/21/“百花齐放”的前端时代/" class="leancloud_visitors" data-flag-title="“百花齐放”的前端时代">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://www.vichily.com/2017/02/28/%E7%AC%BC%E7%BB%9F%E7%9A%84%E5%89%8D%E7%AB%AF/" target="_blank" rel="external"><strong>笼统的前端</strong></a></p>
-<p>现在前端领域各种框架、库并行，新技术层出不穷，暂且称它为“繁荣”吧。</p>
-<p>对一个刚刚走进这个江湖的菜鸟来说，jQuery、Angular、React、Vue、Bootstrap、Node这些经常在各大公司招聘要求以及各大前端论坛信息中的看到词到底是什么，有什么作用，一会儿框架，一会儿库的，还有MVC、MVVM以及npm、gulp、webpack等，就像各大帮派一样，搞得人一头雾水。</p>
-<blockquote>
-<p>链接</p>
-<p><a href="http://weibo.com/p/1001603924826640228007" target="_blank" rel="external">我眼中的前端框架jQuery，Angular，React，Vue——以及我看前端架构</a></p>
-<p><a href="http://www.cnblogs.com/leolovexx/p/5691402.html" target="_blank" rel="external">浅析angular，react，vue.js，jQuery使用区别</a></p>
-<p><a href="http://blog.csdn.net/xllily_11/article/details/51782005" target="_blank" rel="external">Gulp和webpack的区别，是一种工具吗？</a></p>
-<p><a href="http://www.cnblogs.com/xz1024/p/5842623.html" target="_blank" rel="external">nodejs+gulp+webpack基础实战篇</a></p>
-</blockquote>
-<h2 id="各路英雄的见解"><a href="#各路英雄的见解" class="headerlink" title="各路英雄的见解"></a>各路英雄的见解</h2><h3 id="关于框架"><a href="#关于框架" class="headerlink" title="关于框架"></a>关于框架</h3><ul>
-<li>前端框架天下三分：Angular、React 和 Vue</li>
-<li>按照时代出场顺序排序：jQuery、Angular、React、Vue</li>
-<li>jQuery肯定要学的，Angular、React 和 Vue三个先学一个，三个都是比较类似的</li>
-<li>React，Angular,Vue三个也是没有关联相互独立的框架。使用这三个框架搭建的网站主要特点就是动态刷新，路由控制不通过后端，全是JS完成，每次跳转页面都是动态替换index.html页面root节点的内容</li>
-<li>Angular、React、Vue是Js框架，本身都是用js原生写的，就是别人把一些js的代码封装了，你调用之后就能用别人写好的方法，会方便很多，也被局限在别人的框架内部了</li>
-<li>Bootstrap是UI框架</li>
-<li>vue是国人弄出来的，官方文档都是中文，学起来比较不麻烦</li>
-<li><strong>分清楚 库，框架，构建工具、 插件的作用</strong><ul>
-<li>需要引用或者调用，就可以直接用，并不会对你做太多约束。那么这种大部分都称之为库。如jQuery</li>
-<li>需要按照他的标准构建文件结构或者文件夹结构或者代码书写方式那么这东西可以称之为框架，一般框架都是多种组合在一起的，如React+gulp 或者 jQuery mobile</li>
-<li>解决开发过程中重复或者需要自动化智能化完成事情，也就是构建工具，如grunt和gulp</li>
-<li>基于 库，框架，工具，提供的补充优化的模块就叫做插件</li>
-</ul>
-</li>
-</ul>
-<h3 id="关于工具"><a href="#关于工具" class="headerlink" title="关于工具"></a>关于工具</h3><ul>
-<li>gulp是工具链、构建工具，可以配合各种插件做js压缩，css压缩，less编译 替代手工实现自动化工作</li>
-<li>webpack是文件打包工具，可以把项目的各种js文、css文件等打包合并成一个或多个文件，主要用于模块化方案，预编译模块的方案</li>
-</ul>
-<h3 id="关于node"><a href="#关于node" class="headerlink" title="关于node"></a>关于node</h3><p>一个让我笑半天的回答<br><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170421/181221735.png" alt="mark"></p>
-<p>node到底是什么？</p>
-<ul>
-<li>让Js也可以做后端</li>
-<li>Node.js 通过用单线程取代多线程，事件驱动 I/O 来解决了高并发，取代了 Java 平台的标准</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2214,7 +2228,7 @@ animation:myfirst 5s linear 2s infinite alternate;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
