@@ -423,6 +423,9 @@
 <p>教程最后还讲了绕过用户认证登陆后进行更改密码的操作，这也不失为一种更改密码的方法，不过更改完后必须重新启动数据库服务才能生效，记住是services.msc里面的数据库服务，而不是简单地把cmd窗口打开再关掉。</p>
 <h2 id="怎么登陆"><a href="#怎么登陆" class="headerlink" title="怎么登陆"></a>怎么登陆</h2><p>在命令窗口输入：mysql -u用户名 -p密码</p>
 <p>这样就能登陆了，在此之前记得像最开始说的先启动mysql服务，另外注意-u和用户名之间没有空格，-p和密码之间也没有空格</p>
+<h2 id="查看mysql版本"><a href="#查看mysql版本" class="headerlink" title="查看mysql版本"></a>查看mysql版本</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>命令窗口下：mysql –version</p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>登录mysql后输入：status;或者输入：select version(); </p>
+<h2 id="查看端口号"><a href="#查看端口号" class="headerlink" title="查看端口号"></a>查看端口号</h2><p>登录mysql后输入：show global variables like ‘port’; </p>
 <h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><h3 id="查看当前用户下的数据库"><a href="#查看当前用户下的数据库" class="headerlink" title="查看当前用户下的数据库"></a>查看当前用户下的数据库</h3><p>show databases;</p>
 <h3 id="选中某个数据库（决定对某个数据库进行操作）"><a href="#选中某个数据库（决定对某个数据库进行操作）" class="headerlink" title="选中某个数据库（决定对某个数据库进行操作）"></a>选中某个数据库（决定对某个数据库进行操作）</h3><p>use 数据库名;</p>
 <h3 id="查看数据库中都有什么表"><a href="#查看数据库中都有什么表" class="headerlink" title="查看数据库中都有什么表"></a>查看数据库中都有什么表</h3><p>show tables;</p>
