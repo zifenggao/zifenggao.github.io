@@ -304,6 +304,225 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/用例图学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/15/用例图学习笔记/" itemprop="url">
+                  用例图学习笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:52:30+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工程开发规范/" itemprop="url" rel="index">
+                    <span itemprop="name">工程开发规范</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/15/用例图学习笔记/" class="leancloud_visitors" data-flag-title="用例图学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li>主要用来图示化系统的<strong>主事件</strong>流程</li>
+<li><strong>用例就是软件的功能模块</strong>，是设计系统分析阶段的起点</li>
+<li>描述软件应该<strong>具备哪些功能模块</strong>以及这些模块之间的<strong>调用关系</strong></li>
+<li>用例图包含“用例”和“参与者”</li>
+<li>用例之间通过关联来连接，以便把系统的整个结构和功能反映给客户</li>
+<li>对应的是软件的结构和功能分解</li>
+<li>用例之间可以抽象出：<strong>包含、扩展、泛化</strong>关系。（最常见是：关联）</li>
+<li><p>图示</p>
+<ol>
+<li>关联<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E5%85%B3%E8%81%94.jpg" alt=""></li>
+<li>包含<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E5%8C%85%E5%90%AB.jpg" alt=""></li>
+<li>扩展<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E6%89%A9%E5%B1%95.jpg" alt=""></li>
+<li><p>泛化<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E6%B3%9B%E5%8C%96.jpg" alt=""></p>
+<p><strong>示例</strong></p>
+</li>
+<li><p>包含<img src="http://dl.iteye.com/upload/picture/pic/102138/342c9970-7885-38a3-afc6-0b6ffce764bf.jpg" alt=""></p>
+</li>
+<li>扩展<img src="http://dl.iteye.com/upload/picture/pic/102136/89ac0e8e-924b-35e4-8dc7-208bde503da4.jpg" alt=""></li>
+<li>泛化<img src="http://dl.iteye.com/upload/picture/pic/102134/f63cfc6a-5dd1-388f-813a-f4a4ce1c00b3.jpg" alt=""></li>
+</ol>
+</li>
+</ul>
+<p><a href="http://hxyt20.iteye.com/blog/1246415" target="_blank" rel="external"><strong>具体讲解请戳</strong></a></p>
+<hr>
+<p><strong>组成：</strong>系统、用例、参与者、关系</p>
+<p><strong>解释</strong></p>
+<ul>
+<li>被<strong>包含</strong>的用例可以单独执行</li>
+<li>一个用例被定义为基础用例的增量扩展，称作为<strong>扩展关系</strong>，在特定的条件发生时，扩展用例才会被执行</li>
+<li><p><strong>泛化</strong>关系中，父用例往往表现为抽象用例，任何父用例出现的地方，子用例也可出现</p>
+<p>  <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/163658004.png" alt="mark"></p>
+</li>
+<li>简单说：<ul>
+<li>泛化侧重子用例之间的互斥性；</li>
+<li>包含侧重被包含用例对参与者提供服务的间接性；</li>
+<li>扩展侧重扩展用例的出发不确定性。</li>
+</ul>
+</li>
+<li>参与者种类：<ul>
+<li>系统用户</li>
+<li>与所建造的系统交互的其他系统</li>
+<li>一些可以运行的进程</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="用例图建模技术"><a href="#用例图建模技术" class="headerlink" title="用例图建模技术"></a>用例图建模技术</h2><p>分为：对语境建模、对需求建模</p>
+<p><strong>对语境建模</strong></p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/165953664.png" alt="mark"></p>
+<p><strong>对需求建模</strong></p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/170146103.png" alt="mark"></p>
+<p><strong>实现步骤</strong></p>
+<ul>
+<li>确定系统涉及的总体信息</li>
+<li>确定系统的参与者</li>
+<li>确定系统的用例</li>
+<li>绘制系统的用例图</li>
+<li><a href="https://wenku.baidu.com/view/62bc6bcce2bd960591c67734.html" target="_blank" rel="external"><em>例子</em></a></li>
+</ul>
+<p><strong>绘制步骤</strong></p>
+<ul>
+<li>添加参与者与用例</li>
+<li>添加参与者与用例之间的关系</li>
+<li>添加用例之间的关系</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/NexT主题配置进阶/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1942,7 +2161,7 @@ $git clone https://github.com/iissnan/hexo-theme-next themes/next
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -304,6 +304,197 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/Powershell基本命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/26/Powershell基本命令/" itemprop="url">
+                  Powershell基本命令
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T14:09:34+08:00">
+                2017-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/26/Powershell基本命令/" class="leancloud_visitors" data-flag-title="Powershell基本命令">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Powershell是微软在cmd基础上改进后推出的励志于提高用户开发体验的命令行程序，可以这么说，cmd有的Powershell全都有，Powershell有的cmd不全有，而且Powershell还比cmd漂亮，为什么不用呢。稍微讲下Powershell的基本命令。</p>
+<blockquote>
+<p>Powershell用的时候会出现中文乱码，用以下命令把Encoding改成UTF8即可：<br><code>$OutputEncoding = New-Object -typename System.Text.UTF8Encoding</code></p>
+</blockquote>
+<p><em>注意命令中的空格,。以下命令均默认在要进行操作的文件夹下进行，如果不是在要操作的文件目录下，请自行在操作项目前添加文件路径。</em></p>
+<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><p><code>mkdir Folder</code></p>
+<h2 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h2><p><code>dir &gt; a.txt</code></p>
+<h2 id="向文件内写入内容"><a href="#向文件内写入内容" class="headerlink" title="向文件内写入内容"></a>向文件内写入内容</h2><p><code>echo 内容 &gt; a.txt</code></p>
+<p>这种方法会覆盖掉文件原有内容，如果是追加，应用：</p>
+<p><code>echo 内容 &gt;&gt; c.txt</code></p>
+<p>这种方法，每次写入内容后面都会自动换行</p>
+<h2 id="图形化编辑txt文件"><a href="#图形化编辑txt文件" class="headerlink" title="图形化编辑txt文件"></a>图形化编辑txt文件</h2><p><code>notepad a.txt</code></p>
+<p>这会直接以记事本的形式打开指定的文件</p>
+<h2 id="读取文件内容"><a href="#读取文件内容" class="headerlink" title="读取文件内容"></a>读取文件内容</h2><p><code>cat a.txt</code>        此命令只能在操作当前目录的文件时可用</p>
+<p><code>type a.txt</code>    此命令可跨目录使用，即可添加路径</p>
+<h2 id="打开doc文件"><a href="#打开doc文件" class="headerlink" title="打开doc文件"></a>打开doc文件</h2><p>路径没错的情况下，直接输入文件名，然后回车，即可用相应的软件将其打开</p>
+<h2 id="指定用某软件打开某文件"><a href="#指定用某软件打开某文件" class="headerlink" title="指定用某软件打开某文件"></a>指定用某软件打开某文件</h2><ul>
+<li>将要使用的软件的exe文件所在的目录添加到系统环境变量里面</li>
+<li>之后就可以用该软件打开想要打开的文件了</li>
+</ul>
+<p><code>软件名或软件名.exe 文件名.文件后缀</code></p>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p><code>del a.txt</code></p>
+<h2 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h2><p><code>del 文件夹</code></p>
+<h2 id="重命名文件"><a href="#重命名文件" class="headerlink" title="重命名文件"></a>重命名文件</h2><p><code>ren a.txt b.txt</code></p>
+<p>将文件a,txt重命名为b.txt</p>
+<h2 id="重命名文件夹"><a href="#重命名文件夹" class="headerlink" title="重命名文件夹"></a>重命名文件夹</h2><p><code>ren 文件夹名1 文件夹名2</code></p>
+<p>将文件夹名1改为文件夹名2</p>
+<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><p><code>copy b.txt 文件夹1</code></p>
+<p>将当前文件夹下的b.txt文件拷贝到当前文件夹下的文件夹1里面，其他操作可自行添加路径解决。</p>
+<h2 id="复制文件夹和剪切操作之后再做补充"><a href="#复制文件夹和剪切操作之后再做补充" class="headerlink" title="复制文件夹和剪切操作之后再做补充"></a>复制文件夹和剪切操作之后再做补充</h2><h2 id="查看文件夹的目录结构"><a href="#查看文件夹的目录结构" class="headerlink" title="查看文件夹的目录结构"></a>查看文件夹的目录结构</h2><ul>
+<li><code>tree</code> 可以查看当前目录及以下各级的目录结构，但是查看不了文件</li>
+<li><code>tree /f</code>可以查看对当前目录及以下各级的目录结构以及相应的文件</li>
+<li><code>tree /f &gt;123.txt</code>将查询到的文件目录结构保存在123.txt（新建）文件中</li>
+</ul>
+<h2 id="关闭某个软件"><a href="#关闭某个软件" class="headerlink" title="关闭某个软件"></a>关闭某个软件</h2><ul>
+<li><code>taskkill /im 软件名.exe</code></li>
+<li>先输入tasklist 获取改进程的PID，假设PID号为3502， 再输入 <code>taskkill /f /pid 3502</code></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Js相等操作符/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1968,225 +2159,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/用例图学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/用例图学习笔记/" itemprop="url">
-                  用例图学习笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:52:30+08:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工程开发规范/" itemprop="url" rel="index">
-                    <span itemprop="name">工程开发规范</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/15/用例图学习笔记/" class="leancloud_visitors" data-flag-title="用例图学习笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
-<li>主要用来图示化系统的<strong>主事件</strong>流程</li>
-<li><strong>用例就是软件的功能模块</strong>，是设计系统分析阶段的起点</li>
-<li>描述软件应该<strong>具备哪些功能模块</strong>以及这些模块之间的<strong>调用关系</strong></li>
-<li>用例图包含“用例”和“参与者”</li>
-<li>用例之间通过关联来连接，以便把系统的整个结构和功能反映给客户</li>
-<li>对应的是软件的结构和功能分解</li>
-<li>用例之间可以抽象出：<strong>包含、扩展、泛化</strong>关系。（最常见是：关联）</li>
-<li><p>图示</p>
-<ol>
-<li>关联<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E5%85%B3%E8%81%94.jpg" alt=""></li>
-<li>包含<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E5%8C%85%E5%90%AB.jpg" alt=""></li>
-<li>扩展<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E6%89%A9%E5%B1%95.jpg" alt=""></li>
-<li><p>泛化<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E6%B3%9B%E5%8C%96.jpg" alt=""></p>
-<p><strong>示例</strong></p>
-</li>
-<li><p>包含<img src="http://dl.iteye.com/upload/picture/pic/102138/342c9970-7885-38a3-afc6-0b6ffce764bf.jpg" alt=""></p>
-</li>
-<li>扩展<img src="http://dl.iteye.com/upload/picture/pic/102136/89ac0e8e-924b-35e4-8dc7-208bde503da4.jpg" alt=""></li>
-<li>泛化<img src="http://dl.iteye.com/upload/picture/pic/102134/f63cfc6a-5dd1-388f-813a-f4a4ce1c00b3.jpg" alt=""></li>
-</ol>
-</li>
-</ul>
-<p><a href="http://hxyt20.iteye.com/blog/1246415" target="_blank" rel="external"><strong>具体讲解请戳</strong></a></p>
-<hr>
-<p><strong>组成：</strong>系统、用例、参与者、关系</p>
-<p><strong>解释</strong></p>
-<ul>
-<li>被<strong>包含</strong>的用例可以单独执行</li>
-<li>一个用例被定义为基础用例的增量扩展，称作为<strong>扩展关系</strong>，在特定的条件发生时，扩展用例才会被执行</li>
-<li><p><strong>泛化</strong>关系中，父用例往往表现为抽象用例，任何父用例出现的地方，子用例也可出现</p>
-<p>  <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/163658004.png" alt="mark"></p>
-</li>
-<li>简单说：<ul>
-<li>泛化侧重子用例之间的互斥性；</li>
-<li>包含侧重被包含用例对参与者提供服务的间接性；</li>
-<li>扩展侧重扩展用例的出发不确定性。</li>
-</ul>
-</li>
-<li>参与者种类：<ul>
-<li>系统用户</li>
-<li>与所建造的系统交互的其他系统</li>
-<li>一些可以运行的进程</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="用例图建模技术"><a href="#用例图建模技术" class="headerlink" title="用例图建模技术"></a>用例图建模技术</h2><p>分为：对语境建模、对需求建模</p>
-<p><strong>对语境建模</strong></p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/165953664.png" alt="mark"></p>
-<p><strong>对需求建模</strong></p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/170146103.png" alt="mark"></p>
-<p><strong>实现步骤</strong></p>
-<ul>
-<li>确定系统涉及的总体信息</li>
-<li>确定系统的参与者</li>
-<li>确定系统的用例</li>
-<li>绘制系统的用例图</li>
-<li><a href="https://wenku.baidu.com/view/62bc6bcce2bd960591c67734.html" target="_blank" rel="external"><em>例子</em></a></li>
-</ul>
-<p><strong>绘制步骤</strong></p>
-<ul>
-<li>添加参与者与用例</li>
-<li>添加参与者与用例之间的关系</li>
-<li>添加用例之间的关系</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2236,7 +2208,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
