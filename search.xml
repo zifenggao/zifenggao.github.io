@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Java入门（四）]]></title>
+      <url>%2F2017%2F05%2F28%2FJava%E5%85%A5%E9%97%A8%EF%BC%88%E5%9B%9B%EF%BC%89%2F</url>
+      <content type="text"><![CDATA[equals()与====比较的是两个值是否相等，这里的值分为两种情况： 基本类型的值，即float、double、byte、short、int、long、char、boolean这八种java的基本数据类型，这里比较的就是值本身，举个例子： 1234int a=2;int b=2;System.out.printIn(a==b);//结果:true 而对于非基本数据类型（或者说引用类型）的变量，比较的就不是“值”本身，因为引用类型的变量存储的并不是“值”本身，而是预期关联对象在内存中的地址，举个例子： 12345678910String str = new String("hello"); String str1 = new String("hello"); String str2 = new String("hello"); System.out.println(str1==str2);//结果为: false，因为str1和str2声明的是两个不同的对象，存储地址自然不同 str1 = str; str2 = str; System.out.println(str1==str2);//结果: true，因为此时str1和str2都指向了同一个对象，存储的地址相同了 equals()equals方法是基类Object中的方法，因此对于所有的继承于Object的类都会有该方法。equals比较的是两个对象的引用是否相等，即是否指向同一个对象，不过看下下面的代码： 123456789101112131415public class Main &#123; /** * @param args */ public static void main(String[] args) &#123; // TODO Auto-generated method stub String str1 = new String("hello"); String str2 = new String("hello"); System.out.println(str1.equals(str2)); &#125;&#125;//结果：true 之所以会变成这样是因为Java的equals方法在用来比较String、Double，Date，Integer等对象时，其内部对equals方法进行了重写（可以直接去看自己JDK的中String.java的源代码，确实是对equals方法进行了重写），使其用来比较指向对象所处的内容是否相等。 小结 对于==，如果作用于基本数据类型的变量，则直接比较其存储的 “值”是否相等,如果作用于引用类型的变量，则比较的是所指向的对象的地址。 对于equals方法，注意：equals方法不能作用于基本数据类型的变量如果没有对equals方法进行重写，则比较的是引用类型的变量所指向的对象的地址，诸如String、Date等类对equals方法进行了重写的话，比较的是所指向的对象的内容。 本文转载于:浅谈Java中的equals和== static、final和static final对象和对象句柄的区别1234567891011class value&#123; int i;&#125;public class EqualsMethod&#123; public static void main(string[] args)&#123; value v1=new value(); value v2=new value(); vl.i=v2.i=100; &#125;&#125; 如以上代码： value v1和value v2声明了两个value类型的句柄 然后通过new操作符实例化了v1、v2这两个对象 注意：经过上面的操作，对象是确实已经被声明且实例化出来了，但是我们并不能直接的去操纵对象实例，你可能会问，v1和v2不就是对象了吗？不是的，v1和v2只是两个标识符，代表的是两个指向对象实例的句柄，我们通过句柄访问对象实例，使用v1.i时对v1执行的对象的i进行赋值就是这个道理。它们指向的对象我们实际上是看不到的。 举个比较贴近生活的浅显易懂的例子：就好比遥控器和电视的关系，电视是对象实例，而遥控器就是这个对象的句柄，我们通过遥控器来控制电视的音量或者换台等等，电视一直摆在那，我们直接控制不了（不要钻牛角尖），而遥控器我们可以随意拿来拿去，通过它来控制电视的相关内容。另外，遥控器可以独立于电视机而存在，即句柄可以被声明出来，只是没有连接对象而已，比如：String str;，这就是声明了一个还未连接任何对象的String类型的句柄。 这样解释应该就懂了，value v1和value v2是声明了两个value类型的变量（句柄），还没有与任何对象关联，new value()则真正的产生了一个value类型的对象，使用value v1=new value();是将句柄与对象进行了绑定操作。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Linux常用命令介绍]]></title>
       <url>%2F2017%2F05%2F14%2FLinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D%2F</url>
       <content type="text"><![CDATA[Git Bash的一些命令是Linux的命令，虽然使用的是windows系统，但因为使用git bash，所以还是得了解一些常用的Linux命令操作 删除文件夹rm -rf 目录名 r表示向下递归不管多少级，一并删除；f表示直接强行删除，不说任何提示的意思 查看文件内容cat 文件名]]></content>
