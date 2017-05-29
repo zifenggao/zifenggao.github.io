@@ -304,6 +304,211 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/29/Java之异常/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/29/Java之异常/" itemprop="url">
+                  Java之异常
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-29T20:25:16+08:00">
+                2017-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/29/Java之异常/" class="leancloud_visitors" data-flag-title="Java之异常">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Java的异常处理依赖于你已经知道所调用的方法是有风险的（也就是方法可能产生异常），因此你可编写出处理此可能性的代码，如果你知道调用某个方法可能会有异常状况，你就可以与预先准备好对问题的处理程序，或者是从错误中恢复。</p>
+<p>在Java中最好将有风险的程序代码包含在try/catch块中，这样才能对异常进行捕获和处理。</p>
+<p><strong>异常是一种Exception类型的对象。</strong></p>
+<p>格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>&#123;</div><div class="line">	<span class="comment">//危险动作</span></div><div class="line">&#125;<span class="keyword">catch</span>(Exception ex)&#123;<span class="comment">//因为异常是对象，所以你catch住的也是对象。</span></div><div class="line">	<span class="comment">//尝试恢复</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="创建和抛出异常"><a href="#创建和抛出异常" class="headerlink" title="创建和抛出异常"></a>创建和抛出异常</h2><p>没错，我们不仅能写处理异常的程序，也可以自己创建和抛出异常，具体方式请往下看。</p>
+<p><strong>创建有风险、会抛出异常的程序代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeRisk</span><span class="params">()</span> <span class="keyword">throws</span> BadException </span>&#123;<span class="comment">//必须声明它会抛出BadException</span></div><div class="line">	<span class="keyword">if</span>(abandonAllHope)&#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> BadException();<span class="comment">//创建Exception对象并抛出</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>调用该方法的程序代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">crossFingers</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">try</span>&#123;</div><div class="line">		anObject.takeRisk();</div><div class="line">	&#125;<span class="keyword">catch</span>(BadException ex)&#123;</div><div class="line">		System.out.printIn(<span class="string">"Aaargh!"</span>);</div><div class="line">		ex.printStackTrace();<span class="comment">//如果无法从异常中恢复，至少也使用printStackTrace()列出有用的信息</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你有抛出异常，则一定要使用throw来声明这件事。</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>编译器不会注意RuntimeException类型的异常。RuntimeExcetion不需要声明或被包含在try/catch的块中（然而你还是可以这样做）。编译器所关心的是成为检查异常（checked exception）的异常，程序必须要认识有以上可能的存在。</li>
+<li>方法可以用trow关键系抛出异常对象：<ul>
+<li><code>throw new FileIsTooSmallException();</code></li>
+</ul>
+</li>
+<li>可能会抛出异常的方法必须声明成throws Exception</li>
+</ul>
+<h2 id="try-catch块的流程控制"><a href="#try-catch块的流程控制" class="headerlink" title="try/catch块的流程控制"></a>try/catch块的流程控制</h2><p>当你调用有风险的方法时，发生的事有两种可能的情况：</p>
+<ol>
+<li>成功的把try块完成</li>
+<li>把异常丢回调用方的方法</li>
+</ol>
+<h2 id="finally-无论如何都要执行的部分"><a href="#finally-无论如何都要执行的部分" class="headerlink" title="finally:无论如何都要执行的部分"></a>finally:无论如何都要执行的部分</h2><p>打个比方，你做菜，得把火打开，然后会有两种情况，一种是全程没问题，你顺利把菜炒完，另一种是出现状况了，比如锅漏了这种异常导致你做菜大业失败，但是不管哪种情况，发生之后都必须执行的是把炉子关掉，而关炉子这个流程就是放在finally块中的。</p>
+<p>很明显，finally块是用来存放不管有没有异常都得执行的程序。</p>
+<p><strong>格式：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>&#123;</div><div class="line">	turnOvenOn();</div><div class="line">	x.bake();</div><div class="line">&#125;<span class="keyword">catch</span>(BakingException ex)&#123;</div><div class="line">	ex.printStackTrace();</div><div class="line">&#125;<span class="keyword">finally</span>&#123;</div><div class="line">	turnOvenOff();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>值得注意的是，就酸try或catch块中有return子凌，finally还是会执行，流程调到finally然后在回到return指令，就是这么厉害。</p>
+<p>举个栗子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestExceptions</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		String test = <span class="string">"no"</span>;</div><div class="line">		<span class="comment">//String test = "yes";</span></div><div class="line">		<span class="keyword">try</span>&#123;</div><div class="line">			System.out.println(<span class="string">"start try"</span>);</div><div class="line">			doRisky(test);</div><div class="line">			System.out.println(<span class="string">"end try"</span>);</div><div class="line">		&#125; <span class="keyword">catch</span> (ScaryException se) &#123;</div><div class="line">			System.out.println(<span class="string">"scary exception"</span>);</div><div class="line">		&#125; <span class="keyword">finally</span> &#123;</div><div class="line">			System.out.println(<span class="string">"finally"</span>);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"end of main"</span>);</div><div class="line">	&#125;</div><div class="line">	 </div><div class="line">	<span class="comment">//(API中没有此类)因此要自己写ScaryException类</span></div><div class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doRisky</span><span class="params">(String test)</span> <span class="keyword">throws</span> ScaryException </span>&#123;</div><div class="line">		System.out.println(<span class="string">"start risky"</span>);</div><div class="line">		<span class="keyword">if</span>(<span class="string">"yes"</span>.equals(test))&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> ScaryException();</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"end risky"</span>);</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果为：</p>
+<pre>
+start try
+start risky
+end risky
+end try
+finally
+end of main
+
+若第三行改为“String test = "no";”则结果应为：
+start try
+start risky
+scary exception
+finally
+end of main
+</pre>
+
+<h2 id="多重异常"><a href="#多重异常" class="headerlink" title="多重异常"></a>多重异常</h2><p>如果有必要，方法可以排除多个异常。但该方法的声明必须要有含有全部可能的检查异常（若两个或两个以上的异常有共同的父类是，可以只声明该父类就行）</p>
+<p>格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Laundry</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doLaundry</span><span class="params">()</span> <span class="keyword">throws</span> PantsException,LingerieException</span>&#123;</div><div class="line">		<span class="comment">//有可能抛出两个异常的程序代码</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;</div><div class="line">		Laundry laundry=<span class="keyword">new</span> Laundry();</div><div class="line">		<span class="keyword">try</span>&#123;</div><div class="line">			laundry.doLaundry();</div><div class="line">		&#125;<span class="keyword">catch</span>(PantsException pex)&#123;</div><div class="line">			<span class="comment">//恢复程序代码</span></div><div class="line">		&#125;<span class="keyword">catch</span>(LingerieException pex)&#123;</div><div class="line">			<span class="comment">//恢复程序代码</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/29/Java入门（五）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -510,7 +715,22 @@
 </ul>
 </li>
 </ul>
-<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2>
+<h3 id="一个类可以实现多个接口吗？"><a href="#一个类可以实现多个接口吗？" class="headerlink" title="一个类可以实现多个接口吗？"></a>一个类可以实现多个接口吗？</h3><p>答案是肯定可以的，接口本身就是解决多重继承衍生的产物，如果不能实现多个接口那接口姐没有什么意义了。</p>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//A接口</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">A</span></span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getA</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//B接口</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">B</span></span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getB</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//实现了某个接口必须实现其全部的方法</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImpAB</span> <span class="keyword">implements</span> <span class="title">A</span>,<span class="title">B</span></span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getA</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getB</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><p>将一个类定义在另一个类里面，里面的那个类就称为内部类</p>
+<ul>
+<li>内部类可以直接访问外部类的成员，包括私有成员</li>
+<li>外部类要访问内部类的成员，必须要建立内部类的对象</li>
+<li>内部类仍然是一个独立的类，在编译之后会内部类会被编译成独立的.class文件，<strong>但是前面冠以外部类的类名和$符号</strong></li>
+<li>内部类不能用普通的方式访问。内部类是外部类的一个成员，因此内部类可以自由地访问外部类的成员变量，无论是否是private的</li>
+</ul>
+<h3 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/165848405.png" alt="mark"></p>
+<h3 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/165919972.png" alt="mark"></p>
+<h3 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/165955519.png" alt="mark"></p>
+<h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/170019239.png" alt="mark"></p>
+<p>本文主要内容转载于：<a href="http://www.codeceo.com/article/java-extends.html" target="_blank" rel="external">Java 继承详解</a></p>
+
           
         
       
@@ -2016,179 +2236,6 @@ Process finished with exit code 0</pre>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/29/Js实现简单排序算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/29/Js实现简单排序算法/" itemprop="url">
-                  Js实现简单排序算法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-29T21:08:10+08:00">
-                2017-04-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/29/Js实现简单排序算法/" class="leancloud_visitors" data-flag-title="Js实现简单排序算法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这里用JavaScript实现冒泡排序、选择排序、插入排序、归并排序以及快速排序这些基本的排序算法</p>
-<p>首先我们给本文约定一个实现的框架：定义一个ArrayList类里面包含排序数组声明、数组元素添加、排序算法实现以及数组输出的方法。</p>
-<p><strong>代码框架：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ArrayList</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> array=[];</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.inputArraymember=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;   <span class="comment">//将10个大小在1~15的随机数添加到数组中</span></div><div class="line">        <span class="keyword">var</span> ins=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">            ins=<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">15</span>+<span class="number">1</span>);</div><div class="line">            array.push(ins);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.相应的排序算法=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...算法的具体实现代码...&#125;;	<span class="comment">//代码块替换部分</span></div><div class="line"></div><div class="line">    <span class="keyword">this</span>.toString=<span class="function"><span class="keyword">function</span>(<span class="params">separator</span>)</span>&#123;  <span class="comment">//将数组按指定分隔符生成字符串方便输出</span></div><div class="line">        <span class="keyword">return</span> array.join(separator);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> ArrayList();</div><div class="line">a.inputArraymember();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"随机生成的原始数组为："</span>+a.toString(<span class="string">'-'</span>));</div><div class="line">a.bubbleSort();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"排序后数组为："</span>+a.toString(<span class="string">'-'</span>));</div></pre></td></tr></table></figure>
-<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>用两层循环，第一层用来记录剩余的还未排序的数的个数，第二层用来在剩下的未排序的数中找到最大的数并将其放到未排序数的最后面（冒泡）。</p>
-<p>代码实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.bubbleSort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">	<span class="keyword">var</span> length=array.length;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;length;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;length<span class="number">-1</span>-i;j++)&#123;</div><div class="line">			<span class="keyword">if</span>(array[j]&gt;array[j+<span class="number">1</span>])&#123;</div><div class="line">				<span class="keyword">var</span> t=array[j];	array[j]=array[j+<span class="number">1</span>];array[j+<span class="number">1</span>]=t;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>冒泡排序的时间复杂度是O(n&sup2;)。将以上代码替换文章开始约定的代码框架中的“代码块替换部分”即可用于在调试工具中运行查看代码运行结果。</p>
-<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>思路很简单，每次都找出未排序的数当中最小的数并放在开头，直到所有数的位置确定下来。说清楚点就是从所有序列中先找到最小的，然后放到第一个位置。之后再看剩余元素中最小的，放到第二个位置……以此类推。</p>
-<p>代码实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.selectsort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> length=array.length,currentMin;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;length<span class="number">-1</span>;i++)&#123;	<span class="comment">//每循环一趟就会有一个数得到排序</span></div><div class="line">       currentMin=i;		<span class="comment">//用来记录最小数的下标，默认为最开始的未排序的元素下标</span></div><div class="line">       <span class="keyword">for</span>(<span class="keyword">var</span> j=i;j&lt;length;j++)&#123;</div><div class="line">           <span class="keyword">if</span>(array[currentMin]&gt;array[j])&#123;</div><div class="line">               currentMin=j;	</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(i!==currentMin)&#123;	<span class="comment">//若下标不是未排序的最开始的那个元素的下标，则将两者的值交换</span></div><div class="line">            <span class="keyword">var</span> t=array[currentMin];</div><div class="line">            array[currentMin]=array[i];</div><div class="line">            array[i]=t;</div><div class="line">        &#125;</div><div class="line">   &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>可看出，选择排序也用了两个嵌套着的循环，所以时间复杂度也是O(n&sup2;)，是一种原址排序。</p>
-<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>从第二个数开始（因为第一个数只有一个，前面没得比。），与前面的数挨个比较，直到找到前一个数比当前值小，后一个数比当前值大的位置，让后将当前值置于此处，以此类推。</p>
-<p>代码实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.insertsort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> length=array.length, j,temp;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;length;i++)&#123;</div><div class="line">        j=i;</div><div class="line">        temp=array[i];	<span class="comment">//先存储待比较的数</span></div><div class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span>&amp;&amp;array[j<span class="number">-1</span>]&gt;temp)&#123;	<span class="comment">//如果这个数比上一个数小，则让上一个数占据现在这个数的位置（右移每个比当前数小的数）</span></div><div class="line">            array[j]=array[j<span class="number">-1</span>];</div><div class="line">            j--</div><div class="line">        &#125;</div><div class="line">        array[j]=temp;	<span class="comment">//直到这个数不比上一个数小的时候，将这个数放在当前的位置</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>时间复杂度为O(nlogn)。归并用的是分治的思想，将原始数组切分成较小的数组，直到每个小数组只有一个位置，接着讲小数组归并成较大的数组，直到最后只有一个排序完毕的大数组。</p>
-<p>代码实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">this</span>.mergeSort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">       array = mergeSortRec(array);</div><div class="line">   &#125;;</div><div class="line"></div><div class="line"><span class="comment">//建堆函数，将数组一直拆分成两部分，直到各部分数组长度都为1的时候停止，然后进行merge操作</span></div><div class="line">   <span class="keyword">var</span> mergeSortRec = <span class="function"><span class="keyword">function</span>(<span class="params">array</span>)</span>&#123;</div><div class="line">       <span class="keyword">var</span> length = array.length;</div><div class="line">       <span class="keyword">if</span> (length === <span class="number">1</span>) &#123;</div><div class="line">           <span class="keyword">return</span> array;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">var</span> mid = <span class="built_in">Math</span>.floor(length / <span class="number">2</span>),</div><div class="line">           left = array.slice(<span class="number">0</span>, mid),<span class="comment">//slice() 方法可从已有的数组中返回选定的元素,语法 arrayObject.slice(start,end)</span></div><div class="line">           right = array.slice(mid, length);</div><div class="line"></div><div class="line">       <span class="keyword">return</span> merge(mergeSortRec(left), mergeSortRec(right));</div><div class="line">   &#125;;</div><div class="line"></div><div class="line"><span class="comment">//将各部分进行归并</span></div><div class="line">   <span class="keyword">var</span> merge = <span class="function"><span class="keyword">function</span>(<span class="params">left, right</span>) </span>&#123;</div><div class="line">       <span class="keyword">var</span> result = [],</div><div class="line">           il = <span class="number">0</span>,</div><div class="line">           ir = <span class="number">0</span>;</div><div class="line">       <span class="keyword">while</span>(il &lt; left.length &amp;&amp; ir &lt; right.length) &#123;</div><div class="line">           <span class="keyword">if</span> (left[il] &lt; right[ir]) &#123;</div><div class="line">               result.push(left[il++]);</div><div class="line">           &#125; <span class="keyword">else</span> &#123;</div><div class="line">               result.push(right[ir++]);</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">	<span class="comment">//如果il数组还有剩余，则将其剩余部分添加到结果数组中</span></div><div class="line">       <span class="keyword">while</span> (il &lt; left.length) &#123;</div><div class="line">           result.push(left[il++]);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">	<span class="comment">//如果ir数组还有剩余，则将其剩余部分添加到结果数组中</span></div><div class="line">       <span class="keyword">while</span> (ir &lt; right.length) &#123;</div><div class="line">           result.push(right[ir++]);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> result;</div><div class="line">   &#125;;</div></pre></td></tr></table></figure>
-<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>时间复杂度为O(logn)。用的是分治的思想。</p>
-<p>代码实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">this</span>.quickSort = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      quick(array,  <span class="number">0</span>, array.length - <span class="number">1</span>);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> partition = <span class="function"><span class="keyword">function</span>(<span class="params">array, left, right</span>) </span>&#123;	<span class="comment">//划分过程</span></div><div class="line"></div><div class="line"><span class="comment">//主元的选择方法最好是随机选择一个数组想或是选择中间项，这里选择中间项</span></div><div class="line">      <span class="keyword">var</span> pivot = array[<span class="built_in">Math</span>.floor((right + left) / <span class="number">2</span>)],</div><div class="line">          i = left,</div><div class="line">          j = right;</div><div class="line"></div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'pivot is '</span> + pivot + <span class="string">'; left is '</span> + left + <span class="string">'; right is '</span> + right);</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (i &lt;= j) &#123;</div><div class="line">          <span class="keyword">while</span> (array[i] &lt; pivot) &#123;</div><div class="line">              i++;</div><div class="line">              <span class="built_in">console</span>.log(<span class="string">'i = '</span> + i);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          <span class="keyword">while</span> (array[j] &gt; pivot) &#123;</div><div class="line">              j--;</div><div class="line">              <span class="built_in">console</span>.log(<span class="string">'j = '</span> + j);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          <span class="keyword">if</span> (i &lt;= j) &#123;</div><div class="line">              <span class="built_in">console</span>.log(<span class="string">'swap '</span> + array[i] + <span class="string">' with '</span> + array[j]);</div><div class="line">              swapQuickStort(array, i, j);</div><div class="line">              i++;</div><div class="line">              j--;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> i;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> swapQuickStort = <span class="function"><span class="keyword">function</span>(<span class="params">array, index1, index2</span>)</span>&#123;</div><div class="line">      <span class="keyword">var</span> aux = array[index1];</div><div class="line">      array[index1] = array[index2];</div><div class="line">      array[index2] = aux;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> quick = <span class="function"><span class="keyword">function</span>(<span class="params">array, left, right</span>)</span>&#123;<span class="comment">//将子数组分离为较小值数组和较大值数组</span></div><div class="line"></div><div class="line">      <span class="keyword">var</span> index;</div><div class="line"></div><div class="line">      <span class="keyword">if</span> (array.length &gt; <span class="number">1</span>) &#123;</div><div class="line"></div><div class="line">          index = partition(array, left, right);</div><div class="line"></div><div class="line">          <span class="keyword">if</span> (left &lt; index - <span class="number">1</span>) &#123;</div><div class="line">              quick(array, left, index - <span class="number">1</span>);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          <span class="keyword">if</span> (index &lt; right) &#123;</div><div class="line">              quick(array, index, right);</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> array;</div><div class="line">  &#125;;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2238,7 +2285,7 @@ Process finished with exit code 0</pre>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

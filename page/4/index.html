@@ -304,6 +304,172 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/WampServer 3.0环境配置问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/15/WampServer 3.0环境配置问题/" itemprop="url">
+                  WampServer 3.0环境配置问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:07:59+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/15/WampServer 3.0环境配置问题/" class="leancloud_visitors" data-flag-title="WampServer 3.0环境配置问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在网上直接搜“WampServer 3.0”配置，不要只搜“WampServer配置”，因为这样收到的很多都是旧版本的教程，新版本的配置方法略有差别</p>
+<p>配置包括：</p>
+<ul>
+<li>Apache根目录的改变</li>
+<li>Wamp根目录的改变（此版本还要更改虚拟主机配置文件中的虚拟主机根目录才能奏效），具体的看教程</li>
+</ul>
+<p>还有一个问题是：“wampserver 主页里点击“Your Projects”下面项目名，显示错误的问题。”解决这个问题需要更改Wamp根目录下的index.php文件中的路径代码，具体方法如下：</p>
+<ul>
+<li>进入index.php文件，（wamp 3.0.6是在第445行），搜索<code>$projectContents</code>(这是YourProjects文件内容的相关变量)，在搜索结果里，找到一行代码中以<code>$projectContents.=&#39;http://&#39;.$UrlPort.&#39;</code>开头的，改成<code>$projectContents .= &#39;http://localhost&#39;.$UrlPort.&#39;/&#39;.$file.&#39;/&quot;&#39;;</code>如图：</li>
+<li><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170412/092344122.png" alt="mark"></li>
+<li>这样子就可以了。</li>
+</ul>
+<h2 id="如何让Wampserver允许局域网甚至是外网访问？"><a href="#如何让Wampserver允许局域网甚至是外网访问？" class="headerlink" title="如何让Wampserver允许局域网甚至是外网访问？"></a>如何让Wampserver允许局域网甚至是外网访问？</h2><p><a href="http://jingyan.baidu.com/article/acf728fd556c93f8e410a344.html" target="_blank" rel="external">看这里</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/php环境问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -865,7 +1031,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
