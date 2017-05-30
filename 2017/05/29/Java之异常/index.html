@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/29/Java之异常/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="简介Java的异常处理依赖于你已经知道所调用的方法是有风险的（也就是方法可能产生异常），因此你可编写出处理此可能性的代码，如果你知道调用某个方法可能会有异常状况，你就可以与预先准备好对问题的处理程序，或者是从错误中恢复。 在Java中最好将有风险的程序代码包含在try/catch块中，这样才能对异常进行捕获和处理。 异常是一种Exception类型的对象。 格式： 12345try&amp;#123;	/">
-<meta property="og:updated_time" content="2017-05-29T16:32:07.005Z">
+<meta property="og:updated_time" content="2017-05-30T02:23:35.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java之异常">
 <meta name="twitter:description" content="简介Java的异常处理依赖于你已经知道所调用的方法是有风险的（也就是方法可能产生异常），因此你可编写出处理此可能性的代码，如果你知道调用某个方法可能会有异常状况，你就可以与预先准备好对问题的处理程序，或者是从错误中恢复。 在Java中最好将有风险的程序代码包含在try/catch块中，这样才能对异常进行捕获和处理。 异常是一种Exception类型的对象。 格式： 12345try&amp;#123;	/">
@@ -419,7 +419,7 @@
       
 
       
-        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Java的异常处理依赖于你已经知道所调用的方法是有风险的（也就是方法可能产生异常），因此你可编写出处理此可能性的代码，如果你知道调用某个方法可能会有异常状况，你就可以与预先准备好对问题的处理程序，或者是从错误中恢复。</p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Java的异常处理依赖于你已经知道所调用的方法是有风险的（也就是方法可能产生异常），因此你可编写出处理此可能性的代码，如果你知道调用某个方法可能会有异常状况，你就可以与预先准备好对问题的处理程序，或者是从错误中恢复。</p>
 <p>在Java中最好将有风险的程序代码包含在try/catch块中，这样才能对异常进行捕获和处理。</p>
 <p><strong>异常是一种Exception类型的对象。</strong></p>
 <p>格式：</p>
@@ -471,6 +471,20 @@ end of main
 <h2 id="多重异常"><a href="#多重异常" class="headerlink" title="多重异常"></a>多重异常</h2><p>如果有必要，方法可以排除多个异常。但该方法的声明必须要有含有全部可能的检查异常（若两个或两个以上的异常有共同的父类是，可以只声明该父类就行）</p>
 <p>格式：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Laundry</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doLaundry</span><span class="params">()</span> <span class="keyword">throws</span> PantsException,LingerieException</span>&#123;</div><div class="line">		<span class="comment">//有可能抛出两个异常的程序代码</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;</div><div class="line">		Laundry laundry=<span class="keyword">new</span> Laundry();</div><div class="line">		<span class="keyword">try</span>&#123;</div><div class="line">			laundry.doLaundry();</div><div class="line">		&#125;<span class="keyword">catch</span>(PantsException pex)&#123;</div><div class="line">			<span class="comment">//恢复程序代码</span></div><div class="line">		&#125;<span class="keyword">catch</span>(LingerieException pex)&#123;</div><div class="line">			<span class="comment">//恢复程序代码</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="异常具有多态性"><a href="#异常具有多态性" class="headerlink" title="异常具有多态性"></a>异常具有多态性</h2><p>是基于类的继承关系得来的，父类或者子类的异常可以直接catch父类的异常来包含所有异常，catch子类的异常则只能用来处理子类的异常，对父类的不起作用。但是这也不意味着就可以都直接catch父类的异常来省去catch子类异常的步骤，因为直接catch父类的异常会导致不知道是哪个子类发生的异常，你会搞不清到底哪里出错了。</p>
+<h2 id="有多个catch块时要从大到小排列"><a href="#有多个catch块时要从大到小排列" class="headerlink" title="有多个catch块时要从大到小排列"></a>有多个catch块时要从大到小排列</h2><p>“从大到小”指的是按照类的继承关系，从最下面的子类放第一个位置，最开始的父类放最下面。兄弟之间次序不重要，可以随便放。</p>
+<h2 id="duck异常"><a href="#duck异常" class="headerlink" title="duck异常"></a>duck异常</h2><p>没错，不想处理的异常可以duck（躲避）掉。</p>
+<p>方法时让调用的方法抛出异常，让调用那个方法的方法也抛出异常，就像踢皮球一样，不去管那个异常，只管抛出去，自己不管。既然都不管，这样踢来踢去最后只能落到Java虚拟机上，而Java虚拟机并不在意异常，所以程序就能编译通过。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	Laundry laundry=<span class="keyword">new</span> Laundry();</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span> <span class="keyword">throws</span> ClothingException</span>&#123;</div><div class="line">		laundry.doLaundry();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClothingException</span>&#123;</div><div class="line">		Washer a=<span class="keyword">new</span> Washer();</div><div class="line">		a.foo();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上代码如果将main函数里的<code>throws ClothingException</code>去掉，即没有duck掉异常，则无法通过编译，还会出现“unzepozted eception”的错误信息。如果不想duck掉，就老老实实用try/catch块将<code>a.foo()</code>这一危险操作包起来。</p>
+<h2 id="异常处理的结构规则"><a href="#异常处理的结构规则" class="headerlink" title="异常处理的结构规则"></a>异常处理的结构规则</h2><ul>
+<li>catch与finally不能没有try</li>
+<li>try与catch之间不能有程序</li>
+<li>try一定要有catch或finally</li>
+<li>只带有finally的try必须要声明异常</li>
+</ul>
+<p>栗子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> <span class="keyword">throws</span> FooException</span>&#123;<span class="comment">//只带有finally的try</span></div><div class="line">	<span class="keyword">try</span>&#123;</div><div class="line">		x.doStuff();	</div><div class="line">	&#125;<span class="keyword">finally</span>&#123;  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -512,6 +526,10 @@ end of main
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/30/Java之线程/" rel="next" title="Java之线程">
+                <i class="fa fa-chevron-left"></i> Java之线程
+              </a>
             
           </div>
 
@@ -595,7 +613,7 @@ end of main
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -663,7 +681,7 @@ end of main
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和抛出异常"><span class="nav-number"></span> <span class="nav-text">创建和抛出异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-catch块的流程控制"><span class="nav-number"></span> <span class="nav-text">try/catch块的流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#finally-无论如何都要执行的部分"><span class="nav-number"></span> <span class="nav-text">finally:无论如何都要执行的部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多重异常"><span class="nav-number"></span> <span class="nav-text">多重异常</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和抛出异常"><span class="nav-number">2.</span> <span class="nav-text">创建和抛出异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-catch块的流程控制"><span class="nav-number">3.</span> <span class="nav-text">try/catch块的流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#finally-无论如何都要执行的部分"><span class="nav-number">4.</span> <span class="nav-text">finally:无论如何都要执行的部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多重异常"><span class="nav-number">5.</span> <span class="nav-text">多重异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常具有多态性"><span class="nav-number">6.</span> <span class="nav-text">异常具有多态性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有多个catch块时要从大到小排列"><span class="nav-number">7.</span> <span class="nav-text">有多个catch块时要从大到小排列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#duck异常"><span class="nav-number">8.</span> <span class="nav-text">duck异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理的结构规则"><span class="nav-number">9.</span> <span class="nav-text">异常处理的结构规则</span></a></li></ol></div>
             
 
           </div>
