@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/10/Mysql数据库基本使用/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="太久没有用命令行操作Mysql,今天有个项目想用下都不知道怎么用了，都是些最近本的东西，把这些坑记下来吧。  记得本地的Mysql数据库服务（当然下面要将的第一条是要求不能启动，我说的是正常操作的情况下，的启动Mysql服务才行），启动方法是，win+R代开运行窗口之后输入services.msc，打开服务功能视图，找到MySQL那个选项，将它启动就可以了。  忘记登录密码怎么办直接看这里吧，挺好">
-<meta property="og:updated_time" content="2017-05-10T10:22:51.052Z">
+<meta property="og:updated_time" content="2017-06-03T16:38:07.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql数据库基本使用">
 <meta name="twitter:description" content="太久没有用命令行操作Mysql,今天有个项目想用下都不知道怎么用了，都是些最近本的东西，把这些坑记下来吧。  记得本地的Mysql数据库服务（当然下面要将的第一条是要求不能启动，我说的是正常操作的情况下，的启动Mysql服务才行），启动方法是，win+R代开运行窗口之后输入services.msc，打开服务功能视图，找到MySQL那个选项，将它启动就可以了。  忘记登录密码怎么办直接看这里吧，挺好">
@@ -426,6 +426,7 @@
 <h2 id="忘记登录密码怎么办"><a href="#忘记登录密码怎么办" class="headerlink" title="忘记登录密码怎么办"></a>忘记登录密码怎么办</h2><p><a href="http://jingyan.baidu.com/article/454316ab4e9e65f7a7c03ad1.html" target="_blank" rel="external">直接看这里吧，挺好的一个教程</a></p>
 <p>教程中是还要进到mysql安装目录的bin文件夹下，运行mysql.exe，这是没有添加系统环境变量的缘故，把bin文件夹的目录路径添加到环境变量的path中就行，具体过程就不多说了，自己百度。添加了之后，就能在cmd的任意地方输入mysql登陆命令直接登陆mysql而不用一定得在bin目录下才可以。</p>
 <p>教程最后还讲了绕过用户认证登陆后进行更改密码的操作，这也不失为一种更改密码的方法，不过更改完后必须重新启动数据库服务才能生效，记住是services.msc里面的数据库服务，而不是简单地把cmd窗口打开再关掉。</p>
+<p>注意，mysql数据库初始状态有个示例账户，是不需要账户名和密码就能登陆的，但是数据库却只有示例的数据库，并不是真正的账户里面的数据库信息。所以不要在命令行输入mysql后出现mysql欢迎信息就以为自己已经成功登陆了，其实只是个让你来看看mysql示例数据库的账号而已。虽然也可以用，但是还是自己的账号好，毕竟自己的账号有用户名和密码，你用个没名没分的账号来操作数据库心里也难免有种不安全感。</p>
 <h2 id="怎么登陆"><a href="#怎么登陆" class="headerlink" title="怎么登陆"></a>怎么登陆</h2><p>在命令窗口输入：mysql -u用户名 -p密码</p>
 <p>这样就能登陆了，在此之前记得像最开始说的先启动mysql服务，另外注意-u和用户名之间没有空格，-p和密码之间也没有空格</p>
 <h2 id="查看mysql版本"><a href="#查看mysql版本" class="headerlink" title="查看mysql版本"></a>查看mysql版本</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>命令窗口下：mysql –version</p>
