@@ -304,6 +304,274 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/28/Java入门（四）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/28/Java入门（四）/" itemprop="url">
+                  Java入门（四）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-28T11:26:42+08:00">
+                2017-05-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/28/Java入门（四）/" class="leancloud_visitors" data-flag-title="Java入门（四）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="equals-与"><a href="#equals-与" class="headerlink" title="equals()与=="></a>equals()与==</h2><h3 id=""><a href="#" class="headerlink" title="=="></a>==</h3><p>比较的是两个值是否相等，这里的值分为两种情况：</p>
+<p>基本类型的值，即float、double、byte、short、int、long、char、boolean这八种java的基本数据类型，这里比较的就是值本身，举个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a=<span class="number">2</span>;</div><div class="line"><span class="keyword">int</span> b=<span class="number">2</span>;</div><div class="line">System.out.printIn(a==b);<span class="comment">//结果:true</span></div></pre></td></tr></table></figure>
+<p>而对于非基本数据类型（或者说引用类型）的变量，比较的就不是“值”本身，因为引用类型的变量存储的并不是“值”本身，而是预期关联对象在内存中的地址，举个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">String str = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">   String str1 = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">   String str2 = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">       </div><div class="line">   System.out.println(str1==str2);<span class="comment">//结果为: false，因为str1和str2声明的是两个不同的对象，存储地址自然不同</span></div><div class="line">       </div><div class="line">   str1 = str;</div><div class="line">   str2 = str;</div><div class="line">   System.out.println(str1==str2);<span class="comment">//结果: true，因为此时str1和str2都指向了同一个对象，存储的地址相同了</span></div></pre></td></tr></table></figure>
+<h3 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h3><p>equals方法是基类Object中的方法，因此对于所有的继承于Object的类都会有该方法。equals比较的是两个对象的引用是否相等，即是否指向同一个对象，不过看下下面的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> args</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">        </div><div class="line">        String str1 = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">        String str2 = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">        </div><div class="line">        System.out.println(str1.equals(str2));</div><div class="line">    &#125;</div><div class="line">&#125;<span class="comment">//结果：true</span></div></pre></td></tr></table></figure>
+<p>之所以会变成这样是因为Java的equals方法在用来比较String、Double，Date，Integer等对象时，其内部对equals方法进行了重写（可以直接去看自己JDK的中String.java的源代码，确实是对equals方法进行了重写），使其用来比较指向对象所处的内容是否相等。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ol>
+<li>对于==，如果作用于基本数据类型的变量，则直接比较其存储的 “值”是否相等,如果作用于引用类型的变量，则比较的是所指向的对象的地址。</li>
+<li>对于equals方法，注意：equals方法不能作用于基本数据类型的变量如果没有对equals方法进行重写，则比较的是引用类型的变量所指向的对象的地址，诸如String、Date等类对equals方法进行了重写的话，比较的是所指向的对象的内容。</li>
+</ol>
+<p>本节内容转载于:<a href="http://www.cnblogs.com/dolphin0520/p/3592500.html" target="_blank" rel="external">浅谈Java中的equals和==</a></p>
+<h2 id="static、final和static-final"><a href="#static、final和static-final" class="headerlink" title="static、final和static final"></a>static、final和static final</h2><h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><ol>
+<li><strong>final类不能被继承，没有子类，final类中的方法默认是final的</strong><ul>
+<li>在设计类时候，如果这个类不需要有子类，类的实现细节不允许改变，并且确信这个类不会再被扩展，那么就设计为final类</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>final方法不能被子类的方法覆盖，但可以被继承</strong><ul>
+<li>如果一个类不允许其子类覆盖某个方法，则可以把这个方法声明为final方法</li>
+<li>把方法锁定，防止任何继承类修改它的意义和实现</li>
+<li>高效。编译器在遇到调用final方法时候会转入内嵌机制，大大提高执行效率</li>
+</ul>
+</li>
+<li><strong>final成员变量表示常量，只能被赋值一次，赋值后值不再改变</strong><ul>
+<li>final修饰的变量有三种：静态变量、实例变量和局部变量，分别表示三种类型的常量</li>
+<li>final变量定义的时候，可以先声明，而不给初值，这中变量也称为final空白，无论什么情况，编译器都确保空白final在使用之前必须被初始化。但是，final空白在final关键字final的使用上提供了更大的灵活性，为此，一个类中的final数据成员就可以实现依对象而有所不同，却有保持其恒定不变的特征</li>
+</ul>
+</li>
+<li><strong>final不能用于修饰构造方法</strong></li>
+<li><strong>父类的private成员方法是不能被子类方法覆盖的，因此private类型的方法默认是final类型的</strong></li>
+<li><strong>当函数参数为final类型时，你可以读取使用该参数，但是无法改变该参数的值</strong></li>
+</ul>
+<p><strong>例子</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//关于用final修饰方法的情况</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123; </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">    <span class="comment">// TODO 自动生成方法存根 </span></div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f1</span><span class="params">()</span> </span>&#123; </div><div class="line">    System.out.println(<span class="string">"f1"</span>); </div><div class="line">&#125; </div><div class="line"><span class="comment">//无法被子类覆盖的方法 </span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">f2</span><span class="params">()</span> </span>&#123; </div><div class="line">    System.out.println(<span class="string">"f2"</span>); </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f3</span><span class="params">()</span> </span>&#123; </div><div class="line">    System.out.println(<span class="string">"f3"</span>); </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">f4</span><span class="params">()</span> </span>&#123; </div><div class="line">    System.out.println(<span class="string">"f4"</span>); </div><div class="line">&#125; </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> <span class="keyword">extends</span> <span class="title">Test1</span> </span>&#123;   </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f1</span><span class="params">()</span></span>&#123;     </div><div class="line">    System.out.println(<span class="string">"Test1父类方法f1被覆盖!"</span>); </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">    Test2 t=<span class="keyword">new</span> Test2(); </div><div class="line">    t.f1();    </div><div class="line">    t.f2(); <span class="comment">//调用从父类继承过来的final方法 </span></div><div class="line">    t.f3(); <span class="comment">//调用从父类继承过来的方法 </span></div><div class="line">    <span class="comment">//t.f4(); //调用失败，无法从父类继承获得 </span></div><div class="line">&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//关于final修饰成员变量的情况</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test3</span> </span>&#123; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String S = <span class="string">"final实例变量S"</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> A = <span class="number">100</span>; </div><div class="line">        <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> B = <span class="number">90</span>; </div><div class="line"></div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> C = <span class="number">80</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> D = <span class="number">70</span>; </div><div class="line"></div><div class="line">        <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> E; <span class="comment">//final空白,必须在初始化对象的时候赋初值 </span></div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Test3</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; </div><div class="line">                E = x; </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="comment">/** </span></div><div class="line">         * <span class="doctag">@param</span> args </div><div class="line">         */ </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">                Test3 t = <span class="keyword">new</span> Test3(<span class="number">2</span>); </div><div class="line">                <span class="comment">//t.A=101;    //出错,final变量的值一旦给定就无法改变 </span></div><div class="line">                <span class="comment">//t.B=91; //出错,final变量的值一旦给定就无法改变 </span></div><div class="line">                <span class="comment">//t.C=81; //出错,final变量的值一旦给定就无法改变 </span></div><div class="line">                <span class="comment">//t.D=71; //出错,final变量的值一旦给定就无法改变 </span></div><div class="line"></div><div class="line">                System.out.println(t.A); </div><div class="line">                System.out.println(t.B); </div><div class="line">                System.out.println(t.C); <span class="comment">//不推荐用对象方式访问静态字段 </span></div><div class="line">                System.out.println(t.D); <span class="comment">//不推荐用对象方式访问静态字段 </span></div><div class="line">                System.out.println(Test3.C); </div><div class="line">                System.out.println(Test3.D); </div><div class="line">                <span class="comment">//System.out.println(Test3.E); //出错,因为E为final空白,依据不同对象值有所不同. </span></div><div class="line">                System.out.println(t.E); </div><div class="line"></div><div class="line">                Test3 t1 = <span class="keyword">new</span> Test3(<span class="number">3</span>); </div><div class="line">                System.out.println(t1.E); <span class="comment">//final空白变量E依据对象的不同而不同 </span></div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123; </div><div class="line">                System.out.println(<span class="keyword">new</span> Test3(<span class="number">1</span>).A); </div><div class="line">                System.out.println(Test3.C); </div><div class="line">                System.out.println(Test3.D); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123; </div><div class="line">                <span class="keyword">final</span> <span class="keyword">int</span> a;     <span class="comment">//final空白,在需要的时候才赋值 </span></div><div class="line">                <span class="keyword">final</span> <span class="keyword">int</span> b = <span class="number">4</span>;    <span class="comment">//局部常量--final用于局部变量的情形 </span></div><div class="line">                <span class="keyword">final</span> <span class="keyword">int</span> c;    <span class="comment">//final空白,一直没有给赋值.    </span></div><div class="line">                a = <span class="number">3</span>; </div><div class="line">                <span class="comment">//a=4;    出错,已经给赋过值了. </span></div><div class="line">                <span class="comment">//b=2; 出错,已经给赋过值了. </span></div><div class="line">        &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//关于final修饰函数参数的情况</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test4</span> </span>&#123; </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">                <span class="keyword">new</span> Test4().f1(<span class="number">2</span>); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> i)</span> </span>&#123; </div><div class="line">                <span class="comment">//i++;    //i是final类型的,值不允许改变的. </span></div><div class="line">                System.out.print(i); </div><div class="line">        &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><ul>
+<li>static表示“全局”或者“静态”的意思，用来修饰成员变量和成员方法</li>
+<li>被static修饰的成员变量和成员方法独立于该类的任何对象。也就是说，它不依赖类特定的实例，被类的所有实例共享</li>
+<li>static对象可以在它的任何对象创建之前访问，无需引用任何对象</li>
+<li>用public修饰的static成员变量和成员方法本质是全局变量和全局方法，当声明它类的对象时，不生成static变量的副本，而是类的所有实例共享同一个static变量</li>
+<li>static变量前可以有private修饰，表示这个变量可以在类的静态代码块中，或者类的其他静态成员方法中使用，但是不能在其他类中通过类名来直接引用。原因是<span style="color:red">private是访问权限限定，static表示不要实例化就可以使用</span></li>
+<li>static修饰的成员变量和成员方法习惯上称为静态变量和静态方法，可以直接通过类名来访问<ul>
+<li>用法为：<ul>
+<li>类名.静态方法名(参数列表…) </li>
+<li>类名.静态变量名</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="static变量"><a href="#static变量" class="headerlink" title="static变量"></a>static变量</h4><ul>
+<li><p>静态变量或类变量</p>
+<ul>
+<li>被static修饰的变量</li>
+<li>在内存中只有一个拷贝（节省内存），JVM只为静态分配一次内存，在加载类的过程中完成静态变量的内存分配，可用类名直接访问（方便），当然也可以通过对象来访问（但是这是不推荐的）</li>
+</ul>
+</li>
+<li><p>实例变量</p>
+<ul>
+<li>没有被static修饰的变量</li>
+<li>每创建一个实例，就会为实例变量分配一次内存，实例变量可以在内存中有多个拷贝，互不影响（灵活）</li>
+</ul>
+</li>
+</ul>
+<h4 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h4><ul>
+<li>静态方法可以直接通过类名调用，任何的实例也都可以调用，因此静态方法中不能用this和super关键字，不能直接访问所属类的实例变量和实例方法(就是不带static的成员变量和成员成员方法)，只能访问所属类的静态成员变量和成员方法。因为实例成员与特定的对象关联！</li>
+<li>因为static方法独立于任何实例，因此static方法必须被实现，而不能是抽象的abstract</li>
+</ul>
+<h4 id="static代码块"><a href="#static代码块" class="headerlink" title="static代码块"></a>static代码块</h4><ul>
+<li>也叫静态代码块</li>
+<li>是在类中独立于类成员的static语句块，可以有多个，位置可以随便放，它不在任何的方法体内，JVM加载类时会执行这些静态的代码块，如果static代码块有多个，JVM将按照它们在类中出现的先后顺序依次执行它们，每个代码块只会被执行一次</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//static代码块的例子</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test5</span> </span>&#123; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> a; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> b; </div><div class="line"></div><div class="line">        <span class="keyword">static</span> &#123; </div><div class="line">                Test5.a = <span class="number">3</span>; </div><div class="line">                System.out.println(a); </div><div class="line">                Test5 t = <span class="keyword">new</span> Test5(); </div><div class="line">                t.f(); </div><div class="line">                t.b = <span class="number">1000</span>; </div><div class="line">                System.out.println(t.b); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="keyword">static</span> &#123; </div><div class="line">                Test5.a = <span class="number">4</span>; </div><div class="line">                System.out.println(a); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">                <span class="comment">// TODO 自动生成方法存根 </span></div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="keyword">static</span> &#123; </div><div class="line">                Test5.a = <span class="number">5</span>; </div><div class="line">                System.out.println(a); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; </div><div class="line">                System.out.println(<span class="string">"hhahhahah"</span>); </div><div class="line">        &#125; </div><div class="line">&#125;</div><div class="line"><span class="comment">//结果：</span></div><div class="line"><span class="comment">//3</span></div><div class="line"><span class="comment">//hhahhahah</span></div><div class="line"><span class="comment">//1000</span></div><div class="line"><span class="comment">//4</span></div><div class="line"><span class="comment">//5</span></div></pre></td></tr></table></figure>
+<h3 id="static-final"><a href="#static-final" class="headerlink" title="static final"></a>static final</h3><ul>
+<li>static final用来修饰成员变量和成员方法，可简单理解为“全局常量”<ul>
+<li>对于变量，表示一旦给值就不可修改，并且通过类名可以访问</li>
+<li>对于方法，表示不可覆盖，并且可以通过类名直接访问</li>
+</ul>
+</li>
+<li>对于被static和final修饰过的实例常量，实例本身不能再改变了，但对于一些容器类型（比如，ArrayList、HashMap）的实例变量，不可以改变容器变量本身，但可以修改容器中存放的对象，这一点在编程中用到很多</li>
+</ul>
+<p><strong>例子</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestStaticFinal</span> </span>&#123; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String strStaticFinalVar = <span class="string">"aaa"</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> String strStaticVar = <span class="keyword">null</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String strFinalVar = <span class="keyword">null</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> intStaticFinalVar = <span class="number">0</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Integer integerStaticFinalVar = <span class="keyword">new</span> Integer(<span class="number">8</span>); </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ArrayList&lt;String&gt; alStaticFinalVar = <span class="keyword">new</span> ArrayList&lt;String&gt;(); </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123; </div><div class="line">                System.out.println(<span class="string">"-------------值处理前----------\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strStaticFinalVar="</span> + strStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strStaticVar="</span> + strStaticVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strFinalVar="</span> + strFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"intStaticFinalVar="</span> + intStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"integerStaticFinalVar="</span> + integerStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"alStaticFinalVar="</span> + alStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line"></div><div class="line"></div><div class="line">                <span class="comment">//strStaticFinalVar="哈哈哈哈";        //错误，final表示终态,不可以改变变量本身. </span></div><div class="line">                strStaticVar = <span class="string">"哈哈哈哈"</span>;                <span class="comment">//正确，static表示类变量,值可以改变. </span></div><div class="line">                <span class="comment">//strFinalVar="呵呵呵呵";                    //错误, final表示终态，在定义的时候就要初值（哪怕给个null），一旦给定后就不可再更改。 </span></div><div class="line">                <span class="comment">//intStaticFinalVar=2;                        //错误, final表示终态，在定义的时候就要初值（哪怕给个null），一旦给定后就不可再更改。 </span></div><div class="line">                <span class="comment">//integerStaticFinalVar=new Integer(8);            //错误, final表示终态，在定义的时候就要初值（哪怕给个null），一旦给定后就不可再更改。 </span></div><div class="line">                alStaticFinalVar.add(<span class="string">"aaa"</span>);        <span class="comment">//正确，容器变量本身没有变化，但存放内容发生了变化。这个规则是非常常用的，有很多用途。 </span></div><div class="line">                alStaticFinalVar.add(<span class="string">"bbb"</span>);        <span class="comment">//正确，容器变量本身没有变化，但存放内容发生了变化。这个规则是非常常用的，有很多用途。 </span></div><div class="line"></div><div class="line">                System.out.println(<span class="string">"-------------值处理后----------\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strStaticFinalVar="</span> + strStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strStaticVar="</span> + strStaticVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strFinalVar="</span> + strFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"intStaticFinalVar="</span> + intStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"integerStaticFinalVar="</span> + integerStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"alStaticFinalVar="</span> + alStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </div><div class="line">                <span class="keyword">new</span> TestStaticFinal().test(); </div><div class="line">        &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<pre>运行结果如下：
+-------------值处理前----------
+strStaticFinalVar=aaa
+strStaticVar=null
+strFinalVar=null
+intStaticFinalVar=0
+integerStaticFinalVar=8
+alStaticFinalVar=[]
+-------------值处理后----------
+strStaticFinalVar=aaa
+strStaticVar=哈哈哈哈
+strFinalVar=null
+intStaticFinalVar=0
+integerStaticFinalVar=8
+alStaticFinalVar=[aaa, bbb]
+
+Process finished with exit code 0</pre>
+
+<p>通过static final修饰的容器类型变量中所“装”的对象是可改变的。这是和一般基本类型和类类型变量差别很大的地方</p>
+<p>本节内容转载于：<a href="http://lavasoft.blog.51cto.com/62575/18771/" target="_blank" rel="external">Java关键字final、static使用总结</a></p>
+<h2 id="对象和对象句柄的区别"><a href="#对象和对象句柄的区别" class="headerlink" title="对象和对象句柄的区别"></a>对象和对象句柄的区别</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">value</span></span>&#123;</div><div class="line"> <span class="keyword">int</span> i;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EqualsMethod</span></span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(string[] args)</span></span>&#123;</div><div class="line">  value v1=<span class="keyword">new</span> value();</div><div class="line">  value v2=<span class="keyword">new</span> value();</div><div class="line">  vl.i=v2.i=<span class="number">100</span>;</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如以上代码：</p>
+<ul>
+<li>value v1和value v2声明了两个value类型的<span style="color:red"><strong>句柄</strong></span></li>
+<li>然后通过new操作符<span style="color:red"><strong>实例化</strong></span>了v1、v2这两个<span style="color:red"><strong>对象</strong></span></li>
+</ul>
+<p>注意：经过上面的操作，对象是确实已经被声明且实例化出来了，但是我们并不能直接的去操纵对象实例，你可能会问，v1和v2不就是对象了吗？不是的，v1和v2只是两个标识符，代表的是两个指向对象实例的<span style="color:red"><strong>句柄</strong></span>，我们通过句柄访问对象实例，使用v1.i时对v1执行的对象的i进行赋值就是这个道理。它们指向的对象我们实际上是看不到的。</p>
+<p><strong>举个比较贴近生活的浅显易懂的例子：</strong>就好比遥控器和电视的关系，电视是对象实例，而遥控器就是这个对象的句柄，我们通过遥控器来控制电视的音量或者换台等等，电视一直摆在那，我们直接控制不了（不要钻牛角尖），而遥控器我们可以随意拿来拿去，通过它来控制电视的相关内容。另外，遥控器可以独立于电视机而存在，即句柄可以被声明出来，只是没有连接对象而已，比如：<code>String str;</code>，这就是声明了一个还未连接任何对象的String类型的句柄。</p>
+<p>这样解释应该就懂了，value v1和value v2是声明了两个value类型的变量（句柄），还没有与任何对象关联，new value()则真正的产生了一个value类型的对象，使用<code>value v1=new value();</code>是将句柄与对象进行了绑定操作。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/Linux常用命令介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -924,6 +1192,7 @@
 <h2 id="设计灵感"><a href="#设计灵感" class="headerlink" title="设计灵感"></a>设计灵感</h2><p><a href="http://www.ui.cn/" target="_blank" rel="external">UI中国</a>前身为 iconfans,是专业的 UI 设计师交流、学习与展示的平台。会员均为职业 UI 设计师,覆盖全国互联网公司。</p>
 <p><a href="https://www.behance.net/" target="_blank" rel="external">Behance</a>著名设计社区，在上面，创意设计人士可以展示自己的作品，发现别人分享的创意作品（上面有许多质量上乘的设计作品），相互还可以进行互动（评论、关注、站内短信等）</p>
 <p><a href="http://www.lofter.com/login?urschecked=true" target="_blank" rel="external">乐乎</a>国内优质图片社交平台</p>
+<h2 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h2><p><a href="http://naotu.baidu.com" target="_blank" rel="external">百度脑图</a>画思维导图的，有棵树在那帮你保存总比放脑子里忘了好，百度脑图简单方便，还是在线的，还算不错。</p>
 
           
         
@@ -1892,199 +2161,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/HTML5-Canvas入门/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/26/HTML5-Canvas入门/" itemprop="url">
-                  HTML5 Canvas入门
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T20:01:08+08:00">
-                2017-04-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/26/HTML5-Canvas入门/" class="leancloud_visitors" data-flag-title="HTML5 Canvas入门">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Canvas元素本身没有绘图能力，所有的绘图工作必须在JavaScript内部完成。拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。</p>
-<p>直接上代码。</p>
-<h2 id="绘制2d线条"><a href="#绘制2d线条" class="headerlink" title="绘制2d线条"></a>绘制2d线条</h2><ol>
-<li><p>先在html页面下添加Canvas元素。设定画布的id和宽高。</p>
- <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"border:1px solid #000;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>用JavaScript在画布上面绘制图像</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">		 <span class="comment">//        获得画布</span></div><div class="line">		 <span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"huabu"</span>);</div><div class="line">		 <span class="comment">//        创建基于所获得画布的2d画笔</span></div><div class="line">		 <span class="keyword">var</span> pan= c.getContext(<span class="string">"2d"</span>);</div><div class="line">		 pan.moveTo(<span class="number">10</span>,<span class="number">10</span>);<span class="comment">//移动画笔</span></div><div class="line">		 pan.lineTo(<span class="number">40</span>,<span class="number">40</span>);<span class="comment">//从源点绘制到指定点（30,40）</span></div><div class="line">pan.lineTo(<span class="number">50</span>,<span class="number">100</span>);<span class="comment">//从源点绘制到指定点（50,100）</span></div><div class="line"> pan.lineTo(<span class="number">150</span>,<span class="number">20</span>);</div><div class="line">	 pan.stroke();<span class="comment">//之前是在构建，这里是把构思正式画到画布上，一定要这一步</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>结果</p>
-<p> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/211927091.png" alt="mark"></p>
-</li>
-<li><p>注意</p>
-<ul>
-<li><p>如果想绘制两条线，不能想当然的moveTo(),然后再lineTo()，应该再声明一支画笔</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pan2= c.getContext(<span class="string">"2d"</span>);</div><div class="line">			pan2.moveTo(<span class="number">40</span>,<span class="number">10</span>);</div><div class="line">pan2.lineTo(<span class="number">30</span>,<span class="number">60</span>);</div><div class="line">			pan2.lineTo(<span class="number">188</span>,<span class="number">170</span>);</div><div class="line"> 		pan2.stroke();</div></pre></td></tr></table></figure>
-</li>
-<li><p>结果：（绘制两条线）</p>
-<p>  <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/213008339.png" alt="mark"></p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="绘制圆形"><a href="#绘制圆形" class="headerlink" title="绘制圆形"></a>绘制圆形</h2><ol>
-<li><p>先在html页面下添加Canvas元素。设定画布的id和宽高。</p>
- <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"border:1px solid #000;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>用JavaScript在画布上面绘制图像</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">  	<span class="comment">//获得画布</span></div><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"huabu"</span>);</div><div class="line"><span class="keyword">var</span> pan= c.getContext(<span class="string">"2d"</span>);</div><div class="line"><span class="comment">//设置图形填充的颜色</span></div><div class="line">pan.fillStyle=<span class="string">'#00f'</span>;</div><div class="line"><span class="comment">//开始绘制图形</span></div><div class="line">pan.beginPath();</div><div class="line"><span class="comment">//arc是圆的英文前几个字母</span></div><div class="line"><span class="comment">//括号内指定（圆心x轴坐标、圆心y轴坐标、圆半径、开始角度、结束角度、顺时针(false)还是逆时针(true)）</span></div><div class="line">pan.arc(<span class="number">100</span>,<span class="number">100</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI/<span class="number">2</span>,<span class="literal">true</span>);</div><div class="line"><span class="comment">//结束绘图</span></div><div class="line">pan.closePath();</div><div class="line">pan.fill();<span class="comment">//一定要有，将构建好的图形正式填充到画布上去</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="学习以下代码"><a href="#学习以下代码" class="headerlink" title="学习以下代码"></a>学习以下代码</h3><ol>
-<li>获得2d画笔后，用beginPath()方法绘制新路径</li>
-<li>用strokeStyle指定路径颜色</li>
-<li>arc()设置圆的属性</li>
-<li><p>stroke()绘制弧线</p>
- <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML5 Canvas绘制弧线入门示例<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 添加canvas标签，并加上红色边框以便于在页面上查看 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"400px"</span> <span class="attr">height</span>=<span class="string">"300px"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid red;"</span>&gt;</span></div><div class="line">您的浏览器不支持canvas标签。</div><div class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="comment">//获取Canvas对象(画布)</span></div><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="comment">//简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误</span></div><div class="line"><span class="keyword">if</span>(canvas.getContext)&#123;  </div><div class="line">    <span class="comment">//获取对应的CanvasRenderingContext2D对象(画笔)</span></div><div class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);  </div><div class="line">    </div><div class="line">    <span class="comment">//开始一个新的绘制路径</span></div><div class="line">    ctx.beginPath();</div><div class="line">    <span class="comment">//设置弧线的颜色为蓝色</span></div><div class="line">    ctx.strokeStyle = <span class="string">"blue"</span>;</div><div class="line">    <span class="keyword">var</span> circle = &#123;</div><div class="line">        <span class="attr">x</span> : <span class="number">100</span>,    <span class="comment">//圆心的x轴坐标值</span></div><div class="line">        y : <span class="number">100</span>,    <span class="comment">//圆心的y轴坐标值</span></div><div class="line">        r : <span class="number">50</span>      <span class="comment">//圆的半径</span></div><div class="line">    &#125;;</div><div class="line">    <span class="comment">//沿着坐标点(100,100)为圆心、半径为50px的圆的顺时针方向绘制弧线</span></div><div class="line">    ctx.arc(circle.x, circle.y, circle.r, <span class="number">0</span>, <span class="built_in">Math</span>.PI / <span class="number">2</span>, <span class="literal">false</span>);    </div><div class="line">    <span class="comment">//按照指定的路径绘制弧线</span></div><div class="line">    ctx.stroke();</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="给画布添加图像"><a href="#给画布添加图像" class="headerlink" title="给画布添加图像"></a>给画布添加图像</h2><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="keyword">var</span> cxt=c.getContext(<span class="string">"2d"</span>);</div><div class="line"><span class="keyword">var</span> img=<span class="keyword">new</span> Image()</div><div class="line">img.src=<span class="string">"image.png"</span></div><div class="line"></div><div class="line"><span class="comment">//drawImage(图像元素，左上角顶点x轴坐标，左上角顶点y轴坐标)</span></div><div class="line">cxt.drawImage(img,<span class="number">0</span>,<span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2134,7 +2210,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2156,7 +2232,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
