@@ -95,7 +95,9 @@
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="Spring官网 Spring项目初始化 官方文档   Spring是通过注解的方式来表明相应对象的作用的，例如：@Controller 什么是Spring?它有哪些好处？spring是一个轻量级控制反转（IOC）和面向切面（AOP）的容器框架 它主要是为了解决企业应用开发的复杂性而诞生的  目的：解决企业级应用开发的复杂性 功能：使用基本的JavaBean代替EJB（什么是EJB） 范围：任何">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170605/163134760.png">
-<meta property="og:updated_time" content="2017-06-05T11:18:35.772Z">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170608/190401719.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170608/185512872.png">
+<meta property="og:updated_time" content="2017-06-08T14:22:24.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring框架介绍">
 <meta name="twitter:description" content="Spring官网 Spring项目初始化 官方文档   Spring是通过注解的方式来表明相应对象的作用的，例如：@Controller 什么是Spring?它有哪些好处？spring是一个轻量级控制反转（IOC）和面向切面（AOP）的容器框架 它主要是为了解决企业应用开发的复杂性而诞生的  目的：解决企业级应用开发的复杂性 功能：使用基本的JavaBean代替EJB（什么是EJB） 范围：任何">
@@ -458,11 +460,21 @@
 <li>Aspect Oriented Programming:面向切面编程</li>
 <li>一个组件A,不关心其他常用的服务组件B,但是这个组件A使用B的时候，不是组件A自身去调用，<br>而是通过配置等其他方式，列如Spring中可以通过XML配置文件。这样就使得A压根就不需要<br>知道服务组件B是怎么样的，爱存在不存在，爱怎么样存在都与Ａ无关。A只需要关心自己的业<br>务逻辑，具体A使用B的时候，配置文件去做，与具体的A组件无关。</li>
 </ul>
+<h4 id="继续探讨AOP切面编程"><a href="#继续探讨AOP切面编程" class="headerlink" title="继续探讨AOP切面编程"></a>继续探讨AOP切面编程</h4><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170608/190401719.png" alt="mark"></p>
 <h3 id="理解IOC"><a href="#理解IOC" class="headerlink" title="理解IOC"></a>理解IOC</h3><ul>
 <li>Inversion of Control：控制反转</li>
 <li>IOC（控制反转）：说的是创建对象实例的控制权从代码控制剥离到IOC容器控制，实际就是你在xml文件控制，侧重于原理。</li>
 <li>DI（依赖注入）：说的是创建对象实例时，为这个对象注入属性值或其他对象实例后，侧重于实现。</li>
 </ul>
+<h4 id="继续探讨IOC依赖注入"><a href="#继续探讨IOC依赖注入" class="headerlink" title="继续探讨IOC依赖注入"></a>继续探讨IOC依赖注入</h4><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170608/185512872.png" alt="mark"></p>
+<p><span style="color:red">所有变量的初始化不是通过自己来负责的，而是通过依赖注入的概念。Spring框架只要你定义好了一些service,它自己就能把这些处理出来。</span></p>
+<ol>
+<li>在service文件夹下定义好相应的service类，用<strong>@Service</strong>注释</li>
+<li>在其他地方，比如controller文件夹中的类声明service中弄好的类的对象时，就可以直接采用“类名+对象名”的方式来生成对象，而不用new操作。用<strong>@Autowired</strong>注释。</li>
+</ol>
+<p>即在service中声明类。在要用的地方依赖注入就可以了。</p>
+<p><strong>这样做有什么好处？</strong></p>
+<p>如果大家在一起写代码，你可以跟一个人说你给我写个什么样的service，然后我需要什么接口，等他写完后，我只要在我想用的地方直接使用就行了，不用担心怎么初始化，直接在用的地方依赖注入就可以了（直接就拥有了相关对象的句柄）。即该方式的最大好处就是：无需关心变量的初始化，只需要通过注解的方式来表示说这是来自一个秉持（不知道是什么）的对象的初始化就可以了。</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>它的核心是轻量级的IOC容器，它的目标是为J2EE应用提供了全方位的整合框架，在Spring框架<br>下实现多个子框架的组合，这些子框架之间可以彼此独立，也可以使用其他的框架方案加以代替。<br>Spring希望为企业应用提供一站式的解决方案（建议：如果是高并发大型项目，慎重使用，<br>因为项目大量使用反射机制，必定会影响性能。）</p>
 
       
@@ -507,6 +519,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/08/HTTP请求的方法/" rel="next" title="HTTP请求的方法">
+                <i class="fa fa-chevron-left"></i> HTTP请求的方法
+              </a>
             
           </div>
 
@@ -590,7 +606,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">42</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -601,7 +617,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -612,7 +628,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -658,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Spring-它有哪些好处？"><span class="nav-number">1.</span> <span class="nav-text">什么是Spring?它有哪些好处？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring本身存在的优点"><span class="nav-number">1.1.</span> <span class="nav-text">Spring本身存在的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring的优点给开发带来的好处"><span class="nav-number">1.2.</span> <span class="nav-text">Spring的优点给开发带来的好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解AOP"><span class="nav-number">1.3.</span> <span class="nav-text">理解AOP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解IOC"><span class="nav-number">1.4.</span> <span class="nav-text">理解IOC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Spring-它有哪些好处？"><span class="nav-number">1.</span> <span class="nav-text">什么是Spring?它有哪些好处？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring本身存在的优点"><span class="nav-number">1.1.</span> <span class="nav-text">Spring本身存在的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring的优点给开发带来的好处"><span class="nav-number">1.2.</span> <span class="nav-text">Spring的优点给开发带来的好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解AOP"><span class="nav-number">1.3.</span> <span class="nav-text">理解AOP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#继续探讨AOP切面编程"><span class="nav-number">1.3.1.</span> <span class="nav-text">继续探讨AOP切面编程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解IOC"><span class="nav-number">1.4.</span> <span class="nav-text">理解IOC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#继续探讨IOC依赖注入"><span class="nav-number">1.4.1.</span> <span class="nav-text">继续探讨IOC依赖注入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>
