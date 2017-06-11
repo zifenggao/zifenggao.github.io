@@ -304,6 +304,595 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/31/Java之C-S通信/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/31/Java之C-S通信/" itemprop="url">
+                  Java之C/S通信
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T20:38:09+08:00">
+                2017-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/31/Java之C-S通信/" class="leancloud_visitors" data-flag-title="Java之C/S通信">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><h3 id="使用BufferedReader从Socket上读取数据"><a href="#使用BufferedReader从Socket上读取数据" class="headerlink" title="使用BufferedReader从Socket上读取数据"></a>使用BufferedReader从Socket上读取数据</h3><ul>
+<li><p>建立对服务器的Socket连接</p>
+<p>  <code>Socket chatSocket=new Socket(&quot;127.0.0.1&quot;,5000);</code></p>
+</li>
+<li><p>建立连接到Socket上底层输入串六的InputStreamReader</p>
+<p>  <code>InputStreamReader stream=new InputStreamReader(chatSocket.getInputStream());</code></p>
+</li>
+<li><p>建立BufferedReader来读取</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">BufferedReader reader=<span class="keyword">new</span> BufferedReader(stream);</div><div class="line">String message=reader.readLine();</div></pre></td></tr></table></figure>
+<h3 id="用PrintWriter写数据到Socket"><a href="#用PrintWriter写数据到Socket" class="headerlink" title="用PrintWriter写数据到Socket"></a>用PrintWriter写数据到Socket</h3><ul>
+<li><p>对服务器建立Socket连接</p>
+<p>  <code>Socket chatSocket=new Socket(&quot;127.0.0.1&quot;,5000);</code></p>
+</li>
+<li><p>建立链接到Socket的PrintWriter</p>
+<p>  <code>PrintWriter=new PrintWriter(chatSocket.getOutputStream());</code></p>
+</li>
+<li><p>写入数据</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">writer.printIn(<span class="string">"message to send"</span>);</div><div class="line">writer.print(<span class="string">"another message"</span>);</div></pre></td></tr></table></figure>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p><strong>DailyAdviceClient客户端程序</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.net.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DailyAdviceClient</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                        Socket s = <span class="keyword">new</span> Socket(<span class="string">"127.0.0.1"</span>,<span class="number">4242</span>);</div><div class="line"></div><div class="line">                        InputStreamReader streamReader = <span class="keyword">new</span> InputStreamReader(s.getInputStream());</div><div class="line">                        BufferedReader reader = <span class="keyword">new</span> BufferedReader(streamReader);</div><div class="line"></div><div class="line">                        String advice = reader.readLine();</div><div class="line">                        System.out.println(<span class="string">"Today you should: "</span> + advice);</div><div class="line"></div><div class="line">                        reader.close();</div><div class="line">                &#125; <span class="keyword">catch</span>(IOException ex)&#123;</div><div class="line">                        ex.printStackTrace();</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arg)</span></span>&#123;</div><div class="line">                DailyAdviceClient client = <span class="keyword">new</span> DailyAdviceClient();</div><div class="line">                client.go();</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><h3 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h3><ul>
+<li><p>服务器应用程序对特定端口创建出ServerSocket</p>
+<p>  <code>ServerSocket serverSock=new ServerSocket(4242);</code></p>
+</li>
+<li><p>客户端对服务器应用程序建立Socket连接</p>
+<p>  <code>Socket sock=new Socket(&quot;190.165.1.103&quot;,4242);</code></p>
+</li>
+<li><p>服务器创建出与客户端通信的新Socket</p>
+<p>  <code>Socket sock=serverSock.accept();</code></p>
+</li>
+</ul>
+<h3 id="示例代码-1"><a href="#示例代码-1" class="headerlink" title="示例代码"></a>示例代码</h3><p><strong>DailyAdviceServer程序代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.net.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DailyAdviceServer</span> </span>&#123;</div><div class="line">        String[] adviceList = &#123;</div><div class="line">                        <span class="string">"Take smaller bites"</span>,</div><div class="line">                        <span class="string">"Go for the tight jeans,No they do NOT make you look fat."</span>,</div><div class="line">                        <span class="string">"One word: inappropriate"</span>,</div><div class="line">                        <span class="string">"Just for today, be honest. Tell your boss what you *really* think"</span>,</div><div class="line">                        <span class="string">"YOu might want to rethink that haircut"</span></div><div class="line">                        &#125;;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;</div><div class="line">                <span class="keyword">try</span>&#123;</div><div class="line">                        <span class="comment">//ServerSocket会家庭客户端对这台机器在4242端口上的请求</span></div><div class="line"></div><div class="line">                        ServerSocket serverSock = <span class="keyword">new</span> ServerSocket(<span class="number">4242</span>);</div><div class="line"></div><div class="line">                        <span class="comment">//服务器进入无穷循环等待服务客户端的请求</span></div><div class="line">                        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</div><div class="line">                                Socket sock = serverSock.accept();  <span class="comment">//这个方法会停下来等待要求到达后才会继续</span></div><div class="line"></div><div class="line">                                PrintWriter writer = <span class="keyword">new</span> PrintWriter(sock.getOutputStream());</div><div class="line">                                String advice = getAdvice();</div><div class="line">                                writer.println(advice);</div><div class="line">                                writer.close();</div><div class="line">                                System.out.println(advice);</div><div class="line">                        &#125;</div><div class="line">                &#125;<span class="keyword">catch</span>(IOException ex)&#123;</div><div class="line">                        ex.printStackTrace();</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> String <span class="title">getAdvice</span><span class="params">()</span></span>&#123;</div><div class="line">                <span class="keyword">int</span> random = (<span class="keyword">int</span>) (Math.random() * adviceList.length);</div><div class="line">                <span class="keyword">return</span> adviceList[random];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">                DailyAdviceServer server = <span class="keyword">new</span> DailyAdviceServer();</div><div class="line">                server.go();</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/30/Java之序列化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/30/Java之序列化/" itemprop="url">
+                  Java之序列化
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-30T23:55:47+08:00">
+                2017-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/30/Java之序列化/" class="leancloud_visitors" data-flag-title="Java之序列化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>序列化(serialize)</p>
+<p>先回答这几个问题：</p>
+<p><strong>序列化是干什么的？</strong></p>
+<blockquote>
+<p>简单说就是为了保存在内存中的各种对象的状态，并且可以把保存的对象状态再读出来。虽然你可以用你自己的各种各样的方法来保存Object States，但是Java给你提供一种应该比你自己好的保存对象状态的机制,那就是序列化。</p>
+</blockquote>
+<p><strong>什么情况下需要序列化?</strong></p>
+<blockquote>
+<ul>
+<li>当你想把的内存中的对象保存到一个文件中或者数据库中时候；</li>
+<li>当你想用套接字在网络上传送对象的时候；</li>
+<li>当你想通过RMI传输对象的时候；</li>
+</ul>
+</blockquote>
+<p><strong>什么是实现对象序列化？</strong></p>
+<blockquote>
+<p>对象序列化可以将一个对象保存到一个文件，可以将通过流的方式在网络上传输，可以将文件的内容读取转化为一个对象。所谓对象流也就是将对象的内容流化，可以对流化后的对象进行读写操作，也可将流化后的对象传输于网络之间。序列化是为了解决在对象流进行读写操作时引发的问题</p>
+</blockquote>
+<p><strong>如何实现对象序列化？</strong></p>
+<blockquote>
+<p>将需要被序列化的类实现<span style="color:red"><strong>serializable接口</strong></span>，该接口没有需要实现的方法，implements Serializable只是为了标注该对象是可被序列化的，然后使用一个输出流（如FileOutputStream)来构造一个ObjectOutputStream（对象流）对象，接着使用ObjectOutputStream对象的writeObject（Object obj）方法就可以将参数obj的对象写出，要恢复的话则用输入流</p>
+</blockquote>
+<h2 id="实现序列化（保存到一个文件）的步骤"><a href="#实现序列化（保存到一个文件）的步骤" class="headerlink" title="实现序列化（保存到一个文件）的步骤"></a>实现序列化（保存到一个文件）的步骤</h2><ol>
+<li><p>Make a FileOutputStream </p>
+<p>  <code>FileOutputStream fs = new FileOutputStream(&quot;foo.ser&quot;);</code></p>
+</li>
+<li><p>Make a ObjectOutputStream </p>
+<p> <code>ObjectOutputStream os = new ObjectOutputStream(fs);</code></p>
+</li>
+<li><p>write the object</p>
+ <pre>os.writeObject(myObject1); 
+ os.writeObject(myObject2); 
+ os.writeObject(myObject3);</pre>
+</li>
+<li><p>close the ObjectOutputStream</p>
+<p> <code>os.close();</code></p>
+</li>
+</ol>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Box</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> width;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> height;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWidth</span><span class="params">(<span class="keyword">int</span> width)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.width = width;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHeight</span><span class="params">(<span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.height = height;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Box myBox = <span class="keyword">new</span> Box();</div><div class="line">		myBox.setWidth(<span class="number">50</span>);</div><div class="line">		myBox.setHeight(<span class="number">30</span>);</div><div class="line"></div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			FileOutputStream fs = <span class="keyword">new</span> FileOutputStream(<span class="string">"foo.ser"</span>);</div><div class="line">			ObjectOutputStream os = <span class="keyword">new</span> ObjectOutputStream(fs);</div><div class="line">			os.writeObject(myBox);</div><div class="line">			os.close();</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception ex) &#123;</div><div class="line">			ex.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>当一个父类实现序列化，子类自动实现序列化，不需要显式实现Serializable接口；</li>
+<li>当一个对象的实例变量引用其他对象，序列化该对象时也把引用对象进行序列化；</li>
+<li>并非所有的对象都可以序列化，,至于为什么不可以，有很多原因了,比如：<ul>
+<li>安全方面的原因，比如一个对象拥有private，public等field，对于一个要传输的对象，比如写到文件，或者进行rmi传输 等等，在序列化进行传输的过程中，这个对象的private等域是不受保护的。</li>
+<li>资源分配方面的原因，比如socket，thread类，如果可以序列化，进行传输或者保存，也无法对他们进行重新的资源分配，而且也是没有必要这样实现把一个对象完全转成字节序列，方便传输。</li>
+</ul>
+</li>
+</ul>
+<p>就像你寄一箱饼干，因为体积太大，就全压成粉末紧紧地一包寄出去，这就是序列化的作用。</p>
+<p>只不过JAVA的序列化是可以完全还原的。</p>
+<p>所谓序列化其实就是将程序中的数据(对象)通过某种方式，保存到本地中。然后把Java对象转换为字节序列的过程称为对象的序列化。</p>
+<p>本文主要内容转载于：<a href="http://www.cnblogs.com/sunhaoyu/p/4581282.html" target="_blank" rel="external">java 中的序列化是什么意思?有什么好处?</a></p>
+<p><a href="http://developer.51cto.com/art/201202/317181.htm" target="_blank" rel="external"><strong>详细了解序列化</strong></a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/30/Java之AWT编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/30/Java之AWT编程/" itemprop="url">
+                  Java之AWT编程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-30T20:57:01+08:00">
+                2017-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/30/Java之AWT编程/" class="leancloud_visitors" data-flag-title="Java之AWT编程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="AWT"><a href="#AWT" class="headerlink" title="AWT"></a>AWT</h3><p>AWT 是Java基本类库的一部分,它在你的Java程序中提供了图形化用户界面,并且能够接收来自键盘,鼠标和其他输入设备的用户输入。</p>
+<p>使用AWT包，则需要import java.awt.<em>;（用于支持GUI的包还有java.swing.</em>。这里直接用java.awt.*导入，其实主要是两个包：java.awt和java.awt.event）</p>
+<h3 id="Swing"><a href="#Swing" class="headerlink" title="Swing"></a>Swing</h3><p>Swing是AWT的一个扩展。使用Swing包，则需要import Javax.swing.*;</p>
+<p>Swing容器是java.awt.Container的子类，包含用于在容器中添加或产出组件、使用布局管理器来排列组件以及设置容器边框的方法。容器通常可放置到其他容器中。<strong>对象类层次结构如下</strong></p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170530/212951658.png" alt="mark"></p>
+<h3 id="界面介绍"><a href="#界面介绍" class="headerlink" title="界面介绍"></a>界面介绍</h3><p>注意窗口和面板的区别</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170530/215150926.png" alt="mark"></p>
+<h2 id="创建窗口"><a href="#创建窗口" class="headerlink" title="创建窗口"></a>创建窗口</h2><h3 id="通过AWT"><a href="#通过AWT" class="headerlink" title="通过AWT"></a>通过AWT</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.awt.*;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyFirstFrame</span> <span class="keyword">extends</span> <span class="title">Frame</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FRAME_WIDTH = <span class="number">300</span>;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FRAME_HEIGHT = <span class="number">200</span>;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FRAME_X_ORIGIN = <span class="number">150</span>;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FRAME_Y_ORIGIN = <span class="number">250</span>;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyFirstFrame</span><span class="params">()</span> </span>&#123;</div><div class="line">		setSize(FRAME_WIDTH, FRAME_HEIGHT);</div><div class="line">		setResizable(<span class="keyword">false</span>);</div><div class="line">		setTitle(<span class="string">"Program MyFirstFrame"</span>);</div><div class="line">		setLocation(FRAME_X_ORIGIN, FRAME_Y_ORIGIN);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestMyFirstFrame</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">		MyFirstFrame frame = <span class="keyword">new</span> MyFirstFrame();</div><div class="line">		frame.setVisible(<span class="keyword">true</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="通过Swing"><a href="#通过Swing" class="headerlink" title="通过Swing"></a>通过Swing</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javax.swing.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleFrame</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;<span class="comment">//继承JFrame框架类</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SimpleFrame</span><span class="params">()</span> </span>&#123;			<span class="comment">//创建构造方法</span></div><div class="line">        <span class="keyword">super</span>(<span class="string">"Frame Title"</span>);</div><div class="line">        setSize(<span class="number">300</span>, <span class="number">100</span>);			<span class="comment">//设置框架大小</span></div><div class="line">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</div><div class="line">        setLookAndFeel();</div><div class="line">        setVisible(<span class="keyword">true</span>);	<span class="comment">//刚创建时框架是不可见的，可使用该方法使框架可见</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setLookAndFeel</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            UIManager.setLookAndFeel(</div><div class="line">                <span class="string">"com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"</span></div><div class="line">            );</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception exc) &#123;</div><div class="line">            <span class="comment">// ignore error</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        setLookAndFeel();</div><div class="line">        SimpleFrame sf = <span class="keyword">new</span> SimpleFrame();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="添加组件"><a href="#添加组件" class="headerlink" title="添加组件"></a>添加组件</h2><h3 id="通过AWT-1"><a href="#通过AWT-1" class="headerlink" title="通过AWT"></a>通过AWT</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.awt.*;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyFirstFrame</span> <span class="keyword">extends</span> <span class="title">Frame</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FRAME_WIDTH = <span class="number">300</span>;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FRAME_HEIGHT = <span class="number">200</span>;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FRAME_X_ORIGIN = <span class="number">150</span>;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> FRAME_Y_ORIGIN = <span class="number">250</span>;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BUTTON_WIDTH = <span class="number">60</span>;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BUTTON_HEIGHT = <span class="number">30</span>;</div><div class="line">	Button cancelButton, okButton;<span class="comment">//添加两个按钮</span></div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MyFirstFrame</span><span class="params">()</span> </span>&#123;</div><div class="line">		setSize(FRAME_WIDTH, FRAME_HEIGHT);</div><div class="line">		setResizable(<span class="keyword">false</span>);</div><div class="line">		setTitle(<span class="string">"Program MyFirstFrame"</span>);</div><div class="line">		setLocation(FRAME_X_ORIGIN, FRAME_Y_ORIGIN);</div><div class="line">		<span class="comment">// add ok button</span></div><div class="line">		okButton = <span class="keyword">new</span> Button(<span class="string">"OK"</span>);</div><div class="line">		okButton.setBounds(<span class="number">100</span>, <span class="number">150</span>, BUTTON_WIDTH, BUTTON_HEIGHT);</div><div class="line">		add(okButton);</div><div class="line">		<span class="comment">// add cancel button</span></div><div class="line">		cancelButton = <span class="keyword">new</span> Button(<span class="string">"Cancel"</span>);</div><div class="line">		cancelButton.setBounds(<span class="number">170</span>, <span class="number">150</span>, BUTTON_WIDTH, BUTTON_HEIGHT);</div><div class="line">		add(cancelButton);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestMyFirstFrame</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">		MyFirstFrame frame = <span class="keyword">new</span> MyFirstFrame();</div><div class="line">		frame.setVisible(<span class="keyword">true</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="通过Swing-1"><a href="#通过Swing-1" class="headerlink" title="通过Swing"></a>通过Swing</h3><h4 id="添加按钮"><a href="#添加按钮" class="headerlink" title="添加按钮"></a>添加按钮</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javax.swing.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ButtonFrame</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;</div><div class="line">    JButton load = <span class="keyword">new</span> JButton(<span class="string">"Load"</span>);</div><div class="line">    JButton save = <span class="keyword">new</span> JButton(<span class="string">"Save"</span>);</div><div class="line">    JButton unsubscribe = <span class="keyword">new</span> JButton(<span class="string">"Unsubscribe"</span>);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ButtonFrame</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(<span class="string">"Button Frame"</span>);</div><div class="line">        setSize(<span class="number">340</span>, <span class="number">170</span>);</div><div class="line">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</div><div class="line">        JPanel pane = <span class="keyword">new</span> JPanel();</div><div class="line">        pane.add(load);</div><div class="line">        pane.add(save);</div><div class="line">        pane.add(unsubscribe);</div><div class="line">        add(pane);</div><div class="line">        setVisible(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setLookAndFeel</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            UIManager.setLookAndFeel(</div><div class="line">                <span class="string">"com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"</span></div><div class="line">            );</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception exc) &#123;</div><div class="line">            System.out.println(exc.getMessage());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        setLookAndFeel();</div><div class="line">        ButtonFrame bf = <span class="keyword">new</span> ButtonFrame();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="创建一个登陆界面"><a href="#创建一个登陆界面" class="headerlink" title="创建一个登陆界面"></a>创建一个登陆界面</h4><p>页面包含组件有：标签（JLabel）、文本框（JTextField、JPasswordField）、文本区域（JTextArea）、按钮（JButton）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javax.swing.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Authenticator</span> <span class="keyword">extends</span> <span class="title">javax</span>.<span class="title">swing</span>.<span class="title">JFrame</span> </span>&#123;</div><div class="line">    JTextField username = <span class="keyword">new</span> JTextField(<span class="number">15</span>);</div><div class="line">    JPasswordField password = <span class="keyword">new</span> JPasswordField(<span class="number">15</span>);</div><div class="line">    JTextArea comments = <span class="keyword">new</span> JTextArea(<span class="number">4</span>, <span class="number">15</span>);</div><div class="line">    JButton ok = <span class="keyword">new</span> JButton(<span class="string">"OK"</span>);</div><div class="line">    JButton cancel = <span class="keyword">new</span> JButton(<span class="string">"Cancel"</span>);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Authenticator</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(<span class="string">"Account Information"</span>);</div><div class="line">        setSize(<span class="number">300</span>, <span class="number">220</span>);</div><div class="line">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</div><div class="line"></div><div class="line">        JPanel pane = <span class="keyword">new</span> JPanel();</div><div class="line">        JLabel usernameLabel = <span class="keyword">new</span> JLabel(<span class="string">"Username: "</span>);</div><div class="line">        JLabel passwordLabel = <span class="keyword">new</span> JLabel(<span class="string">"Password: "</span>);</div><div class="line">        JLabel commentsLabel = <span class="keyword">new</span> JLabel(<span class="string">"Comments: "</span>);</div><div class="line">        comments.setLineWrap(<span class="keyword">true</span>);</div><div class="line">        comments.setWrapStyleWord(<span class="keyword">true</span>);</div><div class="line">        pane.add(usernameLabel);</div><div class="line">        pane.add(username);</div><div class="line">        pane.add(passwordLabel);</div><div class="line">        pane.add(password);</div><div class="line">        pane.add(commentsLabel);</div><div class="line">        pane.add(comments);</div><div class="line">        pane.add(ok);</div><div class="line">        pane.add(cancel);</div><div class="line">        add(pane);</div><div class="line">        setVisible(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setLookAndFeel</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            UIManager.setLookAndFeel(</div><div class="line">                <span class="string">"com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"</span></div><div class="line">            );</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception exc) &#123;</div><div class="line">            System.out.println(exc.getMessage());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        Authenticator.setLookAndFeel();</div><div class="line">        Authenticator auth = <span class="keyword">new</span> Authenticator();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170530/220156320.png" alt="mark"></p>
+<h4 id="添加单选框或复选框"><a href="#添加单选框或复选框" class="headerlink" title="添加单选框或复选框"></a>添加单选框或复选框</h4><ul>
+<li>单选框： JRadioButton</li>
+<li>复选框： JCheckBox</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javax.swing.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FormatFrame</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;</div><div class="line">    JRadioButton[] teams = <span class="keyword">new</span> JRadioButton[<span class="number">4</span>];</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FormatFrame</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(<span class="string">"Choose an Output Format"</span>);</div><div class="line">        setSize(<span class="number">320</span>, <span class="number">120</span>);</div><div class="line">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</div><div class="line">        teams[<span class="number">0</span>] = <span class="keyword">new</span> JRadioButton(<span class="string">"Atom"</span>);</div><div class="line">        teams[<span class="number">1</span>] = <span class="keyword">new</span> JRadioButton(<span class="string">"RSS 0.92"</span>);</div><div class="line">        teams[<span class="number">2</span>] = <span class="keyword">new</span> JRadioButton(<span class="string">"RSS 1.0"</span>);</div><div class="line">        teams[<span class="number">3</span>] = <span class="keyword">new</span> JRadioButton(<span class="string">"RSS 2.0"</span>, <span class="keyword">true</span>);</div><div class="line">        JPanel panel = <span class="keyword">new</span> JPanel();</div><div class="line">        JLabel chooseLabel = <span class="keyword">new</span> JLabel(</div><div class="line">            <span class="string">"Choose an output format for syndicated news items."</span>);</div><div class="line">        panel.add(chooseLabel);</div><div class="line">        ButtonGroup group = <span class="keyword">new</span> ButtonGroup();</div><div class="line">        <span class="keyword">for</span> (JRadioButton team : teams) &#123;</div><div class="line">            group.add(team);</div><div class="line">            panel.add(team);</div><div class="line">        &#125;</div><div class="line">        add(panel);</div><div class="line">        setVisible(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setLookAndFeel</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            UIManager.setLookAndFeel(</div><div class="line">                <span class="string">"com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"</span></div><div class="line">            );</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception exc) &#123;</div><div class="line">            System.out.println(exc.getMessage());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        FormatFrame.setLookAndFeel();</div><div class="line">        FormatFrame ff = <span class="keyword">new</span> FormatFrame();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170530/220545938.png" alt="mark"></p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>当用户移动鼠标、单击按钮时，一个事件就产生了</p>
+<p>一个对象既可以是事件源对象，也可以是事件侦听对象，或二种角色兼有</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170530/222417632.png" alt="mark"></p>
+<p>如果界面使用Swing实现，则若要进行界面的事件操作，应该引入三个包：</p>
+<ul>
+<li>import java.awt.event.*;</li>
+<li>import javax.swing.*;</li>
+<li>import java.awt.*;</li>
+</ul>
+<h3 id="设置组件"><a href="#设置组件" class="headerlink" title="设置组件"></a>设置组件</h3><p><strong>将类用作时间监听器是，必须首先设置它要监听的时间类型。如果不进行第二步操作——将匹配的监听器加入到GUI组建中，这种情况将不会发生。组件被使用时，该监听器将激发相应的事件。</strong>、</p>
+<p>创建组件后，可以调用组件的下述方法之一将监听器与组件关联起来。</p>
+<p>addActionListener()、addFocusListener()…其实就是在上面所给图中的接口的前面加一个”add”就行了。</p>
+<h3 id="事件处理方法"><a href="#事件处理方法" class="headerlink" title="事件处理方法"></a>事件处理方法</h3><p>将接口与类关联起来是，这个类必须处理接口包含的所有方法。</p>
+<p>以接口ActionListener为例，其只有一个方法actionPerformed()。所有实现ActionListener的类都必须有一个结构与下面类似的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent event)</span></span>&#123;</div><div class="line">	<span class="comment">//handle event here</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="事件创建举例"><a href="#事件创建举例" class="headerlink" title="事件创建举例"></a>事件创建举例</h3><p>各个事件的操作都差不多，这里只先提供<strong>焦点事件</strong>操作的过程。其它的时间操作先留个坑，以后再补。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.awt.event.*;</div><div class="line"><span class="keyword">import</span> javax.swing.*;</div><div class="line"><span class="keyword">import</span> java.awt.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Calculator</span> <span class="keyword">extends</span> <span class="title">JFrame</span> <span class="keyword">implements</span> <span class="title">FocusListener</span> </span>&#123;</div><div class="line">    JTextField value1, value2, sum;</div><div class="line">    JLabel plus, equals;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Calculator</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(<span class="string">"Add Two Numbers"</span>);</div><div class="line">        setSize(<span class="number">350</span>, <span class="number">90</span>);</div><div class="line">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</div><div class="line">        setLookAndFeel();</div><div class="line">        FlowLayout flow = <span class="keyword">new</span> FlowLayout(FlowLayout.CENTER);</div><div class="line">        setLayout(flow);	<span class="comment">//设置框架展示在什么位置</span></div><div class="line">        <span class="comment">// create components</span></div><div class="line">        value1 = <span class="keyword">new</span> JTextField(<span class="string">"0"</span>, <span class="number">5</span>);</div><div class="line">        plus = <span class="keyword">new</span> JLabel(<span class="string">"+"</span>);</div><div class="line">        value2 = <span class="keyword">new</span> JTextField(<span class="string">"0"</span>, <span class="number">5</span>);</div><div class="line">        equals = <span class="keyword">new</span> JLabel(<span class="string">"="</span>);</div><div class="line">        sum = <span class="keyword">new</span> JTextField(<span class="string">"0"</span>, <span class="number">5</span>);</div><div class="line">        <span class="comment">// add listeners</span></div><div class="line">        value1.addFocusListener(<span class="keyword">this</span>);<span class="comment">//表示当前类就是事件监听器</span></div><div class="line">        value2.addFocusListener(<span class="keyword">this</span>);</div><div class="line">        <span class="comment">// set up sum field</span></div><div class="line">        sum.setEditable(<span class="keyword">false</span>);</div><div class="line">        <span class="comment">// add components</span></div><div class="line">        add(value1);</div><div class="line">        add(plus);</div><div class="line">        add(value2);</div><div class="line">        add(equals);</div><div class="line">        add(sum);</div><div class="line">        setVisible(<span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">focusGained</span><span class="params">(FocusEvent event)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">float</span> total = Float.parseFloat(value1.getText()) +</div><div class="line">                Float.parseFloat(value2.getText());</div><div class="line">            sum.setText(<span class="string">""</span> + total);</div><div class="line">        &#125; <span class="keyword">catch</span> (NumberFormatException nfe) &#123;</div><div class="line">            value1.setText(<span class="string">"0"</span>);</div><div class="line">            value2.setText(<span class="string">"0"</span>);</div><div class="line">            sum.setText(<span class="string">"0"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">focusLost</span><span class="params">(FocusEvent event)</span> </span>&#123;</div><div class="line">        focusGained(event);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setLookAndFeel</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            UIManager.setLookAndFeel(</div><div class="line">                <span class="string">"com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"</span></div><div class="line">            );</div><div class="line">            SwingUtilities.updateComponentTreeUI(<span class="keyword">this</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception exc) &#123;</div><div class="line">            System.err.println(<span class="string">"Couldn't use the system "</span></div><div class="line">                + <span class="string">"look and feel: "</span> + exc);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        Calculator frame = <span class="keyword">new</span> Calculator();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170530/223544011.png" alt="mark"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/30/Java之JDBC语句对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1868,513 +2457,6 @@ Process finished with exit code 0</pre>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/什么是wiki/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/14/什么是wiki/" itemprop="url">
-                  什么是wiki
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-14T11:55:32+08:00">
-                2017-05-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/14/什么是wiki/" class="leancloud_visitors" data-flag-title="什么是wiki">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://help.github.com/articles/about-github-wikis/" target="_blank" rel="external">github如何使用wiki</a>，github上每个仓库偶有自己的wiki，用github自己的帮助文档中的话来说就是：</p>
-<blockquote>
-<p>每个GitHub存储库都配备了一个托管文档的部分，称为wiki。<br>GitHub Wiki是您的存储库中的一个地方，您可以在其中分享关于您的项目的长形内容，例如如何使用它，如何设计，阐述其核心原则等。而README旨在使读者快速了解您的项目可以做什么，wiki可用于提供其他文档</p>
-</blockquote>
-<h2 id="简单介绍wiki"><a href="#简单介绍wiki" class="headerlink" title="简单介绍wiki"></a>简单介绍wiki</h2><p>它其实是一种新技术，一种超文本系统。这种超文本系统支持面向社群的协作式写作，同时也包括一组支持这种写作的辅助工具。也就是说，这是多人协作的写作工具。而参与创作的人，也被称为维客。</p>
-<ul>
-<li><p>从技术角度看，Wiki是一种超文本系统，是任何人都可以编辑网页的社会性软件。Wiki包含一套能简易创造、改变HTML网页的系统，再加上一套纪录以及编目所有改变的系统，以提供还原改变的功能。利用Wiki系统构建的网站称为Wiki网站，称之为维基主页；“客”隐含人的意思，所以使用Wiki的用户称之为维客（Wikier）。</p>
-</li>
-<li><p>从使用者角度看，Wiki是一种多人协作的写作工具系统，属于一种人类知识的网络管理系统。Wiki站点可以有多人（甚至任何访问者）维护，每个人都可以发表自己的意见，或者对共同的主题进行扩展或者探讨。</p>
-</li>
-</ul>
-<p>在维客页面上，每个人都可浏览、创建、更改文本，系统可以对不同版本内容进行有效控制管理，所有的修改记录都保存下来，不但可事后查验，也能追踪、回复至本来面目。这也就意味着每个人都可以方便地对共同的主题进行写作、修改、扩展或者探讨。同一维客网站的写作者自然构成了一个社群，维客系统为这个社群提供简单的交流工具。</p>
-<h2 id="Wiki的特点"><a href="#Wiki的特点" class="headerlink" title="Wiki的特点"></a>Wiki的特点</h2><ul>
-<li>使用方便 </li>
-<li>维护快捷：快速创建、存取、更改超文本页面（这也是为什麼叫作 “wiki wiki” 的原因）。 </li>
-<li>格式简单：用简单的格式标记来取代 HTML 的复杂格式标记。（类似所见即所得的风格） </li>
-<li>链接方便：通过简单标记，直接以关键字名来建立链接（页面、外部连接、图像等）。 </li>
-<li>命名平易：关键字名就是页面名称，并且被置於一个单层、平直的名空间中。  </li>
-<li>可增长：页面的链接目标可以尚未存在，通过点击链接，我们可以创建这些页面，从而使系统得以增长。 </li>
-<li>修订历史：记录页面的修订历史，页面的各个版本都可以被获取。  </li>
-<li>开放的：社群内的成员可以任意创建、修改、或删除页面。 </li>
-<li>可观察：系统内页面的变动可以被来访者清楚观察得到。</li>
-</ul>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>Wiki也指一种超文本系统，支持面向社群的协作式写作，也就是每个人都可以改这个网站的数据。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/Wampserver3.0局域网访问设置方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/14/Wampserver3.0局域网访问设置方法/" itemprop="url">
-                  Wampserver3.0局域网访问设置方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-14T00:24:22+08:00">
-                2017-05-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/14/Wampserver3.0局域网访问设置方法/" class="leancloud_visitors" data-flag-title="Wampserver3.0局域网访问设置方法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在wampserver3.0上跑起来的站点怎么设置才能让局域网中的设备访问到，各个步骤网上都有教程，我就直接帖网址了</p>
-<ul>
-<li><p>首先应该设置wampserver使其本身支持局域网访问,方法如下：</p>
-<p>  <a href="http://jingyan.baidu.com/article/acf728fd556c93f8e410a344.html" target="_blank" rel="external">WampServer3.0.4 允许外网访问配置教程</a>。注意要将wampserver调成在线模式</p>
-</li>
-<li><p>这样下来，有的时候还是不能访问，那是因为你电脑的防火墙把你站点的端口的外部接入响应阻止了，最简单的方法是关掉防火墙，另外也可以设置防火墙开放你网站的端口号，方法如下：</p>
-<p>  <a href="http://jingyan.baidu.com/article/f96699bbadafca894f3c1b7a.html" target="_blank" rel="external">win7系统如何在防火墙里开放端口</a>。win10设置方法也一样，大同小异。</p>
-</li>
-<li><p>设置完后，就可以通过局域网设备访问了，方法是在想连接的设备上搜索url：“<a href="http://电脑（服务器主机）的IP地址：端口号”" target="_blank" rel="external">http://电脑（服务器主机）的IP地址：端口号”</a></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/11/前端行业的你需要哪些网站/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/11/前端行业的你需要哪些网站/" itemprop="url">
-                  前端行业的你需要哪些网站
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-11T16:57:25+08:00">
-                2017-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端江湖录/" itemprop="url" rel="index">
-                    <span itemprop="name">前端江湖录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/11/前端行业的你需要哪些网站/" class="leancloud_visitors" data-flag-title="前端行业的你需要哪些网站">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>除了肯定会逛的掘金、CSDN、知乎等技术论坛。</p>
-<h2 id="技术社区"><a href="#技术社区" class="headerlink" title="技术社区"></a>技术社区</h2><p><a href="http://stackoverflow.com/" target="_blank" rel="external">Stackoverflow</a>是一个与程序相关的IT技术问答网站。用户可以在网站免费提交问题，浏览问题，索引相关内容，在创建主页的时候使用简单的HTML。在问题页面，不会弹出任何广告，销售信息，JavaScript 窗口等。有这么一个说法：“作为一名程序员，如果没有听过 Stackoverflow，那么你最好去面壁思过一下。”</p>
-<p><a href="https://segmentfault.com/" target="_blank" rel="external">Segmentfault</a>是一家中文的开发者社区及媒体。最初的产品原型来自于国外最大的程序员问答社区 Stackoverflow，但其产品形态经过一年多的发展，已经有问答、博客、活动等，它还是多个黑客马拉松活动的组织方</p>
-<h2 id="提高开发效率"><a href="#提高开发效率" class="headerlink" title="提高开发效率"></a>提高开发效率</h2><p><a href="https://www.teambition.com/?utm_source=baidusem&amp;utm_campaign=brand&amp;utm_medium=cpc&amp;utm_term=teambition" target="_blank" rel="external">teambition</a>是一个简单,高效的项目协作工具,你可以在这里管理项目,跟踪任务进度,存储项目文件,让你的团队协作更高效</p>
-<p><a href="https://tower.im/" target="_blank" rel="external">tower</a>功能与teambition差不多</p>
-<p><a href="https://www.travis-ci.org/" target="_blank" rel="external">Travis CI</a>自动测试系统,CI意思为持续集成，Travis可以将你github上的项目自动编译，有人提交即可执行编译让你第一时间知道提交是否OK</p>
-<p><a href="https://www.docker.com/" target="_blank" rel="external">Docker</a>是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。<a href="http://www.docker.org.cn/book/docker/what-is-docker-16.html" target="_blank" rel="external">具体介绍看官方文档</a></p>
-<h2 id="社交类"><a href="#社交类" class="headerlink" title="社交类"></a>社交类</h2><p><a href="https://www.linkedin.com/mynetwork/" target="_blank" rel="external">领英</a>全球最大的职业社交网站，是一家面向商业客户的社交网络（SNS）</p>
-<p><a href="https://github.com/" target="_blank" rel="external">Github</a>全球最大的男性交友平台，毫无疑问，不需要解释</p>
-<h2 id="设计灵感"><a href="#设计灵感" class="headerlink" title="设计灵感"></a>设计灵感</h2><p><a href="http://www.ui.cn/" target="_blank" rel="external">UI中国</a>前身为 iconfans,是专业的 UI 设计师交流、学习与展示的平台。会员均为职业 UI 设计师,覆盖全国互联网公司。</p>
-<p><a href="https://www.behance.net/" target="_blank" rel="external">Behance</a>著名设计社区，在上面，创意设计人士可以展示自己的作品，发现别人分享的创意作品（上面有许多质量上乘的设计作品），相互还可以进行互动（评论、关注、站内短信等）</p>
-<p><a href="http://www.lofter.com/login?urschecked=true" target="_blank" rel="external">乐乎</a>国内优质图片社交平台</p>
-<h2 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h2><p><a href="http://naotu.baidu.com" target="_blank" rel="external">百度脑图</a>画思维导图的，有棵树在那帮你保存总比放脑子里忘了好，百度脑图简单方便，还是在线的，还算不错。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2424,7 +2506,7 @@ Process finished with exit code 0</pre>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2435,7 +2517,7 @@ Process finished with exit code 0</pre>
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2446,7 +2528,7 @@ Process finished with exit code 0</pre>
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

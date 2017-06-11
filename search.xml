@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title><![CDATA[网站登陆与登出的实现--token]]></title>
+      <url>%2F2017%2F06%2F11%2F%E7%BD%91%E7%AB%99%E7%99%BB%E9%99%86%E4%B8%8E%E7%99%BB%E5%87%BA%E7%9A%84%E5%AE%9E%E7%8E%B0--token%2F</url>
+      <content type="text"><![CDATA[登陆 登录时提交用户名和密码 服务器先验证用户名和密码是否正确（包括自身登陆以及三方登陆） 服务器生成并下发一个token(不一定生成，如果你本身带了一个sessionid,那它就会拿你那个sessionid和userid关联起来)，总之它会记下来说你提交给我的某一个而唯一的东西要跟你的userid关联起来，这样你下次再提交过来的时候，我就去那个关联的表里查一查，看你是否已经被关联过了，如果你已经关联过了，那服务器就能知道这个人是你。客户端收到这个信息以后会把这东西存起来，浏览器是存在cookie里面的，如果是app,则存在本地(个人理解为可以实现网站记住登录的这样一种状态，以及其它一些需要身份认证的请求等等)。总之你就会一个东西来表明你的身份，这个东西是服务器给你的，或者是你自己提交给服务器认证的这样一个东西。 有了这个东西（token）以后，服务器那边记下这个token,并设置有效期（因为token不可能永久有效，那样如果泄露了，一次泄露变成永久泄露，那就不行了），服务器和客户端都会有一个有效期的设置，比如说：如果你记住登录，那有效期可能及时三个月或者怎样，如果没记住登陆，那你的有效期就将是一个session(所谓session就是你浏览器关了以后就无效了)。 所这个token可以是一个seesionid也可以是cookie里面的一个key。 登出 服务端和客户端都把token删除，这样这个token就无效了 session清理 token就是下面的那个t,黑客可以通过窃取这个t来达到假装你进行登录网站的操作]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[forward和redirect的区别]]></title>
+      <url>%2F2017%2F06%2F11%2Fforward%E5%92%8Credirect%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+      <content type="text"><![CDATA[forward内部跳转和redirect重定向跳转的区别 从地址栏显示来说 forward是服务器请求资源,服务器直接访问目标地址的URL,把那个URL的响应内容读取过来,然后把这些内容再发给浏览器.浏览器根本不知道服务器发送的内容从哪里来的,所以它的地址栏还是原来的地址 redirect是服务端根据逻辑,发送一个状态码,告诉浏览器重新去请求那个地址.所以地址栏显示的是新的URL 从数据共享来说 forward:转发页面和转发到的页面可以共享request里面的数据 redirect:不能共享数据. 从运用地方来说 forward:一般用于用户登陆的时候,根据角色转发到相应的模块 redirect:一般用于用户注销登陆时返回主页面和跳转到其它的网站等 从效率来说 forward:高 redirect:低]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Git学习]]></title>
+      <url>%2F2017%2F06%2F09%2FGit%E5%AD%A6%E4%B9%A0%2F</url>
+      <content type="text"><![CDATA[业界大佬廖雪峰的教程已经足够牛逼了，直接跳转吧：Git教程 没错这页面就是拿来放链接的。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[2016年电脑cpu天梯图]]></title>
       <url>%2F2017%2F06%2F09%2F2016%E5%B9%B4%E7%94%B5%E8%84%91cpu%E5%A4%A9%E6%A2%AF%E5%9B%BE%2F</url>
       <content type="text"><![CDATA[一张截止2016年，很全的cpu性能的天梯图，放上来以便想看的时候随时随地能看。]]></content>
@@ -26,7 +47,7 @@
     <entry>
       <title><![CDATA[Velocity介绍]]></title>
       <url>%2F2017%2F06%2F08%2FVelocity%E4%BB%8B%E7%BB%8D%2F</url>
-      <content type="text"><![CDATA[概述 Velocity是一个基于java的模板引擎（template engine）。它允许任何人仅仅简单的使用模板语言（template language）来引用由java代码定义的对象。 当Velocity应用于web开发时，界面设计人员可以和java程序开发人员同步开发一个遵循MVC架构的web站点，也就是说，页面设计人员可以只关注页面的显示效果，而由java程序开发人员关注业务逻辑编码。 Velocity将java代码从web页面中分离出来（Java里面语法怎么写，模板里面就也能怎么写），这样为web站点的长期维护提供了便利，同时也为我们在JSP和PHP之外又提供了一种可选的方案。 Velocity的能力远不止web站点开发这个领域，例如 它可以从模板（template）产生SQL和PostScript、XML 可以被当作一个独立工具来产生源代码和报告，或者作为其他系统的集成组件使用 可以为Turbine web开发架构提供模板服务（template service）。Velocity+Turbine提供一个模板服务的方式允许一个web应用以一个真正的MVC模型进行开发。 该模板引擎生成文件的默认后缀名为“vm” 脚本语法详解直接看：Velocity快速入门教程-脚本语法详解 疑问最近两年网上能收到的有关Velocity的消息很少，估计这引擎也够呛了。]]></content>
+      <content type="text"><![CDATA[概述 Velocity是一个基于java的模板引擎（template engine）。它允许任何人仅仅简单的使用模板语言（template language）来引用由java代码定义的对象。 当Velocity应用于web开发时，界面设计人员可以和java程序开发人员同步开发一个遵循MVC架构的web站点，也就是说，页面设计人员可以只关注页面的显示效果，而由java程序开发人员关注业务逻辑编码。 Velocity将java代码从web页面中分离出来（Java里面语法怎么写，模板里面就也能怎么写），这样为web站点的长期维护提供了便利，同时也为我们在JSP和PHP之外又提供了一种可选的方案。 Velocity的能力远不止web站点开发这个领域，例如 它可以从模板（template）产生SQL和PostScript、XML 可以被当作一个独立工具来产生源代码和报告，或者作为其他系统的集成组件使用 可以为Turbine web开发架构提供模板服务（template service）。Velocity+Turbine提供一个模板服务的方式允许一个web应用以一个真正的MVC模型进行开发。 该模板引擎生成文件的默认后缀名为“vm” 在哪里使用？在html页面中，直接写入Velocity引擎的代码，具体代码怎么写、有什么规范，下面会有介绍。 脚本语法详解直接看：Velocity快速入门教程-脚本语法详解 疑问最近两年网上能收到的有关Velocity的消息很少，估计这引擎也够呛了。]]></content>
     </entry>
 
     
