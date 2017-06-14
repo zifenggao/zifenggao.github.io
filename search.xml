@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[搭建hexo博客的具体流程]]></title>
+      <url>%2F2017%2F06%2F14%2F%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B%2F</url>
+      <content type="text"><![CDATA[在本地搭建讲一下搭建hexo博客的具体流程 首先安装git环境 然后安装node环境（node再带的npm版本据说比较老旧，可以使用npm install npm -g来重装（更新）一下npm版本，不过我弄之后版本还是一样的，可能现在node和npm更新已经同步了吧） 搭建前先说一下，最近国内npm源号好像有问题，可以使用镜像来解决：npm install -g cnpm --registry=https://registry.npm.taobao.org镜像指定完之后，后面使用的npm命令都可以用cnpm代替。可以理解为npm是直接调用官方的资源，cnpm是调用国内镜像站的资源。（这几天npm命令老是出问题，估计又出什么事了，还是先用用cnpm吧，速度比较快也比较稳定） 开始搭建hexo博客 命令行中执行cnpm install hexo-cli -g用全局模式安装hexo命令行，全局模式安装意味着你在电脑的任何文件位置都可以使用 cnpm install hexo -g，也是采用全局模式安装hexo博客框架 到你想放置博客的地方，比如想在D:\hexo 放置，那就把路径移动到该目录下，执行hexo init blog，这样会自动从github上下载hexo博客框架到本地的blog文件夹（如果命令不加那个blog,则直接放在hexo文件夹下） 完成之后，如果npm命令没出问题，会自动执行命令（npm instll）安装依赖文件，但还是那个问题，最近国内npm源貌似有问题，所以自己得再手动安装一下，执行cnpm install即可 这样就都弄完了，执行hexo generate生成博客的静态页面，然后执行hexo server，就可在本地浏览器中的http://localhost/4000 地址内看到生成的默认博客页面了，默认是4000，也可能是其他的具体看运行hexo server后它的提示。当然也可以通过hexo serer -p 3000直接指定页面显示的端口，即此时访问应是http://localhost/3000 换电脑怎么办很简单，直接将整个blog文件夹拷贝到那台电脑上就可以，前提是木变偶电脑也有node、git环境]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[网站登陆与登出的实现--token]]></title>
       <url>%2F2017%2F06%2F11%2F%E7%BD%91%E7%AB%99%E7%99%BB%E9%99%86%E4%B8%8E%E7%99%BB%E5%87%BA%E7%9A%84%E5%AE%9E%E7%8E%B0--token%2F</url>
       <content type="text"><![CDATA[登陆 登录时提交用户名和密码 服务器先验证用户名和密码是否正确（包括自身登陆以及三方登陆） 服务器生成并下发一个token(不一定生成，如果你本身带了一个sessionid,那它就会拿你那个sessionid和userid关联起来)，总之它会记下来说你提交给我的某一个而唯一的东西要跟你的userid关联起来，这样你下次再提交过来的时候，我就去那个关联的表里查一查，看你是否已经被关联过了，如果你已经关联过了，那服务器就能知道这个人是你。客户端收到这个信息以后会把这东西存起来，浏览器是存在cookie里面的，如果是app,则存在本地(个人理解为可以实现网站记住登录的这样一种状态，以及其它一些需要身份认证的请求等等)。总之你就会一个东西来表明你的身份，这个东西是服务器给你的，或者是你自己提交给服务器认证的这样一个东西。 有了这个东西（token）以后，服务器那边记下这个token,并设置有效期（因为token不可能永久有效，那样如果泄露了，一次泄露变成永久泄露，那就不行了），服务器和客户端都会有一个有效期的设置，比如说：如果你记住登录，那有效期可能及时三个月或者怎样，如果没记住登陆，那你的有效期就将是一个session(所谓session就是你浏览器关了以后就无效了)。 所这个token可以是一个seesionid也可以是cookie里面的一个key。 登出 服务端和客户端都把token删除，这样这个token就无效了 session清理 token就是下面的那个t,黑客可以通过窃取这个t来达到假装你进行登录网站的操作]]></content>
