@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/14/搭建hexo博客的具体流程/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="在本地搭建讲一下搭建hexo博客的具体流程 首先安装git环境 然后安装node环境（node再带的npm版本据说比较老旧，可以使用npm install npm -g来重装（更新）一下npm版本，不过我弄之后版本还是一样的，可能现在node和npm更新已经同步了吧） 搭建前先说一下，最近国内npm源号好像有问题，可以使用镜像来解决：npm install -g cnpm --registry=h">
-<meta property="og:updated_time" content="2017-06-14T02:28:29.199Z">
+<meta property="og:updated_time" content="2017-06-14T16:47:18.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建hexo博客的具体流程">
 <meta name="twitter:description" content="在本地搭建讲一下搭建hexo博客的具体流程 首先安装git环境 然后安装node环境（node再带的npm版本据说比较老旧，可以使用npm install npm -g来重装（更新）一下npm版本，不过我弄之后版本还是一样的，可能现在node和npm更新已经同步了吧） 搭建前先说一下，最近国内npm源号好像有问题，可以使用镜像来解决：npm install -g cnpm --registry=h">
@@ -431,7 +431,8 @@
 <li>完成之后，如果npm命令没出问题，会自动执行命令（npm instll）安装依赖文件，但还是那个问题，最近国内npm源貌似有问题，所以自己得再手动安装一下，执行<code>cnpm install</code>即可</li>
 <li>这样就都弄完了，执行<code>hexo generate</code>生成博客的静态页面，然后执行<code>hexo server</code>，就可在本地浏览器中的<a href="http://localhost/4000" target="_blank" rel="external">http://localhost/4000</a> 地址内看到生成的默认博客页面了，默认是4000，也可能是其他的具体看运行hexo server后它的提示。当然也可以通过<code>hexo serer -p 3000</code>直接指定页面显示的端口，即此时访问应是<a href="http://localhost/3000" target="_blank" rel="external">http://localhost/3000</a></li>
 </ul>
-<h2 id="换电脑怎么办"><a href="#换电脑怎么办" class="headerlink" title="换电脑怎么办"></a>换电脑怎么办</h2><p>很简单，直接将整个blog文件夹拷贝到那台电脑上就可以，前提是木变偶电脑也有node、git环境</p>
+<h2 id="换电脑怎么办"><a href="#换电脑怎么办" class="headerlink" title="换电脑怎么办"></a>换电脑怎么办</h2><p>很简单，直接将整个blog文件夹拷贝到那台电脑上就可以，前提是目标电脑也有node、git环境。</p>
+<p>之后就都可以使用了，无论是本地的hexo操作还是，提交到github上，都是可以操作了。</p>
 
       
     </div>
@@ -473,6 +474,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/15/Git冲突的产生与解决/" rel="next" title="Git冲突的产生与解决">
+                <i class="fa fa-chevron-left"></i> Git冲突的产生与解决
+              </a>
             
           </div>
 
@@ -556,7 +561,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

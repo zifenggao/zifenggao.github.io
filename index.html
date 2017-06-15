@@ -304,6 +304,177 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/15/Git冲突的产生与解决/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/15/Git冲突的产生与解决/" itemprop="url">
+                  Git冲突的产生与解决
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-15T19:31:55+08:00">
+                2017-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/15/Git冲突的产生与解决/" class="leancloud_visitors" data-flag-title="Git冲突的产生与解决">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么情况下会产生冲突？"><a href="#什么情况下会产生冲突？" class="headerlink" title="什么情况下会产生冲突？"></a>什么情况下会产生冲突？</h2><h3 id="第一种情况"><a href="#第一种情况" class="headerlink" title="第一种情况"></a>第一种情况</h3><p>你修改了本地的某一份文件里面的内容，准备提交到github仓库上，恰好github仓库上的仓库的这份文件被另外一个人给修改了，即此时你本地对那份文件做了修改，远程仓库的那份文件也被做了修改，这样等你提交远程仓库的时候，冲突就产生了，不管你们修改的是不是那份文件的同一个地方，都会被识认为是冲突。</p>
+<h3 id="第二种情况"><a href="#第二种情况" class="headerlink" title="第二种情况"></a>第二种情况</h3><p>你没有修改原本的文件，但是添加了新的文件，而远程仓库中，部分原本的文件被人更改了，那当你提交的时候也会发生冲突，很好理解，因为你本地文件内容旧了，需要用<code>git pull origin master</code>，拉取远程仓库最新的文件内容到本地，更新本地的文件内容，不用怕，只是更新旧文件的内容，你自己的文件不会被删掉（<span style="color:red">清楚“ <strong>合并</strong> ”这个概念，两个集合取并集，除非其中两个集合的同一个元素的值发生了异议，才会产生冲突，这时候才需要去解决冲突</span>），更新完本地旧文件后，你就可以安心的提交你想提交的内容了。</p>
+<p>值得注意的是，合并远程仓库的新内容到本地时，会自动识别成一次记录，备注默认的是一句“merge ….基本清了，大概意思就是合并远程仓库的内容到本地仓库….”，你可以默认，也可以更改为自己想要的备注。</p>
+<h2 id="第一种情况怎么解决？"><a href="#第一种情况怎么解决？" class="headerlink" title="第一种情况怎么解决？"></a>第一种情况怎么解决？</h2><p>首先拉取远程仓库到本地<code>git pull origin master</code></p>
+<p>此时你用git bash的话，会发现所在的分支提示会变成下面这样的：（master|MERGING）<br><img src="http://onxem9xtk.bkt.clouddn.com/blog/170615/DFbmkILj88.png" alt="mark"></p>
+<p>这说明已经拉取成功，让你解决冲突之后，就可以提交</p>
+<p>一般冲突的地方文件内容会以这样的形式提示，让你更改</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/170615/f1eFCABc9G.png" alt="mark"></p>
+<p>更改完之后，保存文件，会看到分支的提示有变回（master）了，这时git会认为你已经解决冲突了，可以提交到远程仓库</p>
+<p>重新使用add、commit、push命令就能提交成功了</p>
+<h2 id="应该注意什么"><a href="#应该注意什么" class="headerlink" title="应该注意什么"></a>应该注意什么</h2><p>可能你也发现了，在团队合作的情况下，每个人都拥有对某个仓库的读写权限，每个人都在提交，发生像上面说到的冲突是在所难免的。一旦发生冲突，你可以通过拉取远程仓库的内容，借助git，比较内容冲突在哪里并更改完文件后（只要改了冲突的地方就行，不管有没有跟本地的还是跟仓库的一样），就可以提交到远程的仓库。这很可能就会导致别人原本正确的东西被你给弄错了。</p>
+<p>具体的引用网上的一段话：</p>
+<blockquote>
+<p>仔细对比,取综合的并集,就是尽量把所有不同的文件保留,共同的只留一份</p>
+<p>个人的一点经验:多人协作开发的时候,如果出现了你没有改过的文件跟你冲突了,一定要去找到当事者,说清楚是如何冲突,然后协商解决,千万不要擅自拉别的分支去试图解决冲突,或找文件覆盖.同时记住,解决了之后,要add 和 commit 最后push.为保证万无一失,最后在冲突都解决之后,重启项目,特别是指服务器项目,保证至少不会有立即奔溃的现象发生.然后才去提交,push.</p>
+<p>提交的时候,一定要保持清醒,先搞清楚自己要提交的文件之间的关系,然后再提交,这样才不会有文件缺失的问题,造成奔溃.</p>
+<p>如果任务比较多,又建议开多个分支,分别进行开发.还是老话,一定要清楚自己在各个分支上做了什么,自己要提交的是什么.最好是能做个详细的笔记.好记性不如烂笔头.</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/搭建hexo博客的具体流程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -426,7 +597,8 @@
 <li>完成之后，如果npm命令没出问题，会自动执行命令（npm instll）安装依赖文件，但还是那个问题，最近国内npm源貌似有问题，所以自己得再手动安装一下，执行<code>cnpm install</code>即可</li>
 <li>这样就都弄完了，执行<code>hexo generate</code>生成博客的静态页面，然后执行<code>hexo server</code>，就可在本地浏览器中的<a href="http://localhost/4000" target="_blank" rel="external">http://localhost/4000</a> 地址内看到生成的默认博客页面了，默认是4000，也可能是其他的具体看运行hexo server后它的提示。当然也可以通过<code>hexo serer -p 3000</code>直接指定页面显示的端口，即此时访问应是<a href="http://localhost/3000" target="_blank" rel="external">http://localhost/3000</a></li>
 </ul>
-<h2 id="换电脑怎么办"><a href="#换电脑怎么办" class="headerlink" title="换电脑怎么办"></a>换电脑怎么办</h2><p>很简单，直接将整个blog文件夹拷贝到那台电脑上就可以，前提是木变偶电脑也有node、git环境</p>
+<h2 id="换电脑怎么办"><a href="#换电脑怎么办" class="headerlink" title="换电脑怎么办"></a>换电脑怎么办</h2><p>很简单，直接将整个blog文件夹拷贝到那台电脑上就可以，前提是目标电脑也有node、git环境。</p>
+<p>之后就都可以使用了，无论是本地的hexo操作还是，提交到github上，都是可以操作了。</p>
 
           
         
@@ -1824,220 +1996,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/05/Spring框架介绍/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/05/Spring框架介绍/" itemprop="url">
-                  Spring框架介绍
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-05T15:58:18+08:00">
-                2017-06-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/06/05/Spring框架介绍/" class="leancloud_visitors" data-flag-title="Spring框架介绍">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><a href="http://www.spring.io" target="_blank" rel="external">Spring官网</a></li>
-<li><a href="https://start.spring.io/" target="_blank" rel="external">Spring项目初始化</a></li>
-<li><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/" target="_blank" rel="external">官方文档</a></li>
-</ul>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170605/163134760.png" alt="mark"></p>
-<p><strong>Spring是通过注解的方式来表明相应对象的作用的</strong>，例如：@Controller</p>
-<h2 id="什么是Spring-它有哪些好处？"><a href="#什么是Spring-它有哪些好处？" class="headerlink" title="什么是Spring?它有哪些好处？"></a><a href="http://blog.csdn.net/zhupengqq/article/details/51228741" target="_blank" rel="external">什么是Spring?它有哪些好处？</a></h2><p>spring是一个轻量级<strong>控制反转（IOC）</strong>和<strong>面向切面（AOP）</strong>的容器框架</p>
-<p>它主要是为了解决企业应用开发的复杂性而诞生的</p>
-<ul>
-<li>目的：解决企业级应用开发的复杂性</li>
-<li>功能：使用基本的JavaBean代替EJB（<a href="http://www.cnblogs.com/MyITHome/archive/2012/08/31/2665917.html" target="_blank" rel="external">什么是EJB</a>）</li>
-<li>范围：任何Java应用</li>
-</ul>
-<p><span style="color:red">就是让对象与对象（模块与模块）之间的关系没有通过代码来关联</span>，都是通过配置类说明管理的（Spring根据这些配置内部通过反射去动态的组装对象）</p>
-<p>Spring是一个容器，凡是在容器里的对象才会有Spring所提供的这些服务和功能。内部最核心的就是IOC了,动态注入，让一个对象的创建不用new了，可以自动的生产，这其实就是利用java里的<span style="color:red">反射</span>，反射其实就是在运行时动态的去创建、调用对象，Spring就是在运行时，根据xml Spring的配置文件来动态的创建对象，和调用对象里的方法的。</p>
-<p>Spring是潜在一站式解决方案。</p>
-<h3 id="Spring本身存在的优点"><a href="#Spring本身存在的优点" class="headerlink" title="Spring本身存在的优点"></a>Spring本身存在的优点</h3><ul>
-<li>低侵入式设计，代码污染极低</li>
-<li>Write Once,Run Anywhere</li>
-<li>DI有效的降低了耦合度</li>
-<li>AOP提供了通用的任务的集中管理</li>
-<li>ORM和DAO简化了对数据库的访问</li>
-<li>高度开放性，并不强制（贯穿于变现层，业务层，持久层）</li>
-</ul>
-<h3 id="Spring的优点给开发带来的好处"><a href="#Spring的优点给开发带来的好处" class="headerlink" title="Spring的优点给开发带来的好处"></a>Spring的优点给开发带来的好处</h3><ul>
-<li>可以有效组织中间层对象</li>
-<li>使用同一的配置文件</li>
-<li>促进良好的编程习惯，减少编程代价</li>
-<li>易于单元测试。（一Spring基本组就是JavaBean,二提供了对Juit的支持）</li>
-<li>使EJB成为一种备选</li>
-<li>为数据存取提供了一致性的框架</li>
-</ul>
-<h3 id="理解AOP"><a href="#理解AOP" class="headerlink" title="理解AOP"></a>理解AOP</h3><ul>
-<li>Aspect Oriented Programming:面向切面编程</li>
-<li>一个组件A,不关心其他常用的服务组件B,但是这个组件A使用B的时候，不是组件A自身去调用，<br>而是通过配置等其他方式，列如Spring中可以通过XML配置文件。这样就使得A压根就不需要<br>知道服务组件B是怎么样的，爱存在不存在，爱怎么样存在都与Ａ无关。A只需要关心自己的业<br>务逻辑，具体A使用B的时候，配置文件去做，与具体的A组件无关。</li>
-</ul>
-<h4 id="继续探讨AOP切面编程"><a href="#继续探讨AOP切面编程" class="headerlink" title="继续探讨AOP切面编程"></a>继续探讨AOP切面编程</h4><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170608/190401719.png" alt="mark"></p>
-<h3 id="理解IOC"><a href="#理解IOC" class="headerlink" title="理解IOC"></a>理解IOC</h3><ul>
-<li>Inversion of Control：控制反转</li>
-<li>IOC（控制反转）：说的是创建对象实例的控制权从代码控制剥离到IOC容器控制，实际就是你在xml文件控制，侧重于原理。</li>
-<li>DI（依赖注入）：说的是创建对象实例时，为这个对象注入属性值或其他对象实例后，侧重于实现。</li>
-</ul>
-<h4 id="继续探讨IOC依赖注入"><a href="#继续探讨IOC依赖注入" class="headerlink" title="继续探讨IOC依赖注入"></a>继续探讨IOC依赖注入</h4><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170608/185512872.png" alt="mark"></p>
-<p><span style="color:red">所有变量的初始化不是通过自己来负责的，而是通过依赖注入的概念。Spring框架只要你定义好了一些service,它自己就能把这些处理出来。</span></p>
-<ol>
-<li>在service文件夹下定义好相应的service类，用<strong>@Service</strong>注释</li>
-<li>在其他地方，比如controller文件夹中的类声明service中弄好的类的对象时，就可以直接采用“类名+对象名”的方式来生成对象，而不用new操作。用<strong>@Autowired</strong>注释。</li>
-</ol>
-<p>即在service中声明类。在要用的地方依赖注入就可以了。</p>
-<p><strong>这样做有什么好处？</strong></p>
-<p>如果大家在一起写代码，你可以跟一个人说你给我写个什么样的service，然后我需要什么接口，等他写完后，我只要在我想用的地方直接使用就行了，不用担心怎么初始化，直接在用的地方依赖注入就可以了（直接就拥有了相关对象的句柄）。即该方式的最大好处就是：无需关心变量的初始化，只需要通过注解的方式来表示说这是来自一个秉持（不知道是什么）的对象的初始化就可以了。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>它的核心是轻量级的IOC容器，它的目标是为J2EE应用提供了全方位的整合框架，在Spring框架<br>下实现多个子框架的组合，这些子框架之间可以彼此独立，也可以使用其他的框架方案加以代替。<br>Spring希望为企业应用提供一站式的解决方案（建议：如果是高并发大型项目，慎重使用，<br>因为项目大量使用反射机制，必定会影响性能。）</p>
-<h2 id="采用MVC模式时的目录结构"><a href="#采用MVC模式时的目录结构" class="headerlink" title="采用MVC模式时的目录结构"></a>采用MVC模式时的目录结构</h2><p>模型(model)－视图(view)－控制器(controller)</p>
-<p>下图是<strong>依赖于Spring框架的项目大概的树形结构</strong>：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170609/182824488.png" alt="mark"></p>
-<ul>
-<li>model文件夹用来存放模型</li>
-<li>controller文件夹用来存放控制器</li>
-<li>视图则存放在templates模板文件夹中</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2087,7 +2045,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

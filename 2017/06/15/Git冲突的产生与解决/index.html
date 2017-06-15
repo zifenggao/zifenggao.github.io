@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Git," />
 
 
 
@@ -87,15 +87,20 @@
 
 
 
-<meta name="description" content="我的梦想是世界和平">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Roderic">
-<meta property="og:url" content="http://yoursite.com/tags/NexT/index.html">
+<meta name="description" content="什么情况下会产生冲突？第一种情况你修改了本地的某一份文件里面的内容，准备提交到github仓库上，恰好github仓库上的仓库的这份文件被另外一个人给修改了，即此时你本地对那份文件做了修改，远程仓库的那份文件也被做了修改，这样等你提交远程仓库的时候，冲突就产生了，不管你们修改的是不是那份文件的同一个地方，都会被识认为是冲突。 第二种情况你没有修改原本的文件，但是添加了新的文件，而远程仓库中，部分原">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git冲突的产生与解决">
+<meta property="og:url" content="http://yoursite.com/2017/06/15/Git冲突的产生与解决/index.html">
 <meta property="og:site_name" content="Roderic">
-<meta property="og:description" content="我的梦想是世界和平">
+<meta property="og:description" content="什么情况下会产生冲突？第一种情况你修改了本地的某一份文件里面的内容，准备提交到github仓库上，恰好github仓库上的仓库的这份文件被另外一个人给修改了，即此时你本地对那份文件做了修改，远程仓库的那份文件也被做了修改，这样等你提交远程仓库的时候，冲突就产生了，不管你们修改的是不是那份文件的同一个地方，都会被识认为是冲突。 第二种情况你没有修改原本的文件，但是添加了新的文件，而远程仓库中，部分原">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/170615/DFbmkILj88.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/170615/f1eFCABc9G.png">
+<meta property="og:updated_time" content="2017-06-15T13:16:59.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Roderic">
-<meta name="twitter:description" content="我的梦想是世界和平">
+<meta name="twitter:title" content="Git冲突的产生与解决">
+<meta name="twitter:description" content="什么情况下会产生冲突？第一种情况你修改了本地的某一份文件里面的内容，准备提交到github仓库上，恰好github仓库上的仓库的这份文件被另外一个人给修改了，即此时你本地对那份文件做了修改，远程仓库的那份文件也被做了修改，这样等你提交远程仓库的时候，冲突就产生了，不管你们修改的是不是那份文件的同一个地方，都会被识认为是冲突。 第二种情况你没有修改原本的文件，但是添加了新的文件，而远程仓库中，部分原">
+<meta name="twitter:image" content="http://onxem9xtk.bkt.clouddn.com/blog/170615/DFbmkILj88.png">
 
 
 
@@ -123,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/NexT/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/15/Git冲突的产生与解决/"/>
 
 
 
 
 
-  <title> 标签: NexT | Roderic </title>
+  <title> Git冲突的产生与解决 | Roderic </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -164,7 +169,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -292,74 +297,216 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        NexT
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/15/NexT主题配置进阶/" itemprop="url">
-              
-                <span itemprop="name">NexT主题配置进阶</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-15T10:30:33+08:00"
-              content="2017-04-15" >
-          04-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/15/Hexo-NexT主题/" itemprop="url">
-              
-                <span itemprop="name">Hexo-NexT主题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-15T10:20:58+08:00"
-              content="2017-04-15" >
-          04-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/15/Git冲突的产生与解决/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Git冲突的产生与解决
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-15T19:31:55+08:00">
+                2017-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/06/15/Git冲突的产生与解决/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/15/Git冲突的产生与解决/" class="leancloud_visitors" data-flag-title="Git冲突的产生与解决">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么情况下会产生冲突？"><a href="#什么情况下会产生冲突？" class="headerlink" title="什么情况下会产生冲突？"></a>什么情况下会产生冲突？</h2><h3 id="第一种情况"><a href="#第一种情况" class="headerlink" title="第一种情况"></a>第一种情况</h3><p>你修改了本地的某一份文件里面的内容，准备提交到github仓库上，恰好github仓库上的仓库的这份文件被另外一个人给修改了，即此时你本地对那份文件做了修改，远程仓库的那份文件也被做了修改，这样等你提交远程仓库的时候，冲突就产生了，不管你们修改的是不是那份文件的同一个地方，都会被识认为是冲突。</p>
+<h3 id="第二种情况"><a href="#第二种情况" class="headerlink" title="第二种情况"></a>第二种情况</h3><p>你没有修改原本的文件，但是添加了新的文件，而远程仓库中，部分原本的文件被人更改了，那当你提交的时候也会发生冲突，很好理解，因为你本地文件内容旧了，需要用<code>git pull origin master</code>，拉取远程仓库最新的文件内容到本地，更新本地的文件内容，不用怕，只是更新旧文件的内容，你自己的文件不会被删掉（<span style="color:red">清楚“ <strong>合并</strong> ”这个概念，两个集合取并集，除非其中两个集合的同一个元素的值发生了异议，才会产生冲突，这时候才需要去解决冲突</span>），更新完本地旧文件后，你就可以安心的提交你想提交的内容了。</p>
+<p>值得注意的是，合并远程仓库的新内容到本地时，会自动识别成一次记录，备注默认的是一句“merge ….基本清了，大概意思就是合并远程仓库的内容到本地仓库….”，你可以默认，也可以更改为自己想要的备注。</p>
+<h2 id="第一种情况怎么解决？"><a href="#第一种情况怎么解决？" class="headerlink" title="第一种情况怎么解决？"></a>第一种情况怎么解决？</h2><p>首先拉取远程仓库到本地<code>git pull origin master</code></p>
+<p>此时你用git bash的话，会发现所在的分支提示会变成下面这样的：（master|MERGING）<br><img src="http://onxem9xtk.bkt.clouddn.com/blog/170615/DFbmkILj88.png" alt="mark"></p>
+<p>这说明已经拉取成功，让你解决冲突之后，就可以提交</p>
+<p>一般冲突的地方文件内容会以这样的形式提示，让你更改</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/170615/f1eFCABc9G.png" alt="mark"></p>
+<p>更改完之后，保存文件，会看到分支的提示有变回（master）了，这时git会认为你已经解决冲突了，可以提交到远程仓库</p>
+<p>重新使用add、commit、push命令就能提交成功了</p>
+<h2 id="应该注意什么"><a href="#应该注意什么" class="headerlink" title="应该注意什么"></a>应该注意什么</h2><p>可能你也发现了，在团队合作的情况下，每个人都拥有对某个仓库的读写权限，每个人都在提交，发生像上面说到的冲突是在所难免的。一旦发生冲突，你可以通过拉取远程仓库的内容，借助git，比较内容冲突在哪里并更改完文件后（只要改了冲突的地方就行，不管有没有跟本地的还是跟仓库的一样），就可以提交到远程的仓库。这很可能就会导致别人原本正确的东西被你给弄错了。</p>
+<p>具体的引用网上的一段话：</p>
+<blockquote>
+<p>仔细对比,取综合的并集,就是尽量把所有不同的文件保留,共同的只留一份</p>
+<p>个人的一点经验:多人协作开发的时候,如果出现了你没有改过的文件跟你冲突了,一定要去找到当事者,说清楚是如何冲突,然后协商解决,千万不要擅自拉别的分支去试图解决冲突,或找文件覆盖.同时记住,解决了之后,要add 和 commit 最后push.为保证万无一失,最后在冲突都解决之后,重启项目,特别是指服务器项目,保证至少不会有立即奔溃的现象发生.然后才去提交,push.</p>
+<p>提交的时候,一定要保持清醒,先搞清楚自己要提交的文件之间的关系,然后再提交,这样才不会有文件缺失的问题,造成奔溃.</p>
+<p>如果任务比较多,又建议开多个分支,分别进行开发.还是老话,一定要清楚自己在各个分支上做了什么,自己要提交的是什么.最好是能做个详细的笔记.好记性不如烂笔头.</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/14/搭建hexo博客的具体流程/" rel="prev" title="搭建hexo博客的具体流程">
+                搭建hexo博客的具体流程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -367,6 +514,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
 
         </div>
         
@@ -386,8 +539,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/宫秋.jpg"
@@ -460,6 +622,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么情况下会产生冲突？"><span class="nav-number">1.</span> <span class="nav-text">什么情况下会产生冲突？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一种情况"><span class="nav-number">1.1.</span> <span class="nav-text">第一种情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二种情况"><span class="nav-number">1.2.</span> <span class="nav-text">第二种情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一种情况怎么解决？"><span class="nav-number">2.</span> <span class="nav-text">第一种情况怎么解决？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应该注意什么"><span class="nav-number">3.</span> <span class="nav-text">应该注意什么</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -569,6 +747,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
