@@ -304,6 +304,940 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/Mysql数据库基本使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/10/Mysql数据库基本使用/" itemprop="url">
+                  Mysql数据库基本使用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T17:19:15+08:00">
+                2017-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/10/Mysql数据库基本使用/" class="leancloud_visitors" data-flag-title="Mysql数据库基本使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>太久没有用命令行操作Mysql,今天有个项目想用下都不知道怎么用了，都是些最近本的东西，把这些坑记下来吧。</p>
+<blockquote>
+<p>记得本地的Mysql数据库服务（当然下面要将的第一条是要求不能启动，我说的是正常操作的情况下，的启动Mysql服务才行），启动方法是，win+R代开运行窗口之后输入services.msc，打开服务功能视图，找到MySQL那个选项，将它启动就可以了。</p>
+</blockquote>
+<h2 id="忘记登录密码怎么办"><a href="#忘记登录密码怎么办" class="headerlink" title="忘记登录密码怎么办"></a>忘记登录密码怎么办</h2><p><a href="http://jingyan.baidu.com/article/454316ab4e9e65f7a7c03ad1.html" target="_blank" rel="external">直接看这里吧，挺好的一个教程</a></p>
+<p>教程中是还要进到mysql安装目录的bin文件夹下，运行mysql.exe，这是没有添加系统环境变量的缘故，把bin文件夹的目录路径添加到环境变量的path中就行，具体过程就不多说了，自己百度。添加了之后，就能在cmd的任意地方输入mysql登陆命令直接登陆mysql而不用一定得在bin目录下才可以。</p>
+<p>教程最后还讲了绕过用户认证登陆后进行更改密码的操作，这也不失为一种更改密码的方法，不过更改完后必须重新启动数据库服务才能生效，记住是services.msc里面的数据库服务，而不是简单地把cmd窗口打开再关掉。</p>
+<p>注意，mysql数据库初始状态有个示例账户，是不需要账户名和密码就能登陆的，但是数据库却只有示例的数据库，并不是真正的账户里面的数据库信息。所以不要在命令行输入mysql后出现mysql欢迎信息就以为自己已经成功登陆了，其实只是个让你来看看mysql示例数据库的账号而已。虽然也可以用，但是还是自己的账号好，毕竟自己的账号有用户名和密码，你用个没名没分的账号来操作数据库心里也难免有种不安全感。</p>
+<h2 id="怎么登陆"><a href="#怎么登陆" class="headerlink" title="怎么登陆"></a>怎么登陆</h2><p>在命令窗口输入：mysql -u用户名 -p密码</p>
+<p>这样就能登陆了，在此之前记得像最开始说的先启动mysql服务，另外注意-u和用户名之间没有空格，-p和密码之间也没有空格</p>
+<h2 id="查看mysql版本"><a href="#查看mysql版本" class="headerlink" title="查看mysql版本"></a>查看mysql版本</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>命令窗口下：mysql –version</p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>登录mysql后输入：status;或者输入：select version(); </p>
+<h2 id="查看端口号"><a href="#查看端口号" class="headerlink" title="查看端口号"></a>查看端口号</h2><p>登录mysql后输入：show global variables like ‘port’; </p>
+<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><h3 id="查看当前用户下的数据库"><a href="#查看当前用户下的数据库" class="headerlink" title="查看当前用户下的数据库"></a>查看当前用户下的数据库</h3><p>show databases;</p>
+<h3 id="选中某个数据库（决定对某个数据库进行操作）"><a href="#选中某个数据库（决定对某个数据库进行操作）" class="headerlink" title="选中某个数据库（决定对某个数据库进行操作）"></a>选中某个数据库（决定对某个数据库进行操作）</h3><p>use 数据库名;</p>
+<h3 id="查看数据库中都有什么表"><a href="#查看数据库中都有什么表" class="headerlink" title="查看数据库中都有什么表"></a>查看数据库中都有什么表</h3><p>show tables;</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/Github团队协作基础教程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/08/Github团队协作基础教程/" itemprop="url">
+                  Github团队协作基础教程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T15:56:54+08:00">
+                2017-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工程开发规范/" itemprop="url" rel="index">
+                    <span itemprop="name">工程开发规范</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/08/Github团队协作基础教程/" class="leancloud_visitors" data-flag-title="Github团队协作基础教程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="创建组织"><a href="#创建组织" class="headerlink" title="创建组织"></a>创建组织</h2><p>既然是团队项目，说明该项目是属于某个组织的，应该先建立一个组织，如下图：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/160407996.png" alt="mark"></p>
+<p>进入组织的创建页面，填好组织名称和接收的消息的邮箱，这里我们将组织名称命名为TestWebTeam，选免费的方案，如果是真正的公司，则就会付费去创建一个组织，因为有些内容不能公开。点击create organization即完成组织的创建。（注意组织名称不能重复，接收邮箱必须添加）</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/160953319.png" alt="mark"></p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161324292.png" alt="mark"></p>
+<p>点击创建后会进入成员邀请页 ，我们先直接点击finish跳过，只有再进行邀请。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161610631.png" alt="mark"></p>
+<p>这样组织就创建完成了。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161722340.png" alt="mark"></p>
+<h2 id="创建小组"><a href="#创建小组" class="headerlink" title="创建小组"></a>创建小组</h2><p>组织就是现实意义上的组织，一个组织内部可以有很多个小组，他们之间可以共享一些仓库，拥有对不同仓库不同的控制权限，我们下面来创建一个小组，比如说这小组叫Designer，即设计小组。点击team,r然后点击create new team</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161842853.png" alt="mark"></p>
+<p>进入小组创建页，填写小组名称Team name和小组描述Description,Team visibility是用户显示的内容，英语都看得懂就不说了，默认选第一个。然后点击create创建。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/162602118.png" alt="mark"></p>
+<p>这就小组创建成功了，可以通过addmember来搜索github用户添加组员</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/162653465.png" alt="mark"></p>
+<h2 id="创建和配置代码仓库权限"><a href="#创建和配置代码仓库权限" class="headerlink" title="创建和配置代码仓库权限"></a>创建和配置代码仓库权限</h2><p>组织有了，组织内部的开发小组也有了，需要的就是代码仓库了，一个组织可以有多个代码仓库，下面先创建一个，组织主页，点击创建新的仓库。（另外也可以像建个人仓库一样点击右上角的加号创建仓库，只是到时候将所属对象从个人改成目的组织就行了）</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/162830511.png" alt="mark"></p>
+<p>跟创建个人仓库没什么区别，只是owner变了，仓库名字命名为TestRepository</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/163526089.png" alt="mark"></p>
+<p>创建成功，点击setting给这个仓库指定哪些小组可以使用，并规定访问权限</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/163700530.png" alt="mark"></p>
+<p>中途会让你输入用户密码，输入就是了。然后左边选择Collaborators&amp;team、右边选择team，选择select team添加可以操作该仓库的小组。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/163917414.png" alt="mark"></p>
+<p>添加完后，可以编辑该小组使用该仓库时的权限，三个权限，既然是想让小组来用这个代码仓库，则选择write即可，admin权限将使所有小组成员变成该项目管理员，可以随意编辑该仓库的设置，慎重选择。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/164139443.png" alt="mark"></p>
+<p>下面的collaborators是添加该仓库的个人协作者（区别于小组），可自行扩展</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/164352606.png" alt="mark"></p>
+<h2 id="为小组创建Pull-Request"><a href="#为小组创建Pull-Request" class="headerlink" title="为小组创建Pull Request"></a>为小组创建Pull Request</h2><p>组织通过Pull Request进行代码检查，当你对代码进行更改时可以邀请你的小组审核你的更改并提供反馈。下面来创建一个小的Pull Request，主要是对我们之前创建的代码仓库TestRepository的README文件进行更改。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/165536228.png" alt="mark"></p>
+<p>移到最下面，添加主要提交的描述以及选择创建一个新的分支，因为我们要使用pull request，如果选第一个选项就直接合并到主分支去了</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/165745931.png" alt="mark"></p>
+<p>点击propose file change,进入open a pull prequest界面，这个页面是让你来更加详细的描述这次更改的原因，以及更改了什么地方，另外还可以用“@”来通知全体组员（就像QQ的@全体成员），让他们知道你的这次pull request</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/170536923.png" alt="mark"></p>
+<p>然后点击create pull request,这样小组的所有成员就都将知道你创建了一个pull request</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/170831194.png" alt="mark"></p>
+<h2 id="Pull-Request的作用"><a href="#Pull-Request的作用" class="headerlink" title="Pull Request的作用"></a>Pull Request的作用</h2><p>鉴于有些人可能不大清楚Pull Request的作用，下面来讲一下。</p>
+<p>要打开一个pull request必须先拥有一个带有更改的分支，所以pull request适合团队工作，因为个人的话一般会一直工作在主分支上。</p>
+<blockquote>
+<p>Pull Request用于提出对项目的更改，是一个开始提交讨论的方式，经常用于代码审查当中，如果是 一个人工作，则可能用Pull Request比较少，因为个人可以通过git命令推送更改到主分支中，并不<br> 存在其他的分支，但如果在公司项目或者开源项目这种团队工作的情况下，就必须使用Pull Request了。</p>
+</blockquote>
+<p>Pull Request是在开发者在创建一个区别于master的分支并进行相应的更改之后，想仓库管理者提出的将自己的分支（即更改内容）合并到主分支的一个请求，发出的这个请求可以被可访问这个仓库的所有人看见，并进行讨论，看是否合并、更改是否合理等等。即Pull Request用于对正在更改的代码仓库的讨论。</p>
+<p><strong>拿上面创建的pull request为例：</strong></p>
+<p>有三个视图，conversation视图用来讨论这次的更改</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/172158184.png" alt="mark"></p>
+<p>commit 提交视图包含了有关谁对这个文件进行更改的信息，每个提交都被记录到这个视图中，让我们知道提交前后发生了什么变化</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/172434240.png" alt="mark"></p>
+<p>files changed 文件更改视图，用来查看文件的更改记录。绿色表示已经添加的内容，红色表示内容被删除</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/172612618.png" alt="mark"></p>
+<p>那如何合并分支，对于公司，一般会有人来签署更改，但如果是个人在自己仓库的操作，则自己就可以进行合并操作，在coversation视图点击merge pull request就可以将这个提交合并到主分支了。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/173520039.png" alt="mark"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/实现console-log不换行输出/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/06/实现console-log不换行输出/" itemprop="url">
+                  实现console.log不换行输出的方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-06T20:25:59+08:00">
+                2017-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/06/实现console-log不换行输出/" class="leancloud_visitors" data-flag-title="实现console.log不换行输出的方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>有点标题党的感觉，因为console.log()是无法实现不换行输出的，每执行一次console.log()都会自动占据一行。不过我们可以改变我们的输出思路。</p>
+<blockquote>
+<p>用数组以及其方法：toString(),join(),reverse()来解决。</p>
+</blockquote>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">for(var i=0;i&lt;3;i++)&#123;</div><div class="line">	console.log(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果将是：</p>
+<p>0</p>
+<p>1</p>
+<p>2</p>
+<p>但我们想在一行内输出：0,1,2或者0–&gt;1–&gt;2或者2,1,0该怎么办？相信看来最开始我说的用数组及其方法的应该已经想到了。</p>
+<p><strong>先用一个数组把想输出的内容存储下来，之后再用相关的数组方法将其打印就可以了。</strong></p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> A=[],k=<span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</div><div class="line">	A[k]=i;</div><div class="line">	k++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(A.toString());</div><div class="line"><span class="built_in">console</span>.log(A.reverse().join(<span class="string">'--&gt;'</span>));</div></pre></td></tr></table></figure>
+<p>很明显，结果将是：</p>
+<p>0,1,2</p>
+<p>2–&gt;1–&gt;0</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/29/Js实现简单排序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/29/Js实现简单排序算法/" itemprop="url">
+                  Js实现简单排序算法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-29T21:08:10+08:00">
+                2017-04-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/29/Js实现简单排序算法/" class="leancloud_visitors" data-flag-title="Js实现简单排序算法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这里用JavaScript实现冒泡排序、选择排序、插入排序、归并排序以及快速排序这些基本的排序算法</p>
+<p>首先我们给本文约定一个实现的框架：定义一个ArrayList类里面包含排序数组声明、数组元素添加、排序算法实现以及数组输出的方法。</p>
+<p><strong>代码框架：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">ArrayList</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> array=[];</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.inputArraymember=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;   <span class="comment">//将10个大小在1~15的随机数添加到数组中</span></div><div class="line">        <span class="keyword">var</span> ins=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">            ins=<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">15</span>+<span class="number">1</span>);</div><div class="line">            array.push(ins);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.相应的排序算法=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;...算法的具体实现代码...&#125;;	<span class="comment">//代码块替换部分</span></div><div class="line"></div><div class="line">    <span class="keyword">this</span>.toString=<span class="function"><span class="keyword">function</span>(<span class="params">separator</span>)</span>&#123;  <span class="comment">//将数组按指定分隔符生成字符串方便输出</span></div><div class="line">        <span class="keyword">return</span> array.join(separator);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> ArrayList();</div><div class="line">a.inputArraymember();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"随机生成的原始数组为："</span>+a.toString(<span class="string">'-'</span>));</div><div class="line">a.bubbleSort();</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"排序后数组为："</span>+a.toString(<span class="string">'-'</span>));</div></pre></td></tr></table></figure>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>用两层循环，第一层用来记录剩余的还未排序的数的个数，第二层用来在剩下的未排序的数中找到最大的数并将其放到未排序数的最后面（冒泡）。</p>
+<p>代码实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.bubbleSort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">	<span class="keyword">var</span> length=array.length;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;length;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;length<span class="number">-1</span>-i;j++)&#123;</div><div class="line">			<span class="keyword">if</span>(array[j]&gt;array[j+<span class="number">1</span>])&#123;</div><div class="line">				<span class="keyword">var</span> t=array[j];	array[j]=array[j+<span class="number">1</span>];array[j+<span class="number">1</span>]=t;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>冒泡排序的时间复杂度是O(n&sup2;)。将以上代码替换文章开始约定的代码框架中的“代码块替换部分”即可用于在调试工具中运行查看代码运行结果。</p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>思路很简单，每次都找出未排序的数当中最小的数并放在开头，直到所有数的位置确定下来。说清楚点就是从所有序列中先找到最小的，然后放到第一个位置。之后再看剩余元素中最小的，放到第二个位置……以此类推。</p>
+<p>代码实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.selectsort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> length=array.length,currentMin;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;length<span class="number">-1</span>;i++)&#123;	<span class="comment">//每循环一趟就会有一个数得到排序</span></div><div class="line">       currentMin=i;		<span class="comment">//用来记录最小数的下标，默认为最开始的未排序的元素下标</span></div><div class="line">       <span class="keyword">for</span>(<span class="keyword">var</span> j=i;j&lt;length;j++)&#123;</div><div class="line">           <span class="keyword">if</span>(array[currentMin]&gt;array[j])&#123;</div><div class="line">               currentMin=j;	</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(i!==currentMin)&#123;	<span class="comment">//若下标不是未排序的最开始的那个元素的下标，则将两者的值交换</span></div><div class="line">            <span class="keyword">var</span> t=array[currentMin];</div><div class="line">            array[currentMin]=array[i];</div><div class="line">            array[i]=t;</div><div class="line">        &#125;</div><div class="line">   &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>可看出，选择排序也用了两个嵌套着的循环，所以时间复杂度也是O(n&sup2;)，是一种原址排序。</p>
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>从第二个数开始（因为第一个数只有一个，前面没得比。），与前面的数挨个比较，直到找到前一个数比当前值小，后一个数比当前值大的位置，让后将当前值置于此处，以此类推。</p>
+<p>代码实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.insertsort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> length=array.length, j,temp;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;length;i++)&#123;</div><div class="line">        j=i;</div><div class="line">        temp=array[i];	<span class="comment">//先存储待比较的数</span></div><div class="line">        <span class="keyword">while</span>(j&gt;<span class="number">0</span>&amp;&amp;array[j<span class="number">-1</span>]&gt;temp)&#123;	<span class="comment">//如果这个数比上一个数小，则让上一个数占据现在这个数的位置（右移每个比当前数小的数）</span></div><div class="line">            array[j]=array[j<span class="number">-1</span>];</div><div class="line">            j--</div><div class="line">        &#125;</div><div class="line">        array[j]=temp;	<span class="comment">//直到这个数不比上一个数小的时候，将这个数放在当前的位置</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>时间复杂度为O(nlogn)。归并用的是分治的思想，将原始数组切分成较小的数组，直到每个小数组只有一个位置，接着讲小数组归并成较大的数组，直到最后只有一个排序完毕的大数组。</p>
+<p>代码实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">   <span class="keyword">this</span>.mergeSort=<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">       array = mergeSortRec(array);</div><div class="line">   &#125;;</div><div class="line"></div><div class="line"><span class="comment">//建堆函数，将数组一直拆分成两部分，直到各部分数组长度都为1的时候停止，然后进行merge操作</span></div><div class="line">   <span class="keyword">var</span> mergeSortRec = <span class="function"><span class="keyword">function</span>(<span class="params">array</span>)</span>&#123;</div><div class="line">       <span class="keyword">var</span> length = array.length;</div><div class="line">       <span class="keyword">if</span> (length === <span class="number">1</span>) &#123;</div><div class="line">           <span class="keyword">return</span> array;</div><div class="line">       &#125;</div><div class="line">       <span class="keyword">var</span> mid = <span class="built_in">Math</span>.floor(length / <span class="number">2</span>),</div><div class="line">           left = array.slice(<span class="number">0</span>, mid),<span class="comment">//slice() 方法可从已有的数组中返回选定的元素,语法 arrayObject.slice(start,end)</span></div><div class="line">           right = array.slice(mid, length);</div><div class="line"></div><div class="line">       <span class="keyword">return</span> merge(mergeSortRec(left), mergeSortRec(right));</div><div class="line">   &#125;;</div><div class="line"></div><div class="line"><span class="comment">//将各部分进行归并</span></div><div class="line">   <span class="keyword">var</span> merge = <span class="function"><span class="keyword">function</span>(<span class="params">left, right</span>) </span>&#123;</div><div class="line">       <span class="keyword">var</span> result = [],</div><div class="line">           il = <span class="number">0</span>,</div><div class="line">           ir = <span class="number">0</span>;</div><div class="line">       <span class="keyword">while</span>(il &lt; left.length &amp;&amp; ir &lt; right.length) &#123;</div><div class="line">           <span class="keyword">if</span> (left[il] &lt; right[ir]) &#123;</div><div class="line">               result.push(left[il++]);</div><div class="line">           &#125; <span class="keyword">else</span> &#123;</div><div class="line">               result.push(right[ir++]);</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">	<span class="comment">//如果il数组还有剩余，则将其剩余部分添加到结果数组中</span></div><div class="line">       <span class="keyword">while</span> (il &lt; left.length) &#123;</div><div class="line">           result.push(left[il++]);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">	<span class="comment">//如果ir数组还有剩余，则将其剩余部分添加到结果数组中</span></div><div class="line">       <span class="keyword">while</span> (ir &lt; right.length) &#123;</div><div class="line">           result.push(right[ir++]);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> result;</div><div class="line">   &#125;;</div></pre></td></tr></table></figure>
+<h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>时间复杂度为O(logn)。用的是分治的思想。</p>
+<p>代码实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">this</span>.quickSort = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      quick(array,  <span class="number">0</span>, array.length - <span class="number">1</span>);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> partition = <span class="function"><span class="keyword">function</span>(<span class="params">array, left, right</span>) </span>&#123;	<span class="comment">//划分过程</span></div><div class="line"></div><div class="line"><span class="comment">//主元的选择方法最好是随机选择一个数组想或是选择中间项，这里选择中间项</span></div><div class="line">      <span class="keyword">var</span> pivot = array[<span class="built_in">Math</span>.floor((right + left) / <span class="number">2</span>)],</div><div class="line">          i = left,</div><div class="line">          j = right;</div><div class="line"></div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'pivot is '</span> + pivot + <span class="string">'; left is '</span> + left + <span class="string">'; right is '</span> + right);</div><div class="line"></div><div class="line">      <span class="keyword">while</span> (i &lt;= j) &#123;</div><div class="line">          <span class="keyword">while</span> (array[i] &lt; pivot) &#123;</div><div class="line">              i++;</div><div class="line">              <span class="built_in">console</span>.log(<span class="string">'i = '</span> + i);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          <span class="keyword">while</span> (array[j] &gt; pivot) &#123;</div><div class="line">              j--;</div><div class="line">              <span class="built_in">console</span>.log(<span class="string">'j = '</span> + j);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          <span class="keyword">if</span> (i &lt;= j) &#123;</div><div class="line">              <span class="built_in">console</span>.log(<span class="string">'swap '</span> + array[i] + <span class="string">' with '</span> + array[j]);</div><div class="line">              swapQuickStort(array, i, j);</div><div class="line">              i++;</div><div class="line">              j--;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="keyword">return</span> i;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> swapQuickStort = <span class="function"><span class="keyword">function</span>(<span class="params">array, index1, index2</span>)</span>&#123;</div><div class="line">      <span class="keyword">var</span> aux = array[index1];</div><div class="line">      array[index1] = array[index2];</div><div class="line">      array[index2] = aux;</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> quick = <span class="function"><span class="keyword">function</span>(<span class="params">array, left, right</span>)</span>&#123;<span class="comment">//将子数组分离为较小值数组和较大值数组</span></div><div class="line"></div><div class="line">      <span class="keyword">var</span> index;</div><div class="line"></div><div class="line">      <span class="keyword">if</span> (array.length &gt; <span class="number">1</span>) &#123;</div><div class="line"></div><div class="line">          index = partition(array, left, right);</div><div class="line"></div><div class="line">          <span class="keyword">if</span> (left &lt; index - <span class="number">1</span>) &#123;</div><div class="line">              quick(array, left, index - <span class="number">1</span>);</div><div class="line">          &#125;</div><div class="line"></div><div class="line">          <span class="keyword">if</span> (index &lt; right) &#123;</div><div class="line">              quick(array, index, right);</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> array;</div><div class="line">  &#125;;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/JavaScript数组介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/27/JavaScript数组介绍/" itemprop="url">
+                  JavaScript数组介绍
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-27T16:51:40+08:00">
+                2017-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/27/JavaScript数组介绍/" class="leancloud_visitors" data-flag-title="JavaScript数组介绍">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>JavaScript的数组中的元素可以具有不同的类型，即<code>var a=[&#39;hello&#39;,12,&#39;kk&#39;];</code>是合法的。</li>
+<li>对于一维数组，可直接用<code>console.log(数组名)</code>来输出数组内容，若是多维数组则需要自行构建函数来输出</li>
+</ul>
+<h2 id="创建和初始化数组"><a href="#创建和初始化数组" class="headerlink" title="创建和初始化数组"></a>创建和初始化数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> everyday=<span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> everyday=<span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> everyday=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">'hello'</span>,<span class="string">'world'</span>,<span class="number">123</span>,<span class="string">'china'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> evaryday=[];</div><div class="line"><span class="keyword">var</span> evaryday=[<span class="string">'hello'</span>,<span class="string">'world'</span>,<span class="number">123</span>,<span class="string">'china'</span>];</div></pre></td></tr></table></figure>
+<p>可使用<code>everyday.length</code>来获得数组的长度</p>
+<h2 id="添加和删除数组元素"><a href="#添加和删除数组元素" class="headerlink" title="添加和删除数组元素"></a>添加和删除数组元素</h2><h3 id="添加到数组末尾"><a href="#添加到数组末尾" class="headerlink" title="添加到数组末尾"></a>添加到数组末尾</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">everyday[everyday.length]=<span class="string">'新元素'</span>;</div><div class="line">或</div><div class="line">everyday.push(<span class="string">'新元素1'</span>,<span class="string">'新元素2'</span>);</div></pre></td></tr></table></figure>
+<h3 id="添加到数组首部"><a href="#添加到数组首部" class="headerlink" title="添加到数组首部"></a>添加到数组首部</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eveday.unshit(<span class="string">'新元素1'</span>,<span class="string">'新元素2'</span>);</div></pre></td></tr></table></figure>
+<h3 id="删除最靠后元素"><a href="#删除最靠后元素" class="headerlink" title="删除最靠后元素"></a>删除最靠后元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.pop();</div></pre></td></tr></table></figure>
+<p><strong>用push()和pop()可以用数组来模拟栈</strong></p>
+<h3 id="删除第一个元素"><a href="#删除第一个元素" class="headerlink" title="删除第一个元素"></a>删除第一个元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.shift();</div></pre></td></tr></table></figure>
+<p><strong>用shift()和unshift()可以用数组模拟队列</strong></p>
+<h3 id="删除任意位置的元素"><a href="#删除任意位置的元素" class="headerlink" title="删除任意位置的元素"></a>删除任意位置的元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.splice(<span class="number">2</span>,<span class="number">3</span>);</div></pre></td></tr></table></figure>
+<p><em>注解</em>：表示删除了从下标2的元素开始往后的两个元素（包括下标为2的），即everyday[2]、everyday[3]、everyday[4]。</p>
+<h3 id="插入任意为位置-任意值"><a href="#插入任意为位置-任意值" class="headerlink" title="插入任意为位置 任意值"></a>插入任意为位置 任意值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.splice(<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>)</div></pre></td></tr></table></figure>
+<p><em>注释</em>：这才是splice()函数的完整用法。第一个参数是要执行删除操作的开始下标，第二个是要删除的个数，咱现在目的是为了添加，所以写0，第三个参数及以后则是要新添加的元素，此例执行后everyday[2]值变成5，以此类推。</p>
+<h2 id="二维和多维数组"><a href="#二维和多维数组" class="headerlink" title="二维和多维数组"></a>二维和多维数组</h2><p>JavaScript只支持一维数组，但由于JavaScript数组对元素类型的宽容性，我们可以采用数组套数组的方法来实现多维数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a1=[];</div><div class="line">a1[<span class="number">0</span>]=[<span class="string">'hello'</span>,<span class="number">23</span>,<span class="string">'world'</span>];</div><div class="line">a1[<span class="number">2</span>]=[<span class="string">'china'</span>,<span class="string">'england'</span>];</div><div class="line">或</div><div class="line"><span class="keyword">var</span> a2=[];</div><div class="line">a2[<span class="number">0</span>]=[];</div><div class="line">a2[<span class="number">0</span>][<span class="number">0</span>]=<span class="string">'hello'</span>;</div><div class="line">a2[<span class="number">0</span>][<span class="number">1</span>]=<span class="string">'woeld'</span>;</div></pre></td></tr></table></figure>
+<p>此时用<code>console.log(a2)</code>将不能输出数组内容，因为console.log()之只能用来输出具体的元素，应该自行创建一个函数来简化输出</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printfMatrix</span>(<span class="params">myMatrix</span>)</span>&#123;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;myMatrix.length;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;myMatrix[i].length;j++)&#123;</div><div class="line">			<span class="built_in">console</span>.log(myMatrix[i][j]);	</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">printfMatrix(数组名);</div></pre></td></tr></table></figure>
+<h2 id="操作数组的方法（函数）"><a href="#操作数组的方法（函数）" class="headerlink" title="操作数组的方法（函数）"></a>操作数组的方法（函数）</h2><h3 id="数组合并–concat方法"><a href="#数组合并–concat方法" class="headerlink" title="数组合并–concat方法"></a>数组合并–concat方法</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/215254983.png" alt="mark"></p>
+<p>按照指定的顺序连接起来，很好理解</p>
+<h3 id="迭代器函数"><a href="#迭代器函数" class="headerlink" title="迭代器函数"></a>迭代器函数</h3><h4 id="every方法"><a href="#every方法" class="headerlink" title="every方法"></a>every方法</h4><p>every会迭代数组中的每一个元素，直到返回false</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/220902028.png" alt="mark"></p>
+<p><em>注释</em>：给每个元素迭代执行zhengshu这个方法（是小于0则继续迭代，直到遇到正数，返回false）</p>
+<h4 id="some方法"><a href="#some方法" class="headerlink" title="some方法"></a>some方法</h4><p>every会迭代数组中的每一个元素，直到返回true</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/220733166.png" alt="mark"></p>
+<p><em>注释</em>：给每个元素迭代执行zhengshu这个方法（是大于0则继续迭代，直达遇到负数，返回true）</p>
+<h4 id="forEach方法"><a href="#forEach方法" class="headerlink" title="forEach方法"></a>forEach方法</h4><p>foreach会迭代整个数组的元素</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/221242840.png" alt="mark"></p>
+<h4 id="map方法"><a href="#map方法" class="headerlink" title="map方法"></a>map方法</h4><p>map会生成一个数组，用来保存迭代所有元素时产生的结果</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/222058826.png" alt="mark"></p>
+<h4 id="filter方法"><a href="#filter方法" class="headerlink" title="filter方法"></a>filter方法</h4><p>filter会生成一个新数组，用来保存迭代所有元素时时函数返回true的元素</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/222558025.png" alt="mark"></p>
+<h4 id="reduce方法"><a href="#reduce方法" class="headerlink" title="reduce方法"></a>reduce方法</h4><p>reduce接收一个函数作为参数，这个函数有四个参数：prevousValue、currentValue、index和array。这个函数会返回一个将被叠加到累加器的值，reduce方法停止执行后返回这个累加器。<strong>如果要对一个数组中的所有元素求和</strong>，这就很有用。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/223252765.png" alt="mark"></p>
+<h3 id="搜索和排序"><a href="#搜索和排序" class="headerlink" title="搜索和排序"></a>搜索和排序</h3><h4 id="数组反序–reverse方法"><a href="#数组反序–reverse方法" class="headerlink" title="数组反序–reverse方法"></a>数组反序–reverse方法</h4><p>就是将原本数组元素的排列顺序颠倒</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/223543502.png" alt="mark"></p>
+<h4 id="数组自动排序–sort方法"><a href="#数组自动排序–sort方法" class="headerlink" title="数组自动排序–sort方法"></a>数组自动排序–sort方法</h4><p>sort在排序的时候，是默认把元素当成字符串来比较。比如底下这样用就会出错：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/224022818.png" alt="mark"></p>
+<p>那应该怎么办？    <strong>自己写比较函数</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=[<span class="number">2</span>,<span class="number">6</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> a-b;&#125;));</div></pre></td></tr></table></figure>
+<p>主要的是代码a.sort(function(a,b){return a-b;})，此代码表示当a小于b时返回负数，当a大于b时返回正数，相等时放回0，这样sort方法就会根据返回值的情况给数组排序，当然这行代码额可以改写成比较好理解的以下以下代码：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/154459103.png" alt="mark"></p>
+<p>注意比较函数的调用方法（没有传参）</p>
+<h5 id="自定义排序"><a href="#自定义排序" class="headerlink" title="自定义排序"></a>自定义排序</h5><p>可以创建任何对象类型的数组排序，也可以创建compareFunction来比较元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person=[&#123;<span class="attr">name</span>:<span class="string">'小明'</span>,<span class="attr">age</span>:<span class="number">15</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'小王'</span>,<span class="attr">age</span>:<span class="number">14</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'小东'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">comparePerson</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(a.age&lt;b.age)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(a.age&gt;b.age)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(person.sort(comparePerson));</div></pre></td></tr></table></figure>
+<p>结果:</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/155611910.png" alt="mark"></p>
+<h5 id="字符串排序"><a href="#字符串排序" class="headerlink" title="字符串排序"></a>字符串排序</h5><p>对于字符创的比较，sort是根据ASCII值来比较的，比如：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/160013324.png" alt="mark"></p>
+<p>即Jmn会排在apple的前面，如果我们想让它排序正确，则需要自己写一个忽略大小写的比较函数：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/161659564.png" alt="mark"></p>
+<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><ul>
+<li>indexOf()方法：返回与参数匹配的第一个元素的索引</li>
+<li>lastIndexOf()方法：返回与参数匹配的最后一个元素的索引。</li>
+</ul>
+<p>例子：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162309077.png" alt="mark"></p>
+<p>结果分析，前两个没什么好说的，第三个查找10，因为没有这个元素，所以返回-1</p>
+<h3 id="输出数组为字符串及指定分隔符"><a href="#输出数组为字符串及指定分隔符" class="headerlink" title="输出数组为字符串及指定分隔符"></a>输出数组为字符串及指定分隔符</h3><ul>
+<li>toString()将数组里的所有元素输出为一个字符串</li>
+<li>join()用一个不同的分隔符把元素隔开</li>
+</ul>
+<p>例子：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162842256.png" alt="mark"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/HTML5-Canvas入门/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1224,871 +2158,6 @@ animation:myfirst 5s linear 2s infinite alternate;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/22/Github-Pages托管静态页面/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/22/Github-Pages托管静态页面/" itemprop="url">
-                  Github Pages托管静态页面
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-22T09:16:11+08:00">
-                2017-04-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工程开发规范/" itemprop="url" rel="index">
-                    <span itemprop="name">工程开发规范</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/22/Github-Pages托管静态页面/" class="leancloud_visitors" data-flag-title="Github Pages托管静态页面">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>什么是 Github Pages？</p>
-<p>Github Pages 是 Github 的静态页面托管服务。它设计的初衷是为了用户能够直接通过 Github仓库来托管用户个人、组织或是项目的专属页面。</p>
-</blockquote>
-<p>我们可以利用 Github 的静态页面托管服务 Github Pages 来帮助我们做页面展示。见得最多的就是把它拿来托管自己的博客，当然博客是静态的，不过，不止博客，我们github账户上的所有仓库只要把Github Pages的功能代开，就都能拥有自己的展示主页。</p>
-<h2 id="托管博客"><a href="#托管博客" class="headerlink" title="托管博客"></a>托管博客</h2><p>github提供的博客托管仓库只有一个，那就是<code>username.github.io</code>，下面说一下具体怎么弄：</p>
-<ul>
-<li>创建一个名为username.github.io的仓库，其中username是你的github用户名，其他的默认即可</li>
-<li>进入username.github.io这个仓库，点击setting选项进行设置<br>  <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170422/093113938.png" alt="mark"></li>
-<li>本地git关联和上传到这个仓库的步骤我就不说了，也就是git init、git add、git commit、git remote add origin <a href="https://仓库地址、git" target="_blank" rel="external">https://仓库地址、git</a> push origin master这些基本步骤，相信能来看这个的对git的基本操作都已经掌握了。</li>
-<li><p>进入到setting里面，左边学则Options这一栏,右边滑到GitHub Pages那一栏，将Source的Node改成你放博客文件的分支名字，一般是直接用master分支，然后Save</p>
-<ul>
-<li><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170422/093746809.png" alt="mark"></p>
-</li>
-<li><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170422/094015055.png" alt="mark"></p>
-</li>
-</ul>
-</li>
-<li>Theme chooser那一个选项是给你的这个主页设置显示的主题的，咱们是自己创建的博客不需要它的东西，直接跳过就行了</li>
-<li>此时访问在浏览器搜索框输入username.github.io其实已经可以访问，只是会提示404，因为咱们没有放页面</li>
-<li>此时只要上传本地的博客文件到这个仓库就可以了</li>
-<li><strong>注意</strong>：<span style="color:red;">博客的首页必须命名为index.html且放在这个仓库的最外面，不能放在某某文件夹里面，不然访问username.github.io还是会找不到页面</span></li>
-<li>上面的工作都做完后，就能通过输入username.github.io(记住，这里提到的username都得改成自己的用户名)访问自己托管的静态博客了</li>
-<li>如果不喜欢github提供的这个username.github.io域名怎么办，也可以绑定到自己注册的域名，详情请看我的这篇博客：<a href="http://roderic.cn/2017/04/19/%E6%8C%82%E8%BD%BDHexo%E4%B8%BB%E9%A2%98%E7%9A%84Github%E7%BB%91%E5%AE%9A%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D/" target="_blank" rel="external">挂载Hexo主题的Github绑定自己的域名</a>,博主用的是Hexo的Next主题，不过不影响，操作都差不多<ul>
-<li>到服务商购买域名</li>
-<li>username.github.io仓库添加最外面添加一个CNAME文件，里面写上自己购买的域名</li>
-<li>解析购买的域名到github的域名和IP地址，等待一会儿就能通过自己的域名访问了</li>
-</ul>
-</li>
-</ul>
-<h2 id="生成项目的展示主页"><a href="#生成项目的展示主页" class="headerlink" title="生成项目的展示主页"></a>生成项目的展示主页</h2><p>这才是Github Pages这功能开放的真正目的，为的是让托管在github上的仓库都能有直接进行展示的机会</p>
-<p>步骤跟托管博客的步骤一样，随便一个仓库，Setting-&gt;Options-&gt;GitHub Pages-&gt;Source-&gt;分支名<br>这样就成功了，通过<a href="http://博客域名/仓库名，就可也访问了，同样该仓库需要一个放在最外面的index.html页面来做首页" target="_blank" rel="external">http://博客域名/仓库名，就可也访问了，同样该仓库需要一个放在最外面的index.html页面来做首页</a></p>
-<h2 id="Github-Pages的限制"><a href="#Github-Pages的限制" class="headerlink" title="Github Pages的限制"></a>Github Pages的限制</h2><p>好东西还是有限制的：</p>
-<ul>
-<li>仓库存储的所有文件不能超过 1 GB</li>
-<li>页面的带宽限制是低于每月 100 GB 或是每月 100,000 次请求。</li>
-<li>每小时最多只能部署 10 个静态网站。<br>不够对于托管个博客应该是绰绰有余了，如果真的不小心超了，Github 那边不会采取什么强制措施，而是会发一份邮件提醒你应该找一个更适合你的托管对象的服务。</li>
-</ul>
-<p>至于仓库的存储的文件大小限度是各个仓库的总和还是自己有自己的1GB，这我没研究过，毕竟Github还没给我发过提醒邮件。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/21/“百花齐放”的前端时代/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/21/“百花齐放”的前端时代/" itemprop="url">
-                  “百花齐放”的前端时代
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-21T17:04:54+08:00">
-                2017-04-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端江湖录/" itemprop="url" rel="index">
-                    <span itemprop="name">前端江湖录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/21/“百花齐放”的前端时代/" class="leancloud_visitors" data-flag-title="“百花齐放”的前端时代">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://www.vichily.com/2017/02/28/%E7%AC%BC%E7%BB%9F%E7%9A%84%E5%89%8D%E7%AB%AF/" target="_blank" rel="external"><strong>笼统的前端</strong></a></p>
-<p>现在前端领域各种框架、库并行，新技术层出不穷，暂且称它为“繁荣”吧。</p>
-<p>对一个刚刚走进这个江湖的菜鸟来说，jQuery、Angular、React、Vue、Bootstrap、Node这些经常在各大公司招聘要求以及各大前端论坛信息中的看到词到底是什么，有什么作用，一会儿框架，一会儿库的，还有MVC、MVVM以及npm、gulp、webpack等，就像各大帮派一样，搞得人一头雾水。</p>
-<blockquote>
-<p>链接</p>
-<p><a href="http://weibo.com/p/1001603924826640228007" target="_blank" rel="external">我眼中的前端框架jQuery，Angular，React，Vue——以及我看前端架构</a></p>
-<p><a href="http://www.cnblogs.com/leolovexx/p/5691402.html" target="_blank" rel="external">浅析angular，react，vue.js，jQuery使用区别</a></p>
-<p><a href="http://blog.csdn.net/xllily_11/article/details/51782005" target="_blank" rel="external">Gulp和webpack的区别，是一种工具吗？</a></p>
-<p><a href="http://www.cnblogs.com/xz1024/p/5842623.html" target="_blank" rel="external">nodejs+gulp+webpack基础实战篇</a></p>
-</blockquote>
-<h2 id="各路英雄的见解"><a href="#各路英雄的见解" class="headerlink" title="各路英雄的见解"></a>各路英雄的见解</h2><h3 id="关于框架"><a href="#关于框架" class="headerlink" title="关于框架"></a>关于框架</h3><ul>
-<li>前端框架天下三分：Angular、React 和 Vue</li>
-<li>按照时代出场顺序排序：jQuery、Angular、React、Vue</li>
-<li>jQuery肯定要学的，Angular、React 和 Vue三个先学一个，三个都是比较类似的</li>
-<li>React，Angular,Vue三个也是没有关联相互独立的框架。使用这三个框架搭建的网站主要特点就是动态刷新，路由控制不通过后端，全是JS完成，每次跳转页面都是动态替换index.html页面root节点的内容</li>
-<li>Angular、React、Vue是Js框架，本身都是用js原生写的，就是别人把一些js的代码封装了，你调用之后就能用别人写好的方法，会方便很多，也被局限在别人的框架内部了</li>
-<li>Bootstrap是UI框架</li>
-<li>vue是国人弄出来的，官方文档都是中文，学起来比较不麻烦</li>
-<li><strong>分清楚 库，框架，构建工具、 插件的作用</strong><ul>
-<li>需要引用或者调用，就可以直接用，并不会对你做太多约束。那么这种大部分都称之为库。如jQuery</li>
-<li>需要按照他的标准构建文件结构或者文件夹结构或者代码书写方式那么这东西可以称之为框架，一般框架都是多种组合在一起的，如React+gulp 或者 jQuery mobile</li>
-<li>解决开发过程中重复或者需要自动化智能化完成事情，也就是构建工具，如grunt和gulp</li>
-<li>基于 库，框架，工具，提供的补充优化的模块就叫做插件</li>
-</ul>
-</li>
-</ul>
-<h3 id="关于工具"><a href="#关于工具" class="headerlink" title="关于工具"></a>关于工具</h3><ul>
-<li>gulp是工具链、构建工具，可以配合各种插件做js压缩，css压缩，less编译 替代手工实现自动化工作</li>
-<li>webpack是文件打包工具，可以把项目的各种js文、css文件等打包合并成一个或多个文件，主要用于模块化方案，预编译模块的方案</li>
-</ul>
-<h3 id="关于node"><a href="#关于node" class="headerlink" title="关于node"></a>关于node</h3><p>一个让我笑半天的回答<br><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170421/181221735.png" alt="mark"></p>
-<p>node到底是什么？</p>
-<ul>
-<li>让Js也可以做后端</li>
-<li>Node.js 通过用单线程取代多线程，事件驱动 I/O 来解决了高并发，取代了 Java 平台的标准</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/定义和声明的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/20/定义和声明的区别/" itemprop="url">
-                  定义和声明的区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T21:08:00+08:00">
-                2017-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/编程基础/" itemprop="url" rel="index">
-                    <span itemprop="name">编程基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/20/定义和声明的区别/" class="leancloud_visitors" data-flag-title="定义和声明的区别">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>声明就是指给除了当前变量或者函数，或者类什么的名字，不给其中的内容，就是先告诉你有这样一个什么类型的变量或者函数，但是这个变量或者函数的具体信息却是不知道的。就好比跟你介绍一个人的时候，声明就是只告诉你这个人叫什么，但是缺不给你说这个人到底怎么样，他有哪些优点，缺点，喜好问题是什么的</li>
-<li>定义就不一样了，定义直接告诉你了所有的东西，这个变量是什么，这个函数是什么功能，这个类里面包含了什么东西。很具体的说明</li>
-<li>当然一般对于变量来说，我们不怎么区分声明或者定义之类的，一般没有人去说我要声明一个变量，然后定义这个变量什么的。要说都是直接说定义变量</li>
-<li>声明一般都是对函数或者类来说的，声明在前，定义在后</li>
-<li><code>int a;</code>可以说是声明，广泛的说是定义一个变量a，也不算错</li>
-</ul>
-<p>例子：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a; <span class="comment">//等价于 声明一个人：小张</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">3</span>; <span class="comment">//等价于 定义一个人 ：小张 年龄为三岁。</span></div><div class="line"><span class="comment">//定义是带有初始化的</span></div><div class="line"><span class="comment">//函数的声明和定义</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">My</span><span class="params">()</span></span>; <span class="comment">// 这个是声明</span></div><div class="line"><span class="comment">//这个是定义</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">My</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/19/挂载Hexo主题的Github绑定自己的域名/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/19/挂载Hexo主题的Github绑定自己的域名/" itemprop="url">
-                  挂载Hexo主题的Github绑定自己的域名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-19T10:14:52+08:00">
-                2017-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/19/挂载Hexo主题的Github绑定自己的域名/" class="leancloud_visitors" data-flag-title="挂载Hexo主题的Github绑定自己的域名">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>用的Hexo的博客框架，本地生成并托管到github上之后，通过“username.github.io”便能访问自己的博客了，但是如何将url改成自己想要的域名，需要如下一些步骤。</p>
-<ol>
-<li>到域名提供商那注册自己想要的域名，国内比较大的有阿里云、百度云等等、国外有godaddy、bluehost等，bluehost还支持支付宝，还不错，其实一个域名也不用纠结太多，毕竟域名不管在国内还是国外买的，只要服务器是国外的就不用走中国内地的备案套路，比如本篇文章讲的博客在github上就不用担心什么备案，不过要注意的是如果买的是.cn这种中国域名，就需要购买人提供身份证电子照片进行验证，政府部门通过后才能用。</li>
-<li>到github的username.github.io目录下，创建新文件CNAME（一定要大写，而且不加任何后缀）,其中包含你注册的域名，注意要填的是顶级域名，比如<code>roderic.cn</code></li>
-<li><p>第二步是告诉github你要将该博客地址转到你CNAME文件中指定的域名。现在到你购买域名的服务商那为你购买的域名添加三条解析记录，如下：<br><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170419/105717156.png" alt="mark"></p>
-<p> 前两条记录是指定该域名跳转的IP（github pages的，固定的，照抄，不用管）地址，第三条是指定该域名跳转到username.github.io（注意这里的username都得用你github的用户名替换）</p>
-</li>
-<li><p>这样经过短时间的等待，你就可以用你注册的域名访问你的博客了，当然此时用username。github.io也还是能访问博客的。</p>
-</li>
-<li>本例讲的是Hexo的博客框架，都知道Hexo每次都要重新生成静态文件再上传，这样每次CNAME都得重新创建很麻烦，解决方法是把CNAME文件放在source文件夹下，这样生成静态文件的时候，就会自动添加CNAME这个文件了。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/17/Java入门（三）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/17/Java入门（三）/" itemprop="url">
-                  Java入门（三）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T13:13:16+08:00">
-                2017-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/17/Java入门（三）/" class="leancloud_visitors" data-flag-title="Java入门（三）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="有关读取用户输入的问题"><a href="#有关读取用户输入的问题" class="headerlink" title="有关读取用户输入的问题"></a>有关读取用户输入的问题</h1><p>首先导入包<code>import java.util.Scanner;</code>这里面有处理用户输入的方法。</p>
-<h2 id="输入数字情况"><a href="#输入数字情况" class="headerlink" title="输入数字情况"></a>输入数字情况</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  </div><div class="line">  <span class="comment">//创建输入对象</span></div><div class="line">  Scanner sc=<span class="keyword">new</span> Scanner(System.in);</div><div class="line">  </div><div class="line">  <span class="comment">//获取用户输入的数字</span></div><div class="line">  System.out.print(<span class="string">"请输入任意数字:"</span>);</div><div class="line">  <span class="keyword">int</span> str=sc.nextInt();		<span class="comment">//用来获取数字</span></div><div class="line">  </div><div class="line">  System.out.println(<span class="string">"你输入的数字为:"</span>+str);</div><div class="line">  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h2 id="输入字符串"><a href="#输入字符串" class="headerlink" title="输入字符串"></a>输入字符串</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  </div><div class="line">  <span class="comment">//创建输入对象</span></div><div class="line">  Scanner sc=<span class="keyword">new</span> Scanner(System.in);</div><div class="line">  </div><div class="line">  <span class="comment">//获取用户输入的字符串</span></div><div class="line">  String str=<span class="keyword">null</span>;</div><div class="line">  System.out.print(<span class="string">"请输入任意字符:"</span>);</div><div class="line">  str=sc.nextLine();		<span class="comment">//用来获取字符串</span></div><div class="line">  </div><div class="line">  System.out.println(<span class="string">"你输入的字符为:"</span>+str);</div><div class="line">  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h2 id="若要输入字符数组"><a href="#若要输入字符数组" class="headerlink" title="若要输入字符数组"></a>若要输入字符数组</h2><p>思路：先用输入字符串的方法读入字符串，然后再将其转换为字符数组</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170417/134343486.png" alt="mark"></p>
-<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><p>经过测试，一个输入对象只能接受一种数据类型，要想输入不同的数据对象，就得现创建不同的输入对象<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Scanner in1=<span class="keyword">new</span> Scanner(System.in);	<span class="comment">//接受数字输入</span></div><div class="line"><span class="keyword">int</span> x1=in1.nextInt();	</div><div class="line"><span class="keyword">int</span> x2=in1.nextInt();	<span class="comment">//同种类型不必再new输入对象</span></div><div class="line"></div><div class="line">Scanner sc2=<span class="keyword">new</span> Scanner(System.in);	<span class="comment">//接受字符串输入，不同类型得创新new输入对象，而且不同名</span></div><div class="line">String str=sc2.nextLine();		</div><div class="line">String str=sc2.nextLine();</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2138,7 +2207,7 @@ animation:myfirst 5s linear 2s infinite alternate;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2149,7 +2218,7 @@ animation:myfirst 5s linear 2s infinite alternate;
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2160,7 +2229,7 @@ animation:myfirst 5s linear 2s infinite alternate;
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
