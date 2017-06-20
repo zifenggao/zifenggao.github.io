@@ -640,7 +640,28 @@
 <p>node到底是什么？</p>
 <ul>
 <li>让Js也可以做后端</li>
-<li>Node.js 通过用单线程取代多线程，事件驱动 I/O 来解决了高并发，取代了 Java 平台的标准</li>
+<li>Node.js 通过用单线程取代多线程，事件驱动 I/O 来解决了高并发，取代了Java 平台的标准<ul>
+<li>一个运行JavaScript的平台，可以操作文件、创建网络服务等，并用JavaScript来编写后端服务</li>
+<li>事件驱动</li>
+<li>非阻塞I/O模型</li>
+</ul>
+</li>
+<li>2009年 Ryan Dahl 开发并开源 ，目的是构建高性能服务器，基于Chrome V8</li>
+<li>结合Express实现高可扩展的动态Web服务</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">"fs"</span>);</div><div class="line">fs.readFile(<span class="string">"./testfile"</span>, <span class="string">"utf8"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, file</span>) </span>&#123;  </div><div class="line">     <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;  </div><div class="line">     <span class="built_in">console</span>.log(<span class="string">"我读完文件了！"</span>);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"我不会被阻塞！"</span>);</div></pre></td></tr></table></figure>
+<p>上面代码的输出是：</p>
+<pre>
+我不会被阻塞！
+我读完文件了！
+</pre>
+
+<p>这个输出显然不符合传统的程序执行顺序，这便是Node.js的非阻塞I/O了。即I/O操作不会阻塞程序的执行，也就是在I/O操作的同时，继续执行其他代码（这得益于Node的事件循环机制）。</p>
+<h3 id="Express"><a href="#Express" class="headerlink" title="Express"></a>Express</h3><p>Node.js的Web框架</p>
+<ul>
+<li>Express是一个简洁、灵活的Node.js Web应用开发框架, 它提供一系列强大的功能，比如：模板解析、静态文件服务、中间件、路由控制等。</li>
+<li>本质上是一个npm包，所以安装：npm install express</li>
 </ul>
 
           
