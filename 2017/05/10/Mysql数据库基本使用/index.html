@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/10/Mysql数据库基本使用/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="太久没有用命令行操作Mysql,今天有个项目想用下都不知道怎么用了，都是些最近本的东西，把这些坑记下来吧。  记得本地的Mysql数据库服务（当然下面要将的第一条是要求不能启动，我说的是正常操作的情况下，的启动Mysql服务才行），启动方法是，win+R代开运行窗口之后输入services.msc，打开服务功能视图，找到MySQL那个选项，将它启动就可以了。  忘记登录密码怎么办直接看这里吧，挺好">
-<meta property="og:updated_time" content="2017-06-03T16:38:07.489Z">
+<meta property="og:updated_time" content="2017-06-21T01:12:37.150Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql数据库基本使用">
 <meta name="twitter:description" content="太久没有用命令行操作Mysql,今天有个项目想用下都不知道怎么用了，都是些最近本的东西，把这些坑记下来吧。  记得本地的Mysql数据库服务（当然下面要将的第一条是要求不能启动，我说的是正常操作的情况下，的启动Mysql服务才行），启动方法是，win+R代开运行窗口之后输入services.msc，打开服务功能视图，找到MySQL那个选项，将它启动就可以了。  忘记登录密码怎么办直接看这里吧，挺好">
@@ -429,9 +429,10 @@
 <p>注意，mysql数据库初始状态有个示例账户，是不需要账户名和密码就能登陆的，但是数据库却只有示例的数据库，并不是真正的账户里面的数据库信息。所以不要在命令行输入mysql后出现mysql欢迎信息就以为自己已经成功登陆了，其实只是个让你来看看mysql示例数据库的账号而已。虽然也可以用，但是还是自己的账号好，毕竟自己的账号有用户名和密码，你用个没名没分的账号来操作数据库心里也难免有种不安全感。</p>
 <h2 id="怎么登陆"><a href="#怎么登陆" class="headerlink" title="怎么登陆"></a>怎么登陆</h2><p>在命令窗口输入：mysql -u用户名 -p密码</p>
 <p>这样就能登陆了，在此之前记得像最开始说的先启动mysql服务，另外注意-u和用户名之间没有空格，-p和密码之间也没有空格</p>
+<h2 id="更改用户密码"><a href="#更改用户密码" class="headerlink" title="更改用户密码"></a>更改用户密码</h2><p>mysqladmin -u用户名 -p旧密码 password 新密码</p>
 <h2 id="查看mysql版本"><a href="#查看mysql版本" class="headerlink" title="查看mysql版本"></a>查看mysql版本</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>命令窗口下：mysql –version</p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>登录mysql后输入：status;或者输入：select version(); </p>
-<h2 id="查看端口号"><a href="#查看端口号" class="headerlink" title="查看端口号"></a>查看端口号</h2><p>登录mysql后输入：show global variables like ‘port’; </p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>登录mysql后输入：status;或者输入：select version();</p>
+<h2 id="查看端口号"><a href="#查看端口号" class="headerlink" title="查看端口号"></a>查看端口号</h2><p>登录mysql后输入：show global variables like ‘port’;</p>
 <h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><h3 id="查看当前用户下的数据库"><a href="#查看当前用户下的数据库" class="headerlink" title="查看当前用户下的数据库"></a>查看当前用户下的数据库</h3><p>show databases;</p>
 <h3 id="选中某个数据库（决定对某个数据库进行操作）"><a href="#选中某个数据库（决定对某个数据库进行操作）" class="headerlink" title="选中某个数据库（决定对某个数据库进行操作）"></a>选中某个数据库（决定对某个数据库进行操作）</h3><p>use 数据库名;</p>
 <h3 id="查看数据库中都有什么表"><a href="#查看数据库中都有什么表" class="headerlink" title="查看数据库中都有什么表"></a>查看数据库中都有什么表</h3><p>show tables;</p>
@@ -565,7 +566,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -633,7 +634,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#忘记登录密码怎么办"><span class="nav-number">1.</span> <span class="nav-text">忘记登录密码怎么办</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么登陆"><span class="nav-number">2.</span> <span class="nav-text">怎么登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看mysql版本"><span class="nav-number">3.</span> <span class="nav-text">查看mysql版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">3.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">3.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看端口号"><span class="nav-number">4.</span> <span class="nav-text">查看端口号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本命令"><span class="nav-number">5.</span> <span class="nav-text">基本命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前用户下的数据库"><span class="nav-number">5.1.</span> <span class="nav-text">查看当前用户下的数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选中某个数据库（决定对某个数据库进行操作）"><span class="nav-number">5.2.</span> <span class="nav-text">选中某个数据库（决定对某个数据库进行操作）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看数据库中都有什么表"><span class="nav-number">5.3.</span> <span class="nav-text">查看数据库中都有什么表</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#忘记登录密码怎么办"><span class="nav-number">1.</span> <span class="nav-text">忘记登录密码怎么办</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎么登陆"><span class="nav-number">2.</span> <span class="nav-text">怎么登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改用户密码"><span class="nav-number">3.</span> <span class="nav-text">更改用户密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看mysql版本"><span class="nav-number">4.</span> <span class="nav-text">查看mysql版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">4.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">4.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看端口号"><span class="nav-number">5.</span> <span class="nav-text">查看端口号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本命令"><span class="nav-number">6.</span> <span class="nav-text">基本命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前用户下的数据库"><span class="nav-number">6.1.</span> <span class="nav-text">查看当前用户下的数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选中某个数据库（决定对某个数据库进行操作）"><span class="nav-number">6.2.</span> <span class="nav-text">选中某个数据库（决定对某个数据库进行操作）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看数据库中都有什么表"><span class="nav-number">6.3.</span> <span class="nav-text">查看数据库中都有什么表</span></a></li></ol></li></ol></div>
             
 
           </div>
