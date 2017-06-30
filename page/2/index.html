@@ -304,6 +304,742 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/18/初学Grunt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/18/初学Grunt/" itemprop="url">
+                  初学Grunt
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-18T11:25:15+08:00">
+                2017-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Grunt/" itemprop="url" rel="index">
+                    <span itemprop="name">Grunt</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/18/初学Grunt/" class="leancloud_visitors" data-flag-title="初学Grunt">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>本文使用的是国内镜像，用npm的可以自行把cnpm改为npm，用想用npm的可以参考<a href="http://www.uedbox.com/npm-install-slow-solution/" target="_blank" rel="external">这个</a></p>
+<p>参考原文地址：<a href="http://yujiangshui.com/grunt-basic-tutorial/" target="_blank" rel="external">Grunt新手一日入门</a></p>
+<blockquote>
+<p>Grunt依赖Node.js，使用Grunt前请确保已经安装了Node.js</p>
+</blockquote>
+<h2 id="基础步骤"><a href="#基础步骤" class="headerlink" title="基础步骤"></a>基础步骤</h2><ul>
+<li><p>全局安装grunt命令行</p>
+<p>  <code>cnpm install -g grunt-cli</code></p>
+</li>
+<li><p>到项目文件夹下，生成package.json文件，这个文件是Node.js用来描述项目的。</p>
+<p><code>npm init</code></p>
+<p>填写相关配置，不明白的直接跳过也可以</p>
+</li>
+<li><p>为该项目安装grunt</p>
+<p><code>npm install grunt --save-dev</code></p>
+<p>表示安装npm到当前目录，-save-dev参数表示，表示会<strong>把刚安装的东西添加到package.json文件中</strong></p>
+</li>
+<li><p>对于这个项目，假设我们希望grunt帮我们完成的功能有：</p>
+<ul>
+<li>检查每个 JS 文件语法</li>
+<li>合并两个 JS 文件</li>
+<li>将合并后的 JS 文件压缩</li>
+<li>将 SCSS 文件编译</li>
+<li>新建一个本地服务器监听文件变动自动刷新 HTML 文件</li>
+</ul>
+</li>
+<li><p>根据以上的需求，grunt有以下的以下插件来满足：</p>
+<ul>
+<li>合并文件：grunt-contrib-concat</li>
+<li>语法检查：grunt-contrib-jshint</li>
+<li>Scss 编译：grunt-contrib-sass</li>
+<li>压缩文件：grunt-contrib-uglify</li>
+<li>监听文件变动：grunt-contrib-watch</li>
+<li>建立本地服务器：grunt-contrib-connect</li>
+</ul>
+</li>
+<li><p>安装上面提到的那些插件</p>
+<p><code>npm install --save-dev grunt-contrib-concat grunt-contrib-jshint grunt-contrib-sass grunt-contrib-uglify grunt-contrib-watch grunt-contrib-connect</code></p>
+<p>安装完后可以看见package.json文件的devDependencies已经添加了那些插件，项目目录下也多出了个node_modules文件夹，里面放的就是刚刚安装的那些插件</p>
+</li>
+</ul>
+<h2 id="配置Gruntfile-js的语法"><a href="#配置Gruntfile-js的语法" class="headerlink" title="配置Gruntfile.js的语法"></a>配置Gruntfile.js的语法</h2><p>格式为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>) </span>&#123;</div><div class="line">    <span class="comment">/*所有代码都放在这里面，这是Grunt的格式规范</span></div><div class="line">    包括下面的三个部分：</div><div class="line">    */</div><div class="line">    任务配置代码</div><div class="line"></div><div class="line">    插件加载代码</div><div class="line"></div><div class="line">    任务注册代码</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>任务配置代码</strong>就是调用插件配置一下要执行的任务和实现的功能。<strong>插件加载代码</strong>就是把需要用到的插件加载进来，<strong>任务注册代码</strong>就是注册一个 task，里面包含刚在前面编写的任务配置代码。</p>
+<p>这样，就可以用 grunt 来执行注册的一个 task 从而根据<strong>任务配置代码</strong>调用需要的插件来执行相应的操作</p>
+</blockquote>
+<hr>
+<p>下面为uglify插件任务配置、插件加载及任务注册的代码示例：</p>
+<h3 id="任务配置代码"><a href="#任务配置代码" class="headerlink" title="任务配置代码"></a>任务配置代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">grunt.initConfig(&#123;</div><div class="line">  <span class="attr">pkg</span>: grunt.file.readJSON(<span class="string">'package.json'</span>),</div><div class="line">  <span class="attr">uglify</span>: &#123;</div><div class="line">    <span class="attr">options</span>: &#123;</div><div class="line">      <span class="attr">banner</span>: <span class="string">'/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("yyyy-mm-dd") %&gt; */\n'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">build</span>: &#123;</div><div class="line">      <span class="attr">src</span>: <span class="string">'src/&lt;%= pkg.name %&gt;.js'</span>,</div><div class="line">      <span class="attr">dest</span>: <span class="string">'build/&lt;%= pkg.name %&gt;.min.js'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="插件加载代码"><a href="#插件加载代码" class="headerlink" title="插件加载代码"></a>插件加载代码</h3><p><code>grunt.loadNpmTasks(&#39;grunt-contrib-uglify&#39;);</code></p>
+<h3 id="任务注册代码"><a href="#任务注册代码" class="headerlink" title="任务注册代码"></a>任务注册代码</h3><p><code>grunt.registerTask(&#39;default&#39;, [&#39;uglify&#39;]);</code></p>
+<p>代码意思是，你在 default 上面注册了一个 Uglify 任务，default 就是别名，它是默认的 task，当你在项目目录执行 grunt 的时候，它会执行注册到 default 上面的任务。也就是说，当我们执行 grunt 命令的时候，uglify 的所有代码将会执行。</p>
+<p>当然，我们也可注册别的task，例如：</p>
+<p><code>grunt.registerTask(&#39;compress&#39;, [&#39;uglify:build&#39;]);</code></p>
+<p>想要执行这个task,不能只输入grunt命令，需要输入 grunt compress 命令来执行这条 task，而这条 task 的任务是 uglify 下面的 build 任务，也就是说，我们只会执行 uglify 里面 build 定义的任务，而不会执行 uglify 里面定义的其他任务。</p>
+<h2 id="完整示例代码"><a href="#完整示例代码" class="headerlink" title="完整示例代码"></a>完整示例代码</h2><p>针对我们之前做的那个想让grunt帮我们完成的任务假设，最终得到的Gruntfile.js代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> sassStyle = <span class="string">'expanded'</span>;</div><div class="line"></div><div class="line">  grunt.initConfig(&#123;</div><div class="line">    <span class="attr">pkg</span>: grunt.file.readJSON(<span class="string">'package.json'</span>),</div><div class="line">    <span class="attr">sass</span>: &#123;</div><div class="line">      <span class="attr">output</span> : &#123;</div><div class="line">        <span class="attr">options</span>: &#123;</div><div class="line">          <span class="attr">style</span>: sassStyle</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">files</span>: &#123;</div><div class="line">          <span class="string">'./style.css'</span>: <span class="string">'./scss/style.scss'</span></div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">concat</span>: &#123;</div><div class="line">      <span class="attr">dist</span>: &#123;</div><div class="line">        <span class="attr">src</span>: [<span class="string">'./src/plugin.js'</span>, <span class="string">'./src/plugin2.js'</span>],</div><div class="line">        <span class="attr">dest</span>: <span class="string">'./global.js'</span>,</div><div class="line">      &#125;,</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">uglify</span>: &#123;</div><div class="line">      <span class="attr">compressjs</span>: &#123;</div><div class="line">        <span class="attr">files</span>: &#123;</div><div class="line">          <span class="string">'./global.min.js'</span>: [<span class="string">'./global.js'</span>]</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">jshint</span>: &#123;</div><div class="line">      <span class="attr">all</span>: [<span class="string">'./global.js'</span>]</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">watch</span>: &#123;</div><div class="line">      <span class="attr">scripts</span>: &#123;</div><div class="line">        <span class="attr">files</span>: [<span class="string">'./src/plugin.js'</span>,<span class="string">'./src/plugin2.js'</span>],</div><div class="line">        <span class="attr">tasks</span>: [<span class="string">'concat'</span>,<span class="string">'jshint'</span>,<span class="string">'uglify'</span>]</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">sass</span>: &#123;</div><div class="line">        <span class="attr">files</span>: [<span class="string">'./scss/style.scss'</span>],</div><div class="line">        <span class="attr">tasks</span>: [<span class="string">'sass'</span>]</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">livereload</span>: &#123;</div><div class="line">          <span class="attr">options</span>: &#123;</div><div class="line">              <span class="attr">livereload</span>: <span class="string">'&lt;%= connect.options.livereload %&gt;'</span></div><div class="line">          &#125;,</div><div class="line">          <span class="attr">files</span>: [</div><div class="line">              <span class="string">'index.html'</span>,</div><div class="line">              <span class="string">'style.css'</span>,</div><div class="line">              <span class="string">'js/global.min.js'</span></div><div class="line">          ]</div><div class="line">      &#125;</div><div class="line">    &#125;,</div><div class="line">    <span class="attr">connect</span>: &#123;</div><div class="line">      <span class="attr">options</span>: &#123;</div><div class="line">          <span class="attr">port</span>: <span class="number">9000</span>,</div><div class="line">          <span class="attr">open</span>: <span class="literal">true</span>,</div><div class="line">          <span class="attr">livereload</span>: <span class="number">35729</span>,</div><div class="line">          <span class="comment">// Change this to '0.0.0.0' to access the server from outside</span></div><div class="line">          hostname: <span class="string">'localhost'</span></div><div class="line">      &#125;,</div><div class="line">      <span class="attr">server</span>: &#123;</div><div class="line">        <span class="attr">options</span>: &#123;</div><div class="line">          <span class="attr">port</span>: <span class="number">9001</span>,</div><div class="line">          <span class="attr">base</span>: <span class="string">'./'</span></div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  grunt.loadNpmTasks(<span class="string">'grunt-contrib-sass'</span>);</div><div class="line">  grunt.loadNpmTasks(<span class="string">'grunt-contrib-concat'</span>);</div><div class="line">  grunt.loadNpmTasks(<span class="string">'grunt-contrib-jshint'</span>);</div><div class="line">  grunt.loadNpmTasks(<span class="string">'grunt-contrib-uglify'</span>);</div><div class="line">  grunt.loadNpmTasks(<span class="string">'grunt-contrib-watch'</span>);</div><div class="line">  grunt.loadNpmTasks(<span class="string">'grunt-contrib-connect'</span>);</div><div class="line"></div><div class="line">  grunt.registerTask(<span class="string">'outputcss'</span>,[<span class="string">'sass'</span>]);</div><div class="line">  grunt.registerTask(<span class="string">'concatjs'</span>,[<span class="string">'concat'</span>]);</div><div class="line">  grunt.registerTask(<span class="string">'compressjs'</span>,[<span class="string">'concat'</span>,<span class="string">'jshint'</span>,<span class="string">'uglify'</span>]);</div><div class="line">  grunt.registerTask(<span class="string">'watchit'</span>,[<span class="string">'sass'</span>,<span class="string">'concat'</span>,<span class="string">'jshint'</span>,<span class="string">'uglify'</span>,<span class="string">'connect'</span>,<span class="string">'watch'</span>]);</div><div class="line">  grunt.registerTask(<span class="string">'default'</span>);</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<ul>
+<li>添加了 connect 任务，用来新建一个本地服务器，以当前目录作为服务器根目录</li>
+<li><p>然后添加 watch 任务</p>
+<ul>
+<li>监听 Scss 文件变动，如果变了，执行一下 sass 任务</li>
+<li>监听那俩 JS，如果变了，执行 合并、检查、压缩 任务</li>
+<li>监听 html、css、js 文件，如果变动，livereload 自动刷新打开的页面</li>
+</ul>
+</li>
+<li><p>而注册的 watchit task 就是我们的终极 task，第一次执行，先编译 sass、再合并、检查、压缩、开启服务器、监听文件变动。我们执行一下 grunt watchit 就可以看到效果了，可以修改一下 scss 文件，把字体设置大一点，切换到浏览器的时候，就看到了实时刷新效果</p>
+</li>
+</ul>
+<h2 id="多人协作–Github"><a href="#多人协作–Github" class="headerlink" title="多人协作–Github"></a>多人协作–Github</h2><p>上面步骤完成之后，想要上传到Github上会发现，文件内容多出来十几兆，原因是那个放Grunt插件的node_modules文件夹，然而我们大可以使用git的 .gitignore 文件来过滤掉这个文件，禁止git追踪。</p>
+<p>原因是在package.json文件中已经记录了这个项目中依赖的 grunt 插件，只要上传这个文件即可。与你协作的人，下载下来之后，只需要在这个项目文件夹下面，输入命令 <strong>npm install</strong>，NPM会自动读取 package.json 文件，将grunt和有关插件给你下载下来即可。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/15/Git冲突的产生与解决/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/15/Git冲突的产生与解决/" itemprop="url">
+                  Git冲突的产生与解决
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-15T19:31:55+08:00">
+                2017-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/15/Git冲突的产生与解决/" class="leancloud_visitors" data-flag-title="Git冲突的产生与解决">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么情况下会产生冲突？"><a href="#什么情况下会产生冲突？" class="headerlink" title="什么情况下会产生冲突？"></a>什么情况下会产生冲突？</h2><h3 id="第一种情况"><a href="#第一种情况" class="headerlink" title="第一种情况"></a>第一种情况</h3><p>你修改了本地的某一份文件里面的内容，准备提交到github仓库上，恰好github仓库上的仓库的这份文件被另外一个人给修改了，即此时你本地对那份文件做了修改，远程仓库的那份文件也被做了修改，这样等你提交远程仓库的时候，冲突就产生了，不管你们修改的是不是那份文件的同一个地方，都会被识认为是冲突。</p>
+<h3 id="第二种情况"><a href="#第二种情况" class="headerlink" title="第二种情况"></a>第二种情况</h3><p>你没有修改原本的文件，但是添加了新的文件，而远程仓库中，部分原本的文件被人更改了，那当你提交的时候也会发生冲突，很好理解，因为你本地文件内容旧了，需要用<code>git pull origin master</code>，拉取远程仓库最新的文件内容到本地，更新本地的文件内容，不用怕，只是更新旧文件的内容，你自己的文件不会被删掉（<span style="color:red">清楚“ <strong>合并</strong> ”这个概念，两个集合取并集，除非其中两个集合的同一个元素的值发生了异议，才会产生冲突，这时候才需要去解决冲突</span>），更新完本地旧文件后，你就可以安心的提交你想提交的内容了。</p>
+<p>值得注意的是，合并远程仓库的新内容到本地时，会自动识别成一次记录，备注默认的是一句“merge ….基本清了，大概意思就是合并远程仓库的内容到本地仓库….”，你可以默认，也可以更改为自己想要的备注。</p>
+<h2 id="第一种情况怎么解决？"><a href="#第一种情况怎么解决？" class="headerlink" title="第一种情况怎么解决？"></a>第一种情况怎么解决？</h2><p>首先拉取远程仓库到本地<code>git pull origin master</code></p>
+<p>此时你用git bash的话，会发现所在的分支提示会变成下面这样的：（master|MERGING）<br><img src="http://onxem9xtk.bkt.clouddn.com/blog/170615/DFbmkILj88.png" alt="mark"></p>
+<p>这说明已经拉取成功，让你解决冲突之后，就可以提交</p>
+<p>一般冲突的地方文件内容会以这样的形式提示，让你更改</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/170615/f1eFCABc9G.png" alt="mark"></p>
+<p>更改完之后，保存文件，会看到分支的提示有变回（master）了，这时git会认为你已经解决冲突了，可以提交到远程仓库</p>
+<p>重新使用add、commit、push命令就能提交成功了</p>
+<h2 id="应该注意什么"><a href="#应该注意什么" class="headerlink" title="应该注意什么"></a>应该注意什么</h2><p>可能你也发现了，在团队合作的情况下，每个人都拥有对某个仓库的读写权限，每个人都在提交，发生像上面说到的冲突是在所难免的。一旦发生冲突，你可以通过拉取远程仓库的内容，借助git，比较内容冲突在哪里并更改完文件后（只要改了冲突的地方就行，不管有没有跟本地的还是跟仓库的一样），就可以提交到远程的仓库。这很可能就会导致别人原本正确的东西被你给弄错了。</p>
+<p>具体的引用网上的一段话：</p>
+<blockquote>
+<p>仔细对比,取综合的并集,就是尽量把所有不同的文件保留,共同的只留一份</p>
+<p>个人的一点经验:多人协作开发的时候,如果出现了你没有改过的文件跟你冲突了,一定要去找到当事者,说清楚是如何冲突,然后协商解决,千万不要擅自拉别的分支去试图解决冲突,或找文件覆盖.同时记住,解决了之后,要add 和 commit 最后push.为保证万无一失,最后在冲突都解决之后,重启项目,特别是指服务器项目,保证至少不会有立即奔溃的现象发生.然后才去提交,push.</p>
+<p>提交的时候,一定要保持清醒,先搞清楚自己要提交的文件之间的关系,然后再提交,这样才不会有文件缺失的问题,造成奔溃.</p>
+<p>如果任务比较多,又建议开多个分支,分别进行开发.还是老话,一定要清楚自己在各个分支上做了什么,自己要提交的是什么.最好是能做个详细的笔记.好记性不如烂笔头.</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/搭建hexo博客的具体流程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/14/搭建hexo博客的具体流程/" itemprop="url">
+                  搭建hexo博客的具体流程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-14T10:21:48+08:00">
+                2017-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/14/搭建hexo博客的具体流程/" class="leancloud_visitors" data-flag-title="搭建hexo博客的具体流程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="在本地搭建"><a href="#在本地搭建" class="headerlink" title="在本地搭建"></a>在本地搭建</h2><p>讲一下搭建hexo博客的具体流程</p>
+<p>首先安装git环境</p>
+<p>然后安装node环境（node再带的npm版本据说比较老旧，可以使用npm install npm -g来重装（更新）一下npm版本，不过我弄之后版本还是一样的，可能现在node和npm更新已经同步了吧）</p>
+<p>搭建前先说一下，最近国内npm源号好像有问题，可以使用镜像来解决：<br><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code><br>镜像指定完之后，后面使用的npm命令都可以用cnpm代替。可以理解为npm是直接调用官方的资源，cnpm是调用国内镜像站的资源。（这几天npm命令老是出问题，估计又出什么事了，还是先用用cnpm吧，速度比较快也比较稳定）</p>
+<p>开始搭建hexo博客</p>
+<ul>
+<li>命令行中执行<code>cnpm install hexo-cli -g</code>用全局模式安装hexo命令行，全局模式安装意味着你在电脑的任何文件位置都可以使用</li>
+<li><code>cnpm install hexo -g</code>，也是采用全局模式安装hexo博客框架</li>
+<li>到你想放置博客的地方，比如想在D:\hexo 放置，那就把路径移动到该目录下，执行<code>hexo init blog</code>，这样会自动从github上下载hexo博客框架到本地的blog文件夹（如果命令不加那个blog,则直接放在hexo文件夹下）</li>
+<li>完成之后，如果npm命令没出问题，会自动执行命令（npm instll）安装依赖文件，但还是那个问题，最近国内npm源貌似有问题，所以自己得再手动安装一下，执行<code>cnpm install</code>即可</li>
+<li>这样就都弄完了，执行<code>hexo generate</code>生成博客的静态页面，然后执行<code>hexo server</code>，就可在本地浏览器中的<a href="http://localhost/4000" target="_blank" rel="external">http://localhost/4000</a> 地址内看到生成的默认博客页面了，默认是4000，也可能是其他的具体看运行hexo server后它的提示。当然也可以通过<code>hexo serer -p 3000</code>直接指定页面显示的端口，即此时访问应是<a href="http://localhost/3000" target="_blank" rel="external">http://localhost/3000</a></li>
+</ul>
+<h2 id="换电脑怎么办"><a href="#换电脑怎么办" class="headerlink" title="换电脑怎么办"></a>换电脑怎么办</h2><p>很简单，直接将整个blog文件夹拷贝到那台电脑上就可以，前提是目标电脑也有node、git环境。</p>
+<p>之后就都可以使用了，无论是本地的hexo操作还是提交到github上，都是可以操作了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/11/网站登陆与登出的实现--token/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/11/网站登陆与登出的实现--token/" itemprop="url">
+                  网站登陆与登出的实现--token
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-11T18:11:30+08:00">
+                2017-06-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">Web基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/11/网站登陆与登出的实现--token/" class="leancloud_visitors" data-flag-title="网站登陆与登出的实现--token">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170611/163703555.png" alt="mark"></p>
+<ul>
+<li><p>登陆</p>
+<ul>
+<li>登录时提交用户名和密码</li>
+<li>服务器先验证用户名和密码是否正确（包括自身登陆以及三方登陆）</li>
+<li>服务器生成并下发一个token(不一定生成，如果你本身带了一个sessionid,那它就会拿你那个sessionid和userid关联起来)，总之它会记下来说你提交给我的某一个而唯一的东西要跟你的userid关联起来，这样你下次再提交过来的时候，我就去那个关联的表里查一查，看你是否已经被关联过了，如果你已经关联过了，那服务器就能知道这个人是你。客户端收到这个信息以后会把这东西存起来，浏览器是存在cookie里面的，如果是app,则存在本地(<strong>个人理解为可以实现网站记住登录的这样一种状态，以及其它一些需要身份认证的请求等等</strong>)。总之你就会一个东西来表明你的身份，这个东西是服务器给你的，或者是你自己提交给服务器认证的这样一个东西。</li>
+<li>有了这个东西（token）以后，服务器那边记下这个token,并设置有效期（因为token不可能永久有效，那样如果泄露了，一次泄露变成永久泄露，那就不行了），服务器和客户端都会有一个有效期的设置，比如说：如果你记住登录，那有效期可能及时三个月或者怎样，如果没记住登陆，那你的有效期就将是一个session(所谓session就是你浏览器关了以后就无效了)。</li>
+<li>所这个token可以是一个seesionid也可以是cookie里面的一个key。</li>
+</ul>
+</li>
+<li><p>登出</p>
+<ul>
+<li>服务端和客户端都把token删除，这样这个token就无效了</li>
+<li>session清理</li>
+</ul>
+</li>
+</ul>
+<p>token就是下面的那个t,黑客可以通过窃取这个t来达到假装你进行登录网站的操作</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170611/173842234.png" alt="mark"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/11/forward和redirect的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1272,802 +2008,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/HTTP请求的方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/08/HTTP请求的方法/" itemprop="url">
-                  HTTP请求的方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-08T10:22:26+08:00">
-                2017-06-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web基础知识/" itemprop="url" rel="index">
-                    <span itemprop="name">Web基础知识</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/06/08/HTTP请求的方法/" class="leancloud_visitors" data-flag-title="HTTP请求的方法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>推荐阅读：<a href="http://www.cnblogs.com/bukudekong/archive/2014/07/09/3834020.html" target="_blank" rel="external">#HTTP协议学习# （一）request 和response 解析</a></p>
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>HTTP请求到现在一共有8中方法，来表明Request-URL指定的资源不同的操作方式。</p>
-<ul>
-<li>HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法</li>
-<li>HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法</li>
-</ul>
-<hr>
-<ol>
-<li>GET<ol>
-<li>请求指定的页面信息，并返回实体主体</li>
-<li>向特定的资源发出请求。注意：GET方法不应当被用于产生“副作用”的操作中，例如在Web Application中，其中一个原因是GET可能会被网络蜘蛛等随意访问。Loadrunner中对应get请求函数：web_link和web_url</li>
-<li>GET提交的请求信息会显示的出现在url中，所以想要隐藏提交的（比如密码等）信息不能用GET来提交请求，应用POST。</li>
-</ol>
-</li>
-<li>HEAD<ol>
-<li>类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头</li>
-<li>向服务器索与GET请求相一致的响应，只不过响应体将不会被返回。这一方法可以再不必传输整个响应内容的情况下，就可以获取包含在响应小消息头中的元信息。</li>
-</ol>
-</li>
-<li>POST<ol>
-<li>向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立或已有资源的修改。</li>
-<li>Loadrunner中对应POST请求函数：web_submit_data,web_submit_form</li>
-<li>像GET中说的那样，POST的请求信息是隐藏着的，url不会有变化，可用来提交不想展示出来的信息。</li>
-</ol>
-</li>
-<li>PUT<ol>
-<li>从客户端向服务器传送的数据取代指定的文档的内容。</li>
-<li>向指定资源位置上传其最新内容</li>
-</ol>
-</li>
-<li>DELETE<ol>
-<li>请求服务器删除指定的页面。</li>
-<li>请求服务器删除Request-URL所标识的资源</li>
-</ol>
-</li>
-<li>CONNECT<ol>
-<li>HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</li>
-</ol>
-</li>
-<li>OPTIONS<ol>
-<li>允许客户端查看服务器的性能</li>
-<li>返回服务器针对特定资源所支持的HTTP请求方法，也可以利用向web服务器发送‘*’的请求来测试服务器的功能性</li>
-</ol>
-</li>
-<li>TRACE<ol>
-<li>回显服务器收到的请求，主要用于测试或诊断。</li>
-</ol>
-</li>
-</ol>
-<p><strong>什么是Loadrunner</strong></p>
-<ul>
-<li>是一款专业级别的<span style="color:red"><strong>应用负载测试工具</strong></span></li>
-<li>可以模拟上千万用户对企业应用进行真实的负载测试，通过大量实时监测器和精确的分析来得到最真实的数据，并且支持自动重复测试，以确保数值稳定和准确</li>
-<li>通过使用LoadRunner，企业能最大限度地缩短测试时间，优化产品性能和加速应用系统的发布周期。* 适用于各种体系架构，它从用户关注的“响应时间”、“点击次数”或是工业层面的“吞吐量”和“请求数”等方面衡量系统的性能表现，进行评测和总结，并辅助用户优化系统性能</li>
-</ul>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
-<li>方法名称是区分大小写的，当某个请求所针对的资源不支持对应的请求方法的时候，服务器应当返回状态码405（Mothod Not Allowed）</li>
-<li>当服务器不认识或者不支持对应的请求方法时，应返回状态码501（Not Implemented）</li>
-<li>HTTP服务器至少应该实现GET和HEAD/POST方法，其他方法都是可选的，此外除上述方法，特定的HTTP服务器支持扩展自定义的方法</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/05/Spring框架介绍/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/05/Spring框架介绍/" itemprop="url">
-                  Spring框架介绍
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-05T15:58:18+08:00">
-                2017-06-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/06/05/Spring框架介绍/" class="leancloud_visitors" data-flag-title="Spring框架介绍">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li><a href="http://www.spring.io" target="_blank" rel="external">Spring官网</a></li>
-<li><a href="https://start.spring.io/" target="_blank" rel="external">Spring项目初始化</a></li>
-<li><a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/" target="_blank" rel="external">官方文档</a></li>
-</ul>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170605/163134760.png" alt="mark"></p>
-<p><strong>Spring是通过注解的方式来表明相应对象的作用的</strong>，例如：@Controller</p>
-<h2 id="什么是Spring-它有哪些好处？"><a href="#什么是Spring-它有哪些好处？" class="headerlink" title="什么是Spring?它有哪些好处？"></a><a href="http://blog.csdn.net/zhupengqq/article/details/51228741" target="_blank" rel="external">什么是Spring?它有哪些好处？</a></h2><p>spring是一个轻量级<strong>控制反转（IOC）</strong>和<strong>面向切面（AOP）</strong>的容器框架</p>
-<p>它主要是为了解决企业应用开发的复杂性而诞生的</p>
-<ul>
-<li>目的：解决企业级应用开发的复杂性</li>
-<li>功能：使用基本的JavaBean代替EJB（<a href="http://www.cnblogs.com/MyITHome/archive/2012/08/31/2665917.html" target="_blank" rel="external">什么是EJB</a>）</li>
-<li>范围：任何Java应用</li>
-</ul>
-<p><span style="color:red">就是让对象与对象（模块与模块）之间的关系没有通过代码来关联</span>，都是通过配置类说明管理的（Spring根据这些配置内部通过反射去动态的组装对象）</p>
-<p>Spring是一个容器，凡是在容器里的对象才会有Spring所提供的这些服务和功能。内部最核心的就是IOC了,动态注入，让一个对象的创建不用new了，可以自动的生产，这其实就是利用java里的<span style="color:red">反射</span>，反射其实就是在运行时动态的去创建、调用对象，Spring就是在运行时，根据xml Spring的配置文件来动态的创建对象，和调用对象里的方法的。</p>
-<p>Spring是潜在一站式解决方案。</p>
-<h3 id="Spring本身存在的优点"><a href="#Spring本身存在的优点" class="headerlink" title="Spring本身存在的优点"></a>Spring本身存在的优点</h3><ul>
-<li>低侵入式设计，代码污染极低</li>
-<li>Write Once,Run Anywhere</li>
-<li>DI有效的降低了耦合度</li>
-<li>AOP提供了通用的任务的集中管理</li>
-<li>ORM和DAO简化了对数据库的访问</li>
-<li>高度开放性，并不强制（贯穿于变现层，业务层，持久层）</li>
-</ul>
-<h3 id="Spring的优点给开发带来的好处"><a href="#Spring的优点给开发带来的好处" class="headerlink" title="Spring的优点给开发带来的好处"></a>Spring的优点给开发带来的好处</h3><ul>
-<li>可以有效组织中间层对象</li>
-<li>使用同一的配置文件</li>
-<li>促进良好的编程习惯，减少编程代价</li>
-<li>易于单元测试。（一Spring基本组就是JavaBean,二提供了对Juit的支持）</li>
-<li>使EJB成为一种备选</li>
-<li>为数据存取提供了一致性的框架</li>
-</ul>
-<h3 id="理解AOP"><a href="#理解AOP" class="headerlink" title="理解AOP"></a>理解AOP</h3><ul>
-<li>Aspect Oriented Programming:面向切面编程</li>
-<li>一个组件A,不关心其他常用的服务组件B,但是这个组件A使用B的时候，不是组件A自身去调用，<br>而是通过配置等其他方式，列如Spring中可以通过XML配置文件。这样就使得A压根就不需要<br>知道服务组件B是怎么样的，爱存在不存在，爱怎么样存在都与Ａ无关。A只需要关心自己的业<br>务逻辑，具体A使用B的时候，配置文件去做，与具体的A组件无关。</li>
-</ul>
-<h4 id="继续探讨AOP切面编程"><a href="#继续探讨AOP切面编程" class="headerlink" title="继续探讨AOP切面编程"></a>继续探讨AOP切面编程</h4><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170608/190401719.png" alt="mark"></p>
-<h3 id="理解IOC"><a href="#理解IOC" class="headerlink" title="理解IOC"></a>理解IOC</h3><ul>
-<li>Inversion of Control：控制反转</li>
-<li>IOC（控制反转）：说的是创建对象实例的控制权从代码控制剥离到IOC容器控制，实际就是你在xml文件控制，侧重于原理。</li>
-<li>DI（依赖注入）：说的是创建对象实例时，为这个对象注入属性值或其他对象实例后，侧重于实现。</li>
-</ul>
-<h4 id="继续探讨IOC依赖注入"><a href="#继续探讨IOC依赖注入" class="headerlink" title="继续探讨IOC依赖注入"></a>继续探讨IOC依赖注入</h4><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170608/185512872.png" alt="mark"></p>
-<p><span style="color:red">所有变量的初始化不是通过自己来负责的，而是通过依赖注入的概念。Spring框架只要你定义好了一些service,它自己就能把这些处理出来。</span></p>
-<ol>
-<li>在service文件夹下定义好相应的service类，用<strong>@Service</strong>注释</li>
-<li>在其他地方，比如controller文件夹中的类声明service中弄好的类的对象时，就可以直接采用“类名+对象名”的方式来生成对象，而不用new操作。用<strong>@Autowired</strong>注释。</li>
-</ol>
-<p>即在service中声明类。在要用的地方依赖注入就可以了。</p>
-<p><strong>这样做有什么好处？</strong></p>
-<p>如果大家在一起写代码，你可以跟一个人说你给我写个什么样的service，然后我需要什么接口，等他写完后，我只要在我想用的地方直接使用就行了，不用担心怎么初始化，直接在用的地方依赖注入就可以了（直接就拥有了相关对象的句柄）。即该方式的最大好处就是：无需关心变量的初始化，只需要通过注解的方式来表示说这是来自一个秉持（不知道是什么）的对象的初始化就可以了。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>它的核心是轻量级的IOC容器，它的目标是为J2EE应用提供了全方位的整合框架，在Spring框架<br>下实现多个子框架的组合，这些子框架之间可以彼此独立，也可以使用其他的框架方案加以代替。<br>Spring希望为企业应用提供一站式的解决方案（建议：如果是高并发大型项目，慎重使用，<br>因为项目大量使用反射机制，必定会影响性能。）</p>
-<h2 id="采用MVC模式时的目录结构"><a href="#采用MVC模式时的目录结构" class="headerlink" title="采用MVC模式时的目录结构"></a>采用MVC模式时的目录结构</h2><p>模型(model)－视图(view)－控制器(controller)</p>
-<p>下图是<strong>依赖于Spring框架的项目大概的树形结构</strong>：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170609/182824488.png" alt="mark"></p>
-<ul>
-<li>model文件夹用来存放模型</li>
-<li>controller文件夹用来存放控制器</li>
-<li>视图则存放在templates模板文件夹中</li>
-</ul>
-<h2 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h2><p>参考这篇文章<a href="http://blog.csdn.net/isea533/article/details/50278205" target="_blank" rel="external">Spring Boot 入门</a></p>
-<blockquote>
-<p>Spring Boot并不是对Spring功能上的增强，而是提供了一种快速使用Spring的方式。</p>
-<p>从最根本上来讲，Spring Boot就是一些库的集合，它能够被任意项目的构建系统所使用</p>
-</blockquote>
-<p>Spring Boot特点：</p>
-<ul>
-<li>创建独立的Spring应用程序</li>
-<li>嵌入的Tomcat，无需部署WAR文件</li>
-<li>简化Maven配置</li>
-<li>自动配置Spring</li>
-<li>提供生产就绪型功能，如指标，健康检查和外部配置</li>
-<li>绝对没有代码生成和对XML没有要求配置</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/31/Java之输入与输出/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/31/Java之输入与输出/" itemprop="url">
-                  Java之输入与输出
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T22:18:36+08:00">
-                2017-05-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/31/Java之输入与输出/" class="leancloud_visitors" data-flag-title="Java之输入与输出">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170531/223014615.png" alt="mark"></p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170531/223037292.png" alt="mark"></p>
-<p>过程中发生的所有异常都是IOException的子类。</p>
-<h2 id="字节流"><a href="#字节流" class="headerlink" title="字节流"></a>字节流</h2><h3 id="文件输入流"><a href="#文件输入流" class="headerlink" title="文件输入流"></a>文件输入流</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ByteReader</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> (</div><div class="line">            FileInputStream file = <span class="keyword">new</span></div><div class="line">                FileInputStream(<span class="string">"save.gif"</span>)</div><div class="line">            ) &#123;</div><div class="line"></div><div class="line">            <span class="keyword">boolean</span> eof = <span class="keyword">false</span>;</div><div class="line">            <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line">            <span class="keyword">while</span> (!eof) &#123;</div><div class="line">                <span class="keyword">int</span> input = file.read();</div><div class="line">                System.out.print(input + <span class="string">" "</span>);</div><div class="line">                <span class="keyword">if</span> (input == -<span class="number">1</span>)</div><div class="line">                    eof = <span class="keyword">true</span>;</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    count++;</div><div class="line">            &#125;</div><div class="line">            file.close();</div><div class="line">            System.out.println(<span class="string">"\nBytes read: "</span> + count);</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            System.out.println(<span class="string">"Error -- "</span> + e.toString());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="文件输出流"><a href="#文件输出流" class="headerlink" title="文件输出流"></a>文件输出流</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ByteWriter</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] data = &#123; <span class="number">71</span>, <span class="number">73</span>, <span class="number">70</span>, <span class="number">56</span>, <span class="number">57</span>, <span class="number">97</span>, <span class="number">13</span>, <span class="number">0</span>, <span class="number">12</span>, <span class="number">0</span>, <span class="number">145</span>, <span class="number">0</span>,</div><div class="line">            <span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">44</span>, <span class="number">0</span>,</div><div class="line">            <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">13</span>, <span class="number">0</span>, <span class="number">12</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">38</span>, <span class="number">132</span>, <span class="number">45</span>, <span class="number">121</span>, <span class="number">11</span>, <span class="number">25</span>,</div><div class="line">            <span class="number">175</span>, <span class="number">150</span>, <span class="number">120</span>, <span class="number">20</span>, <span class="number">162</span>, <span class="number">132</span>, <span class="number">51</span>, <span class="number">110</span>, <span class="number">106</span>, <span class="number">239</span>, <span class="number">22</span>, <span class="number">8</span>,</div><div class="line">            <span class="number">160</span>, <span class="number">56</span>, <span class="number">137</span>, <span class="number">96</span>, <span class="number">72</span>, <span class="number">77</span>, <span class="number">33</span>, <span class="number">130</span>, <span class="number">86</span>, <span class="number">37</span>, <span class="number">219</span>, <span class="number">182</span>, <span class="number">230</span>,</div><div class="line">            <span class="number">137</span>, <span class="number">89</span>, <span class="number">82</span>, <span class="number">181</span>, <span class="number">50</span>, <span class="number">220</span>, <span class="number">103</span>, <span class="number">20</span>, <span class="number">0</span>, <span class="number">59</span> &#125;;</div><div class="line">        <span class="keyword">try</span> (FileOutputStream file = <span class="keyword">new</span></div><div class="line">            FileOutputStream(<span class="string">"pic.gif"</span>)) &#123;</div><div class="line"></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</div><div class="line">                file.write(data[i]);</div><div class="line">            &#125;</div><div class="line">            file.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            System.out.println(<span class="string">"Error -- "</span> + e.toString());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="字符流"><a href="#字符流" class="headerlink" title="字符流"></a>字符流</h2><h3 id="读取文本文件"><a href="#读取文本文件" class="headerlink" title="读取文本文件"></a>读取文本文件</h3><p>例一：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileCopy</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">	FileReader f1;</div><div class="line">	FileWriter f2;</div><div class="line">	f1=<span class="keyword">new</span> FileReader(<span class="string">"FileCopy.java"</span>);</div><div class="line">	f2=<span class="keyword">new</span> FileWriter(<span class="string">"acopy_of_java_file.java"</span>);</div><div class="line">	<span class="keyword">int</span> temp;</div><div class="line">	<span class="keyword">while</span>((temp=f1.read())!=-<span class="number">1</span>);</div><div class="line">	f2.write(temp);</div><div class="line">	f1.close(); f2.close(); &#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">FileCopy</span><span class="params">()</span> </span>&#123; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>例二：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SourceReader</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> (</div><div class="line">            FileReader file = <span class="keyword">new</span></div><div class="line">                FileReader(<span class="string">"SourceReader.java"</span>);</div><div class="line">            BufferedReader buff = <span class="keyword">new</span>	<span class="comment">//这是讲读取的字符存储到缓冲区，以提高效率。</span></div><div class="line">                BufferedReader(file)) &#123;</div><div class="line"></div><div class="line">            <span class="keyword">boolean</span> eof = <span class="keyword">false</span>;</div><div class="line">            <span class="keyword">while</span> (!eof) &#123;</div><div class="line">                String line = buff.readLine();</div><div class="line">                <span class="keyword">if</span> (line == <span class="keyword">null</span>) &#123;</div><div class="line">                    eof = <span class="keyword">true</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    System.out.println(line);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            buff.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            System.out.println(<span class="string">"Error -- "</span> + e.toString());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/31/Java之C-S通信/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/31/Java之C-S通信/" itemprop="url">
-                  Java之C/S通信
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T20:38:09+08:00">
-                2017-05-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/31/Java之C-S通信/" class="leancloud_visitors" data-flag-title="Java之C/S通信">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><h3 id="使用BufferedReader从Socket上读取数据"><a href="#使用BufferedReader从Socket上读取数据" class="headerlink" title="使用BufferedReader从Socket上读取数据"></a>使用BufferedReader从Socket上读取数据</h3><ul>
-<li><p>建立对服务器的Socket连接</p>
-<p>  <code>Socket chatSocket=new Socket(&quot;127.0.0.1&quot;,5000);</code></p>
-</li>
-<li><p>建立连接到Socket上底层输入串六的InputStreamReader</p>
-<p>  <code>InputStreamReader stream=new InputStreamReader(chatSocket.getInputStream());</code></p>
-</li>
-<li><p>建立BufferedReader来读取</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">BufferedReader reader=<span class="keyword">new</span> BufferedReader(stream);</div><div class="line">String message=reader.readLine();</div></pre></td></tr></table></figure>
-<h3 id="用PrintWriter写数据到Socket"><a href="#用PrintWriter写数据到Socket" class="headerlink" title="用PrintWriter写数据到Socket"></a>用PrintWriter写数据到Socket</h3><ul>
-<li><p>对服务器建立Socket连接</p>
-<p>  <code>Socket chatSocket=new Socket(&quot;127.0.0.1&quot;,5000);</code></p>
-</li>
-<li><p>建立链接到Socket的PrintWriter</p>
-<p>  <code>PrintWriter=new PrintWriter(chatSocket.getOutputStream());</code></p>
-</li>
-<li><p>写入数据</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">writer.printIn(<span class="string">"message to send"</span>);</div><div class="line">writer.print(<span class="string">"another message"</span>);</div></pre></td></tr></table></figure>
-<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p><strong>DailyAdviceClient客户端程序</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.net.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DailyAdviceClient</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                        Socket s = <span class="keyword">new</span> Socket(<span class="string">"127.0.0.1"</span>,<span class="number">4242</span>);</div><div class="line"></div><div class="line">                        InputStreamReader streamReader = <span class="keyword">new</span> InputStreamReader(s.getInputStream());</div><div class="line">                        BufferedReader reader = <span class="keyword">new</span> BufferedReader(streamReader);</div><div class="line"></div><div class="line">                        String advice = reader.readLine();</div><div class="line">                        System.out.println(<span class="string">"Today you should: "</span> + advice);</div><div class="line"></div><div class="line">                        reader.close();</div><div class="line">                &#125; <span class="keyword">catch</span>(IOException ex)&#123;</div><div class="line">                        ex.printStackTrace();</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arg)</span></span>&#123;</div><div class="line">                DailyAdviceClient client = <span class="keyword">new</span> DailyAdviceClient();</div><div class="line">                client.go();</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><h3 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h3><ul>
-<li><p>服务器应用程序对特定端口创建出ServerSocket</p>
-<p>  <code>ServerSocket serverSock=new ServerSocket(4242);</code></p>
-</li>
-<li><p>客户端对服务器应用程序建立Socket连接</p>
-<p>  <code>Socket sock=new Socket(&quot;190.165.1.103&quot;,4242);</code></p>
-</li>
-<li><p>服务器创建出与客户端通信的新Socket</p>
-<p>  <code>Socket sock=serverSock.accept();</code></p>
-</li>
-</ul>
-<h3 id="示例代码-1"><a href="#示例代码-1" class="headerlink" title="示例代码"></a>示例代码</h3><p><strong>DailyAdviceServer程序代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.net.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DailyAdviceServer</span> </span>&#123;</div><div class="line">        String[] adviceList = &#123;</div><div class="line">                        <span class="string">"Take smaller bites"</span>,</div><div class="line">                        <span class="string">"Go for the tight jeans,No they do NOT make you look fat."</span>,</div><div class="line">                        <span class="string">"One word: inappropriate"</span>,</div><div class="line">                        <span class="string">"Just for today, be honest. Tell your boss what you *really* think"</span>,</div><div class="line">                        <span class="string">"YOu might want to rethink that haircut"</span></div><div class="line">                        &#125;;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;</div><div class="line">                <span class="keyword">try</span>&#123;</div><div class="line">                        <span class="comment">//ServerSocket会家庭客户端对这台机器在4242端口上的请求</span></div><div class="line"></div><div class="line">                        ServerSocket serverSock = <span class="keyword">new</span> ServerSocket(<span class="number">4242</span>);</div><div class="line"></div><div class="line">                        <span class="comment">//服务器进入无穷循环等待服务客户端的请求</span></div><div class="line">                        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</div><div class="line">                                Socket sock = serverSock.accept();  <span class="comment">//这个方法会停下来等待要求到达后才会继续</span></div><div class="line"></div><div class="line">                                PrintWriter writer = <span class="keyword">new</span> PrintWriter(sock.getOutputStream());</div><div class="line">                                String advice = getAdvice();</div><div class="line">                                writer.println(advice);</div><div class="line">                                writer.close();</div><div class="line">                                System.out.println(advice);</div><div class="line">                        &#125;</div><div class="line">                &#125;<span class="keyword">catch</span>(IOException ex)&#123;</div><div class="line">                        ex.printStackTrace();</div><div class="line">                &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> String <span class="title">getAdvice</span><span class="params">()</span></span>&#123;</div><div class="line">                <span class="keyword">int</span> random = (<span class="keyword">int</span>) (Math.random() * adviceList.length);</div><div class="line">                <span class="keyword">return</span> adviceList[random];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">                DailyAdviceServer server = <span class="keyword">new</span> DailyAdviceServer();</div><div class="line">                server.go();</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2112,7 +2057,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2134,7 +2079,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

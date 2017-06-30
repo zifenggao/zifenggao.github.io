@@ -304,6 +304,821 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/JavaScript数组介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/27/JavaScript数组介绍/" itemprop="url">
+                  JavaScript数组介绍
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-27T16:51:40+08:00">
+                2017-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/27/JavaScript数组介绍/" class="leancloud_visitors" data-flag-title="JavaScript数组介绍">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>JavaScript的数组中的元素可以具有不同的类型，即<code>var a=[&#39;hello&#39;,12,&#39;kk&#39;];</code>是合法的。</li>
+<li>对于一维数组，可直接用<code>console.log(数组名)</code>来输出数组内容，若是多维数组则需要自行构建函数来输出</li>
+</ul>
+<h2 id="创建和初始化数组"><a href="#创建和初始化数组" class="headerlink" title="创建和初始化数组"></a>创建和初始化数组</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> everyday=<span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> everyday=<span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line"><span class="keyword">var</span> everyday=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">'hello'</span>,<span class="string">'world'</span>,<span class="number">123</span>,<span class="string">'china'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> evaryday=[];</div><div class="line"><span class="keyword">var</span> evaryday=[<span class="string">'hello'</span>,<span class="string">'world'</span>,<span class="number">123</span>,<span class="string">'china'</span>];</div></pre></td></tr></table></figure>
+<p>可使用<code>everyday.length</code>来获得数组的长度</p>
+<h2 id="添加和删除数组元素"><a href="#添加和删除数组元素" class="headerlink" title="添加和删除数组元素"></a>添加和删除数组元素</h2><h3 id="添加到数组末尾"><a href="#添加到数组末尾" class="headerlink" title="添加到数组末尾"></a>添加到数组末尾</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">everyday[everyday.length]=<span class="string">'新元素'</span>;</div><div class="line">或</div><div class="line">everyday.push(<span class="string">'新元素1'</span>,<span class="string">'新元素2'</span>);</div></pre></td></tr></table></figure>
+<h3 id="添加到数组首部"><a href="#添加到数组首部" class="headerlink" title="添加到数组首部"></a>添加到数组首部</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">eveday.unshit(<span class="string">'新元素1'</span>,<span class="string">'新元素2'</span>);</div></pre></td></tr></table></figure>
+<h3 id="删除最靠后元素"><a href="#删除最靠后元素" class="headerlink" title="删除最靠后元素"></a>删除最靠后元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.pop();</div></pre></td></tr></table></figure>
+<p><strong>用push()和pop()可以用数组来模拟栈</strong></p>
+<h3 id="删除第一个元素"><a href="#删除第一个元素" class="headerlink" title="删除第一个元素"></a>删除第一个元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.shift();</div></pre></td></tr></table></figure>
+<p><strong>用shift()和unshift()可以用数组模拟队列</strong></p>
+<h3 id="删除任意位置的元素"><a href="#删除任意位置的元素" class="headerlink" title="删除任意位置的元素"></a>删除任意位置的元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.splice(<span class="number">2</span>,<span class="number">3</span>);</div></pre></td></tr></table></figure>
+<p><em>注解</em>：表示删除了从下标2的元素开始往后的两个元素（包括下标为2的），即everyday[2]、everyday[3]、everyday[4]。</p>
+<h3 id="插入任意为位置-任意值"><a href="#插入任意为位置-任意值" class="headerlink" title="插入任意为位置 任意值"></a>插入任意为位置 任意值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">everyday.splice(<span class="number">2</span>,<span class="number">0</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">6</span>)</div></pre></td></tr></table></figure>
+<p><em>注释</em>：这才是splice()函数的完整用法。第一个参数是要执行删除操作的开始下标，第二个是要删除的个数，咱现在目的是为了添加，所以写0，第三个参数及以后则是要新添加的元素，此例执行后everyday[2]值变成5，以此类推。</p>
+<h2 id="二维和多维数组"><a href="#二维和多维数组" class="headerlink" title="二维和多维数组"></a>二维和多维数组</h2><p>JavaScript只支持一维数组，但由于JavaScript数组对元素类型的宽容性，我们可以采用数组套数组的方法来实现多维数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a1=[];</div><div class="line">a1[<span class="number">0</span>]=[<span class="string">'hello'</span>,<span class="number">23</span>,<span class="string">'world'</span>];</div><div class="line">a1[<span class="number">2</span>]=[<span class="string">'china'</span>,<span class="string">'england'</span>];</div><div class="line">或</div><div class="line"><span class="keyword">var</span> a2=[];</div><div class="line">a2[<span class="number">0</span>]=[];</div><div class="line">a2[<span class="number">0</span>][<span class="number">0</span>]=<span class="string">'hello'</span>;</div><div class="line">a2[<span class="number">0</span>][<span class="number">1</span>]=<span class="string">'woeld'</span>;</div></pre></td></tr></table></figure>
+<p>此时用<code>console.log(a2)</code>将不能输出数组内容，因为console.log()之只能用来输出具体的元素，应该自行创建一个函数来简化输出</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printfMatrix</span>(<span class="params">myMatrix</span>)</span>&#123;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;myMatrix.length;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;myMatrix[i].length;j++)&#123;</div><div class="line">			<span class="built_in">console</span>.log(myMatrix[i][j]);	</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">printfMatrix(数组名);</div></pre></td></tr></table></figure>
+<h2 id="操作数组的方法（函数）"><a href="#操作数组的方法（函数）" class="headerlink" title="操作数组的方法（函数）"></a>操作数组的方法（函数）</h2><h3 id="数组合并–concat方法"><a href="#数组合并–concat方法" class="headerlink" title="数组合并–concat方法"></a>数组合并–concat方法</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/215254983.png" alt="mark"></p>
+<p>按照指定的顺序连接起来，很好理解</p>
+<h3 id="迭代器函数"><a href="#迭代器函数" class="headerlink" title="迭代器函数"></a>迭代器函数</h3><h4 id="every方法"><a href="#every方法" class="headerlink" title="every方法"></a>every方法</h4><p>every会迭代数组中的每一个元素，直到返回false</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/220902028.png" alt="mark"></p>
+<p><em>注释</em>：给每个元素迭代执行zhengshu这个方法（是小于0则继续迭代，直到遇到正数，返回false）</p>
+<h4 id="some方法"><a href="#some方法" class="headerlink" title="some方法"></a>some方法</h4><p>every会迭代数组中的每一个元素，直到返回true</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/220733166.png" alt="mark"></p>
+<p><em>注释</em>：给每个元素迭代执行zhengshu这个方法（是大于0则继续迭代，直达遇到负数，返回true）</p>
+<h4 id="forEach方法"><a href="#forEach方法" class="headerlink" title="forEach方法"></a>forEach方法</h4><p>foreach会迭代整个数组的元素</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/221242840.png" alt="mark"></p>
+<h4 id="map方法"><a href="#map方法" class="headerlink" title="map方法"></a>map方法</h4><p>map会生成一个数组，用来保存迭代所有元素时产生的结果</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/222058826.png" alt="mark"></p>
+<h4 id="filter方法"><a href="#filter方法" class="headerlink" title="filter方法"></a>filter方法</h4><p>filter会生成一个新数组，用来保存迭代所有元素时时函数返回true的元素</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/222558025.png" alt="mark"></p>
+<h4 id="reduce方法"><a href="#reduce方法" class="headerlink" title="reduce方法"></a>reduce方法</h4><p>reduce接收一个函数作为参数，这个函数有四个参数：prevousValue、currentValue、index和array。这个函数会返回一个将被叠加到累加器的值，reduce方法停止执行后返回这个累加器。<strong>如果要对一个数组中的所有元素求和</strong>，这就很有用。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/223252765.png" alt="mark"></p>
+<h3 id="搜索和排序"><a href="#搜索和排序" class="headerlink" title="搜索和排序"></a>搜索和排序</h3><h4 id="数组反序–reverse方法"><a href="#数组反序–reverse方法" class="headerlink" title="数组反序–reverse方法"></a>数组反序–reverse方法</h4><p>就是将原本数组元素的排列顺序颠倒</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/223543502.png" alt="mark"></p>
+<h4 id="数组自动排序–sort方法"><a href="#数组自动排序–sort方法" class="headerlink" title="数组自动排序–sort方法"></a>数组自动排序–sort方法</h4><p>sort在排序的时候，是默认把元素当成字符串来比较。比如底下这样用就会出错：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/224022818.png" alt="mark"></p>
+<p>那应该怎么办？    <strong>自己写比较函数</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=[<span class="number">2</span>,<span class="number">6</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">1</span>];</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> a-b;&#125;));</div></pre></td></tr></table></figure>
+<p>主要的是代码a.sort(function(a,b){return a-b;})，此代码表示当a小于b时返回负数，当a大于b时返回正数，相等时放回0，这样sort方法就会根据返回值的情况给数组排序，当然这行代码额可以改写成比较好理解的以下以下代码：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/154459103.png" alt="mark"></p>
+<p>注意比较函数的调用方法（没有传参）</p>
+<h5 id="自定义排序"><a href="#自定义排序" class="headerlink" title="自定义排序"></a>自定义排序</h5><p>可以创建任何对象类型的数组排序，也可以创建compareFunction来比较元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person=[&#123;<span class="attr">name</span>:<span class="string">'小明'</span>,<span class="attr">age</span>:<span class="number">15</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'小王'</span>,<span class="attr">age</span>:<span class="number">14</span>&#125;,&#123;<span class="attr">name</span>:<span class="string">'小东'</span>,<span class="attr">age</span>:<span class="number">18</span>&#125;];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">comparePerson</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(a.age&lt;b.age)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span>(a.age&gt;b.age)&#123;</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(person.sort(comparePerson));</div></pre></td></tr></table></figure>
+<p>结果:</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/155611910.png" alt="mark"></p>
+<h5 id="字符串排序"><a href="#字符串排序" class="headerlink" title="字符串排序"></a>字符串排序</h5><p>对于字符创的比较，sort是根据ASCII值来比较的，比如：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/160013324.png" alt="mark"></p>
+<p>即Jmn会排在apple的前面，如果我们想让它排序正确，则需要自己写一个忽略大小写的比较函数：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/161659564.png" alt="mark"></p>
+<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><ul>
+<li>indexOf()方法：返回与参数匹配的第一个元素的索引</li>
+<li>lastIndexOf()方法：返回与参数匹配的最后一个元素的索引。</li>
+</ul>
+<p>例子：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162309077.png" alt="mark"></p>
+<p>结果分析，前两个没什么好说的，第三个查找10，因为没有这个元素，所以返回-1</p>
+<h3 id="输出数组为字符串及指定分隔符"><a href="#输出数组为字符串及指定分隔符" class="headerlink" title="输出数组为字符串及指定分隔符"></a>输出数组为字符串及指定分隔符</h3><ul>
+<li>toString()将数组里的所有元素输出为一个字符串</li>
+<li>join()用一个不同的分隔符把元素隔开</li>
+</ul>
+<p>例子：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162842256.png" alt="mark"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/HTML5-Canvas入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/26/HTML5-Canvas入门/" itemprop="url">
+                  HTML5 Canvas入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T20:01:08+08:00">
+                2017-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/26/HTML5-Canvas入门/" class="leancloud_visitors" data-flag-title="HTML5 Canvas入门">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Canvas元素本身没有绘图能力，所有的绘图工作必须在JavaScript内部完成。拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。</p>
+<p>直接上代码。</p>
+<h2 id="绘制2d线条"><a href="#绘制2d线条" class="headerlink" title="绘制2d线条"></a>绘制2d线条</h2><ol>
+<li><p>先在html页面下添加Canvas元素。设定画布的id和宽高。</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"border:1px solid #000;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>用JavaScript在画布上面绘制图像</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">		 <span class="comment">//        获得画布</span></div><div class="line">		 <span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"huabu"</span>);</div><div class="line">		 <span class="comment">//        创建基于所获得画布的2d画笔</span></div><div class="line">		 <span class="keyword">var</span> pan= c.getContext(<span class="string">"2d"</span>);</div><div class="line">		 pan.moveTo(<span class="number">10</span>,<span class="number">10</span>);<span class="comment">//移动画笔</span></div><div class="line">		 pan.lineTo(<span class="number">40</span>,<span class="number">40</span>);<span class="comment">//从源点绘制到指定点（30,40）</span></div><div class="line">pan.lineTo(<span class="number">50</span>,<span class="number">100</span>);<span class="comment">//从源点绘制到指定点（50,100）</span></div><div class="line"> pan.lineTo(<span class="number">150</span>,<span class="number">20</span>);</div><div class="line">	 pan.stroke();<span class="comment">//之前是在构建，这里是把构思正式画到画布上，一定要这一步</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>结果</p>
+<p> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/211927091.png" alt="mark"></p>
+</li>
+<li><p>注意</p>
+<ul>
+<li><p>如果想绘制两条线，不能想当然的moveTo(),然后再lineTo()，应该再声明一支画笔</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> pan2= c.getContext(<span class="string">"2d"</span>);</div><div class="line">			pan2.moveTo(<span class="number">40</span>,<span class="number">10</span>);</div><div class="line">pan2.lineTo(<span class="number">30</span>,<span class="number">60</span>);</div><div class="line">			pan2.lineTo(<span class="number">188</span>,<span class="number">170</span>);</div><div class="line"> 		pan2.stroke();</div></pre></td></tr></table></figure>
+</li>
+<li><p>结果：（绘制两条线）</p>
+<p>  <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/213008339.png" alt="mark"></p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="绘制圆形"><a href="#绘制圆形" class="headerlink" title="绘制圆形"></a>绘制圆形</h2><ol>
+<li><p>先在html页面下添加Canvas元素。设定画布的id和宽高。</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"100"</span> <span class="attr">style</span>=<span class="string">"border:1px solid #000;"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>用JavaScript在画布上面绘制图像</p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">  	<span class="comment">//获得画布</span></div><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"huabu"</span>);</div><div class="line"><span class="keyword">var</span> pan= c.getContext(<span class="string">"2d"</span>);</div><div class="line"><span class="comment">//设置图形填充的颜色</span></div><div class="line">pan.fillStyle=<span class="string">'#00f'</span>;</div><div class="line"><span class="comment">//开始绘制图形</span></div><div class="line">pan.beginPath();</div><div class="line"><span class="comment">//arc是圆的英文前几个字母</span></div><div class="line"><span class="comment">//括号内指定（圆心x轴坐标、圆心y轴坐标、圆半径、开始角度、结束角度、顺时针(false)还是逆时针(true)）</span></div><div class="line">pan.arc(<span class="number">100</span>,<span class="number">100</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI/<span class="number">2</span>,<span class="literal">true</span>);</div><div class="line"><span class="comment">//结束绘图</span></div><div class="line">pan.closePath();</div><div class="line">pan.fill();<span class="comment">//一定要有，将构建好的图形正式填充到画布上去</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="学习以下代码"><a href="#学习以下代码" class="headerlink" title="学习以下代码"></a>学习以下代码</h3><ol>
+<li>获得2d画笔后，用beginPath()方法绘制新路径</li>
+<li>用strokeStyle指定路径颜色</li>
+<li>arc()设置圆的属性</li>
+<li><p>stroke()绘制弧线</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>HTML5 Canvas绘制弧线入门示例<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 添加canvas标签，并加上红色边框以便于在页面上查看 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"400px"</span> <span class="attr">height</span>=<span class="string">"300px"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid red;"</span>&gt;</span></div><div class="line">您的浏览器不支持canvas标签。</div><div class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="comment">//获取Canvas对象(画布)</span></div><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="comment">//简单地检测当前浏览器是否支持Canvas对象，以免在一些不支持html5的浏览器中提示语法错误</span></div><div class="line"><span class="keyword">if</span>(canvas.getContext)&#123;  </div><div class="line">    <span class="comment">//获取对应的CanvasRenderingContext2D对象(画笔)</span></div><div class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);  </div><div class="line">    </div><div class="line">    <span class="comment">//开始一个新的绘制路径</span></div><div class="line">    ctx.beginPath();</div><div class="line">    <span class="comment">//设置弧线的颜色为蓝色</span></div><div class="line">    ctx.strokeStyle = <span class="string">"blue"</span>;</div><div class="line">    <span class="keyword">var</span> circle = &#123;</div><div class="line">        <span class="attr">x</span> : <span class="number">100</span>,    <span class="comment">//圆心的x轴坐标值</span></div><div class="line">        y : <span class="number">100</span>,    <span class="comment">//圆心的y轴坐标值</span></div><div class="line">        r : <span class="number">50</span>      <span class="comment">//圆的半径</span></div><div class="line">    &#125;;</div><div class="line">    <span class="comment">//沿着坐标点(100,100)为圆心、半径为50px的圆的顺时针方向绘制弧线</span></div><div class="line">    ctx.arc(circle.x, circle.y, circle.r, <span class="number">0</span>, <span class="built_in">Math</span>.PI / <span class="number">2</span>, <span class="literal">false</span>);    </div><div class="line">    <span class="comment">//按照指定的路径绘制弧线</span></div><div class="line">    ctx.stroke();</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="给画布添加图像"><a href="#给画布添加图像" class="headerlink" title="给画布添加图像"></a>给画布添加图像</h2><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"></div><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="keyword">var</span> cxt=c.getContext(<span class="string">"2d"</span>);</div><div class="line"><span class="keyword">var</span> img=<span class="keyword">new</span> Image()</div><div class="line">img.src=<span class="string">"image.png"</span></div><div class="line"></div><div class="line"><span class="comment">//drawImage(图像元素，左上角顶点x轴坐标，左上角顶点y轴坐标)</span></div><div class="line">cxt.drawImage(img,<span class="number">0</span>,<span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/CSS动画入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/26/CSS动画入门/" itemprop="url">
+                  CSS动画入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T15:45:34+08:00">
+                2017-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/26/CSS动画入门/" class="leancloud_visitors" data-flag-title="CSS动画入门">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://www.cnblogs.com/starof/p/4968769.html" target="_blank" rel="external"><strong>css3常用动画+动画库</strong></a></p>
+<h2 id="transition"><a href="#transition" class="headerlink" title="transition"></a>transition</h2><p><a href="http://www.w3school.com.cn/css3/css3_transition.asp" target="_blank" rel="external">CSS过渡</a></p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>俗称“过渡”，是指某元素从一种样式逐渐转变为另一种样式的过程。即用于转换元素两个不同的状态，这个转换过程（或者说触发过程）可以是伪类比如:hover, :active 或者是通过 javascript 动态设定。<em>IE10+支持</em></p>
+<p>transitionz是简写，主要包含的是一下属性。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/165301722.png" alt="mark"></p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>必须规定了两个属性</p>
+<ul>
+<li>要添加过渡效果的属性</li>
+<li>效果转换的持续时间</li>
+<li>多个属性转换用逗号隔开</li>
+</ul>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--HTML--&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"zi"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!--CSS--&gt;</span></div><div class="line">#zi&#123;</div><div class="line">   height:100px;</div><div class="line">   width: 100px;</div><div class="line">   background-color: yellow;</div><div class="line">   transition: width 2s,height 2s,color 2s;<span class="comment">&lt;!--不同属性效果用逗号隔开--&gt;</span></div><div class="line">   -webkit-transition: width 2s,height 2s,background-color 2s;</div><div class="line">-o-transition: width 2s,height 2s,background-color 2s;</div><div class="line">   -moz-transition: width 2s,height 2s,background-color 2s;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#zi:hover&#123;</div><div class="line">   background-color: red;</div><div class="line">   height: 150px;</div><div class="line">   width: 200px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h2><p><a href="http://www.w3school.com.cn/css3/css3_animation.asp" target="_blank" rel="external">CSS动画</a></p>
+<h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p>animation属性结合@keyframes规则,能创建由当前样式逐渐改为新样式的动画效果。<br><em>Internet Explorer 9，以及更早的版本，不支持 @keyframe 规则或 animation 属性。</em></p>
+<h3 id="用法-1"><a href="#用法-1" class="headerlink" title="用法"></a>用法</h3><p>@keyframes创建动画并制定动画的名字（随便起，主要是用来给animation选择），animation中选择相应的动画名字来使用对应的动画，还要设置动画执行的持续时间，还可设置所选动画的执行方式。即：</p>
+<ul>
+<li>@keyframes<ul>
+<li>用于创建动画</li>
+<li>用法：<ul>
+<li>规定动画名，内容为from某种样式to某种样式，还要设置不同浏览器的前缀。也可以不用from-to而是直接用百分比来划分时间，进而规定特定时间内的动画样式。 “from” 和 “to”，等同于 0% 和 100%，0% 是动画的开始，100% 是动画的完成</li>
+<li>例1：</li>
+<li><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/172554002.png" alt="mark"></li>
+<li>例2：</li>
+<li><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/173444817.png" alt="mark"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>animation<ul>
+<li>用于选择动画并规定动画的执行方式</li>
+<li>用法：<ul>
+<li>必须固定的有动画名称和动画时长</li>
+<li>另外还可以添加其他规定项：</li>
+<li><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170426/173750396.png" alt="mark"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"> </span></div><div class="line">div</div><div class="line">&#123;</div><div class="line">width:100px;</div><div class="line">height:100px;</div><div class="line">background:red;</div><div class="line">position:relative;</div><div class="line">animation-name:myfirst;</div><div class="line">animation-duration:5s;</div><div class="line">animation-timing-function:linear;/*表示变换速度，linear表示从头到尾匀速*/</div><div class="line">animation-delay:2s;</div><div class="line">animation-iteration-count:infinite;/*表示动画无限次循环，可改为常数来规定执行次数*/</div><div class="line">animation-direction:alternate;</div><div class="line">animation-play-state:running;</div><div class="line">/* Firefox: */</div><div class="line">-moz-animation-name:myfirst;</div><div class="line">-moz-animation-duration:5s;</div><div class="line">-moz-animation-timing-function:linear;</div><div class="line">-moz-animation-delay:2s;</div><div class="line">-moz-animation-iteration-count:infinite;</div><div class="line">-moz-animation-direction:alternate;</div><div class="line">-moz-animation-play-state:running;</div><div class="line">/* Safari and Chrome: */</div><div class="line">-webkit-animation-name:myfirst;</div><div class="line">-webkit-animation-duration:5s;</div><div class="line">-webkit-animation-timing-function:linear;</div><div class="line">-webkit-animation-delay:2s;</div><div class="line">-webkit-animation-iteration-count:infinite;</div><div class="line">-webkit-animation-direction:alternate;</div><div class="line">-webkit-animation-play-state:running;</div><div class="line">/* Opera: */</div><div class="line">-o-animation-name:myfirst;</div><div class="line">-o-animation-duration:5s;</div><div class="line">-o-animation-timing-function:linear;</div><div class="line">-o-animation-delay:2s;</div><div class="line">-o-animation-iteration-count:infinite;</div><div class="line">-o-animation-direction:alternate;</div><div class="line">-o-animation-play-state:running;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@keyframes myfirst</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-moz-keyframes myfirst /* Firefox */</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-webkit-keyframes myfirst /* Safari and Chrome */</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@-o-keyframes myfirst /* Opera */</div><div class="line">&#123;</div><div class="line">0%   &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">25%  &#123;background:yellow; left:200px; top:0px;&#125;</div><div class="line">50%  &#123;background:blue; left:200px; top:200px;&#125;</div><div class="line">75%  &#123;background:green; left:0px; top:200px;&#125;</div><div class="line">100% &#123;background:red; left:0px; top:0px;&#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>注释：<span class="tag">&lt;/<span class="name">b</span>&gt;</span>本例在 Internet Explorer 中无效。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>也可以将animation简写成：</p>
+<p>animation：动画名称 持续时间 执行速度变化 动画延迟 循环次数 是否下一周期逆向播放</p>
+<pre><code class="HTML">div
+{
+width:100px;
+height:100px;
+background:red;
+position:relative;
+animation:myfirst 5s linear 2s infinite alternate;
+/* Firefox: */
+-moz-animation:myfirst 5s linear 2s infinite alternate;
+/* Safari and Chrome: */
+-webkit-animation:myfirst 5s linear 2s infinite alternate;
+/* Opera: */
+-o-animation:myfirst 5s linear 2s infinite alternate;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/Powershell基本命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/26/Powershell基本命令/" itemprop="url">
+                  Powershell基本命令
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T14:09:34+08:00">
+                2017-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/26/Powershell基本命令/" class="leancloud_visitors" data-flag-title="Powershell基本命令">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Powershell是微软在cmd基础上改进后推出的励志于提高用户开发体验的命令行程序，可以这么说，cmd有的Powershell全都有，Powershell有的cmd不全有，而且Powershell还比cmd漂亮，为什么不用呢。稍微讲下Powershell的基本命令。</p>
+<blockquote>
+<p>Powershell用的时候会出现中文乱码，用以下命令把Encoding改成UTF8即可：<br><code>$OutputEncoding = New-Object -typename System.Text.UTF8Encoding</code></p>
+</blockquote>
+<p><em>注意命令中的空格,。以下命令均默认在要进行操作的文件夹下进行，如果不是在要操作的文件目录下，请自行在操作项目前添加文件路径。</em></p>
+<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><p><code>mkdir Folder</code></p>
+<h2 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h2><p><code>dir &gt; a.txt</code></p>
+<h2 id="向文件内写入内容"><a href="#向文件内写入内容" class="headerlink" title="向文件内写入内容"></a>向文件内写入内容</h2><p><code>echo 内容 &gt; a.txt</code></p>
+<p>这种方法会覆盖掉文件原有内容，如果是追加，应用：</p>
+<p><code>echo 内容 &gt;&gt; c.txt</code></p>
+<p>这种方法，每次写入内容后面都会自动换行</p>
+<h2 id="图形化编辑txt文件"><a href="#图形化编辑txt文件" class="headerlink" title="图形化编辑txt文件"></a>图形化编辑txt文件</h2><p><code>notepad a.txt</code></p>
+<p>这会直接以记事本的形式打开指定的文件</p>
+<h2 id="读取文件内容"><a href="#读取文件内容" class="headerlink" title="读取文件内容"></a>读取文件内容</h2><p><code>cat a.txt</code>        此命令只能在操作当前目录的文件时可用</p>
+<p><code>type a.txt</code>    此命令可跨目录使用，即可添加路径</p>
+<h2 id="打开doc文件"><a href="#打开doc文件" class="headerlink" title="打开doc文件"></a>打开doc文件</h2><p>路径没错的情况下，直接输入文件名，然后回车，即可用相应的软件将其打开</p>
+<h2 id="指定用某软件打开某文件"><a href="#指定用某软件打开某文件" class="headerlink" title="指定用某软件打开某文件"></a>指定用某软件打开某文件</h2><ul>
+<li>将要使用的软件的exe文件所在的目录添加到系统环境变量里面</li>
+<li>之后就可以用该软件打开想要打开的文件了</li>
+</ul>
+<p><code>软件名或软件名.exe 文件名.文件后缀</code></p>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p><code>del a.txt</code></p>
+<h2 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h2><p><code>del 文件夹</code></p>
+<h2 id="重命名文件"><a href="#重命名文件" class="headerlink" title="重命名文件"></a>重命名文件</h2><p><code>ren a.txt b.txt</code></p>
+<p>将文件a,txt重命名为b.txt</p>
+<h2 id="重命名文件夹"><a href="#重命名文件夹" class="headerlink" title="重命名文件夹"></a>重命名文件夹</h2><p><code>ren 文件夹名1 文件夹名2</code></p>
+<p>将文件夹名1改为文件夹名2</p>
+<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><p><code>copy b.txt 文件夹1</code></p>
+<p>将当前文件夹下的b.txt文件拷贝到当前文件夹下的文件夹1里面，其他操作可自行添加路径解决。</p>
+<h2 id="移动（剪切）文件"><a href="#移动（剪切）文件" class="headerlink" title="移动（剪切）文件"></a>移动（剪切）文件</h2><p><code>move 路径\文件名 路径\</code></p>
+<h2 id="查看文件夹的目录结构"><a href="#查看文件夹的目录结构" class="headerlink" title="查看文件夹的目录结构"></a>查看文件夹的目录结构</h2><ul>
+<li><code>tree</code> 可以查看当前目录及以下各级的目录结构，但是查看不了文件</li>
+<li><code>tree /f</code>可以查看对当前目录及以下各级的目录结构以及相应的文件</li>
+<li><code>tree /f &gt;123.txt</code>将查询到的文件目录结构保存在123.txt（新建）文件中</li>
+</ul>
+<h2 id="关闭某个软件"><a href="#关闭某个软件" class="headerlink" title="关闭某个软件"></a>关闭某个软件</h2><ul>
+<li><code>taskkill /im 软件名.exe</code></li>
+<li>先输入tasklist 获取改进程的PID，假设PID号为3502， 再输入 <code>taskkill /f /pid 3502</code></li>
+</ul>
+<h2 id="从命令行模式打开文件夹窗口"><a href="#从命令行模式打开文件夹窗口" class="headerlink" title="从命令行模式打开文件夹窗口"></a>从命令行模式打开文件夹窗口</h2><p><code>start 文件夹的绝对路径</code></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Js相等操作符/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1355,888 +2170,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/17/Java入门（三）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/17/Java入门（三）/" itemprop="url">
-                  Java入门（三）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T13:13:16+08:00">
-                2017-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/17/Java入门（三）/" class="leancloud_visitors" data-flag-title="Java入门（三）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="有关读取用户输入的问题"><a href="#有关读取用户输入的问题" class="headerlink" title="有关读取用户输入的问题"></a>有关读取用户输入的问题</h1><p>首先导入包<code>import java.util.Scanner;</code>这里面有处理用户输入的方法。</p>
-<h2 id="输入数字情况"><a href="#输入数字情况" class="headerlink" title="输入数字情况"></a>输入数字情况</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  </div><div class="line">  <span class="comment">//创建输入对象</span></div><div class="line">  Scanner sc=<span class="keyword">new</span> Scanner(System.in);</div><div class="line">  </div><div class="line">  <span class="comment">//获取用户输入的数字</span></div><div class="line">  System.out.print(<span class="string">"请输入任意数字:"</span>);</div><div class="line">  <span class="keyword">int</span> str=sc.nextInt();		<span class="comment">//用来获取数字</span></div><div class="line">  </div><div class="line">  System.out.println(<span class="string">"你输入的数字为:"</span>+str);</div><div class="line">  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h2 id="输入字符串"><a href="#输入字符串" class="headerlink" title="输入字符串"></a>输入字符串</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  </div><div class="line">  <span class="comment">//创建输入对象</span></div><div class="line">  Scanner sc=<span class="keyword">new</span> Scanner(System.in);</div><div class="line">  </div><div class="line">  <span class="comment">//获取用户输入的字符串</span></div><div class="line">  String str=<span class="keyword">null</span>;</div><div class="line">  System.out.print(<span class="string">"请输入任意字符:"</span>);</div><div class="line">  str=sc.nextLine();		<span class="comment">//用来获取字符串</span></div><div class="line">  </div><div class="line">  System.out.println(<span class="string">"你输入的字符为:"</span>+str);</div><div class="line">  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h2 id="若要输入字符数组"><a href="#若要输入字符数组" class="headerlink" title="若要输入字符数组"></a>若要输入字符数组</h2><p>思路：先用输入字符串的方法读入字符串，然后再将其转换为字符数组</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170417/134343486.png" alt="mark"></p>
-<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><p>经过测试，一个输入对象只能接受一种数据类型，要想输入不同的数据对象，就得现创建不同的输入对象<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Scanner in1=<span class="keyword">new</span> Scanner(System.in);	<span class="comment">//接受数字输入</span></div><div class="line"><span class="keyword">int</span> x1=in1.nextInt();	</div><div class="line"><span class="keyword">int</span> x2=in1.nextInt();	<span class="comment">//同种类型不必再new输入对象</span></div><div class="line"></div><div class="line">Scanner sc2=<span class="keyword">new</span> Scanner(System.in);	<span class="comment">//接受字符串输入，不同类型得创新new输入对象，而且不同名</span></div><div class="line">String str=sc2.nextLine();		</div><div class="line">String str=sc2.nextLine();</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/Java入门（二）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/Java入门（二）/" itemprop="url">
-                  Java入门（二）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T22:34:07+08:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/15/Java入门（二）/" class="leancloud_visitors" data-flag-title="Java入门（二）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>注</strong>：</p>
-<ul>
-<li>同一个包下，不同java文件中的类名不能相同，因为同一包下，不同java文件中的类是可以相互继承的！</li>
-<li>不同java类文件中的<strong>内部类</strong>（一个类中还包含着另外一个类）可以同名，但是同一文件下的public或者是默认范围的java类是不可以同名的。</li>
-<li>当类中方法的访问权限修饰符为private时，该方法只能被自己的类访问，不能被外部的类访问</li>
-<li>初始化时，若没有赋值则为默认值，具体时：数字为0、对象为null、布尔值为false、字符值为’\0’</li>
-</ul>
-<h2 id="对象的引用"><a href="#对象的引用" class="headerlink" title="对象的引用"></a>对象的引用</h2><ol>
-<li>引用是一个地址，它指明了对象的变量和方法的存储位置</li>
-<li>将对象赋给变量或将其作为参数传递给方法时，实际上并没有使用对象，甚至没有使用对象的拷贝，<span style="color:red">使用的是对象的引用</span></li>
-<li>例子：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Mypackage;</div><div class="line"><span class="keyword">import</span> java.awt.Point;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RefTester</span></span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">	Point pt1,pt2;</div><div class="line">	pt1=<span class="keyword">new</span> Point(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">	pt2=pt1;</div><div class="line">	</div><div class="line">	pt1.x=<span class="number">200</span>;</div><div class="line">	pt1.y=<span class="number">200</span>;</div><div class="line">	System.out.println(<span class="string">"Point1:"</span>+pt1.x+<span class="string">","</span>+pt1.y);</div><div class="line">	System.out.println(<span class="string">"Point2:"</span>+pt2.x+<span class="string">","</span>+pt2.y);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>执行结果：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/102000896.png" alt="mark"></p>
-<p>可以发现，pt2的值也被改变了，这是<code>pt2=pt1</code>是让pt2引用pt1，而不是将pt1的拷贝纸给pt2，<strong>pt1和pt2现在是指向同一个对象</strong></p>
-<p>如果改成：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pt1=<span class="keyword">new</span> Point(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">pt2=<span class="keyword">new</span> Point(<span class="number">100</span>,<span class="number">100</span>);</div></pre></td></tr></table></figure></p>
-<p>结果就将是：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/102349344.png" alt="mark"></p>
-<p><strong>注</strong>：(不想重写代码，假设pt1和pt2现在是String类型)</p>
-<ul>
-<li>若<code>pt2=pt1</code>，此时用“==”来判断pt1和pt2是否相等，得到的结果是“true”,因为指向同一个对象，用“pt2.equals(pt1)”得到的结果也将是“true”，因为两个字符串值相同</li>
-<li>若<code>pt1=new Point(100,100);pt2=new Point(100,100);</code>，此时用“==”来判断pt1和pt2是否相等，得到的结果是“false”,因为它们现在在内存中不是同一个对象，用“pt2.equals(pt1)”得到的结果也将是“true”，因为两个字符串值相同</li>
-</ul>
-<h2 id="方法重写与方法重载"><a href="#方法重写与方法重载" class="headerlink" title="方法重写与方法重载"></a>方法重写与方法重载</h2><h3 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h3><ol>
-<li>子类可以定义新的特征，当子类需要修改父类的一些方法进行扩展，增大功能，程序设计者常常把这样的一种操作方法称为<strong>重写</strong>，也叫称为<strong>覆写或覆盖</strong>，重写是建立在<strong>继承</strong>关系上</li>
-<li>所谓方法的重写是指子类中的方法与父类中继承的方法有<strong>完全相同的返回值类型、方法名、参数个数以及参数类型</strong>。这样，就可以实现对父类方法的覆盖</li>
-</ol>
-<p><em>例子：</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>//定义父类</span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;<span class="comment">//父类中的方法</span></div><div class="line">System.out.println( 父类Person的print方法! );</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span>//定义子类继承<span class="title">Person</span>类</span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;<span class="comment">//方法的重写</span></div><div class="line">System.out.println( 子类Student的print方法! );</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 0<span class="title">verrideExampleO1</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></div><div class="line">&#123;Student s=<span class="keyword">new</span> Student();</div><div class="line">S.print();</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行结果：子类Student的print方法!</p>
-<p>可见当子类重写了父类中的print()方法后，使用S调用的是子类的print()方法，如果一定要调用父类中的方法，可以用super关键字，<span style="color:red">super关键字可以从子类访问父类中的内容，如果要访问被重写过的方法，使用“super.方法名(参数列表)”的形式调用</span></p>
-<p><em>例子：</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person2</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span> <span class="params">()</span> </span>&#123;</div><div class="line">System.out.println( <span class="string">"父类Person的print方法! "</span>);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student2</span> <span class="keyword">extends</span> <span class="title">Person2</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span> <span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">super</span>.print();<span class="comment">//访问父类中被子类覆写过的方法</span></div><div class="line">System.out.println(<span class="string">" 子类Student的print方法!"</span> );</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OverrideExample02</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></div><div class="line">&#123;Student2 s=<span class="keyword">new</span> Student2();</div><div class="line">s.print();</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/105034749.png" alt="mark"></p>
-<ul>
-<li>被子类重写的方法不能拥有比父类方法更加严格的访问权限</li>
-<li>当父类中方法的访问权限修饰符为private时，该方法只能被自己的类访问，不能被外部的类访问，在子类是不能被重写的。如果定义父类的方法为public，在子类定义为private，程序运行时就会报错</li>
-<li>在继承过程中如果父类当中的方法抛出异常，那么在子类中重写父类的该方法时，也要抛出异常，而且抛出的异常不能多于父类中抛出的异常(可以等于父类中抛出的异常)。换句话说，重写方法一定不能抛出新的检查异常，或者比被重写方法声明更加宽泛的检查型异常。例如，父类的一个方法申明了一个检查异常IOException，在重写这个方法时就不能抛出Exception，只能抛出IOException的子类异常，可以抛出非检查异常</li>
-</ul>
-<h3 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h3><ol>
-<li>方法重载是让类以统一的方式处理不同类型数据的一种手段。调用方法时通过传递给它们的不同个数和类型的参数来决定具体使用哪个方法，这就是<strong>多态性</strong></li>
-<li>所谓方法重载是指在一个类中，多个方法的方法名相同，但是参数列表不同，参数列表不同指的是参数个数、参数类型或者<strong>参数的顺序</strong>不同</li>
-<li>不仅是一般的方法，构造方法也可以重载</li>
-<li><p>例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">	Class Person &#123;</div><div class="line">&#123;String name; </div><div class="line"><span class="keyword">int</span> age;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span> +name+<span class="string">"年龄："</span> +age); </div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(String a，<span class="keyword">int</span> b)</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span> +a+<span class="string">"年龄："</span>+b); </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(String a，<span class="keyword">int</span> b，intC)</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span>+a+<span class="string">"年龄："</span> +b+<span class="string">"ID号："</span> +c); </div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(String a，<span class="keyword">int</span> b，doubleC)</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span>+a+<span class="string">"年龄："</span> +b+<span class="string">"ID号："</span>+c); </div><div class="line">&#125; </div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OverLoadExampleOL</span> </span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></div><div class="line">&#123;Personpl=<span class="keyword">new</span> Person();</div><div class="line">p1.name=<span class="string">"李明"</span>;</div><div class="line">p1.age=<span class="number">22</span>;</div><div class="line">p1.print(); </div><div class="line">p1.print(<span class="string">"王小早"</span>,<span class="number">19</span>); </div><div class="line">p1.print(<span class="string">"金波"</span>,<span class="number">18</span>,<span class="number">100325</span>); </div><div class="line">p1.print(<span class="string">"婉宁"</span>,<span class="number">25</span>,<span class="number">110903</span>); </div><div class="line">&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<pre><code>在上面的程序中，可以看到Person类中有多个名为 void print的方法，这就是方法的重载。执行程序，运行结果如下：
-</code></pre><p> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/110330205.png" alt="mark"></p>
-</li>
-<li>每个重载方法可以有不同的返回类型,只要参数列表不同就可以了</li>
-<li>可以有不同的访问修饰符</li>
-<li>可以抛出不同的异常</li>
-</ol>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/110951053.png" alt="mark"></p>
-<p>在面向对象程序设计的思想中，类的继承和多态性主要就是体现在子类重写父类的方法。而构造方法的重载作为方法重载的一个典型特例，可以通过重载构造方法来表达对象的多种初始化行为。灵活的运用方法重写与方法重载，不仅能减少编码的工作量，也能大大提高程序的可维护性及可扩展性</p>
-<p><a href="http://blog.csdn.net/zhangyabinsky/article/details/7047330" target="_blank" rel="external">参考文章链接</a></p>
-<p><strong>注意以下这个方法重载的例子</strong>，实例方法可以用类名来作为返回类型创建！！</p>
-<p><em>示例</em>：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.awt.Point;</div><div class="line"><span class="comment">//该类定义了一个矩形</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> x1 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> y1 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> x2 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> y2 = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="function">Box <span class="title">buildBox</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x1 = x1;</div><div class="line">        <span class="keyword">this</span>.y1 = y1;</div><div class="line">        <span class="keyword">this</span>.x2 = x2;</div><div class="line">        <span class="keyword">this</span>.y2 = y2;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Box <span class="title">buildBox</span><span class="params">(Point topLeft, Point bottomRight)</span> </span>&#123;</div><div class="line">        x1 = topLeft.x;</div><div class="line">        y1 = topLeft.y;</div><div class="line">        x2 = bottomRight.x;</div><div class="line">        y2 = bottomRight.y;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Box <span class="title">buildBox</span><span class="params">(Point topLeft, <span class="keyword">int</span> w, <span class="keyword">int</span> h)</span> </span>&#123;</div><div class="line">        x1 = topLeft.x;</div><div class="line">        y1 = topLeft.y;</div><div class="line">        x2 = (x1 + w);</div><div class="line">        y2 = (y1 + h); </div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printBox</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.print(<span class="string">"Box: &lt;"</span> + x1 + <span class="string">", "</span> + y1);</div><div class="line">        System.out.println(<span class="string">", "</span> + x2 + <span class="string">", "</span> + y2 + <span class="string">"&gt;"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        Box rect = <span class="keyword">new</span> Box();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"Calling buildBox with "</span></div><div class="line">            + <span class="string">"coordinates (25,25) and (50,50):"</span>);</div><div class="line">        rect.buildBox(<span class="number">25</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">50</span>);</div><div class="line">        rect.printBox();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"\nCalling buildBox with "</span></div><div class="line">            + <span class="string">"points (10,10) and (20,20):"</span>);</div><div class="line">        rect.buildBox(<span class="keyword">new</span> Point(<span class="number">10</span>, <span class="number">10</span>), <span class="keyword">new</span> Point(<span class="number">20</span>, <span class="number">20</span>));</div><div class="line">        rect.printBox();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"\nCalling buildBox with "</span></div><div class="line">            + <span class="string">"point (10,10), width 50 and height 50:"</span>);</div><div class="line"></div><div class="line">        rect.buildBox(<span class="keyword">new</span> Point(<span class="number">10</span>, <span class="number">10</span>), <span class="number">50</span>, <span class="number">50</span>);</div><div class="line">        rect.printBox();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>结果为：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/131543033.png" alt="mark"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/Java入门（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/Java入门（一）/" itemprop="url">
-                  Java入门（一）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T15:47:03+08:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/15/Java入门（一）/" class="leancloud_visitors" data-flag-title="Java入门（一）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>Java作为一种面向对象语言。支持以下基本概念：</strong></p>
-<ul>
-<li>多态</li>
-<li>继承</li>
-<li>封装</li>
-<li>抽象</li>
-<li>类</li>
-<li>对象</li>
-<li>实例</li>
-<li>方法</li>
-<li>重载</li>
-</ul>
-<p><strong>成员变量</strong>包括：实例变量、类变量</p>
-<p><strong>成员方法</strong>包括：实例方法、类方法、构造方法</p>
-<p><strong>基本数据类型</strong>包括：byte、short、int、long、float、double、boolean、char</p>
-<p><strong>指针问题</strong>：不能说Java没有指针，它只是没有显示指针。<strong>对象引用实际上就是指针</strong></p>
-<h2 id="Java中工程（项目）、包、类区别"><a href="#Java中工程（项目）、包、类区别" class="headerlink" title="Java中工程（项目）、包、类区别"></a>Java中工程（项目）、包、类区别</h2><ol>
-<li>项目就是project，包就是package，而class就是类了，项目里面包括所有的包，包是用来便于管理类，防止命名冲突，类是代码的容器，它们的关系就是上级与下级的关系，项目的下一级就是包，包的下级就是类</li>
-<li>工程相当于一个软件，包相当于模块，类相当于模块下各个功能的实现</li>
-<li>类下再有各种自己具体完成任务需要的成员变量和实现方法。主方法也在某一个public类中</li>
-<li>包(package)相当于姓名中的“姓”，类(class)相当于“名”。所以在调用某类方法的时候，不仅需要指明方法所在的“名”，即类，还要指明方法类所在的“姓”，即类。这样编译器才知道你调用的方法是哪一个。</li>
-<li><p>包类具体使用：<br> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/161537201.png" alt="mark"></p>
-</li>
-<li><p><strong>注意</strong>：</p>
-<ul>
-<li>类名和文件名相同，一个Java文件中最好仅定义一个类，多类不方便管理。</li>
-<li>如果多类定义，则仅有一个类可以被public修饰，这个类且必须和文件同名，其他类则不能被其他包里类所引用。此外，若存在主方法main函数，public的main方法只能存放在这个public类当中。</li>
-<li>由于main方法是<span style="color:red">静态的，所以不可以直接调用类中非静态成员变量或方法。但是可以在main函数中创建实体（对象）再调用方法和变量。(即用new)</span></li>
-<li>包建议小写字母开头，而类以大写字母开头。</li>
-</ul>
-</li>
-</ol>
-<p><strong>问题</strong></p>
-<ul>
-<li><p>包用来解决什么问题？</p>
-<ul>
-<li>把功能相似或相关的类或接口组织在同一个包中，方便类的查找和使用</li>
-<li>如同文件夹一样，包也采用了树形目录的存储方式。同一个包中的类名字是不同的，不同的包中的类的名字是可以相同的，当同时调用两个不同包中相同类名的类时，应该加上包名加以区别。因此，包可以避免名字冲突。</li>
-<li>包也限定了访问权限，拥有包访问权限的类才能访问某个包中的类</li>
-</ul>
-</li>
-<li><p>java.awt.*是什么</p>
-<ul>
-<li>java.awt包，即java抽象窗口工具包（Abstract Window Toolkit,AWT)提供了许多用来设计GUI（Graphics User Interface,图形用户界面）组件类。</li>
-</ul>
-</li>
-</ul>
-<h2 id="友好变量、友好方法、友好类"><a href="#友好变量、友好方法、友好类" class="headerlink" title="友好变量、友好方法、友好类"></a>友好变量、友好方法、友好类</h2><ul>
-<li>友好变量、友好方法<ul>
-<li>所谓友好即 不被public、protected、private关键修饰的变量和方法区别在于 比public低一级，用于只能在同一包下访问的变量</li>
-</ul>
-</li>
-</ul>
-<p>Java一共有四种权限，private (私有)，public（公有）。Protected（受保护）还有友好型。这些语句都可以修饰类中的成员变量和方法，但是只有public和友好型可以修饰类。</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/200501353.png" alt="mark"></p>
-<h2 id="类、实例、对象区别"><a href="#类、实例、对象区别" class="headerlink" title="类、实例、对象区别"></a>类、实例、对象区别</h2><ul>
-<li><strong>类</strong>是对一项事物的抽象概括，是一个模板，可以包含该事物的一些<strong>属性</strong>定义，以及操作属性的<strong>方法</strong></li>
-<li><strong>实例</strong>简单理解，就是new，就是对类的<strong>实例化</strong>，创建这个类对应的实际对象，类只是对事物的描述，而<span style="color:red">实例化就相当于为这个描述新开辟了一块内存</span>，可以改变这块区域里的各种属性（成员变量），当然，也可以实例化多块区域，只是不同的对象而已。</li>
-<li>类跟对象<img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/181615378.png" alt="mark"></li>
-<li>可以这么说，对象就是实例，new的过程就是对象实例化的过程<ul>
-<li>例：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ps就是对象的一个**引用**，要对这个对象进行操作的时候，就可以通过这个引用</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Peason</span> </span></div><div class="line">&#123; </div><div class="line">String name; </div><div class="line">String sex; </div><div class="line"><span class="keyword">int</span> age; </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span></div><div class="line">&#123; </div><div class="line">Peason ps=<span class="keyword">new</span> Peason(); </div><div class="line">ps.name=”张三”; </div><div class="line">ps.sex=”男”; </div><div class="line">ps.age=<span class="number">10</span>; </div><div class="line">&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="构造方法（即构造函数）"><a href="#构造方法（即构造函数）" class="headerlink" title="构造方法（即构造函数）"></a>构造方法（即构造函数）</h2><ol>
-<li>是一种特殊的方法，它是一个<span style="color:red">与类同名且没有返回值类型</span>的方法</li>
-<li>对象的创建就是通过构造方法来完成，其功能主要是完成对象的初始化</li>
-<li>满足如下语法规则：<ol>
-<li>方法名与类名相同</li>
-<li>不要声明返回类型</li>
-<li>不能被static、final、synchronized、abstract和native修饰。构造方法不能被子类继承，所以用final和abstract修饰没有意义</li>
-<li>不能使用return语句来返回一个值</li>
-</ol>
-</li>
-<li><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/164500781.png" alt="mark"></li>
-<li><p> <em>例子</em>：一个类可以有多个构造方法！</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//以下Sample类中，具有int返回类型的Sample(int x)方法只是个普通的实例方法，不能作为构造方法</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sample</span> </span>&#123;</div><div class="line"><span class="keyword">private</span> <span class="keyword">int</span> x;</div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Sample</span><span class="params">()</span> </span>&#123; <span class="comment">// 不带参数的构造方法</span></div><div class="line">      <span class="keyword">this</span>(<span class="number">1</span>);</div><div class="line">      &#125;</div><div class="line">  </div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Sample</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="comment">//带参数的构造方法</span></div><div class="line">      <span class="keyword">this</span>.x=x;</div><div class="line">  	&#125;</div><div class="line">  </div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Sample</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="comment">//不是构造方法</span></div><div class="line">  	<span class="keyword">return</span> x++;</div><div class="line">  	&#125;</div><div class="line">  </div><div class="line">  	&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>如果构造函数的部分行为与已有的构造函数相同，可以在该构造函数中调用已有的构造函数。<br> <em>例子</em>：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第二个构造函数只接受x和y的坐标作为参数，由于没有定义半径，</span></div><div class="line"><span class="comment">//因此使用默认值1——调用第一个构造函数，并将xPoint、yPoint、1作为参数传递给它</span></div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Circle</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> x,y,radius;</div><div class="line">	</div><div class="line">	Circle(<span class="keyword">int</span> xPoint,<span class="keyword">int</span> yPoint,<span class="keyword">int</span> rediusLength)&#123;</div><div class="line">		<span class="keyword">this</span>.x=xPoint;</div><div class="line">		<span class="keyword">this</span>.y=yPoint;</div><div class="line">		<span class="keyword">this</span>.radius=rediusLength;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	Circle(<span class="keyword">int</span> xPoint,<span class="keyword">int</span> yPoint)&#123;</div><div class="line">		<span class="keyword">this</span>(xPoint,yPoint,<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>注意</strong>：</p>
-<ul>
-<li>构造方法可以<span style="color:red">重载</span>，以参数的数目，类型，顺序</li>
-<li>如果在定义类时没有定义构造方法，则编译系统会自动插入一个无参数的默认构造器，这个构造器不执行任何代码。</li>
-<li>构造方法不能被继承：<ul>
-<li>子类只继承父类的默认(缺省)构造函数（即无形参构造函数），如果父类没有默认构造函数，那子类不能从父类继承默认构造函数。</li>
-<li>子类从父类处继承来的父类默认构造函数，不能成为子类的默认构造函数。</li>
-<li>在创建对象时，先调用父类默认构造函数对对象进行初始化，然后调用子类自身自己定义的构造函数。</li>
-<li>如果子类想调用父类的非默认构造函数，则必须使用super来实现</li>
-</ul>
-</li>
-</ul>
-<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><p>不同于其他面向对象语言，Java在内存管理是动态的、自动的，当你创建对象时，Java自动分配相应的内存，当使用完对象后，Java虚拟机自动查找未用的对象并回收这些对象占用的内存</p>
-<h2 id="权限问题"><a href="#权限问题" class="headerlink" title="权限问题"></a>权限问题</h2><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/170333205.png" alt="mark"></p>
-<h3 id="Java类的访问控制"><a href="#Java类的访问控制" class="headerlink" title="Java类的访问控制"></a>Java类的访问控制</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/195648646.png" alt="mark"></p>
-<h3 id="Java中不同控制符对应的权限"><a href="#Java中不同控制符对应的权限" class="headerlink" title="Java中不同控制符对应的权限"></a>Java中不同控制符对应的权限</h3><p><a href="http://www.cnblogs.com/tjudzj/p/4443066.html" target="_blank" rel="external"><strong>java中的访问修饰符讲解</strong></a></p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/195855894.png" alt="mark"></p>
-<h2 id="实例变量与类变量的区别，实例方法和类方法的区别"><a href="#实例变量与类变量的区别，实例方法和类方法的区别" class="headerlink" title="实例变量与类变量的区别，实例方法和类方法的区别"></a>实例变量与类变量的区别，实例方法和类方法的区别</h2><p><a href="http://www.cnblogs.com/scf141592/p/5726347.html" target="_blank" rel="external">详细链接一</a><br><a href="http://www.360doc.com/content/15/1112/14/27263348_512582044.shtml" target="_blank" rel="external">详细链接二</a></p>
-<ol>
-<li>类变量：静态域，静态字段，或叫<strong>静态变量</strong>，它属于该类所有实例共有的属性，在内存中只有一个地方存储这个变量</li>
-</ol>
-<ul>
-<li>类变量、类方法就是类中的变量、方法，必须是静态的，<strong>要加static</strong>；故其又称静态变量、静态方法。</li>
-<li>实例变量：实例域，实例字段，或叫成员变量。</li>
-<li>实例方法：或叫成员方法，必须先有实例，然后才能通过实例调用该实例方法</li>
-<li><strong>类变量和实例变量都必须在方法和语句块之外，区别在于类变量static而实例变量不是，类方法和实例方法的区别也是在有没有static上</strong></li>
-<li>类方法是属于整个类，而不属于某个对象</li>
-<li>类方法的调用可以通过<strong>类名.类方法</strong>和<strong>对象.类方法</strong>，而实例方法只能通过<strong>对象.实例方法</strong>访问</li>
-<li>类方法只能访问类方法，而实例方法可以访问类方法和实例方法。</li>
-<li>类方法不能被覆盖，实例方法可以被覆盖（待验证）</li>
-<li><span style="color:red">每个实例都将有一个实例变量的一个副本，他们可以修改实例变量的值，而不会影响其他的示例；类变量只有一个副本，修改它的值将影响所有的实例</span></li>
-<li>类方法与类变量一样，适用于整个类，而不是某个实例。类方法通常用作通用的工具方法，然不是直接操作某个对象，而是整个类。</li>
-<li>类方法还可以用来将通用的方法集中起来，放在一个地方（即类中）。例如：在java.lang包中定义的类Math,将大量的数学运算作为类方法。不能创建Math对象，但可以只用它的类方法，并将数字和布尔值作为参数</li>
-<li><strong>使用方法</strong>：<ul>
-<li>类方法可以直接调用类变量和类方法</li>
-<li>类方法不可以直接调用实例变量和实例方法</li>
-<li>类方法中没有this，因为没有实例，this不知道调用哪个实例(只能在实力方法的定义体内使用this)，super也不行</li>
-<li>类方法可以从类里面直接访问类成员</li>
-<li>实例方法可以调用类方法，访问类变量，但是不提倡这样做，会把类方法和类变量混淆成实例方法和实例变量</li>
-</ul>
-</li>
-</ul>
-<p><em>例子</em>：<br>        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">package</span> Mypackage;</div><div class="line"></div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">AnIntegerNamedX</span> </span>&#123;</div><div class="line">	 <span class="keyword">static</span> <span class="keyword">int</span> x; </div><div class="line">	<span class="comment">// 这里写成static，结果就变成全是2了，因为类变量是被实例所共享的，</span></div><div class="line">	<span class="comment">//包括myX和anotherX调用anotherX时所有的实例都改变了。</span></div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">x</span><span class="params">()</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> x;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">int</span> newX)</span> </span>&#123;</div><div class="line">	x = newX;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Practice</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">	AnIntegerNamedX myX = <span class="keyword">new</span> AnIntegerNamedX();</div><div class="line">	AnIntegerNamedX anotherX = <span class="keyword">new</span> AnIntegerNamedX();</div><div class="line"></div><div class="line">	myX.setX(<span class="number">1</span>);</div><div class="line">	anotherX.x = <span class="number">2</span>; <span class="comment">// 这里把X的值改成2，所有实例的X都是2了，因为类变量是被</span></div><div class="line">	<span class="comment">//所有实例共享的，任何实例都可以对类变量做最终的修改</span></div><div class="line"></div><div class="line">	System.out.println(<span class="string">"myX.x = "</span> + myX.x());</div><div class="line">	System.out.println(<span class="string">"anotherX.x = "</span> + anotherX.x());</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>结果为：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205727588.png" alt="mark"></p>
-<p>若将<code>static int x;</code>改成<code>int x;</code>，则结果为：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205830991.png" alt="mark"></p>
-<p>若将<code>static int x;</code>改成<code>int x;</code>，将x()方法和setX()加上static变成静态方法，则会提示错误让把X变成静态，是因为类方法不能直接访问实例变量！</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/用例图学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/用例图学习笔记/" itemprop="url">
-                  用例图学习笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:52:30+08:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工程开发规范/" itemprop="url" rel="index">
-                    <span itemprop="name">工程开发规范</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/15/用例图学习笔记/" class="leancloud_visitors" data-flag-title="用例图学习笔记">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
-<li>主要用来图示化系统的<strong>主事件</strong>流程</li>
-<li><strong>用例就是软件的功能模块</strong>，是设计系统分析阶段的起点</li>
-<li>描述软件应该<strong>具备哪些功能模块</strong>以及这些模块之间的<strong>调用关系</strong></li>
-<li>用例图包含“用例”和“参与者”</li>
-<li>用例之间通过关联来连接，以便把系统的整个结构和功能反映给客户</li>
-<li>对应的是软件的结构和功能分解</li>
-<li>用例之间可以抽象出：<strong>包含、扩展、泛化</strong>关系。（最常见是：关联）</li>
-<li><p>图示</p>
-<ol>
-<li>关联<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E5%85%B3%E8%81%94.jpg" alt=""></li>
-<li>包含<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E5%8C%85%E5%90%AB.jpg" alt=""></li>
-<li>扩展<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E6%89%A9%E5%B1%95.jpg" alt=""></li>
-<li><p>泛化<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E6%B3%9B%E5%8C%96.jpg" alt=""></p>
-<p><strong>示例</strong></p>
-</li>
-<li><p>包含<img src="http://dl.iteye.com/upload/picture/pic/102138/342c9970-7885-38a3-afc6-0b6ffce764bf.jpg" alt=""></p>
-</li>
-<li>扩展<img src="http://dl.iteye.com/upload/picture/pic/102136/89ac0e8e-924b-35e4-8dc7-208bde503da4.jpg" alt=""></li>
-<li>泛化<img src="http://dl.iteye.com/upload/picture/pic/102134/f63cfc6a-5dd1-388f-813a-f4a4ce1c00b3.jpg" alt=""></li>
-</ol>
-</li>
-</ul>
-<p><a href="http://hxyt20.iteye.com/blog/1246415" target="_blank" rel="external"><strong>具体讲解请戳</strong></a></p>
-<hr>
-<p><strong>组成：</strong>系统、用例、参与者、关系</p>
-<p><strong>解释</strong></p>
-<ul>
-<li>被<strong>包含</strong>的用例可以单独执行</li>
-<li>一个用例被定义为基础用例的增量扩展，称作为<strong>扩展关系</strong>，在特定的条件发生时，扩展用例才会被执行</li>
-<li><p><strong>泛化</strong>关系中，父用例往往表现为抽象用例，任何父用例出现的地方，子用例也可出现</p>
-<p>  <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/163658004.png" alt="mark"></p>
-</li>
-<li>简单说：<ul>
-<li>泛化侧重子用例之间的互斥性；</li>
-<li>包含侧重被包含用例对参与者提供服务的间接性；</li>
-<li>扩展侧重扩展用例的出发不确定性。</li>
-</ul>
-</li>
-<li>参与者种类：<ul>
-<li>系统用户</li>
-<li>与所建造的系统交互的其他系统</li>
-<li>一些可以运行的进程</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="用例图建模技术"><a href="#用例图建模技术" class="headerlink" title="用例图建模技术"></a>用例图建模技术</h2><p>分为：对语境建模、对需求建模</p>
-<p><strong>对语境建模</strong></p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/165953664.png" alt="mark"></p>
-<p><strong>对需求建模</strong></p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/170146103.png" alt="mark"></p>
-<p><strong>实现步骤</strong></p>
-<ul>
-<li>确定系统涉及的总体信息</li>
-<li>确定系统的参与者</li>
-<li>确定系统的用例</li>
-<li>绘制系统的用例图</li>
-<li><a href="https://wenku.baidu.com/view/62bc6bcce2bd960591c67734.html" target="_blank" rel="external"><em>例子</em></a></li>
-</ul>
-<p><strong>绘制步骤</strong></p>
-<ul>
-<li>添加参与者与用例</li>
-<li>添加参与者与用例之间的关系</li>
-<li>添加用例之间的关系</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2281,7 +2219,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2303,7 +2241,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

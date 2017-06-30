@@ -304,6 +304,883 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/17/Java入门（三）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/17/Java入门（三）/" itemprop="url">
+                  Java入门（三）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T13:13:16+08:00">
+                2017-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/17/Java入门（三）/" class="leancloud_visitors" data-flag-title="Java入门（三）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="有关读取用户输入的问题"><a href="#有关读取用户输入的问题" class="headerlink" title="有关读取用户输入的问题"></a>有关读取用户输入的问题</h1><p>首先导入包<code>import java.util.Scanner;</code>这里面有处理用户输入的方法。</p>
+<h2 id="输入数字情况"><a href="#输入数字情况" class="headerlink" title="输入数字情况"></a>输入数字情况</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  </div><div class="line">  <span class="comment">//创建输入对象</span></div><div class="line">  Scanner sc=<span class="keyword">new</span> Scanner(System.in);</div><div class="line">  </div><div class="line">  <span class="comment">//获取用户输入的数字</span></div><div class="line">  System.out.print(<span class="string">"请输入任意数字:"</span>);</div><div class="line">  <span class="keyword">int</span> str=sc.nextInt();		<span class="comment">//用来获取数字</span></div><div class="line">  </div><div class="line">  System.out.println(<span class="string">"你输入的数字为:"</span>+str);</div><div class="line">  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h2 id="输入字符串"><a href="#输入字符串" class="headerlink" title="输入字符串"></a>输入字符串</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  </div><div class="line">  <span class="comment">//创建输入对象</span></div><div class="line">  Scanner sc=<span class="keyword">new</span> Scanner(System.in);</div><div class="line">  </div><div class="line">  <span class="comment">//获取用户输入的字符串</span></div><div class="line">  String str=<span class="keyword">null</span>;</div><div class="line">  System.out.print(<span class="string">"请输入任意字符:"</span>);</div><div class="line">  str=sc.nextLine();		<span class="comment">//用来获取字符串</span></div><div class="line">  </div><div class="line">  System.out.println(<span class="string">"你输入的字符为:"</span>+str);</div><div class="line">  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<h2 id="若要输入字符数组"><a href="#若要输入字符数组" class="headerlink" title="若要输入字符数组"></a>若要输入字符数组</h2><p>思路：先用输入字符串的方法读入字符串，然后再将其转换为字符数组</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170417/134343486.png" alt="mark"></p>
+<h2 id="注"><a href="#注" class="headerlink" title="注"></a>注</h2><p>经过测试，一个输入对象只能接受一种数据类型，要想输入不同的数据对象，就得现创建不同的输入对象<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Scanner in1=<span class="keyword">new</span> Scanner(System.in);	<span class="comment">//接受数字输入</span></div><div class="line"><span class="keyword">int</span> x1=in1.nextInt();	</div><div class="line"><span class="keyword">int</span> x2=in1.nextInt();	<span class="comment">//同种类型不必再new输入对象</span></div><div class="line"></div><div class="line">Scanner sc2=<span class="keyword">new</span> Scanner(System.in);	<span class="comment">//接受字符串输入，不同类型得创新new输入对象，而且不同名</span></div><div class="line">String str=sc2.nextLine();		</div><div class="line">String str=sc2.nextLine();</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/Java入门（二）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/15/Java入门（二）/" itemprop="url">
+                  Java入门（二）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T22:34:07+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/15/Java入门（二）/" class="leancloud_visitors" data-flag-title="Java入门（二）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>注</strong>：</p>
+<ul>
+<li>同一个包下，不同java文件中的类名不能相同，因为同一包下，不同java文件中的类是可以相互继承的！</li>
+<li>不同java类文件中的<strong>内部类</strong>（一个类中还包含着另外一个类）可以同名，但是同一文件下的public或者是默认范围的java类是不可以同名的。</li>
+<li>当类中方法的访问权限修饰符为private时，该方法只能被自己的类访问，不能被外部的类访问</li>
+<li>初始化时，若没有赋值则为默认值，具体时：数字为0、对象为null、布尔值为false、字符值为’\0’</li>
+</ul>
+<h2 id="对象的引用"><a href="#对象的引用" class="headerlink" title="对象的引用"></a>对象的引用</h2><ol>
+<li>引用是一个地址，它指明了对象的变量和方法的存储位置</li>
+<li>将对象赋给变量或将其作为参数传递给方法时，实际上并没有使用对象，甚至没有使用对象的拷贝，<span style="color:red">使用的是对象的引用</span></li>
+<li>例子：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Mypackage;</div><div class="line"><span class="keyword">import</span> java.awt.Point;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RefTester</span></span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">	Point pt1,pt2;</div><div class="line">	pt1=<span class="keyword">new</span> Point(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">	pt2=pt1;</div><div class="line">	</div><div class="line">	pt1.x=<span class="number">200</span>;</div><div class="line">	pt1.y=<span class="number">200</span>;</div><div class="line">	System.out.println(<span class="string">"Point1:"</span>+pt1.x+<span class="string">","</span>+pt1.y);</div><div class="line">	System.out.println(<span class="string">"Point2:"</span>+pt2.x+<span class="string">","</span>+pt2.y);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>执行结果：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/102000896.png" alt="mark"></p>
+<p>可以发现，pt2的值也被改变了，这是<code>pt2=pt1</code>是让pt2引用pt1，而不是将pt1的拷贝纸给pt2，<strong>pt1和pt2现在是指向同一个对象</strong></p>
+<p>如果改成：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pt1=<span class="keyword">new</span> Point(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">pt2=<span class="keyword">new</span> Point(<span class="number">100</span>,<span class="number">100</span>);</div></pre></td></tr></table></figure></p>
+<p>结果就将是：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/102349344.png" alt="mark"></p>
+<p><strong>注</strong>：(不想重写代码，假设pt1和pt2现在是String类型)</p>
+<ul>
+<li>若<code>pt2=pt1</code>，此时用“==”来判断pt1和pt2是否相等，得到的结果是“true”,因为指向同一个对象，用“pt2.equals(pt1)”得到的结果也将是“true”，因为两个字符串值相同</li>
+<li>若<code>pt1=new Point(100,100);pt2=new Point(100,100);</code>，此时用“==”来判断pt1和pt2是否相等，得到的结果是“false”,因为它们现在在内存中不是同一个对象，用“pt2.equals(pt1)”得到的结果也将是“true”，因为两个字符串值相同</li>
+</ul>
+<h2 id="方法重写与方法重载"><a href="#方法重写与方法重载" class="headerlink" title="方法重写与方法重载"></a>方法重写与方法重载</h2><h3 id="方法重写"><a href="#方法重写" class="headerlink" title="方法重写"></a>方法重写</h3><ol>
+<li>子类可以定义新的特征，当子类需要修改父类的一些方法进行扩展，增大功能，程序设计者常常把这样的一种操作方法称为<strong>重写</strong>，也叫称为<strong>覆写或覆盖</strong>，重写是建立在<strong>继承</strong>关系上</li>
+<li>所谓方法的重写是指子类中的方法与父类中继承的方法有<strong>完全相同的返回值类型、方法名、参数个数以及参数类型</strong>。这样，就可以实现对父类方法的覆盖</li>
+</ol>
+<p><em>例子：</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>//定义父类</span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;<span class="comment">//父类中的方法</span></div><div class="line">System.out.println( 父类Person的print方法! );</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span>//定义子类继承<span class="title">Person</span>类</span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;<span class="comment">//方法的重写</span></div><div class="line">System.out.println( 子类Student的print方法! );</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> 0<span class="title">verrideExampleO1</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></div><div class="line">&#123;Student s=<span class="keyword">new</span> Student();</div><div class="line">S.print();</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果：子类Student的print方法!</p>
+<p>可见当子类重写了父类中的print()方法后，使用S调用的是子类的print()方法，如果一定要调用父类中的方法，可以用super关键字，<span style="color:red">super关键字可以从子类访问父类中的内容，如果要访问被重写过的方法，使用“super.方法名(参数列表)”的形式调用</span></p>
+<p><em>例子：</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person2</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span> <span class="params">()</span> </span>&#123;</div><div class="line">System.out.println( <span class="string">"父类Person的print方法! "</span>);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student2</span> <span class="keyword">extends</span> <span class="title">Person2</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">print</span> <span class="params">()</span> </span>&#123;</div><div class="line"><span class="keyword">super</span>.print();<span class="comment">//访问父类中被子类覆写过的方法</span></div><div class="line">System.out.println(<span class="string">" 子类Student的print方法!"</span> );</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OverrideExample02</span></span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></div><div class="line">&#123;Student2 s=<span class="keyword">new</span> Student2();</div><div class="line">s.print();</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/105034749.png" alt="mark"></p>
+<ul>
+<li>被子类重写的方法不能拥有比父类方法更加严格的访问权限</li>
+<li>当父类中方法的访问权限修饰符为private时，该方法只能被自己的类访问，不能被外部的类访问，在子类是不能被重写的。如果定义父类的方法为public，在子类定义为private，程序运行时就会报错</li>
+<li>在继承过程中如果父类当中的方法抛出异常，那么在子类中重写父类的该方法时，也要抛出异常，而且抛出的异常不能多于父类中抛出的异常(可以等于父类中抛出的异常)。换句话说，重写方法一定不能抛出新的检查异常，或者比被重写方法声明更加宽泛的检查型异常。例如，父类的一个方法申明了一个检查异常IOException，在重写这个方法时就不能抛出Exception，只能抛出IOException的子类异常，可以抛出非检查异常</li>
+</ul>
+<h3 id="方法重载"><a href="#方法重载" class="headerlink" title="方法重载"></a>方法重载</h3><ol>
+<li>方法重载是让类以统一的方式处理不同类型数据的一种手段。调用方法时通过传递给它们的不同个数和类型的参数来决定具体使用哪个方法，这就是<strong>多态性</strong></li>
+<li>所谓方法重载是指在一个类中，多个方法的方法名相同，但是参数列表不同，参数列表不同指的是参数个数、参数类型或者<strong>参数的顺序</strong>不同</li>
+<li>不仅是一般的方法，构造方法也可以重载</li>
+<li><p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">	Class Person &#123;</div><div class="line">&#123;String name; </div><div class="line"><span class="keyword">int</span> age;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span> +name+<span class="string">"年龄："</span> +age); </div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(String a，<span class="keyword">int</span> b)</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span> +a+<span class="string">"年龄："</span>+b); </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(String a，<span class="keyword">int</span> b，intC)</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span>+a+<span class="string">"年龄："</span> +b+<span class="string">"ID号："</span> +c); </div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(String a，<span class="keyword">int</span> b，doubleC)</span></span>&#123; </div><div class="line">System.out.println(<span class="string">"姓名："</span>+a+<span class="string">"年龄："</span> +b+<span class="string">"ID号："</span>+c); </div><div class="line">&#125; </div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OverLoadExampleOL</span> </span></div><div class="line">&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></div><div class="line">&#123;Personpl=<span class="keyword">new</span> Person();</div><div class="line">p1.name=<span class="string">"李明"</span>;</div><div class="line">p1.age=<span class="number">22</span>;</div><div class="line">p1.print(); </div><div class="line">p1.print(<span class="string">"王小早"</span>,<span class="number">19</span>); </div><div class="line">p1.print(<span class="string">"金波"</span>,<span class="number">18</span>,<span class="number">100325</span>); </div><div class="line">p1.print(<span class="string">"婉宁"</span>,<span class="number">25</span>,<span class="number">110903</span>); </div><div class="line">&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>在上面的程序中，可以看到Person类中有多个名为 void print的方法，这就是方法的重载。执行程序，运行结果如下：
+</code></pre><p> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/110330205.png" alt="mark"></p>
+</li>
+<li>每个重载方法可以有不同的返回类型,只要参数列表不同就可以了</li>
+<li>可以有不同的访问修饰符</li>
+<li>可以抛出不同的异常</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/110951053.png" alt="mark"></p>
+<p>在面向对象程序设计的思想中，类的继承和多态性主要就是体现在子类重写父类的方法。而构造方法的重载作为方法重载的一个典型特例，可以通过重载构造方法来表达对象的多种初始化行为。灵活的运用方法重写与方法重载，不仅能减少编码的工作量，也能大大提高程序的可维护性及可扩展性</p>
+<p><a href="http://blog.csdn.net/zhangyabinsky/article/details/7047330" target="_blank" rel="external">参考文章链接</a></p>
+<p><strong>注意以下这个方法重载的例子</strong>，实例方法可以用类名来作为返回类型创建！！</p>
+<p><em>示例</em>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.awt.Point;</div><div class="line"><span class="comment">//该类定义了一个矩形</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Box</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> x1 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> y1 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> x2 = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> y2 = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="function">Box <span class="title">buildBox</span><span class="params">(<span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.x1 = x1;</div><div class="line">        <span class="keyword">this</span>.y1 = y1;</div><div class="line">        <span class="keyword">this</span>.x2 = x2;</div><div class="line">        <span class="keyword">this</span>.y2 = y2;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Box <span class="title">buildBox</span><span class="params">(Point topLeft, Point bottomRight)</span> </span>&#123;</div><div class="line">        x1 = topLeft.x;</div><div class="line">        y1 = topLeft.y;</div><div class="line">        x2 = bottomRight.x;</div><div class="line">        y2 = bottomRight.y;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function">Box <span class="title">buildBox</span><span class="params">(Point topLeft, <span class="keyword">int</span> w, <span class="keyword">int</span> h)</span> </span>&#123;</div><div class="line">        x1 = topLeft.x;</div><div class="line">        y1 = topLeft.y;</div><div class="line">        x2 = (x1 + w);</div><div class="line">        y2 = (y1 + h); </div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printBox</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.print(<span class="string">"Box: &lt;"</span> + x1 + <span class="string">", "</span> + y1);</div><div class="line">        System.out.println(<span class="string">", "</span> + x2 + <span class="string">", "</span> + y2 + <span class="string">"&gt;"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arguments)</span> </span>&#123;</div><div class="line">        Box rect = <span class="keyword">new</span> Box();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"Calling buildBox with "</span></div><div class="line">            + <span class="string">"coordinates (25,25) and (50,50):"</span>);</div><div class="line">        rect.buildBox(<span class="number">25</span>, <span class="number">25</span>, <span class="number">50</span>, <span class="number">50</span>);</div><div class="line">        rect.printBox();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"\nCalling buildBox with "</span></div><div class="line">            + <span class="string">"points (10,10) and (20,20):"</span>);</div><div class="line">        rect.buildBox(<span class="keyword">new</span> Point(<span class="number">10</span>, <span class="number">10</span>), <span class="keyword">new</span> Point(<span class="number">20</span>, <span class="number">20</span>));</div><div class="line">        rect.printBox();</div><div class="line"></div><div class="line">        System.out.println(<span class="string">"\nCalling buildBox with "</span></div><div class="line">            + <span class="string">"point (10,10), width 50 and height 50:"</span>);</div><div class="line"></div><div class="line">        rect.buildBox(<span class="keyword">new</span> Point(<span class="number">10</span>, <span class="number">10</span>), <span class="number">50</span>, <span class="number">50</span>);</div><div class="line">        rect.printBox();</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>结果为：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170416/131543033.png" alt="mark"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/Java入门（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/15/Java入门（一）/" itemprop="url">
+                  Java入门（一）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T15:47:03+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/15/Java入门（一）/" class="leancloud_visitors" data-flag-title="Java入门（一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>Java作为一种面向对象语言。支持以下基本概念：</strong></p>
+<ul>
+<li>多态</li>
+<li>继承</li>
+<li>封装</li>
+<li>抽象</li>
+<li>类</li>
+<li>对象</li>
+<li>实例</li>
+<li>方法</li>
+<li>重载</li>
+</ul>
+<p><strong>成员变量</strong>包括：实例变量、类变量</p>
+<p><strong>成员方法</strong>包括：实例方法、类方法、构造方法</p>
+<p><strong>基本数据类型</strong>包括：byte、short、int、long、float、double、boolean、char</p>
+<p><strong>指针问题</strong>：不能说Java没有指针，它只是没有显示指针。<strong>对象引用实际上就是指针</strong></p>
+<h2 id="Java中工程（项目）、包、类区别"><a href="#Java中工程（项目）、包、类区别" class="headerlink" title="Java中工程（项目）、包、类区别"></a>Java中工程（项目）、包、类区别</h2><ol>
+<li>项目就是project，包就是package，而class就是类了，项目里面包括所有的包，包是用来便于管理类，防止命名冲突，类是代码的容器，它们的关系就是上级与下级的关系，项目的下一级就是包，包的下级就是类</li>
+<li>工程相当于一个软件，包相当于模块，类相当于模块下各个功能的实现</li>
+<li>类下再有各种自己具体完成任务需要的成员变量和实现方法。主方法也在某一个public类中</li>
+<li>包(package)相当于姓名中的“姓”，类(class)相当于“名”。所以在调用某类方法的时候，不仅需要指明方法所在的“名”，即类，还要指明方法类所在的“姓”，即类。这样编译器才知道你调用的方法是哪一个。</li>
+<li><p>包类具体使用：<br> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/161537201.png" alt="mark"></p>
+</li>
+<li><p><strong>注意</strong>：</p>
+<ul>
+<li>类名和文件名相同，一个Java文件中最好仅定义一个类，多类不方便管理。</li>
+<li>如果多类定义，则仅有一个类可以被public修饰，这个类且必须和文件同名，其他类则不能被其他包里类所引用。此外，若存在主方法main函数，public的main方法只能存放在这个public类当中。</li>
+<li>由于main方法是<span style="color:red">静态的，所以不可以直接调用类中非静态成员变量或方法。但是可以在main函数中创建实体（对象）再调用方法和变量。(即用new)</span></li>
+<li>包建议小写字母开头，而类以大写字母开头。</li>
+</ul>
+</li>
+</ol>
+<p><strong>问题</strong></p>
+<ul>
+<li><p>包用来解决什么问题？</p>
+<ul>
+<li>把功能相似或相关的类或接口组织在同一个包中，方便类的查找和使用</li>
+<li>如同文件夹一样，包也采用了树形目录的存储方式。同一个包中的类名字是不同的，不同的包中的类的名字是可以相同的，当同时调用两个不同包中相同类名的类时，应该加上包名加以区别。因此，包可以避免名字冲突。</li>
+<li>包也限定了访问权限，拥有包访问权限的类才能访问某个包中的类</li>
+</ul>
+</li>
+<li><p>java.awt.*是什么</p>
+<ul>
+<li>java.awt包，即java抽象窗口工具包（Abstract Window Toolkit,AWT)提供了许多用来设计GUI（Graphics User Interface,图形用户界面）组件类。</li>
+</ul>
+</li>
+</ul>
+<h2 id="友好变量、友好方法、友好类"><a href="#友好变量、友好方法、友好类" class="headerlink" title="友好变量、友好方法、友好类"></a>友好变量、友好方法、友好类</h2><ul>
+<li>友好变量、友好方法<ul>
+<li>所谓友好即 不被public、protected、private关键修饰的变量和方法区别在于 比public低一级，用于只能在同一包下访问的变量</li>
+</ul>
+</li>
+</ul>
+<p>Java一共有四种权限，private (私有)，public（公有）。Protected（受保护）还有友好型。这些语句都可以修饰类中的成员变量和方法，但是只有public和友好型可以修饰类。</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/200501353.png" alt="mark"></p>
+<h2 id="类、实例、对象区别"><a href="#类、实例、对象区别" class="headerlink" title="类、实例、对象区别"></a>类、实例、对象区别</h2><ul>
+<li><strong>类</strong>是对一项事物的抽象概括，是一个模板，可以包含该事物的一些<strong>属性</strong>定义，以及操作属性的<strong>方法</strong></li>
+<li><strong>实例</strong>简单理解，就是new，就是对类的<strong>实例化</strong>，创建这个类对应的实际对象，类只是对事物的描述，而<span style="color:red">实例化就相当于为这个描述新开辟了一块内存</span>，可以改变这块区域里的各种属性（成员变量），当然，也可以实例化多块区域，只是不同的对象而已。</li>
+<li>类跟对象<img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/181615378.png" alt="mark"></li>
+<li>可以这么说，对象就是实例，new的过程就是对象实例化的过程<ul>
+<li>例：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ps就是对象的一个**引用**，要对这个对象进行操作的时候，就可以通过这个引用</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Peason</span> </span></div><div class="line">&#123; </div><div class="line">String name; </div><div class="line">String sex; </div><div class="line"><span class="keyword">int</span> age; </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span> </span></div><div class="line">&#123; </div><div class="line">Peason ps=<span class="keyword">new</span> Peason(); </div><div class="line">ps.name=”张三”; </div><div class="line">ps.sex=”男”; </div><div class="line">ps.age=<span class="number">10</span>; </div><div class="line">&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="构造方法（即构造函数）"><a href="#构造方法（即构造函数）" class="headerlink" title="构造方法（即构造函数）"></a>构造方法（即构造函数）</h2><ol>
+<li>是一种特殊的方法，它是一个<span style="color:red">与类同名且没有返回值类型</span>的方法</li>
+<li>对象的创建就是通过构造方法来完成，其功能主要是完成对象的初始化</li>
+<li>满足如下语法规则：<ol>
+<li>方法名与类名相同</li>
+<li>不要声明返回类型</li>
+<li>不能被static、final、synchronized、abstract和native修饰。构造方法不能被子类继承，所以用final和abstract修饰没有意义</li>
+<li>不能使用return语句来返回一个值</li>
+</ol>
+</li>
+<li><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/164500781.png" alt="mark"></li>
+<li><p> <em>例子</em>：一个类可以有多个构造方法！</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//以下Sample类中，具有int返回类型的Sample(int x)方法只是个普通的实例方法，不能作为构造方法</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sample</span> </span>&#123;</div><div class="line"><span class="keyword">private</span> <span class="keyword">int</span> x;</div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Sample</span><span class="params">()</span> </span>&#123; <span class="comment">// 不带参数的构造方法</span></div><div class="line">      <span class="keyword">this</span>(<span class="number">1</span>);</div><div class="line">      &#125;</div><div class="line">  </div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="title">Sample</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="comment">//带参数的构造方法</span></div><div class="line">      <span class="keyword">this</span>.x=x;</div><div class="line">  	&#125;</div><div class="line">  </div><div class="line">  	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Sample</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="comment">//不是构造方法</span></div><div class="line">  	<span class="keyword">return</span> x++;</div><div class="line">  	&#125;</div><div class="line">  </div><div class="line">  	&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果构造函数的部分行为与已有的构造函数相同，可以在该构造函数中调用已有的构造函数。<br> <em>例子</em>：</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第二个构造函数只接受x和y的坐标作为参数，由于没有定义半径，</span></div><div class="line"><span class="comment">//因此使用默认值1——调用第一个构造函数，并将xPoint、yPoint、1作为参数传递给它</span></div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Circle</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> x,y,radius;</div><div class="line">	</div><div class="line">	Circle(<span class="keyword">int</span> xPoint,<span class="keyword">int</span> yPoint,<span class="keyword">int</span> rediusLength)&#123;</div><div class="line">		<span class="keyword">this</span>.x=xPoint;</div><div class="line">		<span class="keyword">this</span>.y=yPoint;</div><div class="line">		<span class="keyword">this</span>.radius=rediusLength;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	Circle(<span class="keyword">int</span> xPoint,<span class="keyword">int</span> yPoint)&#123;</div><div class="line">		<span class="keyword">this</span>(xPoint,yPoint,<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>构造方法可以<span style="color:red">重载</span>，以参数的数目，类型，顺序</li>
+<li>如果在定义类时没有定义构造方法，则编译系统会自动插入一个无参数的默认构造器，这个构造器不执行任何代码。</li>
+<li>构造方法不能被继承：<ul>
+<li>子类只继承父类的默认(缺省)构造函数（即无形参构造函数），如果父类没有默认构造函数，那子类不能从父类继承默认构造函数。</li>
+<li>子类从父类处继承来的父类默认构造函数，不能成为子类的默认构造函数。</li>
+<li>在创建对象时，先调用父类默认构造函数对对象进行初始化，然后调用子类自身自己定义的构造函数。</li>
+<li>如果子类想调用父类的非默认构造函数，则必须使用super来实现</li>
+</ul>
+</li>
+</ul>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><p>不同于其他面向对象语言，Java在内存管理是动态的、自动的，当你创建对象时，Java自动分配相应的内存，当使用完对象后，Java虚拟机自动查找未用的对象并回收这些对象占用的内存</p>
+<h2 id="权限问题"><a href="#权限问题" class="headerlink" title="权限问题"></a>权限问题</h2><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/170333205.png" alt="mark"></p>
+<h3 id="Java类的访问控制"><a href="#Java类的访问控制" class="headerlink" title="Java类的访问控制"></a>Java类的访问控制</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/195648646.png" alt="mark"></p>
+<h3 id="Java中不同控制符对应的权限"><a href="#Java中不同控制符对应的权限" class="headerlink" title="Java中不同控制符对应的权限"></a>Java中不同控制符对应的权限</h3><p><a href="http://www.cnblogs.com/tjudzj/p/4443066.html" target="_blank" rel="external"><strong>java中的访问修饰符讲解</strong></a></p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/195855894.png" alt="mark"></p>
+<h2 id="实例变量与类变量的区别，实例方法和类方法的区别"><a href="#实例变量与类变量的区别，实例方法和类方法的区别" class="headerlink" title="实例变量与类变量的区别，实例方法和类方法的区别"></a>实例变量与类变量的区别，实例方法和类方法的区别</h2><p><a href="http://www.cnblogs.com/scf141592/p/5726347.html" target="_blank" rel="external">详细链接一</a><br><a href="http://www.360doc.com/content/15/1112/14/27263348_512582044.shtml" target="_blank" rel="external">详细链接二</a></p>
+<ol>
+<li>类变量：静态域，静态字段，或叫<strong>静态变量</strong>，它属于该类所有实例共有的属性，在内存中只有一个地方存储这个变量</li>
+</ol>
+<ul>
+<li>类变量、类方法就是类中的变量、方法，必须是静态的，<strong>要加static</strong>；故其又称静态变量、静态方法。</li>
+<li>实例变量：实例域，实例字段，或叫成员变量。</li>
+<li>实例方法：或叫成员方法，必须先有实例，然后才能通过实例调用该实例方法</li>
+<li><strong>类变量和实例变量都必须在方法和语句块之外，区别在于类变量static而实例变量不是，类方法和实例方法的区别也是在有没有static上</strong></li>
+<li>类方法是属于整个类，而不属于某个对象</li>
+<li>类方法的调用可以通过<strong>类名.类方法</strong>和<strong>对象.类方法</strong>，而实例方法只能通过<strong>对象.实例方法</strong>访问</li>
+<li>类方法只能访问类方法，而实例方法可以访问类方法和实例方法。</li>
+<li>类方法不能被覆盖，实例方法可以被覆盖（待验证）</li>
+<li><span style="color:red">每个实例都将有一个实例变量的一个副本，他们可以修改实例变量的值，而不会影响其他的示例；类变量只有一个副本，修改它的值将影响所有的实例</span></li>
+<li>类方法与类变量一样，适用于整个类，而不是某个实例。类方法通常用作通用的工具方法，然不是直接操作某个对象，而是整个类。</li>
+<li>类方法还可以用来将通用的方法集中起来，放在一个地方（即类中）。例如：在java.lang包中定义的类Math,将大量的数学运算作为类方法。不能创建Math对象，但可以只用它的类方法，并将数字和布尔值作为参数</li>
+<li><strong>使用方法</strong>：<ul>
+<li>类方法可以直接调用类变量和类方法</li>
+<li>类方法不可以直接调用实例变量和实例方法</li>
+<li>类方法中没有this，因为没有实例，this不知道调用哪个实例(只能在实力方法的定义体内使用this)，super也不行</li>
+<li>类方法可以从类里面直接访问类成员</li>
+<li>实例方法可以调用类方法，访问类变量，但是不提倡这样做，会把类方法和类变量混淆成实例方法和实例变量</li>
+</ul>
+</li>
+</ul>
+<p><em>例子</em>：<br>        <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">package</span> Mypackage;</div><div class="line"></div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">AnIntegerNamedX</span> </span>&#123;</div><div class="line">	 <span class="keyword">static</span> <span class="keyword">int</span> x; </div><div class="line">	<span class="comment">// 这里写成static，结果就变成全是2了，因为类变量是被实例所共享的，</span></div><div class="line">	<span class="comment">//包括myX和anotherX调用anotherX时所有的实例都改变了。</span></div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">x</span><span class="params">()</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> x;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setX</span><span class="params">(<span class="keyword">int</span> newX)</span> </span>&#123;</div><div class="line">	x = newX;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Practice</span> </span>&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">	AnIntegerNamedX myX = <span class="keyword">new</span> AnIntegerNamedX();</div><div class="line">	AnIntegerNamedX anotherX = <span class="keyword">new</span> AnIntegerNamedX();</div><div class="line"></div><div class="line">	myX.setX(<span class="number">1</span>);</div><div class="line">	anotherX.x = <span class="number">2</span>; <span class="comment">// 这里把X的值改成2，所有实例的X都是2了，因为类变量是被</span></div><div class="line">	<span class="comment">//所有实例共享的，任何实例都可以对类变量做最终的修改</span></div><div class="line"></div><div class="line">	System.out.println(<span class="string">"myX.x = "</span> + myX.x());</div><div class="line">	System.out.println(<span class="string">"anotherX.x = "</span> + anotherX.x());</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结果为：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205727588.png" alt="mark"></p>
+<p>若将<code>static int x;</code>改成<code>int x;</code>，则结果为：</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170415/205830991.png" alt="mark"></p>
+<p>若将<code>static int x;</code>改成<code>int x;</code>，将x()方法和setX()加上static变成静态方法，则会提示错误让把X变成静态，是因为类方法不能直接访问实例变量！</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/用例图学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/15/用例图学习笔记/" itemprop="url">
+                  用例图学习笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:52:30+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工程开发规范/" itemprop="url" rel="index">
+                    <span itemprop="name">工程开发规范</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/15/用例图学习笔记/" class="leancloud_visitors" data-flag-title="用例图学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li>主要用来图示化系统的<strong>主事件</strong>流程</li>
+<li><strong>用例就是软件的功能模块</strong>，是设计系统分析阶段的起点</li>
+<li>描述软件应该<strong>具备哪些功能模块</strong>以及这些模块之间的<strong>调用关系</strong></li>
+<li>用例图包含“用例”和“参与者”</li>
+<li>用例之间通过关联来连接，以便把系统的整个结构和功能反映给客户</li>
+<li>对应的是软件的结构和功能分解</li>
+<li>用例之间可以抽象出：<strong>包含、扩展、泛化</strong>关系。（最常见是：关联）</li>
+<li><p>图示</p>
+<ol>
+<li>关联<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E5%85%B3%E8%81%94.jpg" alt=""></li>
+<li>包含<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E5%8C%85%E5%90%AB.jpg" alt=""></li>
+<li>扩展<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E6%89%A9%E5%B1%95.jpg" alt=""></li>
+<li><p>泛化<img src="http://onxem9xtk.bkt.clouddn.com/%E7%94%A8%E4%BE%8B%E5%9B%BE%E4%BB%8B%E7%BB%8D%E6%B3%9B%E5%8C%96.jpg" alt=""></p>
+<p><strong>示例</strong></p>
+</li>
+<li><p>包含<img src="http://dl.iteye.com/upload/picture/pic/102138/342c9970-7885-38a3-afc6-0b6ffce764bf.jpg" alt=""></p>
+</li>
+<li>扩展<img src="http://dl.iteye.com/upload/picture/pic/102136/89ac0e8e-924b-35e4-8dc7-208bde503da4.jpg" alt=""></li>
+<li>泛化<img src="http://dl.iteye.com/upload/picture/pic/102134/f63cfc6a-5dd1-388f-813a-f4a4ce1c00b3.jpg" alt=""></li>
+</ol>
+</li>
+</ul>
+<p><a href="http://hxyt20.iteye.com/blog/1246415" target="_blank" rel="external"><strong>具体讲解请戳</strong></a></p>
+<hr>
+<p><strong>组成：</strong>系统、用例、参与者、关系</p>
+<p><strong>解释</strong></p>
+<ul>
+<li>被<strong>包含</strong>的用例可以单独执行</li>
+<li>一个用例被定义为基础用例的增量扩展，称作为<strong>扩展关系</strong>，在特定的条件发生时，扩展用例才会被执行</li>
+<li><p><strong>泛化</strong>关系中，父用例往往表现为抽象用例，任何父用例出现的地方，子用例也可出现</p>
+<p>  <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/163658004.png" alt="mark"></p>
+</li>
+<li>简单说：<ul>
+<li>泛化侧重子用例之间的互斥性；</li>
+<li>包含侧重被包含用例对参与者提供服务的间接性；</li>
+<li>扩展侧重扩展用例的出发不确定性。</li>
+</ul>
+</li>
+<li>参与者种类：<ul>
+<li>系统用户</li>
+<li>与所建造的系统交互的其他系统</li>
+<li>一些可以运行的进程</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="用例图建模技术"><a href="#用例图建模技术" class="headerlink" title="用例图建模技术"></a>用例图建模技术</h2><p>分为：对语境建模、对需求建模</p>
+<p><strong>对语境建模</strong></p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/165953664.png" alt="mark"></p>
+<p><strong>对需求建模</strong></p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170405/170146103.png" alt="mark"></p>
+<p><strong>实现步骤</strong></p>
+<ul>
+<li>确定系统涉及的总体信息</li>
+<li>确定系统的参与者</li>
+<li>确定系统的用例</li>
+<li>绘制系统的用例图</li>
+<li><a href="https://wenku.baidu.com/view/62bc6bcce2bd960591c67734.html" target="_blank" rel="external"><em>例子</em></a></li>
+</ul>
+<p><strong>绘制步骤</strong></p>
+<ul>
+<li>添加参与者与用例</li>
+<li>添加参与者与用例之间的关系</li>
+<li>添加用例之间的关系</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/NexT主题配置进阶/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1372,532 +2249,11 @@ $git clone https://github.com/iissnan/hexo-theme-next themes/next
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/php环境问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/php环境问题/" itemprop="url">
-                  php环境问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T09:51:41+08:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/15/php环境问题/" class="leancloud_visitors" data-flag-title="php环境问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>用的是phpstorm和wamp搭建的环境，php版本为5.6</strong></p>
-<hr>
-<p>提交表单后，运行老是报错“Deprecated: Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set ‘always_populate_raw_post_data’ to ‘-1’ in php.ini and use the php://input stream instead. in Unknown on line 0”</p>
-<p>我运行是直接点的phpstorm里面的chrome快捷键，结果出现上面的错误，<br>网上的方法试了，更改php.ini文件的always_populate_raw_post_data的值无效。</p>
-<p>后来发现，从phpstorm直接运行的页面地址跟wamp根目录运行的页面地址是不一样的（废话，肯定不一样，因为我phpstorm的项目地址跟wamp的不在一起），而且很奇怪的一点，wamp提供的更改php.ini的地址不是php安装目录里的那个php.ini。搞得我有点晕。</p>
-<p>后来索性把要运行的那个项目移动到wamp根目录，用localhost（wamp根地址）运行，结果就成功了，成功了，没错，不报错了，就是这么简单，具体为什么等我把这项目弄完了再好好研究吧。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/14/Html常用标签大全/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/14/Html常用标签大全/" itemprop="url">
-                  Html常用标签大全
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-14T10:41:09+08:00">
-                2017-04-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/14/Html常用标签大全/" class="leancloud_visitors" data-flag-title="Html常用标签大全">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h1><p><code>&lt;html&gt;…&lt;/html&gt;</code>      定义 HTML 文档</p>
-<p><code>&lt;head&gt;…&lt;/head&gt;</code>   文档的信息</p>
-<p><code>&lt;meta&gt;</code>                  HTML 文档的元信息</p>
-<p><code>&lt;title&gt;…&lt;/title&gt;</code>       文档的标题</p>
-<p><code>&lt;link&gt;</code>              文档与外部资源的关系</p>
-<p><code>&lt;style&gt;…&lt;/style&gt;</code>    文档的样式信息</p>
-<p><code>&lt;body&gt;…&lt;/body&gt;</code>   可见的页面内容、</p>
-<p><code>&lt;!--…--&gt;</code>                注释</p>
-<h1 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h1><p><code>&lt;h1&gt;...&lt;/h1&gt;</code>             标题字大小（h1~h6）</p>
-<p><code>&lt;b&gt;...&lt;/b&gt;</code>               粗体字</p>
-<p><code>&lt;strong&gt;...&lt;/strong&gt;</code>  粗体字(强调) </p>
-<p><code>&lt;i&gt;...&lt;/i&gt;</code>                     斜体字 </p>
-<p><code>&lt;em&gt;...&lt;/em&gt;</code>              斜体字(强调)</p>
-<p><code>&lt;u&gt;...&lt;/u&gt;</code>                   下划线</p>
-<p><code>&lt;del&gt;...&lt;/del&gt;</code>              删除线(表示删除)</p>
-<p><code>&lt;center&gt;…&lt;/center&gt;</code>   居中文本</p>
-<p><code>&lt;ul&gt;…&lt;/ul&gt;</code>                 无序列表 </p>
-<p><code>&lt;ol&gt;…&lt;/ol&gt;</code>               有序列表</p>
-<p><code>&lt;li&gt;…&lt;/li&gt;</code>                  列表项目</p>
-<p><code>&lt;a href=”…”&gt;…&lt;/a&gt;</code>    超链接</p>
-<p><code>&lt;font&gt;</code>                        定义文本字体尺寸、颜色、大小</p>
-<p><code>&lt;sub&gt;</code>                         下标</p>
-<p><code>&lt;sup&gt;</code>                        上标</p>
-<p><code>&lt;br&gt;</code>                        换行</p>
-<p><code>&lt;p&gt;</code>                          段落</p>
-<h1 id="图形"><a href="#图形" class="headerlink" title="图形"></a>图形</h1><p><code>&lt;img src=’”…”&gt;</code>   定义图像</p>
-<p><code>&lt;hr&gt;</code>                水平线</p>
-<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p><code>&lt;table&gt;…&lt;/table&gt;</code> 定义表格</p>
-<p><code>&lt;th&gt;…&lt;/th&gt;</code>        定义表格中的表头单元格</p>
-<p><code>&lt;tr&gt;…&lt;/tr&gt;</code>            定义表格中的行</p>
-<p><code>&lt;td&gt;…&lt;/td&gt;</code>          定义表格中的单元</p>
-<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><p><code>&lt;form&gt;…&lt;/form&gt;</code>    定义供用户输入的 HTML 表单</p>
-<p><code>&lt;frame&gt;</code>              定义框架集的窗口或框架</p>
-<p>另加16进制颜色，但仅仅有16种颜色名可用英文字母，其余的要用16进制值。 记住哦！</p>
-<pre><code>aqua, black, blue, fuchsia, gray, green, lime,maroon, navy, olive, purple, red, silver, teal, white, yellow
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/07/Git上传github仓库步骤/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/07/Git上传github仓库步骤/" itemprop="url">
-                  Git上传github仓库步骤
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-07T22:16:23+08:00">
-                2017-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/07/Git上传github仓库步骤/" class="leancloud_visitors" data-flag-title="Git上传github仓库步骤">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>完整的Git的教程请看<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">这里</a></p>
-<p>这个教程是基于电脑上已经装有git和拥有github账号的基础上的。（没装git的可以去git官网下载，本文以windows64位系统为基础）</p>
-<p>在git bash内输入以下命令在配置文件中保存身份：</p>
-<p>git config −−global user.name “github账号”</p>
-<p>git config −−global user.email “注册github时用的邮箱”</p>
-<p>比如你要上传的本地仓库是在桌面的test文件夹内的所有文件：用命令行进入到test文件夹下（本例是上传test内的test.txt文件），涉及相关文件操作命令同linux。</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170507/222359153.png" alt="mark"></p>
-<p>在github中创建新仓库test:</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170507/222512590.png" alt="mark"></p>
-<p>在bash内，输入git init进行初始化：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170507/222542991.png" alt="mark"></p>
-<p>将所有文件添加到上传队列中(“.”表示全部文件，可以用特定文件名来代替，进行特定文件上传；中间可以用git status 命令来查看文件所在所处的状态)：git add .</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170507/222624156.png" alt="mark"></p>
-<p>提交文件到本地git仓库：git commit −m “注释”</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170507/222655538.png" alt="mark"></p>
-<p>连接github中的test仓库：git remote add origin <a href="https://github.com/zifenggao/test.git（此段代码可以到创建成功后的github" target="_blank" rel="external">https://github.com/zifenggao/test.git（此段代码可以到创建成功后的github</a> test仓库的code栏内复制得到）</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170507/222746827.png" alt="mark"></p>
-<p>然后输入git push origin master命令即可完成本地git仓库上传到github仓库的操作：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170507/222823614.png" alt="mark"></p>
-<p>这样就完成了本地git上传到github仓库的操作，到github中刷新test仓库可以查看到我们上传的内容：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170507/222919790.png" alt="mark"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1942,7 +2298,7 @@ $git clone https://github.com/iissnan/hexo-theme-next themes/next
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">63</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1964,7 +2320,7 @@ $git clone https://github.com/iissnan/hexo-theme-next themes/next
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
