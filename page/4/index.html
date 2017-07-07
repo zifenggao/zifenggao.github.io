@@ -304,6 +304,478 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/30/Java之初识JDBC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/30/Java之初识JDBC/" itemprop="url">
+                  Java之初识JDBC
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-30T17:02:22+08:00">
+                2017-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/30/Java之初识JDBC/" class="leancloud_visitors" data-flag-title="Java之初识JDBC">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>JDBC：（Java Database Connectivity,Java数据库连接）是一组类。通过JDBC，可以在Java程序中使用相容的类和方法来读写记录以及执行其他是数据库访问操作。被称为驱动程序的类是连接到数据源的桥梁——对于每种流行的数据库（Oracle、Mysql等），都有相应的驱动程序。</p>
+<p>对于每种常见的数据库使用任务，JDBC库中都有相应的类：</p>
+<ul>
+<li>连接到数据库</li>
+<li>使用SQL创建语句</li>
+<li>在数据库中执行SQL查询</li>
+<li>查看结果</li>
+</ul>
+<p>这些JDBC类都位于<strong>java.sql</strong>包中</p>
+<h2 id="通过示例学习基本操作"><a href="#通过示例学习基本操作" class="headerlink" title="通过示例学习基本操作"></a>通过示例学习基本操作</h2><p>本示例用的是Mysql数据库</p>
+<h3 id="先来规定一个环境"><a href="#先来规定一个环境" class="headerlink" title="先来规定一个环境"></a>先来规定一个环境</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> String Id;</div><div class="line">        <span class="keyword">private</span> String Name;</div><div class="line">        <span class="keyword">private</span> String Sex;</div><div class="line">        <span class="keyword">private</span> String Age;</div><div class="line"></div><div class="line">        Student(String Name, String Sex, String Age) &#123;</div><div class="line">            <span class="keyword">this</span>.Id = <span class="keyword">null</span>; <span class="comment">//default</span></div><div class="line">            <span class="keyword">this</span>.Name = Name;</div><div class="line">            <span class="keyword">this</span>.Sex = Sex;</div><div class="line">            <span class="keyword">this</span>.Age = Age;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> Id;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String Id)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.Id = Id;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> Name;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String Name)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.Name = Name;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getSex</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> Sex;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSex</span><span class="params">(String Sex)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.Sex = Sex;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> Age;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setage</span><span class="params">(String Age)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.Age = Age;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Connection <span class="title">getConn</span><span class="params">()</span> </span>&#123;</div><div class="line">	    String driver = <span class="string">"com.mysql.jdbc.Driver"</span>;</div><div class="line">	    String url = <span class="string">"jdbc:mysql://localhost:3306/samp_db"</span>;</div><div class="line">	    String username = <span class="string">"root"</span>;</div><div class="line">	    String password = <span class="string">""</span>;</div><div class="line">	    Connection conn = <span class="keyword">null</span>;</div><div class="line">	    <span class="keyword">try</span> &#123;</div><div class="line">	        Class.forName(driver); <span class="comment">//classLoader,加载对应驱动</span></div><div class="line">	        conn = (Connection) DriverManager.getConnection(url, username, password);</div><div class="line"><span class="comment">//也可以写成： Connection conn =DriverManager.getConnection(url, username, password);</span></div><div class="line"></div><div class="line">	    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</div><div class="line">	        e.printStackTrace();</div><div class="line">	    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">	        e.printStackTrace();</div><div class="line">	    &#125;</div><div class="line">	    <span class="keyword">return</span> conn;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h3 id="开始操作数据库"><a href="#开始操作数据库" class="headerlink" title="开始操作数据库"></a>开始操作数据库</h3><h4 id="insert-增"><a href="#insert-增" class="headerlink" title="insert(增)"></a>insert(增)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">insert</span><span class="params">(Student student)</span> </span>&#123;</div><div class="line">    Connection conn = getConn();</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    String sql = <span class="string">"insert into students (Name,Sex,Age) values(?,?,?)"</span>;</div><div class="line">    PreparedStatement pstmt;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        pstmt = (PreparedStatement) conn.prepareStatement(sql);</div><div class="line">        pstmt.setString(<span class="number">1</span>, student.getName());</div><div class="line">        pstmt.setString(<span class="number">2</span>, student.getSex());</div><div class="line">        pstmt.setString(<span class="number">3</span>, student.getAge());</div><div class="line">        i = pstmt.executeUpdate();</div><div class="line">        pstmt.close();</div><div class="line">        conn.close();</div><div class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="update-改"><a href="#update-改" class="headerlink" title="update(改)"></a>update(改)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">update</span><span class="params">(Student student)</span> </span>&#123;</div><div class="line">    Connection conn = getConn();</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    String sql = <span class="string">"update students set Age='"</span> + student.getAge() + <span class="string">"' where Name='"</span> + student.getName() + <span class="string">"'"</span>;</div><div class="line">    PreparedStatement pstmt;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        pstmt = (PreparedStatement) conn.prepareStatement(sql);</div><div class="line">        i = pstmt.executeUpdate();</div><div class="line">        System.out.println(<span class="string">"resutl: "</span> + i);</div><div class="line">        pstmt.close();</div><div class="line">        conn.close();</div><div class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="select-查"><a href="#select-查" class="headerlink" title="select(查)"></a>select(查)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Integer <span class="title">getAll</span><span class="params">()</span> </span>&#123;</div><div class="line">    Connection conn = getConn();</div><div class="line">    String sql = <span class="string">"select * from students"</span>;</div><div class="line">    PreparedStatement pstmt;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        pstmt = (PreparedStatement)conn.prepareStatement(sql);</div><div class="line">        ResultSet rs = pstmt.executeQuery();</div><div class="line">        <span class="keyword">int</span> col = rs.getMetaData().getColumnCount();</div><div class="line">        System.out.println(<span class="string">"============================"</span>);</div><div class="line">        <span class="keyword">while</span> (rs.next()) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= col; i++) &#123;</div><div class="line">                System.out.print(rs.getString(i) + <span class="string">"\t"</span>);</div><div class="line">                <span class="keyword">if</span> ((i == <span class="number">2</span>) &amp;&amp; (rs.getString(i).length() &lt; <span class="number">8</span>)) &#123;</div><div class="line">                    System.out.print(<span class="string">"\t"</span>);</div><div class="line">                &#125;</div><div class="line">             &#125;</div><div class="line">            System.out.println(<span class="string">""</span>);</div><div class="line">        &#125;</div><div class="line">            System.out.println(<span class="string">"============================"</span>);</div><div class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="delete-删"><a href="#delete-删" class="headerlink" title="delete(删)"></a>delete(删)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">delete</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">    Connection conn = getConn();</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    String sql = <span class="string">"delete from students where Name='"</span> + name + <span class="string">"'"</span>;</div><div class="line">    PreparedStatement pstmt;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        pstmt = (PreparedStatement) conn.prepareStatement(sql);</div><div class="line">        i = pstmt.executeUpdate();</div><div class="line">        System.out.println(<span class="string">"resutl: "</span> + i);</div><div class="line">        pstmt.close();</div><div class="line">        conn.close();</div><div class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="调用运行"><a href="#调用运行" class="headerlink" title="调用运行"></a>调用运行</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">    JDBCOperation.getAll();</div><div class="line">    JDBCOperation.insert(<span class="keyword">new</span> Student(<span class="string">"Achilles"</span>, <span class="string">"Male"</span>, <span class="string">"14"</span>));</div><div class="line">    JDBCOperation.getAll();</div><div class="line">    JDBCOperation.update(<span class="keyword">new</span> Student(<span class="string">"Bean"</span>, <span class="string">""</span>, <span class="string">"7"</span>));</div><div class="line">    JDBCOperation.delete(<span class="string">"Achilles"</span>);</div><div class="line">    JDBCOperation.getAll();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>通过以上代码可以看出，JDBC的操作有通用的流程：</p>
+<ul>
+<li>创建Connection对象、SQL查询命令字符串</li>
+<li>对Connection对象传入SQL查询命令，获得PreparedStatement对象</li>
+<li>对PreparedStatement对象执行executeUpdate()或executeQurey()获得结果</li>
+<li>先后关闭PreparedStatement对象和Connection对象</li>
+<li><strong>可见，使用JDBC时，最常打交道的是Connection、PreparedStatement这两个类，以及select中的ResultSet类。</strong></li>
+</ul>
+<p>本文主要内容转载于：<a href="http://www.cnblogs.com/wuyuegb2312/p/3872607.html" target="_blank" rel="external">通过JDBC进行简单的增删改查（以MySQL为例）</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/30/Java之线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/30/Java之线程/" itemprop="url">
+                  Java之线程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-30T10:48:38+08:00">
+                2017-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/30/Java之线程/" class="leancloud_visitors" data-flag-title="Java之线程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h2><p>有两种方法可以创建线程：</p>
+<ul>
+<li>需要从Java.lang.Thread类派生一个新的线程类，重载它的run()方法</li>
+<li>实现Runnable<strong>接口</strong>，重载Runnable接口中的run()方法</li>
+</ul>
+<p><strong>为什么要提供两种方法来创建线程呢？</strong></p>
+<p><span style="color:red;"><strong>在Java中，类仅支持单继承，也就是说，当定义一个新的类的时候，它只能扩展一个外部类.这样，如果创建自定义线程类的时候是通过扩展 Thread类的方法来实现的，那么这个自定义类就不能再去扩展其他的类，也就无法实现更加复杂的功能。因此，如果自定义类必须扩展其他的类，那么就可以使用实现Runnable接口的方法来定义该类为线程类，这样就可以避免Java单继承所带来的局限性</strong></span>。另外，使用实现Runnable接口的方式创建的线程可以处理同一资源，从而实现资源的共享。</p>
+<p>Runnable这个<strong>接口</strong>只有一个方法：public void run();</p>
+<h3 id="通过Runnable接口创建线程"><a href="#通过Runnable接口创建线程" class="headerlink" title="通过Runnable接口创建线程"></a>通过Runnable接口创建线程</h3><ul>
+<li>建立Runnable对象<ul>
+<li><code>Runnable threaJob=new MyRunnable();</code></li>
+</ul>
+</li>
+<li><p>建立Thread对象并赋值Runnable任务</p>
+<ul>
+<li>Thread就像一个工人，需要一个任务才能进行工作，而这个任务就在Runnable()的run()方法中</li>
+<li><code>Thread myThread new Thread(threadJob);</code></li>
+</ul>
+</li>
+<li><p>启动Thread</p>
+<ul>
+<li>工人有了任务滞后，就可以让他去工作了</li>
+<li><code>myThread.start();</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>例子：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//每个任务都是Runable接口的一个实例，任务是可运行对象，线程是便于任务执行的对象。必须创建任务类，重写run方法定义任务</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadDemo1</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> countDown = <span class="number">10</span>;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="comment">//重写run方法，定义任务</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span>(countDown-- &gt;<span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            System.out.println(<span class="string">"$"</span> + Thread.currentThread().getName() </div><div class="line">                    + <span class="string">"("</span> + countDown + <span class="string">")"</span>);<span class="comment">//该方法若要访问当前线程，应使用Thread.currentThread()</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//调用start方法会启动一个线程，导致任务中的run方法被调用，run方法执行完毕则线程终止</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Runnable demo1 = <span class="keyword">new</span> ThreadDemo1();</div><div class="line">        </div><div class="line">        Thread thread1 = <span class="keyword">new</span> Thread(demo1);</div><div class="line">        Thread thread2 = <span class="keyword">new</span> Thread(demo1);</div><div class="line">        thread1.start();</div><div class="line">        thread2.start();</div><div class="line">        </div><div class="line">        System.out.println(<span class="string">"火箭发射倒计时:"</span>);</div><div class="line">        </div><div class="line">        </div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<pre>
+火箭发射倒计时:
+$Thread-0(9)
+$Thread-0(8)
+$Thread-0(7)
+$Thread-0(6)
+$Thread-0(5)
+$Thread-0(4)
+$Thread-0(3)
+$Thread-0(2)
+$Thread-0(1)
+$Thread-0(0)</pre>
+
+<p>如果同时运行两个任务对象，体会其不同的之处：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Runnable demo1 = <span class="keyword">new</span> ThreadDemo1();</div><div class="line">        Runnable demo2 = <span class="keyword">new</span> ThreadDemo1();</div><div class="line">        Thread thread1 = <span class="keyword">new</span> Thread(demo1);</div><div class="line">        Thread thread2 = <span class="keyword">new</span> Thread(demo2);</div><div class="line">        thread1.start();</div><div class="line">        thread2.start();</div><div class="line">        </div><div class="line">        System.out.println(<span class="string">"火箭发射倒计时:"</span>);</div><div class="line">        </div><div class="line">        </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<pre>火箭发射倒计时:
+$Thread-0(9)
+$Thread-0(8)
+$Thread-0(7)
+$Thread-0(6)
+$Thread-1(9)
+$Thread-0(5)
+$Thread-1(8)
+$Thread-0(4)
+$Thread-1(7)
+$Thread-0(3)
+$Thread-1(6)
+$Thread-1(5)
+$Thread-0(2)
+$Thread-1(4)
+$Thread-1(3)
+$Thread-1(2)
+$Thread-1(1)
+$Thread-1(0)
+$Thread-0(1)
+$Thread-0(0)</pre>
+
+<h3 id="继承Thread类来创建线程"><a href="#继承Thread类来创建线程" class="headerlink" title="继承Thread类来创建线程"></a>继承Thread类来创建线程</h3><ul>
+<li>首先创建一个任务类extends Thread类，因为Thread类实现了Runnable接口，所以自定义的任务类也实现了Runnable接口，重写run()方法，其中定义具体的任务代码或处理逻辑</li>
+<li>创建一个任务类对象，可以用Thread或者Runnable作为自定义的变量类型</li>
+<li>调用自定义对象的start()方法，启动一个线程</li>
+</ul>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//每个任务都是Runable接口的一个实例，任务是可运行对象，线程即可运行对象。必须创建任务类，重写run方法定义任务</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtendFromThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> countDown = <span class="number">10</span>;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="comment">//重写run方法，定义任务</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span>(countDown-- &gt;<span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            System.out.println(<span class="string">"$"</span> + <span class="keyword">this</span>.getName() </div><div class="line">                    + <span class="string">"("</span> + countDown + <span class="string">")"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//调用start方法会启动一个线程，导致任务中的run方法被调用，run方法执行完毕则线程终止</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        </div><div class="line">        ExtendFromThread thread1 = <span class="keyword">new</span> ExtendFromThread();</div><div class="line">        ExtendFromThread thread2 = <span class="keyword">new</span> ExtendFromThread();</div><div class="line">        thread1.start();</div><div class="line">        thread2.start();</div><div class="line">        </div><div class="line">        System.out.println(<span class="string">"火箭发射倒计时:"</span>);</div><div class="line">        </div><div class="line">        </div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<pre>火箭发射倒计时:
+$Thread-0(9)
+$Thread-0(8)
+$Thread-0(7)
+$Thread-0(6)
+$Thread-0(5)
+$Thread-0(4)
+$Thread-0(3)
+$Thread-0(2)
+$Thread-0(1)
+$Thread-0(0)
+$Thread-1(9)
+$Thread-1(8)
+$Thread-1(7)
+$Thread-1(6)
+$Thread-1(5)
+$Thread-1(4)
+$Thread-1(3)
+$Thread-1(2)
+$Thread-1(1)
+$Thread-1(0)</pre>
+
+<h3 id="两种创建方法的比较"><a href="#两种创建方法的比较" class="headerlink" title="两种创建方法的比较"></a>两种创建方法的比较</h3><ul>
+<li>使用实现Runnable接口方式创建线程可以共享同一个目标对象，实现了多个相同线程处理同一份资源，即一个线程对资源的操作会影响到另一个进程的操作</li>
+<li>而继承Thread创建线程的方式，new出了两个任务类对象，有各自的成员变量，相互之间不干扰。</li>
+</ul>
+<h4 id="各自的优缺点"><a href="#各自的优缺点" class="headerlink" title="各自的优缺点"></a>各自的优缺点</h4><ul>
+<li>采用继承Thread类方式：<ul>
+<li>优点：编写简单，如果需要访问当前线程，无需使用Thread.currentThread()方法，直接使用this，即可获得当前线程</li>
+<li>缺点：因为线程类已经继承了Thread类，所以不能再继承其他的父类</li>
+</ul>
+</li>
+<li>采用实现Runnable接口方式：<ul>
+<li>优点：线程类只是实现了Runable接口，还可以继承其他的类。在这种方式下，可以多个线程共享同一个目标对象，所以非常适合多个相同线程来处理同一份资源的情况，从而可以将CPU代码和数据分开，形成清晰的模型，较好地体现了面向对象的思想</li>
+<li>缺点：编程稍微复杂，如果需要访问当前线程，必须使用Thread.currentThread()方法</li>
+</ul>
+</li>
+</ul>
+<p>本文以上主要内容转载于：<a href="http://www.cnblogs.com/muzeet/p/4338973.html" target="_blank" rel="external">java多线程总结一：线程的两种创建方式及比较
+</a></p>
+<h2 id="线程睡眠"><a href="#线程睡眠" class="headerlink" title="线程睡眠"></a>线程睡眠</h2><p>直接上代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">                go();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">				<span class="comment">//线程睡眠代码块</span></div><div class="line">				<span class="keyword">try</span>&#123;</div><div class="line">					Thread.sleep(<span class="number">2000</span>);</div><div class="line">				&#125;<span class="keyword">catch</span>(InterruptedException ex)&#123;</div><div class="line">					ex.printStackTrace();</div><div class="line">				&#125;<span class="comment">//代码块结束</span></div><div class="line">				</div><div class="line">                doMore();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doMore</span><span class="params">()</span></span>&#123;</div><div class="line">                System.out.println(<span class="string">"top 0' the stack"</span>);</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadTestDrive</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">                Runnable threadJob=<span class="keyword">new</span> MyRunnable();</div><div class="line">                Thread mythread=<span class="keyword">new</span> Thread(threadJob);</div><div class="line"></div><div class="line">                mythread.start();</div><div class="line"></div><div class="line">                System.out.println(<span class="string">"back in main"</span>);</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="线程同步机制"><a href="#线程同步机制" class="headerlink" title="线程同步机制"></a>线程同步机制</h2><p>为什么要线程同步？我们现在知道，可以实现多个线程共享同一个资源（变量或者对象）的情况，如果这些线程都对需要对资源进行读或者写操作，由于线程之间的调度等其它问题，会导致资源的状态出现紊乱，导致程序异常。举个例子：如果一个银行账户同时被两个线程操作，一个取100块，一个存钱100块。假设账户原本有0块，如果取钱线程和存钱线程同时发生，会出现什么结果呢？取钱不成功，账户余额是100.取钱成功了，账户余额是0.那到底是哪个呢？由于是同时发生的两件事，很难说清楚。因此多线程同步就是要解决这个问题。</p>
+<blockquote>
+<p>Java的同步机制是通过对象锁来实现的：</p>
+<p>一段synchronized的代码被一个线程执行之前，他要先拿到执行这段代码的权限，在 Java里边就是拿到某个同步对象的锁（一个对象只有一把锁）； 如果这个时候同步对象的锁被其他线程拿走了，他（这个线程）就只能等了（线程阻塞在锁池 等待队列中）。 取到锁后，他就开始执行同步代码(被synchronized修饰的代码）；线程执行完同步代码后马上就把锁还给同步对象，其他在锁池中 等待的某个线程就可以拿到锁执行同步代码了。这样就保证了同步代码在统一时刻只有一个线程在执行。</p>
+</blockquote>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest2</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;     </div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> threadNo; <span class="keyword">private</span> String lock;     </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ThreadTest2</span><span class="params">(<span class="keyword">int</span> threadNo, String lock)</span> </span>&#123;     </div><div class="line">  <span class="keyword">this</span>.threadNo = threadNo;     </div><div class="line">      <span class="keyword">this</span>.lock = lock;   &#125;     </div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;     </div><div class="line">    String lock = <span class="keyword">new</span> String(<span class="string">"lock"</span>);     </div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i++) &#123;       </div><div class="line">   <span class="keyword">new</span> ThreadTest2(i, lock).start();     </div><div class="line">      Thread.sleep(<span class="number">1</span>);     </div><div class="line">     &#125;     </div><div class="line">  &#125;       </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;       </div><div class="line"> <span class="keyword">synchronized</span> (lock) &#123;     <span class="comment">//原子单位</span></div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">10000</span>; i++) &#123;     </div><div class="line">       System.out.println(<span class="string">"No."</span> + threadNo + <span class="string">":"</span> + i);     </div><div class="line">    &#125;        </div><div class="line"> &#125;       </div><div class="line"> &#125;     </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>该程序通过在main方法启动10个线程之前，创建了一个String类型的对象。并通过ThreadTest2的构造函数，将这个对象赋值 给每一个ThreadTest2线程对象中的私有变量lock。<span style="color:red">根据Java方法的传值特点，我们知道，这些线程的lock变量实际上指向的是堆内存中的 同一个区域，即存放main函数中的lock变量的区域</span>。<br>run方法加一个synchronized块来实现。这个<strong>同步块</strong>的对象锁，就是 main方法中创建的那个String对象。换句话说，他们指向的是同一个String类型的对象，对象锁是共享且唯一的！</p>
+<p>于是，我们看到了预期的效果：10个线程不再是争先恐后的报数了，而是一个接一个的报数。</p>
+<p><strong>同步的实现方式可分为：</strong></p>
+<ul>
+<li>同步方法</li>
+<li>同步代码块</li>
+<li>使用特殊域变量(volatile)实现线程同步</li>
+<li>使用重入锁实现线程同步</li>
+<li><a href="http://blog.csdn.net/wenwen091100304/article/details/48318699" target="_blank" rel="external"><strong>详细介绍链接</strong></a></li>
+</ul>
+<h2 id="多线程的使用场景"><a href="#多线程的使用场景" class="headerlink" title="多线程的使用场景"></a>多线程的使用场景</h2><ol>
+<li>为了不阻塞主线程，启动其他线程来做耗时的事情。比如app开发中耗时的操作都不在UI主线程中做。</li>
+<li>实现响应更快的应用程序， 即主线程专门监听用户请求，子线程用来处理用户请求。以获得大的吞吐量。<br>感觉这种情况下，多线程的效率未必高。 这种情况下的多线程是为了不必等待， 可以并行处理多条数据。比如JavaWeb的就是主线程专门监听用户的HTTP请求，然后启动子线程去处理用户的HTTP请求。</li>
+<li>某种优先级虽然很低的服务，但是却要不定时去做。比如Jvm的垃圾回收。</li>
+<li>某种任务，虽然耗时，但是不耗CPU的操作时，开启多个线程，效率会有显著提高。<br>比如读取文件，然后处理。 磁盘IO是个很耗费时间，但是不耗CPU计算的工作。 所以可以一个线程读取数据，一个线程处理数据。肯定比一个线程读取数据，然后处理效率高。 因为两个线程的时候充分利用了CPU等待磁盘IO的空闲时间。曾几何时想过使用多线程读取磁盘数据， 但是读取磁盘数据的性能瓶颈是IO，而不是CPU。 使用多线程的目的是为了不让CPU闲下来，明显不适合用于读取磁盘数据。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/29/Java之异常/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1882,379 +2354,6 @@ Process finished with exit code 0</pre>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/Github团队协作基础教程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/08/Github团队协作基础教程/" itemprop="url">
-                  Github团队协作基础教程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-08T15:56:54+08:00">
-                2017-05-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工程开发规范/" itemprop="url" rel="index">
-                    <span itemprop="name">工程开发规范</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/08/Github团队协作基础教程/" class="leancloud_visitors" data-flag-title="Github团队协作基础教程">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="创建组织"><a href="#创建组织" class="headerlink" title="创建组织"></a>创建组织</h2><p>既然是团队项目，说明该项目是属于某个组织的，应该先建立一个组织，如下图：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/160407996.png" alt="mark"></p>
-<p>进入组织的创建页面，填好组织名称和接收的消息的邮箱，这里我们将组织名称命名为TestWebTeam，选免费的方案，如果是真正的公司，则就会付费去创建一个组织，因为有些内容不能公开。点击create organization即完成组织的创建。（注意组织名称不能重复，接收邮箱必须添加）</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/160953319.png" alt="mark"></p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161324292.png" alt="mark"></p>
-<p>点击创建后会进入成员邀请页 ，我们先直接点击finish跳过，只有再进行邀请。</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161610631.png" alt="mark"></p>
-<p>这样组织就创建完成了。</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161722340.png" alt="mark"></p>
-<h2 id="创建小组"><a href="#创建小组" class="headerlink" title="创建小组"></a>创建小组</h2><p>组织就是现实意义上的组织，一个组织内部可以有很多个小组，他们之间可以共享一些仓库，拥有对不同仓库不同的控制权限，我们下面来创建一个小组，比如说这小组叫Designer，即设计小组。点击team,r然后点击create new team</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/161842853.png" alt="mark"></p>
-<p>进入小组创建页，填写小组名称Team name和小组描述Description,Team visibility是用户显示的内容，英语都看得懂就不说了，默认选第一个。然后点击create创建。</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/162602118.png" alt="mark"></p>
-<p>这就小组创建成功了，可以通过addmember来搜索github用户添加组员</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/162653465.png" alt="mark"></p>
-<h2 id="创建和配置代码仓库权限"><a href="#创建和配置代码仓库权限" class="headerlink" title="创建和配置代码仓库权限"></a>创建和配置代码仓库权限</h2><p>组织有了，组织内部的开发小组也有了，需要的就是代码仓库了，一个组织可以有多个代码仓库，下面先创建一个，组织主页，点击创建新的仓库。（另外也可以像建个人仓库一样点击右上角的加号创建仓库，只是到时候将所属对象从个人改成目的组织就行了）</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/162830511.png" alt="mark"></p>
-<p>跟创建个人仓库没什么区别，只是owner变了，仓库名字命名为TestRepository</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/163526089.png" alt="mark"></p>
-<p>创建成功，点击setting给这个仓库指定哪些小组可以使用，并规定访问权限</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/163700530.png" alt="mark"></p>
-<p>中途会让你输入用户密码，输入就是了。然后左边选择Collaborators&amp;team、右边选择team，选择select team添加可以操作该仓库的小组。</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/163917414.png" alt="mark"></p>
-<p>添加完后，可以编辑该小组使用该仓库时的权限，三个权限，既然是想让小组来用这个代码仓库，则选择write即可，admin权限将使所有小组成员变成该项目管理员，可以随意编辑该仓库的设置，慎重选择。</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/164139443.png" alt="mark"></p>
-<p>下面的collaborators是添加该仓库的个人协作者（区别于小组），可自行扩展</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/164352606.png" alt="mark"></p>
-<h2 id="为小组创建Pull-Request"><a href="#为小组创建Pull-Request" class="headerlink" title="为小组创建Pull Request"></a>为小组创建Pull Request</h2><p>组织通过Pull Request进行代码检查，当你对代码进行更改时可以邀请你的小组审核你的更改并提供反馈。下面来创建一个小的Pull Request，主要是对我们之前创建的代码仓库TestRepository的README文件进行更改。</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/165536228.png" alt="mark"></p>
-<p>移到最下面，添加主要提交的描述以及选择创建一个新的分支，因为我们要使用pull request，如果选第一个选项就直接合并到主分支去了</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/165745931.png" alt="mark"></p>
-<p>点击propose file change,进入open a pull prequest界面，这个页面是让你来更加详细的描述这次更改的原因，以及更改了什么地方，另外还可以用“@”来通知全体组员（就像QQ的@全体成员），让他们知道你的这次pull request</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/170536923.png" alt="mark"></p>
-<p>然后点击create pull request,这样小组的所有成员就都将知道你创建了一个pull request</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/170831194.png" alt="mark"></p>
-<h2 id="Pull-Request的作用"><a href="#Pull-Request的作用" class="headerlink" title="Pull Request的作用"></a>Pull Request的作用</h2><p>鉴于有些人可能不大清楚Pull Request的作用，下面来讲一下。</p>
-<p>要打开一个pull request必须先拥有一个带有更改的分支，所以pull request适合团队工作，因为个人的话一般会一直工作在主分支上。</p>
-<blockquote>
-<p>Pull Request用于提出对项目的更改，是一个开始提交讨论的方式，经常用于代码审查当中，如果是 一个人工作，则可能用Pull Request比较少，因为个人可以通过git命令推送更改到主分支中，并不<br> 存在其他的分支，但如果在公司项目或者开源项目这种团队工作的情况下，就必须使用Pull Request了。</p>
-</blockquote>
-<p>Pull Request是在开发者在创建一个区别于master的分支并进行相应的更改之后，想仓库管理者提出的将自己的分支（即更改内容）合并到主分支的一个请求，发出的这个请求可以被可访问这个仓库的所有人看见，并进行讨论，看是否合并、更改是否合理等等。即Pull Request用于对正在更改的代码仓库的讨论。</p>
-<p><strong>拿上面创建的pull request为例：</strong></p>
-<p>有三个视图，conversation视图用来讨论这次的更改</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/172158184.png" alt="mark"></p>
-<p>commit 提交视图包含了有关谁对这个文件进行更改的信息，每个提交都被记录到这个视图中，让我们知道提交前后发生了什么变化</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/172434240.png" alt="mark"></p>
-<p>files changed 文件更改视图，用来查看文件的更改记录。绿色表示已经添加的内容，红色表示内容被删除</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/172612618.png" alt="mark"></p>
-<p>那如何合并分支，对于公司，一般会有人来签署更改，但如果是个人在自己仓库的操作，则自己就可以进行合并操作，在coversation视图点击merge pull request就可以将这个提交合并到主分支了。</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170508/173520039.png" alt="mark"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/06/实现console-log不换行输出/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/06/实现console-log不换行输出/" itemprop="url">
-                  实现console.log不换行输出的方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-06T20:25:59+08:00">
-                2017-05-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/06/实现console-log不换行输出/" class="leancloud_visitors" data-flag-title="实现console.log不换行输出的方法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有点标题党的感觉，因为console.log()是无法实现不换行输出的，每执行一次console.log()都会自动占据一行。不过我们可以改变我们的输出思路。</p>
-<blockquote>
-<p>用数组以及其方法：toString(),join(),reverse()来解决。</p>
-</blockquote>
-<p>例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">for(var i=0;i&lt;3;i++)&#123;</div><div class="line">	console.log(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>结果将是：</p>
-<p>0</p>
-<p>1</p>
-<p>2</p>
-<p>但我们想在一行内输出：0,1,2或者0–&gt;1–&gt;2或者2,1,0该怎么办？相信看来最开始我说的用数组及其方法的应该已经想到了。</p>
-<p><strong>先用一个数组把想输出的内容存储下来，之后再用相关的数组方法将其打印就可以了。</strong></p>
-<p>例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> A=[],k=<span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</div><div class="line">	A[k]=i;</div><div class="line">	k++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(A.toString());</div><div class="line"><span class="built_in">console</span>.log(A.reverse().join(<span class="string">'--&gt;'</span>));</div></pre></td></tr></table></figure>
-<p>很明显，结果将是：</p>
-<p>0,1,2</p>
-<p>2–&gt;1–&gt;0</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2304,7 +2403,7 @@ Process finished with exit code 0</pre>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">66</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
