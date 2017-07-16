@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[背景图片自适应]]></title>
+      <url>%2F2017%2F07%2F16%2F%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%2F</url>
+      <content type="text"><![CDATA[一张图拿来做某个块的背景图片。存在的问题是，当块大小发生变化（比如显示设备屏幕大小发生变化，假设块大小按百分比设置的）的时候，背景图片会发生变化，比如被截断什么的。这便是图片自适应的问题。 CSS3中提供了好的解决方法： 12background-image:url(/../);background-size:100% 100%;]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[什么是package.json]]></title>
       <url>%2F2017%2F07%2F07%2F%E4%BB%80%E4%B9%88%E6%98%AFpackage-json%2F</url>
       <content type="text"><![CDATA[package.json描述了一个npm包的所有相关信息，包括作者、简介、包依赖、构建等信息。内容格式必须是严格的JSON格式。 通常我们在创建一个npm文件的时候会使用 npm init命令，通过交互式的命令生成一个package.json文件。这个文件的主要作用是记录了你这个项目所要用到的所有包的信息，当移动项目的时候，不需要移动包括的依赖包，这需要拷贝这个package.json就可以了，到时候在执行npm install命令就可以直接下载相应的包下来。 当然，如果你有一个新项目，还没有下载过任何的包，而需要的npm包跟想一个项目差不多，那你可以直接拷贝前一个项目的package.json文件到这个新项目文件夹下，执行npm install就可以了。 可以用npm安装的，安装的根目录都会有package.json这个文件以及依赖包存放的文件夹node_modules，比如grunt、vue、hexo、cnpm等等。因为这就是npm的一部分工作机制。 另外，有的项目的package.json文件里面会有dev这样的字段，是整个项目运行的入口，可以用npm run dev使项目运行起来。]]></content>

@@ -304,6 +304,199 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/30/Java之JDBC语句对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/30/Java之JDBC语句对象/" itemprop="url">
+                  Java之JDBC语句对象
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-30T17:40:59+08:00">
+                2017-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/30/Java之JDBC语句对象/" class="leancloud_visitors" data-flag-title="Java之JDBC语句对象">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>JDBC 提供三种类型的语句对象： Statement ， PreparedStatement ， CallableStatement</p>
+<p>其中 PreparedStatement 是 Statement 的子类， CallableStatement 是 PreparedStatement 的子类。每一种语句对象用来运行特定类型的 SQL 语句</p>
+<ul>
+<li>Statement 对象用来运行简单类型的 SQL 语句，语句中无需指定参数</li>
+<li>PreparedStatement 对象用来运行包含（或不包含） IN 类型参数的预编译 SQL 语句</li>
+<li>CallableStatement 对象用来调用数据库存储过程</li>
+</ul>
+<h2 id="Statement"><a href="#Statement" class="headerlink" title="Statement"></a>Statement</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Statement 对象用于将 SQL 语句发送到数据库服务器</p>
+<h3 id="创建-Statement-对象"><a href="#创建-Statement-对象" class="headerlink" title="创建 Statement 对象"></a>创建 Statement 对象</h3><p>建立连接后， Statement 对象用 Connection 对象的 createStatement 方法创建，以下代码创建 Statement 对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Connection con = DriverManager.getConnection(url, SYSDBA, SYSDBA);</div><div class="line">Statement stmt = con.createStatement();</div></pre></td></tr></table></figure>
+<h3 id="使用-Statement-对象执行语句"><a href="#使用-Statement-对象执行语句" class="headerlink" title="使用 Statement 对象执行语句"></a>使用 Statement 对象执行语句</h3><p>tatement 接口提供了三种执行 SQL 语句的方法： executeQuery 、 executeUpdate 和 execute </p>
+<ul>
+<li>方法 executeQuery 用于产生单个结果集的语句，例如 SELECT 语句</li>
+<li>方法 executeUpdate 用于执行 INSERT 、 UPDATE 或 DELETE 语句以及 SQL DDL 语句，如 CREATE TABLE 和 DROP TABLE 。<ul>
+<li>INSERT 、 UPDATE 或 DELETE 语句的效果是修改表中零行或多行中的一列或多列。 executeUpdate 的返回值是一个整数，表示受影响的行数。对于 CREATE TABLE 或 DROP TABLE 等 DDL 语句， executeUpdate 的返回值总为零</li>
+</ul>
+</li>
+<li>方法 execute 用于执行返回多个结果集、多个更新元组数或二者组合的语句</li>
+</ul>
+<p>执行语句的三种方法都将关闭所调用的 Statement 对象的当前打开结果集（如果存在）。这意味着在重新执行 Statement 对象之前，需要完成对当前 ResultSet 对象的处理。</p>
+<h3 id="关闭-Statement-对象"><a href="#关闭-Statement-对象" class="headerlink" title="关闭 Statement 对象"></a>关闭 Statement 对象</h3><p>Statement 对象可由 Java 垃圾收集程序自动关闭。但作为一种好的编程风格，应在不需要 Statement 对象时显式地关闭它们。这将立即释放数据库服务器资源，有助于避免潜在的内存问题</p>
+<h2 id="PreparedStatement"><a href="#PreparedStatement" class="headerlink" title="PreparedStatement"></a>PreparedStatement</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>PreparedStatement 继承 Statement ，并与之在两方面有所不同：</p>
+<ul>
+<li>PreparedStatement 对象包含已编译的 SQL 语句，语句已经 “ 准备好 ” <ul>
+<li>包含于 PreparedStatement 对象中的 SQL 语句可具有一个或多个 IN 参数。 IN 参数的值在 SQL 语句创建时未被指定。相反，该语句为每个 IN 参数保留一个问号（ “ ？ ” ）作为占位符。每个问号所对应的值必须在该语句执行之前，通过适当的 setXXX 方法来提供。</li>
+<li>由于PreparedStatement 对象已预编译过，所以其执行速度要快于 Statement 对象。因此，需要多次重复执行的 SQL 语句经常创建为 PreparedStatement 对象，以提高效率。</li>
+</ul>
+</li>
+<li>作为 Statement 的子类， PreparedStatement 继承了 Statement 的所有功能。另外它还添加了一整套方法，用于设置发送给数据库以取代 IN 参数占位符的值。同时，三种方法 execute 、 executeQuery 和 executeUpdate 能执行设置好参数的语句对象</li>
+</ul>
+<h3 id="创建-PreparedStatement-对象"><a href="#创建-PreparedStatement-对象" class="headerlink" title="创建 PreparedStatement 对象"></a>创建 PreparedStatement 对象</h3><p>以下的代码段（其中 con 是 Connection 对象）创建一个 PreparedStatement 对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PreparedStatement pstmt = con.prepareStatement( UPDATE 厂商登记 SET 厂商名 = ? WHERE 厂商编号 = ?);</div></pre></td></tr></table></figure>
+<p>对象 pstmt 包含语句 UPDATE 厂商登记 SET 厂商名 = ? WHERE 厂商编号 = ? ，该语句带两个 IN 参数占位符，它已发送给数据库，并由服务器为其执行作好了准备。</p>
+<h2 id="CallableStatement"><a href="#CallableStatement" class="headerlink" title="CallableStatement"></a>CallableStatement</h2><h3 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h3><p>CallableStatement 用来运行 SQL <strong>存储过程</strong>。存储过程是数据库中已经存在的 SQL 语句，它通过名字调用</p>
+<p>CallableStatement 是 PreparedStatement 的子类。 CallableStatement 中定义的方法用于处理 OUT 参数或 INOUT 参数的输出部分：注册 OUT 参数的 JDBC 类型（一般 SQL 类型）、从这些参数中检索结果，或者检查所返回的值是否为 JDBC NULL。</p>
+<h3 id="创建-CallableStatement-对象"><a href="#创建-CallableStatement-对象" class="headerlink" title="创建 CallableStatement 对象"></a>创建 CallableStatement 对象</h3><p>CallableStatement 对象是用 Connection.prepareCall 创建的。</p>
+<p>以下代码创建 CallableStatement 对象，其中含有对存储过程 p1 的调用， con 为连接对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CallableStatement cstmt = con.prepareCall(<span class="function">call <span class="title">p1</span><span class="params">(?, ?)</span>)</span>;</div></pre></td></tr></table></figure>
+<p>其中 ? 占位符为 IN 、 OUT 还是 INOUT 参数，取决于存储过程 p1 。</p>
+<p><a href="http://www.blogjava.net/lizzie0510/archive/2006/07/25/59910.html" target="_blank" rel="external"><strong>详细介绍地址——JDBC语句对象</strong></a></p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">improt java.sql.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCExample</span></span></div><div class="line">&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></div><div class="line">&#123;</div><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">Statement stmt;</div><div class="line">ResultSet rs;</div><div class="line">Class.forName(“com.mysql.jdbc.Driver”);</div><div class="line">String url = “jdbc:mysql:<span class="comment">//localhost:3306/db”;</span></div><div class="line">Connection con = DriverManager.getConnection(url,“root”,“<span class="number">1234</span>”);</div><div class="line">stmt = con.createStatement();</div><div class="line">rs = stmt.executeQuery(“select name from empt where</div><div class="line">age=‘<span class="number">25</span>’”);</div><div class="line"><span class="keyword">while</span>(rs.next())</div><div class="line">&#123;</div><div class="line">String name = rs.getString (“name”);</div><div class="line">&#125;</div><div class="line">rs.close(); <span class="comment">//关闭结果集对象</span></div><div class="line">stmt.close(); <span class="comment">//关闭SQL语句对象</span></div><div class="line">con.close(); <span class="comment">//关闭连接对象</span></div><div class="line">&#125;<span class="keyword">catch</span>(Exception ex)</div><div class="line">&#123;</div><div class="line">ex.printStackTrace();</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/30/Java之初识JDBC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2184,176 +2377,6 @@ Process finished with exit code 0</pre>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/10/Mysql数据库基本使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/10/Mysql数据库基本使用/" itemprop="url">
-                  Mysql数据库基本使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-10T17:19:15+08:00">
-                2017-05-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/10/Mysql数据库基本使用/" class="leancloud_visitors" data-flag-title="Mysql数据库基本使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>太久没有用命令行操作Mysql,今天有个项目想用下都不知道怎么用了，都是些最近本的东西，把这些坑记下来吧。</p>
-<blockquote>
-<p>记得本地的Mysql数据库服务（当然下面要将的第一条是要求不能启动，我说的是正常操作的情况下，的启动Mysql服务才行），启动方法是，win+R代开运行窗口之后输入services.msc，打开服务功能视图，找到MySQL那个选项，将它启动就可以了。</p>
-</blockquote>
-<h2 id="忘记登录密码怎么办"><a href="#忘记登录密码怎么办" class="headerlink" title="忘记登录密码怎么办"></a>忘记登录密码怎么办</h2><p><a href="http://jingyan.baidu.com/article/454316ab4e9e65f7a7c03ad1.html" target="_blank" rel="external">直接看这里吧，挺好的一个教程</a></p>
-<p>教程中是还要进到mysql安装目录的bin文件夹下，运行mysql.exe，这是没有添加系统环境变量的缘故，把bin文件夹的目录路径添加到环境变量的path中就行，具体过程就不多说了，自己百度。添加了之后，就能在cmd的任意地方输入mysql登陆命令直接登陆mysql而不用一定得在bin目录下才可以。</p>
-<p>教程最后还讲了绕过用户认证登陆后进行更改密码的操作，这也不失为一种更改密码的方法，不过更改完后必须重新启动数据库服务才能生效，记住是services.msc里面的数据库服务，而不是简单地把cmd窗口打开再关掉。</p>
-<p>注意，mysql数据库初始状态有个示例账户，是不需要账户名和密码就能登陆的，但是数据库却只有示例的数据库，并不是真正的账户里面的数据库信息。所以不要在命令行输入mysql后出现mysql欢迎信息就以为自己已经成功登陆了，其实只是个让你来看看mysql示例数据库的账号而已。虽然也可以用，但是还是自己的账号好，毕竟自己的账号有用户名和密码，你用个没名没分的账号来操作数据库心里也难免有种不安全感。</p>
-<h2 id="怎么登陆"><a href="#怎么登陆" class="headerlink" title="怎么登陆"></a>怎么登陆</h2><p>在命令窗口输入：mysql -u用户名 -p密码</p>
-<p>这样就能登陆了，在此之前记得像最开始说的先启动mysql服务，另外注意-u和用户名之间没有空格，-p和密码之间也没有空格</p>
-<h2 id="更改用户密码"><a href="#更改用户密码" class="headerlink" title="更改用户密码"></a>更改用户密码</h2><p>mysqladmin -u用户名 -p旧密码 password 新密码</p>
-<h2 id="查看mysql版本"><a href="#查看mysql版本" class="headerlink" title="查看mysql版本"></a>查看mysql版本</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>命令窗口下：mysql –version</p>
-<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>登录mysql后输入：status;或者输入：select version();</p>
-<h2 id="查看端口号"><a href="#查看端口号" class="headerlink" title="查看端口号"></a>查看端口号</h2><p>登录mysql后输入：show global variables like ‘port’;</p>
-<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><h3 id="查看当前用户下的数据库"><a href="#查看当前用户下的数据库" class="headerlink" title="查看当前用户下的数据库"></a>查看当前用户下的数据库</h3><p>show databases;</p>
-<h3 id="选中某个数据库（决定对某个数据库进行操作）"><a href="#选中某个数据库（决定对某个数据库进行操作）" class="headerlink" title="选中某个数据库（决定对某个数据库进行操作）"></a>选中某个数据库（决定对某个数据库进行操作）</h3><p>use 数据库名;</p>
-<h3 id="查看数据库中都有什么表"><a href="#查看数据库中都有什么表" class="headerlink" title="查看数据库中都有什么表"></a>查看数据库中都有什么表</h3><p>show tables;</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2403,7 +2426,7 @@ Process finished with exit code 0</pre>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">66</span>
+                <span class="site-state-item-count">67</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
