@@ -3,6 +3,48 @@
   
     
     <entry>
+      <title><![CDATA[CSS Sprites简介]]></title>
+      <url>%2F2017%2F07%2F17%2FCSS-Sprites%E7%AE%80%E4%BB%8B%2F</url>
+      <content type="text"><![CDATA[简介CSS Sprites在国内很多人叫css精灵，是一种网页图片应用处理方式。它允许将一个页面涉及到的所有零星图片都包含到一张大图中， 利用CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位， 访问页面时避免图片载入缓慢的现象。 优点 利用CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position可以用数字精确的定位出背景图片的位置 利用CSS Sprites能很好地减少网页的http请求，从而大大的提高页面的性能，这也是CSS Sprites最大的优点，也是其被广泛传播和应用的主要原因 CSS Sprites能减少图片的字节，曾经比较过多次3张图片合并成1张图片的字节总是小于这3张图片的字节总和 解决了网页设计师在图片命名上的困扰，只需对一张集合的图片上命名就可以了，不需要对每一个小元素进行命名，从而提高了网页的制作效率 更换风格方便，只需要在一张或少张图片上修改图片的颜色或样式，整个网页的风格就可以改变。维护起来更加方便 缺点 图片合并麻烦：图片合并时，需要把多张图片有序的合理的合并成一张图片，并留好足够的空间防止版块出现不必要的背景 图片适应性差：在高分辨的屏幕下自适应页面，若图片不够宽会出现背景断裂 图片定位繁琐：开发时需要通过工具测量计算每个背景单元的精确位置 可维护性差：页面背景需要少许改动，可能要修改部分或整张已合并的图片，进而要改动css。在避免改动图片的前提下，又只能（最好）往下追加图片，但这样增加了图片字节]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[call与apply的区别]]></title>
+      <url>%2F2017%2F07%2F17%2Fcall%E4%B8%8Eapply%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+      <content type="text"><![CDATA[call与apply都属于Function.prototype的一个方法，所以每个function实例都有call、apply属性 相同点:两个方法产生的 作用是完全一样的 不同点:方法接收的参数不同 call, apply方法它们除了第一个参数,即执行时上下文对象相同外,call方法的其它参数将依次传递给借用的方法作参数,而apply就两个参数,第二个参数为一个数组传递 示例： 123456function add(c, d)&#123;return this.a + this.b + c + d;&#125;var o = &#123;a:1, b:3&#125;;add.call(o, 5, 7); // 1 + 3 + 5 + 7 = 16add.apply(o, [10, 20]); // 1 + 3 + 10 + 20 = 34]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[使用js跨域获取数据的可行方法]]></title>
+      <url>%2F2017%2F07%2F17%2F%E4%BD%BF%E7%94%A8js%E8%B7%A8%E5%9F%9F%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8F%AF%E8%A1%8C%E6%96%B9%E6%B3%95%2F</url>
+      <content type="text"><![CDATA[CORSCORS（Corss-Origin Resource Sharing,跨资源共享），基本思想是使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应的成功或失败。即给请求附加一个额外的Origin头部，其中包含请求页面的源信息（协议、域名和端口），以便服务器根据这个头部决定是否给予响应。 document.domain将页面的document.domain设置为相同的值，页面间可以互相访问对方的JavaScript对象。 注意： 不能将值设置为URL中不包含的域； 松散的域名不能再设置为紧绷的域名。 图像Ping12345var img=new Image();img.onload=img.onerror=function()&#123;... ...&#125;img.src="url?name=value"; 请求数据通过查询字符串的形式发送，响应可以是任意内容，通常是像素图或204响应。 图像Ping最常用于跟踪用户点击页面或动态广告曝光次数。 缺点： 只能发送GET请求； 无法访问服务器的响应文本，只能用于浏览器与服务器间的单向通信。 Jsonp123var script=document.createElement("script");script.src="url?callback=handleResponse";document.body.insertBefore(script,document.body.firstChild); JSONP由两部分组成：回调函数和数据 回调函数是接收到响应时应该在页面中调用的函数，其名字一般在请求中指定。 数据是传入回调函数中的JSON数据。 优点： 能够直接访问响应文本，可用于浏览器与服务器间的双向通信。 缺点： JSONP从其他域中加载代码执行，其他域可能不安全。 难以确定JSONP请求是否失败。 CometComet可实现服务器向浏览器推送数据。 Comet是实现方式：长轮询和流 短轮询即浏览器定时向服务器发送请求，看有没有数据更新。 长轮询即浏览器向服务器发送一个请求，然后服务器一直保持连接打开，直到有数据可发送。发送完数据后，浏览器关闭连接，随即又向服务器发起一个新请求。其优点是所有浏览器都支持，使用XHR对象和setTimeout()即可实现。 流即浏览器向服务器发送一个请求，而服务器保持连接打开，然后周期性地向浏览器发送数据，页面的整个生命周期内只使用一个HTTP连接。 WebSocketWebSocket可在一个单独的持久连接上提供全双工、双向通信。 WebSocket使用自定义协议，未加密的连接时ws://；加密的链接是wss://。 123456var webSocket=new WebSocket("ws://");webSocket.send(message);webSocket.onmessage=function(event)&#123;var data=event.data;... ....&#125; 注意： 必须给WebSocket构造函数传入绝对URL； WebSocket可以打开任何站点的连接，是否会与某个域中的页面通信，完全取决于服务器； WebSocket只能发送纯文本数据，对于复杂的数据结构，在发送之前必须进行序列化JSON.stringify(message))。 优点： 在客户端和服务器之间发送非常少的数据，减少字节开销。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[static、absolute、fixed、relative的区别]]></title>
+      <url>%2F2017%2F07%2F17%2Fstatic%E3%80%81absolute%E3%80%81fixed%E3%80%81relative%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+      <content type="text"><![CDATA[在html中网页可以看成一个立体的空间，一个完整的页面是由很多个页面堆积形成的，如下图所示 CSS中Position属性的四个可选值：static、absolute、fixed、relative有什么区别？ position:static 无定位 所有元素定位的默认情况，在一般情况下，我们不需要特别的去声明它 但有时候遇到继承的情况，我们不愿意见到元素所继承的属性影响本身，从而可以用position:static取消继承，即还原元素定位的默认值 position:absolute 绝对定位 能够很准确的将元素移动到你想要的位置 position:fixed 相对于窗口的固定定位 元素的定位方式同absolute类似，但它的包含块是视区本身，相对于浏览器窗口进行定位。 在屏幕媒体如WEB浏览器中，元素在文档滚动时不会在浏览器视窗中移动 例如，它允许框架样式布局。在页式媒体如打印输出中，一个固定元素会出现于第一页的相同位置。这一点可用于生成流动标题或脚注 IE6不支持CSS中的position:fixed属性 position:relative 相对定位 相对定位是相对于元素默认的位置的定位 设置不同的值来声明定位在哪里，top、bottom、left、right四个数值配合，来明确元素的位置]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Js中undefined与null的区别]]></title>
+      <url>%2F2017%2F07%2F17%2FJs%E4%B8%ADundefined%E4%B8%8Enull%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+      <content type="text"><![CDATA[undefined表示变量不含有值null表示变量的值为空，可以通过将变量的值设置为 null 来清空变量 例子： 123456var person;var car="Benz";document.write(person + "&lt;br /&gt;");document.write(car + "&lt;br /&gt;");var car=nulldocument.write(car + "&lt;br /&gt;"); 结果： undefined Benz null]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[笔试题之Js]]></title>
+      <url>%2F2017%2F07%2F17%2F%E7%AC%94%E8%AF%95%E9%A2%98%E4%B9%8BJs%2F</url>
+      <content type="text"><![CDATA[非读程序题flash和js通过什么类如何交互？Flash提供了ExternalInterface接口与JavaScript通信，ExternalInterface有两个方法，call和addCallback： ExternalInterface.addCallback(“在js里可调用的flash方法名”,flash内方法) //在flash中通过这个方法公开 在js中可调用的flash内的方法; ExternalInterface.call(“js方法”,传给js的参数) //在flash里调用js里的方法 Js中typeof运算符可能的结果 “symbol” typeof Symbol() “boolean” typeof Boolean() “undefined” typeof undefined “string” typeof String() “number” typeof Number() “object” typeof null typeof Object() “function” typeof Function() 不会产生NaN、null、array这样的结果 示例： ### 读程序题知识点：闭包、堆、栈123456789101112function Foo() &#123; var i = 0; return function() &#123; console.log(i++); &#125;&#125;var f1 = Foo(), f2 = Foo();f1();f1();f2(); 结果： 0 1 0 原因： Function是引用类型：保存在堆中，变量f1,f2是保存在栈中； 闭包：一个函数（产生新的作用域）定义的局部变量、子函数的作用域在函数内，但是一旦离开了这个函数，局部变量就无法访问，所有通过返回子函数到一个变量f1的方法，让f1指向堆中的函数作用域，这样可以使用局部变量i。 过程： 第一次f1() :f1=Foo()中，先执行Foo(): i = 0,return值返回给f1(f1指向子函数 f1()=function(){…..},因为子函数没有 定义i，所以向上找到父函数定义的 i: )并执行子函数 输出i=0,再自加 i =1(覆盖了父函数Foo 的 i值); 第二次f1() : 执行的是子函数 Function(){ ..},输出的是父函数 的 i=1,再自加 i =2; 第一次f2():同第一次f1(),不同的是 f2指向堆中一个新的对象 function(){ …},所有此i非彼i,输出i=0;如果再次f2(),那么和第二次f1(),一样输出i=1; 零散知识点 var a=0;console.log(a++)=?console.log(++a)=? 结果：第一个为0，第二个为1 “每个对象都有prototype属性”这句话是错的。 比如var boj=Object.create(null),obj的原型是null，所以obj是没有prototype的。 ES6的基本数据类型为：Number、String、Null、Undefined、Symbol、Boolean。 使用typeof可以检测出变量的基本数据类型，但是有个特例，就是null，它的typeof返回的是object，这是javascript的历史bug。 原因请点这里 只要协议、域名、端口有任何一个不同, 都被当作是不同的域。 null是一种特殊的object,NaN是一种特殊的number]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[背景图片自适应]]></title>
       <url>%2F2017%2F07%2F16%2F%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87%E8%87%AA%E9%80%82%E5%BA%94%2F</url>
       <content type="text"><![CDATA[一张图拿来做某个块的背景图片。存在的问题是，当块大小发生变化（比如显示设备屏幕大小发生变化，假设块大小按百分比设置的）的时候，背景图片会发生变化，比如被截断什么的。这便是图片自适应的问题。 CSS3中提供了好的解决方法： 12background-image:url(/../);background-size:100% 100%;]]></content>
