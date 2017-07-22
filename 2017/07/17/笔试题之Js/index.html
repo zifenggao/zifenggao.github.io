@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Js," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -88,14 +88,17 @@
 
 
 <meta name="description" content="非读程序题flash和js通过什么类如何交互？Flash提供了ExternalInterface接口与JavaScript通信，ExternalInterface有两个方法，call和addCallback：  ExternalInterface.addCallback(“在js里可调用的flash方法名”,flash内方法) //在flash中通过这个方法公开 在js中可调用的flash内的方法">
-<meta name="keywords" content="Js">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="笔试题之Js">
 <meta property="og:url" content="http://yoursite.com/2017/07/17/笔试题之Js/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="非读程序题flash和js通过什么类如何交互？Flash提供了ExternalInterface接口与JavaScript通信，ExternalInterface有两个方法，call和addCallback：  ExternalInterface.addCallback(“在js里可调用的flash方法名”,flash内方法) //在flash中通过这个方法公开 在js中可调用的flash内的方法">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/170717/5hj0AK5ejK.png">
-<meta property="og:updated_time" content="2017-07-20T15:12:20.326Z">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/170722/Bg2CGkgk8d.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/170722/5h35AgieLa.png">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/170722/61jfkAAekA.png">
+<meta property="og:updated_time" content="2017-07-22T12:32:14.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔试题之Js">
 <meta name="twitter:description" content="非读程序题flash和js通过什么类如何交互？Flash提供了ExternalInterface接口与JavaScript通信，ExternalInterface有两个方法，call和addCallback：  ExternalInterface.addCallback(“在js里可调用的flash方法名”,flash内方法) //在flash中通过这个方法公开 在js中可调用的flash内的方法">
@@ -477,6 +480,17 @@
 </ul>
 </li>
 </ul>
+<h3 id="知识点：作用域-局部变量-全局变量"><a href="#知识点：作用域-局部变量-全局变量" class="headerlink" title="知识点：作用域 局部变量 全局变量"></a>知识点：作用域 局部变量 全局变量</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a=b=<span class="number">5</span>;</div><div class="line">&#125;)();</div><div class="line"><span class="built_in">console</span>.log(b);</div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//结果：5，ReferenceError</span></div></pre></td></tr></table></figure>
+<p>这里a是局部变量，b是全局变量，代码可改为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> b=<span class="number">5</span>;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a=b;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="知识点：windows变量-全局变量"><a href="#知识点：windows变量-全局变量" class="headerlink" title="知识点：windows变量 全局变量"></a>知识点：windows变量 全局变量</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(! <span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>)&#123;</div><div class="line">  <span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">alert(a);<span class="comment">//结果弹出： undefined</span></div></pre></td></tr></table></figure>
+<p>“!”的优先级高于”in”</p>
+<h3 id="知识点：-setTimeout"><a href="#知识点：-setTimeout" class="headerlink" title="知识点： setTimeout"></a>知识点： setTimeout</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">windows.setTimeout(checkState,<span class="number">10000</span>);<span class="comment">//表示10秒后执行checkState这个函数</span></div><div class="line">windows.setTimeout(checkState(),<span class="number">10000</span>);<span class="comment">//先执行checkState，然后执行结果作为返回值传递给setTimeout</span></div></pre></td></tr></table></figure>
+<h3 id="知识点：运算符-类型转换"><a href="#知识点：运算符-类型转换" class="headerlink" title="知识点：运算符 类型转换"></a>知识点：运算符 类型转换</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/170722/Bg2CGkgk8d.png" alt="mark"></p>
+<p>对于第二条：第一个“+”2””中的“+”是正负运算，可以将非数字转换为数字</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/170722/5h35AgieLa.png" alt="mark"></p>
+<h3 id="知识点：程序顺序"><a href="#知识点：程序顺序" class="headerlink" title="知识点：程序顺序"></a>知识点：程序顺序</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> x=foo();</div><div class="line">  <span class="keyword">var</span> foo=<span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"foobar"</span>;</div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">return</span> x;</div><div class="line">&#125;)();<span class="comment">//结果：类型错误</span></div></pre></td></tr></table></figure>
+<p>函数声明可以被提前，但函数表达式不能被提前，被提前的变量的默认值是undefined</p>
 <h2 id="零散知识点"><a href="#零散知识点" class="headerlink" title="零散知识点"></a>零散知识点</h2><ul>
 <li><p>var a=0;console.log(a++)=?console.log(++a)=?</p>
 <p>结果：第一个为0，第二个为1</p>
@@ -487,12 +501,50 @@
 <li><p>ES6的基本数据类型为：Number、String、Null、Undefined、Symbol、Boolean。</p>
 <p>使用typeof可以检测出变量的基本数据类型，但是<strong>有个特例，就是null</strong>，它的typeof返回的是object，这是javascript的历史bug。</p>
 <p><a href="https://stackoverflow.com/questions/18808226/why-is-typeof-null-object/18808270#18808270" target="_blank" rel="external">原因请点这里</a></p>
+<p>Null类型和Undefined类型都只有唯一值,分别是null和undefined</p>
+<blockquote>
+<p><strong>ES5的基本数据类型有5种：Undefined、Null、String、Number、Boolean，ES6新增了一类数据类型：Symbol。Object是属于复杂数据类型，所以基本数据类型有6个：Number、String、Null、Undefined、Symbol、Boolean。</strong></p>
+</blockquote>
 </li>
 <li><p>ECMAScript有5种原始类型（primitive type），即Undefined、Null、Boolean、Number和String</p>
 </li>
 <li><p>只要协议、域名、端口有任何一个不同, 都被当作是不同的域。</p>
 </li>
-<li>null是一种特殊的object,NaN是一种特殊的number</li>
+<li><p>null是一种特殊的object,NaN是一种特殊的number</p>
+</li>
+<li><p>Js没有块级作用域</p>
+</li>
+<li><p>Js没有函数重载的概念，在其他语言（比如java）中，可以存在同名函数，只要传入的参数数量或者类型不同即可。<strong>在Js中，定义了两个同名函数后，后面的函数会覆盖前面定义的函数。</strong></p>
+</li>
+</ul>
+<p>*</p>
+<ul>
+<li>hasOwnProperty:是用来判断一个对象是否有你给出名称的属性或对象，不过需要注意的是，此方法无法检查该对象的原型链中是否具有该实行，该属性必须是对象本身的一个成员</li>
+<li>isPrototypeOf:是用来判断要检查其原型链的对象是否存在于指定对象示例中，是则返回true,否则返回false<ul>
+<li>SQL又称结构化查询语言</li>
+<li>Java是强类型语言，JavaScript是弱类型语言</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>1&lt;&lt;4意思为：1*（2^4）=16，即想左移4位</li>
+<li><p>“^”是异或运算</p>
+</li>
+<li><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/170722/61jfkAAekA.png" alt="mark"></p>
+</li>
+<li><p>contextmenu是当浏览者按下鼠标右键出现菜单或者通过键盘的案件出发页面菜单时触发的事件。可以在页面<body>中加入onContentMenu=”return false”就可以禁止使用鼠标右键了</body></p>
+</li>
+<li><p>JS声明变量的时候，如果不用var,则声明的是全局变量。</p>
+</li>
+<li>JS中入如果重复声明一个变量，比如：var a=10;var a=100;则a的值为100，如果var 1=100;var a;则a的值为100，var a;无效。</li>
+<li><strong>对于null、empty、0、false，Number默认把其转换为0,而对于undefined,Number则会将其转换为NaN</strong></li>
+<li>JavaScript的保留字有aoto、abstract、implements、super等等，array不是保留字<br><a href="http://www.runoob.com/js/js-reserved.html" target="_blank" rel="external">JS保留字</a></li>
+<li>JS中由于变量内容不停，变量被分为<strong>基本数据类型</strong>和<strong>引用数据类型</strong>变量。<ul>
+<li>基本类型变量用8字节内存，存储基本数据类型（数值、布尔值、null和未定义）的值</li>
+<li>引用类型变量则值保存对象、数组和函数等引用类型的值的引用（即内存地址）</li>
+<li><strong>JS中数字是部分类型的，也就是没有byte/int/float/double等类型差异</strong></li>
+</ul>
+</li>
 </ul>
 
       
@@ -523,7 +575,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Js/" rel="tag"># Js</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -622,7 +674,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-count">77</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -644,7 +696,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -690,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#非读程序题"><span class="nav-number">1.</span> <span class="nav-text">非读程序题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flash和js通过什么类如何交互？"><span class="nav-number">1.1.</span> <span class="nav-text">flash和js通过什么类如何交互？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Js中typeof运算符可能的结果"><span class="nav-number">1.2.</span> <span class="nav-text">Js中typeof运算符可能的结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读程序题"><span class="nav-number">2.</span> <span class="nav-text">读程序题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#知识点：闭包、堆、栈"><span class="nav-number">2.1.</span> <span class="nav-text">知识点：闭包、堆、栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#零散知识点"><span class="nav-number">3.</span> <span class="nav-text">零散知识点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#非读程序题"><span class="nav-number">1.</span> <span class="nav-text">非读程序题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flash和js通过什么类如何交互？"><span class="nav-number">1.1.</span> <span class="nav-text">flash和js通过什么类如何交互？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Js中typeof运算符可能的结果"><span class="nav-number">1.2.</span> <span class="nav-text">Js中typeof运算符可能的结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读程序题"><span class="nav-number">2.</span> <span class="nav-text">读程序题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#知识点：闭包、堆、栈"><span class="nav-number">2.1.</span> <span class="nav-text">知识点：闭包、堆、栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#知识点：作用域-局部变量-全局变量"><span class="nav-number">2.2.</span> <span class="nav-text">知识点：作用域 局部变量 全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#知识点：windows变量-全局变量"><span class="nav-number">2.3.</span> <span class="nav-text">知识点：windows变量 全局变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#知识点：-setTimeout"><span class="nav-number">2.4.</span> <span class="nav-text">知识点： setTimeout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#知识点：运算符-类型转换"><span class="nav-number">2.5.</span> <span class="nav-text">知识点：运算符 类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#知识点：程序顺序"><span class="nav-number">2.6.</span> <span class="nav-text">知识点：程序顺序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#零散知识点"><span class="nav-number">3.</span> <span class="nav-text">零散知识点</span></a></li></ol></div>
             
 
           </div>
