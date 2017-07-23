@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Hexo实现文章置顶功能]]></title>
+      <url>%2F2017%2F07%2F23%2FHexo%E5%AE%9E%E7%8E%B0%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD%2F</url>
+      <content type="text"><![CDATA[网上教程还是挺多的，但难免有不清楚的地方，我根据我自身的情况说一下吧，基本上是根据下面这个博文来的。 链接 主要想说明的是，我的hexo版本是3.3.1，在node_modules/hexo-generator-index/lib/generator.js那块，原始代码跟上面博文提供的有出入，要做的是，那下面这段代码直接把原始代码覆盖掉就行了。 123456789101112131415161718192021222324252627282930313233'use strict';var pagination = require('hexo-pagination');module.exports = function(locals) &#123; var config = this.config; var posts = locals.posts.sort(config.index_generator.order_by); posts.data = posts.data.sort(function(a, b) &#123; if(a.top &amp;&amp; b.top) &#123; if(a.top == b.top) return b.date - a.date; else return b.top - a.top; &#125; else if(a.top &amp;&amp; !b.top) &#123; return -1; &#125; else if(!a.top &amp;&amp; b.top) &#123; return 1; &#125; else return b.date - a.date; &#125;); var paginationDir = config.pagination_dir || 'page'; return pagination('', posts, &#123; perPage: config.index_generator.per_page, layout: ['index', 'archive'], format: paginationDir + '/%d/', data: &#123; __index: true &#125; &#125;);&#125;; 保存后，在文章的front-matter中添加top: 1这一样就可以实现文章置顶了，“1”也可以用其他数字替换，数字越大，越前面。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[JavaScript对象分类]]></title>
       <url>%2F2017%2F07%2F22%2FJavaScript%E5%AF%B9%E8%B1%A1%E5%88%86%E7%B1%BB%2F</url>
       <content type="text"><![CDATA[JS中，将对象分为3类： 内部对象 宿主对象 自定义对象 内部对象内部对象包括Arguments(函数参数集合)、Array、Boolean、Date、Function、Global、Math、Number、Object、RegExp、String以及各种错误类对象。 Error EvalError RangeError ReferenceError SyntaxError TypeError 其中Global和Math这两个对象又被称为“内置对象”，这两个对象在脚本程序初始化是被创建，不必实例化这两个对象。 宿主对象宿主对象就是执行JS甲苯的环境提供的对象。 对于嵌入到网页中的JS来说，其宿主对象就是浏览器提供的对象，所以有称为浏览器对象，如：IE、FireFox等浏览器提供的对象。 不同浏览器提供的宿主对象可能不同，即使提供的对象相同，其实现方式也大相径庭。这回带来浏览器兼容问题，增加开发难度。 浏览器对象很多，比如： Window Document Element form image等等 自定义对象顾名思义，就是开发人员自己定义的对象。]]></content>

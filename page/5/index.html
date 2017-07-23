@@ -304,6 +304,167 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/30/Java之AWT编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/30/Java之AWT编程/" itemprop="url">
+                  Java之AWT编程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-30T20:57:01+08:00">
+                2017-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/30/Java之AWT编程/" class="leancloud_visitors" data-flag-title="Java之AWT编程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          简介AWTAWT 是Java基本类库的一部分,它在你的Java程序中提供了图形化用户界面,并且能够接收来自键盘,鼠标和其他输入设备的用户输入。
+使用AWT包，则需要import java.awt.;（用于支持GUI的包还有java.swing.。这里直接用java.awt.*导入，其实主要是两个包：
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/30/Java之AWT编程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/30/Java之JDBC语句对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -414,48 +575,16 @@
       
         
           
-            <p>JDBC 提供三种类型的语句对象： Statement ， PreparedStatement ， CallableStatement</p>
-<p>其中 PreparedStatement 是 Statement 的子类， CallableStatement 是 PreparedStatement 的子类。每一种语句对象用来运行特定类型的 SQL 语句</p>
-<ul>
-<li>Statement 对象用来运行简单类型的 SQL 语句，语句中无需指定参数</li>
-<li>PreparedStatement 对象用来运行包含（或不包含） IN 类型参数的预编译 SQL 语句</li>
-<li>CallableStatement 对象用来调用数据库存储过程</li>
-</ul>
-<h2 id="Statement"><a href="#Statement" class="headerlink" title="Statement"></a>Statement</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Statement 对象用于将 SQL 语句发送到数据库服务器</p>
-<h3 id="创建-Statement-对象"><a href="#创建-Statement-对象" class="headerlink" title="创建 Statement 对象"></a>创建 Statement 对象</h3><p>建立连接后， Statement 对象用 Connection 对象的 createStatement 方法创建，以下代码创建 Statement 对象：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Connection con = DriverManager.getConnection(url, SYSDBA, SYSDBA);</div><div class="line">Statement stmt = con.createStatement();</div></pre></td></tr></table></figure>
-<h3 id="使用-Statement-对象执行语句"><a href="#使用-Statement-对象执行语句" class="headerlink" title="使用 Statement 对象执行语句"></a>使用 Statement 对象执行语句</h3><p>tatement 接口提供了三种执行 SQL 语句的方法： executeQuery 、 executeUpdate 和 execute </p>
-<ul>
-<li>方法 executeQuery 用于产生单个结果集的语句，例如 SELECT 语句</li>
-<li>方法 executeUpdate 用于执行 INSERT 、 UPDATE 或 DELETE 语句以及 SQL DDL 语句，如 CREATE TABLE 和 DROP TABLE 。<ul>
-<li>INSERT 、 UPDATE 或 DELETE 语句的效果是修改表中零行或多行中的一列或多列。 executeUpdate 的返回值是一个整数，表示受影响的行数。对于 CREATE TABLE 或 DROP TABLE 等 DDL 语句， executeUpdate 的返回值总为零</li>
-</ul>
-</li>
-<li>方法 execute 用于执行返回多个结果集、多个更新元组数或二者组合的语句</li>
-</ul>
-<p>执行语句的三种方法都将关闭所调用的 Statement 对象的当前打开结果集（如果存在）。这意味着在重新执行 Statement 对象之前，需要完成对当前 ResultSet 对象的处理。</p>
-<h3 id="关闭-Statement-对象"><a href="#关闭-Statement-对象" class="headerlink" title="关闭 Statement 对象"></a>关闭 Statement 对象</h3><p>Statement 对象可由 Java 垃圾收集程序自动关闭。但作为一种好的编程风格，应在不需要 Statement 对象时显式地关闭它们。这将立即释放数据库服务器资源，有助于避免潜在的内存问题</p>
-<h2 id="PreparedStatement"><a href="#PreparedStatement" class="headerlink" title="PreparedStatement"></a>PreparedStatement</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><p>PreparedStatement 继承 Statement ，并与之在两方面有所不同：</p>
-<ul>
-<li>PreparedStatement 对象包含已编译的 SQL 语句，语句已经 “ 准备好 ” <ul>
-<li>包含于 PreparedStatement 对象中的 SQL 语句可具有一个或多个 IN 参数。 IN 参数的值在 SQL 语句创建时未被指定。相反，该语句为每个 IN 参数保留一个问号（ “ ？ ” ）作为占位符。每个问号所对应的值必须在该语句执行之前，通过适当的 setXXX 方法来提供。</li>
-<li>由于PreparedStatement 对象已预编译过，所以其执行速度要快于 Statement 对象。因此，需要多次重复执行的 SQL 语句经常创建为 PreparedStatement 对象，以提高效率。</li>
-</ul>
-</li>
-<li>作为 Statement 的子类， PreparedStatement 继承了 Statement 的所有功能。另外它还添加了一整套方法，用于设置发送给数据库以取代 IN 参数占位符的值。同时，三种方法 execute 、 executeQuery 和 executeUpdate 能执行设置好参数的语句对象</li>
-</ul>
-<h3 id="创建-PreparedStatement-对象"><a href="#创建-PreparedStatement-对象" class="headerlink" title="创建 PreparedStatement 对象"></a>创建 PreparedStatement 对象</h3><p>以下的代码段（其中 con 是 Connection 对象）创建一个 PreparedStatement 对象：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PreparedStatement pstmt = con.prepareStatement( UPDATE 厂商登记 SET 厂商名 = ? WHERE 厂商编号 = ?);</div></pre></td></tr></table></figure>
-<p>对象 pstmt 包含语句 UPDATE 厂商登记 SET 厂商名 = ? WHERE 厂商编号 = ? ，该语句带两个 IN 参数占位符，它已发送给数据库，并由服务器为其执行作好了准备。</p>
-<h2 id="CallableStatement"><a href="#CallableStatement" class="headerlink" title="CallableStatement"></a>CallableStatement</h2><h3 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h3><p>CallableStatement 用来运行 SQL <strong>存储过程</strong>。存储过程是数据库中已经存在的 SQL 语句，它通过名字调用</p>
-<p>CallableStatement 是 PreparedStatement 的子类。 CallableStatement 中定义的方法用于处理 OUT 参数或 INOUT 参数的输出部分：注册 OUT 参数的 JDBC 类型（一般 SQL 类型）、从这些参数中检索结果，或者检查所返回的值是否为 JDBC NULL。</p>
-<h3 id="创建-CallableStatement-对象"><a href="#创建-CallableStatement-对象" class="headerlink" title="创建 CallableStatement 对象"></a>创建 CallableStatement 对象</h3><p>CallableStatement 对象是用 Connection.prepareCall 创建的。</p>
-<p>以下代码创建 CallableStatement 对象，其中含有对存储过程 p1 的调用， con 为连接对象：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CallableStatement cstmt = con.prepareCall(<span class="function">call <span class="title">p1</span><span class="params">(?, ?)</span>)</span>;</div></pre></td></tr></table></figure>
-<p>其中 ? 占位符为 IN 、 OUT 还是 INOUT 参数，取决于存储过程 p1 。</p>
-<p><a href="http://www.blogjava.net/lizzie0510/archive/2006/07/25/59910.html" target="_blank" rel="external"><strong>详细介绍地址——JDBC语句对象</strong></a></p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">improt java.sql.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCExample</span></span></div><div class="line">&#123;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span></div><div class="line">&#123;</div><div class="line"><span class="keyword">try</span></div><div class="line">&#123;</div><div class="line">Statement stmt;</div><div class="line">ResultSet rs;</div><div class="line">Class.forName(“com.mysql.jdbc.Driver”);</div><div class="line">String url = “jdbc:mysql:<span class="comment">//localhost:3306/db”;</span></div><div class="line">Connection con = DriverManager.getConnection(url,“root”,“<span class="number">1234</span>”);</div><div class="line">stmt = con.createStatement();</div><div class="line">rs = stmt.executeQuery(“select name from empt where</div><div class="line">age=‘<span class="number">25</span>’”);</div><div class="line"><span class="keyword">while</span>(rs.next())</div><div class="line">&#123;</div><div class="line">String name = rs.getString (“name”);</div><div class="line">&#125;</div><div class="line">rs.close(); <span class="comment">//关闭结果集对象</span></div><div class="line">stmt.close(); <span class="comment">//关闭SQL语句对象</span></div><div class="line">con.close(); <span class="comment">//关闭连接对象</span></div><div class="line">&#125;<span class="keyword">catch</span>(Exception ex)</div><div class="line">&#123;</div><div class="line">ex.printStackTrace();</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
+          JDBC 提供三种类型的语句对象： Statement ， PreparedStatement ， CallableStatement
+其中 PreparedStatement 是 Statement 的子类， CallableStatement 是 PreparedStatement 的子类。每一
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/30/Java之JDBC语句对象/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -607,34 +736,15 @@
       
         
           
-            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>JDBC：（Java Database Connectivity,Java数据库连接）是一组类。通过JDBC，可以在Java程序中使用相容的类和方法来读写记录以及执行其他是数据库访问操作。被称为驱动程序的类是连接到数据源的桥梁——对于每种流行的数据库（Oracle、Mysql等），都有相应的驱动程序。</p>
-<p>对于每种常见的数据库使用任务，JDBC库中都有相应的类：</p>
-<ul>
-<li>连接到数据库</li>
-<li>使用SQL创建语句</li>
-<li>在数据库中执行SQL查询</li>
-<li>查看结果</li>
-</ul>
-<p>这些JDBC类都位于<strong>java.sql</strong>包中</p>
-<h2 id="通过示例学习基本操作"><a href="#通过示例学习基本操作" class="headerlink" title="通过示例学习基本操作"></a>通过示例学习基本操作</h2><p>本示例用的是Mysql数据库</p>
-<h3 id="先来规定一个环境"><a href="#先来规定一个环境" class="headerlink" title="先来规定一个环境"></a>先来规定一个环境</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> String Id;</div><div class="line">        <span class="keyword">private</span> String Name;</div><div class="line">        <span class="keyword">private</span> String Sex;</div><div class="line">        <span class="keyword">private</span> String Age;</div><div class="line"></div><div class="line">        Student(String Name, String Sex, String Age) &#123;</div><div class="line">            <span class="keyword">this</span>.Id = <span class="keyword">null</span>; <span class="comment">//default</span></div><div class="line">            <span class="keyword">this</span>.Name = Name;</div><div class="line">            <span class="keyword">this</span>.Sex = Sex;</div><div class="line">            <span class="keyword">this</span>.Age = Age;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> Id;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String Id)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.Id = Id;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> Name;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String Name)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.Name = Name;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getSex</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> Sex;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSex</span><span class="params">(String Sex)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.Sex = Sex;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> Age;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setage</span><span class="params">(String Age)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.Age = Age;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Connection <span class="title">getConn</span><span class="params">()</span> </span>&#123;</div><div class="line">	    String driver = <span class="string">"com.mysql.jdbc.Driver"</span>;</div><div class="line">	    String url = <span class="string">"jdbc:mysql://localhost:3306/samp_db"</span>;</div><div class="line">	    String username = <span class="string">"root"</span>;</div><div class="line">	    String password = <span class="string">""</span>;</div><div class="line">	    Connection conn = <span class="keyword">null</span>;</div><div class="line">	    <span class="keyword">try</span> &#123;</div><div class="line">	        Class.forName(driver); <span class="comment">//classLoader,加载对应驱动</span></div><div class="line">	        conn = (Connection) DriverManager.getConnection(url, username, password);</div><div class="line"><span class="comment">//也可以写成： Connection conn =DriverManager.getConnection(url, username, password);</span></div><div class="line"></div><div class="line">	    &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</div><div class="line">	        e.printStackTrace();</div><div class="line">	    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">	        e.printStackTrace();</div><div class="line">	    &#125;</div><div class="line">	    <span class="keyword">return</span> conn;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<h3 id="开始操作数据库"><a href="#开始操作数据库" class="headerlink" title="开始操作数据库"></a>开始操作数据库</h3><h4 id="insert-增"><a href="#insert-增" class="headerlink" title="insert(增)"></a>insert(增)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">insert</span><span class="params">(Student student)</span> </span>&#123;</div><div class="line">    Connection conn = getConn();</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    String sql = <span class="string">"insert into students (Name,Sex,Age) values(?,?,?)"</span>;</div><div class="line">    PreparedStatement pstmt;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        pstmt = (PreparedStatement) conn.prepareStatement(sql);</div><div class="line">        pstmt.setString(<span class="number">1</span>, student.getName());</div><div class="line">        pstmt.setString(<span class="number">2</span>, student.getSex());</div><div class="line">        pstmt.setString(<span class="number">3</span>, student.getAge());</div><div class="line">        i = pstmt.executeUpdate();</div><div class="line">        pstmt.close();</div><div class="line">        conn.close();</div><div class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="update-改"><a href="#update-改" class="headerlink" title="update(改)"></a>update(改)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">update</span><span class="params">(Student student)</span> </span>&#123;</div><div class="line">    Connection conn = getConn();</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    String sql = <span class="string">"update students set Age='"</span> + student.getAge() + <span class="string">"' where Name='"</span> + student.getName() + <span class="string">"'"</span>;</div><div class="line">    PreparedStatement pstmt;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        pstmt = (PreparedStatement) conn.prepareStatement(sql);</div><div class="line">        i = pstmt.executeUpdate();</div><div class="line">        System.out.println(<span class="string">"resutl: "</span> + i);</div><div class="line">        pstmt.close();</div><div class="line">        conn.close();</div><div class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="select-查"><a href="#select-查" class="headerlink" title="select(查)"></a>select(查)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Integer <span class="title">getAll</span><span class="params">()</span> </span>&#123;</div><div class="line">    Connection conn = getConn();</div><div class="line">    String sql = <span class="string">"select * from students"</span>;</div><div class="line">    PreparedStatement pstmt;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        pstmt = (PreparedStatement)conn.prepareStatement(sql);</div><div class="line">        ResultSet rs = pstmt.executeQuery();</div><div class="line">        <span class="keyword">int</span> col = rs.getMetaData().getColumnCount();</div><div class="line">        System.out.println(<span class="string">"============================"</span>);</div><div class="line">        <span class="keyword">while</span> (rs.next()) &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= col; i++) &#123;</div><div class="line">                System.out.print(rs.getString(i) + <span class="string">"\t"</span>);</div><div class="line">                <span class="keyword">if</span> ((i == <span class="number">2</span>) &amp;&amp; (rs.getString(i).length() &lt; <span class="number">8</span>)) &#123;</div><div class="line">                    System.out.print(<span class="string">"\t"</span>);</div><div class="line">                &#125;</div><div class="line">             &#125;</div><div class="line">            System.out.println(<span class="string">""</span>);</div><div class="line">        &#125;</div><div class="line">            System.out.println(<span class="string">"============================"</span>);</div><div class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="delete-删"><a href="#delete-删" class="headerlink" title="delete(删)"></a>delete(删)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">delete</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">    Connection conn = getConn();</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    String sql = <span class="string">"delete from students where Name='"</span> + name + <span class="string">"'"</span>;</div><div class="line">    PreparedStatement pstmt;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        pstmt = (PreparedStatement) conn.prepareStatement(sql);</div><div class="line">        i = pstmt.executeUpdate();</div><div class="line">        System.out.println(<span class="string">"resutl: "</span> + i);</div><div class="line">        pstmt.close();</div><div class="line">        conn.close();</div><div class="line">    &#125; <span class="keyword">catch</span> (SQLException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="调用运行"><a href="#调用运行" class="headerlink" title="调用运行"></a>调用运行</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</div><div class="line">    JDBCOperation.getAll();</div><div class="line">    JDBCOperation.insert(<span class="keyword">new</span> Student(<span class="string">"Achilles"</span>, <span class="string">"Male"</span>, <span class="string">"14"</span>));</div><div class="line">    JDBCOperation.getAll();</div><div class="line">    JDBCOperation.update(<span class="keyword">new</span> Student(<span class="string">"Bean"</span>, <span class="string">""</span>, <span class="string">"7"</span>));</div><div class="line">    JDBCOperation.delete(<span class="string">"Achilles"</span>);</div><div class="line">    JDBCOperation.getAll();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>通过以上代码可以看出，JDBC的操作有通用的流程：</p>
-<ul>
-<li>创建Connection对象、SQL查询命令字符串</li>
-<li>对Connection对象传入SQL查询命令，获得PreparedStatement对象</li>
-<li>对PreparedStatement对象执行executeUpdate()或executeQurey()获得结果</li>
-<li>先后关闭PreparedStatement对象和Connection对象</li>
-<li><strong>可见，使用JDBC时，最常打交道的是Connection、PreparedStatement这两个类，以及select中的ResultSet类。</strong></li>
-</ul>
-<p>本文主要内容转载于：<a href="http://www.cnblogs.com/wuyuegb2312/p/3872607.html" target="_blank" rel="external">通过JDBC进行简单的增删改查（以MySQL为例）</a></p>
-
-          
+          简介JDBC：（Java Database Connectivity,Java数据库连接）是一组类。通过JDBC，可以在Java程序中使用相容的类和方法来读写记录以及执行其他是数据库访问操作。被称为驱动程序的类是连接到数据源的桥梁——对于每种流行的数据库（Oracle、Mysql等），都有相应的驱动
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/30/Java之初识JDBC/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -786,148 +896,21 @@
       
         
           
-            <h2 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h2><p>有两种方法可以创建线程：</p>
-<ul>
-<li>需要从Java.lang.Thread类派生一个新的线程类，重载它的run()方法</li>
-<li>实现Runnable<strong>接口</strong>，重载Runnable接口中的run()方法</li>
-</ul>
-<p><strong>为什么要提供两种方法来创建线程呢？</strong></p>
-<p><span style="color:red;"><strong>在Java中，类仅支持单继承，也就是说，当定义一个新的类的时候，它只能扩展一个外部类.这样，如果创建自定义线程类的时候是通过扩展 Thread类的方法来实现的，那么这个自定义类就不能再去扩展其他的类，也就无法实现更加复杂的功能。因此，如果自定义类必须扩展其他的类，那么就可以使用实现Runnable接口的方法来定义该类为线程类，这样就可以避免Java单继承所带来的局限性</strong></span>。另外，使用实现Runnable接口的方式创建的线程可以处理同一资源，从而实现资源的共享。</p>
-<p>Runnable这个<strong>接口</strong>只有一个方法：public void run();</p>
-<h3 id="通过Runnable接口创建线程"><a href="#通过Runnable接口创建线程" class="headerlink" title="通过Runnable接口创建线程"></a>通过Runnable接口创建线程</h3><ul>
-<li>建立Runnable对象<ul>
-<li><code>Runnable threaJob=new MyRunnable();</code></li>
-</ul>
-</li>
-<li><p>建立Thread对象并赋值Runnable任务</p>
-<ul>
-<li>Thread就像一个工人，需要一个任务才能进行工作，而这个任务就在Runnable()的run()方法中</li>
-<li><code>Thread myThread new Thread(threadJob);</code></li>
-</ul>
-</li>
-<li><p>启动Thread</p>
-<ul>
-<li>工人有了任务滞后，就可以让他去工作了</li>
-<li><code>myThread.start();</code></li>
-</ul>
-</li>
-</ul>
-<p><strong>例子：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//每个任务都是Runable接口的一个实例，任务是可运行对象，线程是便于任务执行的对象。必须创建任务类，重写run方法定义任务</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadDemo1</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> countDown = <span class="number">10</span>;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="comment">//重写run方法，定义任务</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span>(countDown-- &gt;<span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            System.out.println(<span class="string">"$"</span> + Thread.currentThread().getName() </div><div class="line">                    + <span class="string">"("</span> + countDown + <span class="string">")"</span>);<span class="comment">//该方法若要访问当前线程，应使用Thread.currentThread()</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//调用start方法会启动一个线程，导致任务中的run方法被调用，run方法执行完毕则线程终止</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Runnable demo1 = <span class="keyword">new</span> ThreadDemo1();</div><div class="line">        </div><div class="line">        Thread thread1 = <span class="keyword">new</span> Thread(demo1);</div><div class="line">        Thread thread2 = <span class="keyword">new</span> Thread(demo1);</div><div class="line">        thread1.start();</div><div class="line">        thread2.start();</div><div class="line">        </div><div class="line">        System.out.println(<span class="string">"火箭发射倒计时:"</span>);</div><div class="line">        </div><div class="line">        </div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<pre>
-火箭发射倒计时:
-$Thread-0(9)
-$Thread-0(8)
-$Thread-0(7)
-$Thread-0(6)
-$Thread-0(5)
-$Thread-0(4)
-$Thread-0(3)
-$Thread-0(2)
-$Thread-0(1)
-$Thread-0(0)</pre>
+          创建线程有两种方法可以创建线程：
 
-<p>如果同时运行两个任务对象，体会其不同的之处：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Runnable demo1 = <span class="keyword">new</span> ThreadDemo1();</div><div class="line">        Runnable demo2 = <span class="keyword">new</span> ThreadDemo1();</div><div class="line">        Thread thread1 = <span class="keyword">new</span> Thread(demo1);</div><div class="line">        Thread thread2 = <span class="keyword">new</span> Thread(demo2);</div><div class="line">        thread1.start();</div><div class="line">        thread2.start();</div><div class="line">        </div><div class="line">        System.out.println(<span class="string">"火箭发射倒计时:"</span>);</div><div class="line">        </div><div class="line">        </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<pre>火箭发射倒计时:
-$Thread-0(9)
-$Thread-0(8)
-$Thread-0(7)
-$Thread-0(6)
-$Thread-1(9)
-$Thread-0(5)
-$Thread-1(8)
-$Thread-0(4)
-$Thread-1(7)
-$Thread-0(3)
-$Thread-1(6)
-$Thread-1(5)
-$Thread-0(2)
-$Thread-1(4)
-$Thread-1(3)
-$Thread-1(2)
-$Thread-1(1)
-$Thread-1(0)
-$Thread-0(1)
-$Thread-0(0)</pre>
+需要从Java.lang.Thread类派生一个新的线程类，重载它的run()方法
+实现Runnable接口，重载Runnable接口中的run()方法
 
-<h3 id="继承Thread类来创建线程"><a href="#继承Thread类来创建线程" class="headerlink" title="继承Thread类来创建线程"></a>继承Thread类来创建线程</h3><ul>
-<li>首先创建一个任务类extends Thread类，因为Thread类实现了Runnable接口，所以自定义的任务类也实现了Runnable接口，重写run()方法，其中定义具体的任务代码或处理逻辑</li>
-<li>创建一个任务类对象，可以用Thread或者Runnable作为自定义的变量类型</li>
-<li>调用自定义对象的start()方法，启动一个线程</li>
-</ul>
-<p>例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//每个任务都是Runable接口的一个实例，任务是可运行对象，线程即可运行对象。必须创建任务类，重写run方法定义任务</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtendFromThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> countDown = <span class="number">10</span>;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="comment">//重写run方法，定义任务</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span>(countDown-- &gt;<span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            System.out.println(<span class="string">"$"</span> + <span class="keyword">this</span>.getName() </div><div class="line">                    + <span class="string">"("</span> + countDown + <span class="string">")"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//调用start方法会启动一个线程，导致任务中的run方法被调用，run方法执行完毕则线程终止</span></div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        </div><div class="line">        ExtendFromThread thread1 = <span class="keyword">new</span> ExtendFromThread();</div><div class="line">        ExtendFromThread thread2 = <span class="keyword">new</span> ExtendFromThread();</div><div class="line">        thread1.start();</div><div class="line">        thread2.start();</div><div class="line">        </div><div class="line">        System.out.println(<span class="string">"火箭发射倒计时:"</span>);</div><div class="line">        </div><div class="line">        </div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<pre>火箭发射倒计时:
-$Thread-0(9)
-$Thread-0(8)
-$Thread-0(7)
-$Thread-0(6)
-$Thread-0(5)
-$Thread-0(4)
-$Thread-0(3)
-$Thread-0(2)
-$Thread-0(1)
-$Thread-0(0)
-$Thread-1(9)
-$Thread-1(8)
-$Thread-1(7)
-$Thread-1(6)
-$Thread-1(5)
-$Thread-1(4)
-$Thread-1(3)
-$Thread-1(2)
-$Thread-1(1)
-$Thread-1(0)</pre>
-
-<h3 id="两种创建方法的比较"><a href="#两种创建方法的比较" class="headerlink" title="两种创建方法的比较"></a>两种创建方法的比较</h3><ul>
-<li>使用实现Runnable接口方式创建线程可以共享同一个目标对象，实现了多个相同线程处理同一份资源，即一个线程对资源的操作会影响到另一个进程的操作</li>
-<li>而继承Thread创建线程的方式，new出了两个任务类对象，有各自的成员变量，相互之间不干扰。</li>
-</ul>
-<h4 id="各自的优缺点"><a href="#各自的优缺点" class="headerlink" title="各自的优缺点"></a>各自的优缺点</h4><ul>
-<li>采用继承Thread类方式：<ul>
-<li>优点：编写简单，如果需要访问当前线程，无需使用Thread.currentThread()方法，直接使用this，即可获得当前线程</li>
-<li>缺点：因为线程类已经继承了Thread类，所以不能再继承其他的父类</li>
-</ul>
-</li>
-<li>采用实现Runnable接口方式：<ul>
-<li>优点：线程类只是实现了Runable接口，还可以继承其他的类。在这种方式下，可以多个线程共享同一个目标对象，所以非常适合多个相同线程来处理同一份资源的情况，从而可以将CPU代码和数据分开，形成清晰的模型，较好地体现了面向对象的思想</li>
-<li>缺点：编程稍微复杂，如果需要访问当前线程，必须使用Thread.currentThread()方法</li>
-</ul>
-</li>
-</ul>
-<p>本文以上主要内容转载于：<a href="http://www.cnblogs.com/muzeet/p/4338973.html" target="_blank" rel="external">java多线程总结一：线程的两种创建方式及比较
-</a></p>
-<h2 id="线程睡眠"><a href="#线程睡眠" class="headerlink" title="线程睡眠"></a>线程睡眠</h2><p>直接上代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyRunnable</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">                go();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">				<span class="comment">//线程睡眠代码块</span></div><div class="line">				<span class="keyword">try</span>&#123;</div><div class="line">					Thread.sleep(<span class="number">2000</span>);</div><div class="line">				&#125;<span class="keyword">catch</span>(InterruptedException ex)&#123;</div><div class="line">					ex.printStackTrace();</div><div class="line">				&#125;<span class="comment">//代码块结束</span></div><div class="line">				</div><div class="line">                doMore();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doMore</span><span class="params">()</span></span>&#123;</div><div class="line">                System.out.println(<span class="string">"top 0' the stack"</span>);</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadTestDrive</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">                Runnable threadJob=<span class="keyword">new</span> MyRunnable();</div><div class="line">                Thread mythread=<span class="keyword">new</span> Thread(threadJob);</div><div class="line"></div><div class="line">                mythread.start();</div><div class="line"></div><div class="line">                System.out.println(<span class="string">"back in main"</span>);</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="线程同步机制"><a href="#线程同步机制" class="headerlink" title="线程同步机制"></a>线程同步机制</h2><p>为什么要线程同步？我们现在知道，可以实现多个线程共享同一个资源（变量或者对象）的情况，如果这些线程都对需要对资源进行读或者写操作，由于线程之间的调度等其它问题，会导致资源的状态出现紊乱，导致程序异常。举个例子：如果一个银行账户同时被两个线程操作，一个取100块，一个存钱100块。假设账户原本有0块，如果取钱线程和存钱线程同时发生，会出现什么结果呢？取钱不成功，账户余额是100.取钱成功了，账户余额是0.那到底是哪个呢？由于是同时发生的两件事，很难说清楚。因此多线程同步就是要解决这个问题。</p>
-<blockquote>
-<p>Java的同步机制是通过对象锁来实现的：</p>
-<p>一段synchronized的代码被一个线程执行之前，他要先拿到执行这段代码的权限，在 Java里边就是拿到某个同步对象的锁（一个对象只有一把锁）； 如果这个时候同步对象的锁被其他线程拿走了，他（这个线程）就只能等了（线程阻塞在锁池 等待队列中）。 取到锁后，他就开始执行同步代码(被synchronized修饰的代码）；线程执行完同步代码后马上就把锁还给同步对象，其他在锁池中 等待的某个线程就可以拿到锁执行同步代码了。这样就保证了同步代码在统一时刻只有一个线程在执行。</p>
-</blockquote>
-<p>例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest2</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;     </div><div class="line">  <span class="keyword">private</span> <span class="keyword">int</span> threadNo; <span class="keyword">private</span> String lock;     </div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ThreadTest2</span><span class="params">(<span class="keyword">int</span> threadNo, String lock)</span> </span>&#123;     </div><div class="line">  <span class="keyword">this</span>.threadNo = threadNo;     </div><div class="line">      <span class="keyword">this</span>.lock = lock;   &#125;     </div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;     </div><div class="line">    String lock = <span class="keyword">new</span> String(<span class="string">"lock"</span>);     </div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i++) &#123;       </div><div class="line">   <span class="keyword">new</span> ThreadTest2(i, lock).start();     </div><div class="line">      Thread.sleep(<span class="number">1</span>);     </div><div class="line">     &#125;     </div><div class="line">  &#125;       </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;       </div><div class="line"> <span class="keyword">synchronized</span> (lock) &#123;     <span class="comment">//原子单位</span></div><div class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">10000</span>; i++) &#123;     </div><div class="line">       System.out.println(<span class="string">"No."</span> + threadNo + <span class="string">":"</span> + i);     </div><div class="line">    &#125;        </div><div class="line"> &#125;       </div><div class="line"> &#125;     </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>该程序通过在main方法启动10个线程之前，创建了一个String类型的对象。并通过ThreadTest2的构造函数，将这个对象赋值 给每一个ThreadTest2线程对象中的私有变量lock。<span style="color:red">根据Java方法的传值特点，我们知道，这些线程的lock变量实际上指向的是堆内存中的 同一个区域，即存放main函数中的lock变量的区域</span>。<br>run方法加一个synchronized块来实现。这个<strong>同步块</strong>的对象锁，就是 main方法中创建的那个String对象。换句话说，他们指向的是同一个String类型的对象，对象锁是共享且唯一的！</p>
-<p>于是，我们看到了预期的效果：10个线程不再是争先恐后的报数了，而是一个接一个的报数。</p>
-<p><strong>同步的实现方式可分为：</strong></p>
-<ul>
-<li>同步方法</li>
-<li>同步代码块</li>
-<li>使用特殊域变量(volatile)实现线程同步</li>
-<li>使用重入锁实现线程同步</li>
-<li><a href="http://blog.csdn.net/wenwen091100304/article/details/48318699" target="_blank" rel="external"><strong>详细介绍链接</strong></a></li>
-</ul>
-<h2 id="多线程的使用场景"><a href="#多线程的使用场景" class="headerlink" title="多线程的使用场景"></a>多线程的使用场景</h2><ol>
-<li>为了不阻塞主线程，启动其他线程来做耗时的事情。比如app开发中耗时的操作都不在UI主线程中做。</li>
-<li>实现响应更快的应用程序， 即主线程专门监听用户请求，子线程用来处理用户请求。以获得大的吞吐量。<br>感觉这种情况下，多线程的效率未必高。 这种情况下的多线程是为了不必等待， 可以并行处理多条数据。比如JavaWeb的就是主线程专门监听用户的HTTP请求，然后启动子线程去处理用户的HTTP请求。</li>
-<li>某种优先级虽然很低的服务，但是却要不定时去做。比如Jvm的垃圾回收。</li>
-<li>某种任务，虽然耗时，但是不耗CPU的操作时，开启多个线程，效率会有显著提高。<br>比如读取文件，然后处理。 磁盘IO是个很耗费时间，但是不耗CPU计算的工作。 所以可以一个线程读取数据，一个线程处理数据。肯定比一个线程读取数据，然后处理效率高。 因为两个线程的时候充分利用了CPU等待磁盘IO的空闲时间。曾几何时想过使用多线程读取磁盘数据， 但是读取磁盘数据的性能瓶颈是IO，而不是CPU。 使用多线程的目的是为了不让CPU闲下来，明显不适合用于读取磁盘数据。</li>
-</ol>
-
-          
+为什么要提供两种方法来创建线程呢？
+在Java中，类仅支持单继承，也就是说，当定义一个新的类的时候，它只能扩
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/30/Java之线程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1079,74 +1062,16 @@ $Thread-1(0)</pre>
       
         
           
-            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Java的异常处理依赖于你已经知道所调用的方法是有风险的（也就是方法可能产生异常），因此你可编写出处理此可能性的代码，如果你知道调用某个方法可能会有异常状况，你就可以与预先准备好对问题的处理程序，或者是从错误中恢复。</p>
-<p>在Java中最好将有风险的程序代码包含在try/catch块中，这样才能对异常进行捕获和处理。</p>
-<p><strong>异常是一种Exception类型的对象。</strong></p>
-<p>格式：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>&#123;</div><div class="line">	<span class="comment">//危险动作</span></div><div class="line">&#125;<span class="keyword">catch</span>(Exception ex)&#123;<span class="comment">//因为异常是对象，所以你catch住的也是对象。</span></div><div class="line">	<span class="comment">//尝试恢复</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="创建和抛出异常"><a href="#创建和抛出异常" class="headerlink" title="创建和抛出异常"></a>创建和抛出异常</h2><p>没错，我们不仅能写处理异常的程序，也可以自己创建和抛出异常，具体方式请往下看。</p>
-<p><strong>创建有风险、会抛出异常的程序代码：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeRisk</span><span class="params">()</span> <span class="keyword">throws</span> BadException </span>&#123;<span class="comment">//必须声明它会抛出BadException</span></div><div class="line">	<span class="keyword">if</span>(abandonAllHope)&#123;</div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> BadException();<span class="comment">//创建Exception对象并抛出</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>调用该方法的程序代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">crossFingers</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="keyword">try</span>&#123;</div><div class="line">		anObject.takeRisk();</div><div class="line">	&#125;<span class="keyword">catch</span>(BadException ex)&#123;</div><div class="line">		System.out.printIn(<span class="string">"Aaargh!"</span>);</div><div class="line">		ex.printStackTrace();<span class="comment">//如果无法从异常中恢复，至少也使用printStackTrace()列出有用的信息</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果你有抛出异常，则一定要使用throw来声明这件事。</p>
-<p><strong>注意：</strong></p>
-<ul>
-<li>编译器不会注意RuntimeException类型的异常。RuntimeExcetion不需要声明或被包含在try/catch的块中（然而你还是可以这样做）。编译器所关心的是成为检查异常（checked exception）的异常，程序必须要认识有以上可能的存在。</li>
-<li>方法可以用trow关键系抛出异常对象：<ul>
-<li><code>throw new FileIsTooSmallException();</code></li>
-</ul>
-</li>
-<li>可能会抛出异常的方法必须声明成throws Exception</li>
-</ul>
-<h2 id="try-catch块的流程控制"><a href="#try-catch块的流程控制" class="headerlink" title="try/catch块的流程控制"></a>try/catch块的流程控制</h2><p>当你调用有风险的方法时，发生的事有两种可能的情况：</p>
-<ol>
-<li>成功的把try块完成</li>
-<li>把异常丢回调用方的方法</li>
-</ol>
-<h2 id="finally-无论如何都要执行的部分"><a href="#finally-无论如何都要执行的部分" class="headerlink" title="finally:无论如何都要执行的部分"></a>finally:无论如何都要执行的部分</h2><p>打个比方，你做菜，得把火打开，然后会有两种情况，一种是全程没问题，你顺利把菜炒完，另一种是出现状况了，比如锅漏了这种异常导致你做菜大业失败，但是不管哪种情况，发生之后都必须执行的是把炉子关掉，而关炉子这个流程就是放在finally块中的。</p>
-<p>很明显，finally块是用来存放不管有没有异常都得执行的程序。</p>
-<p><strong>格式：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span>&#123;</div><div class="line">	turnOvenOn();</div><div class="line">	x.bake();</div><div class="line">&#125;<span class="keyword">catch</span>(BakingException ex)&#123;</div><div class="line">	ex.printStackTrace();</div><div class="line">&#125;<span class="keyword">finally</span>&#123;</div><div class="line">	turnOvenOff();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>值得注意的是，就酸try或catch块中有return子凌，finally还是会执行，流程调到finally然后在回到return指令，就是这么厉害。</p>
-<p>举个栗子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestExceptions</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		String test = <span class="string">"no"</span>;</div><div class="line">		<span class="comment">//String test = "yes";</span></div><div class="line">		<span class="keyword">try</span>&#123;</div><div class="line">			System.out.println(<span class="string">"start try"</span>);</div><div class="line">			doRisky(test);</div><div class="line">			System.out.println(<span class="string">"end try"</span>);</div><div class="line">		&#125; <span class="keyword">catch</span> (ScaryException se) &#123;</div><div class="line">			System.out.println(<span class="string">"scary exception"</span>);</div><div class="line">		&#125; <span class="keyword">finally</span> &#123;</div><div class="line">			System.out.println(<span class="string">"finally"</span>);</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"end of main"</span>);</div><div class="line">	&#125;</div><div class="line">	 </div><div class="line">	<span class="comment">//(API中没有此类)因此要自己写ScaryException类</span></div><div class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doRisky</span><span class="params">(String test)</span> <span class="keyword">throws</span> ScaryException </span>&#123;</div><div class="line">		System.out.println(<span class="string">"start risky"</span>);</div><div class="line">		<span class="keyword">if</span>(<span class="string">"yes"</span>.equals(test))&#123;</div><div class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> ScaryException();</div><div class="line">		&#125;</div><div class="line">		System.out.println(<span class="string">"end risky"</span>);</div><div class="line">		<span class="keyword">return</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行结果为：</p>
-<pre>
-start try
-start risky
-end risky
-end try
-finally
-end of main
-
-若第三行改为“String test = "no";”则结果应为：
-start try
-start risky
-scary exception
-finally
-end of main
-</pre>
-
-<h2 id="多重异常"><a href="#多重异常" class="headerlink" title="多重异常"></a>多重异常</h2><p>如果有必要，方法可以排除多个异常。但该方法的声明必须要有含有全部可能的检查异常（若两个或两个以上的异常有共同的父类是，可以只声明该父类就行）</p>
-<p>格式：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Laundry</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doLaundry</span><span class="params">()</span> <span class="keyword">throws</span> PantsException,LingerieException</span>&#123;</div><div class="line">		<span class="comment">//有可能抛出两个异常的程序代码</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;</div><div class="line">		Laundry laundry=<span class="keyword">new</span> Laundry();</div><div class="line">		<span class="keyword">try</span>&#123;</div><div class="line">			laundry.doLaundry();</div><div class="line">		&#125;<span class="keyword">catch</span>(PantsException pex)&#123;</div><div class="line">			<span class="comment">//恢复程序代码</span></div><div class="line">		&#125;<span class="keyword">catch</span>(LingerieException pex)&#123;</div><div class="line">			<span class="comment">//恢复程序代码</span></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="异常具有多态性"><a href="#异常具有多态性" class="headerlink" title="异常具有多态性"></a>异常具有多态性</h2><p>是基于类的继承关系得来的，父类或者子类的异常可以直接catch父类的异常来包含所有异常，catch子类的异常则只能用来处理子类的异常，对父类的不起作用。但是这也不意味着就可以都直接catch父类的异常来省去catch子类异常的步骤，因为直接catch父类的异常会导致不知道是哪个子类发生的异常，你会搞不清到底哪里出错了。</p>
-<h2 id="有多个catch块时要从大到小排列"><a href="#有多个catch块时要从大到小排列" class="headerlink" title="有多个catch块时要从大到小排列"></a>有多个catch块时要从大到小排列</h2><p>“从大到小”指的是按照类的继承关系，从最下面的子类放第一个位置，最开始的父类放最下面。兄弟之间次序不重要，可以随便放。</p>
-<h2 id="duck异常"><a href="#duck异常" class="headerlink" title="duck异常"></a>duck异常</h2><p>没错，不想处理的异常可以duck（躲避）掉。</p>
-<p>方法时让调用的方法抛出异常，让调用那个方法的方法也抛出异常，就像踢皮球一样，不去管那个异常，只管抛出去，自己不管。既然都不管，这样踢来踢去最后只能落到Java虚拟机上，而Java虚拟机并不在意异常，所以程序就能编译通过。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	Laundry laundry=<span class="keyword">new</span> Laundry();</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">foo</span><span class="params">()</span> <span class="keyword">throws</span> ClothingException</span>&#123;</div><div class="line">		laundry.doLaundry();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ClothingException</span>&#123;</div><div class="line">		Washer a=<span class="keyword">new</span> Washer();</div><div class="line">		a.foo();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>以上代码如果将main函数里的<code>throws ClothingException</code>去掉，即没有duck掉异常，则无法通过编译，还会出现“unzepozted eception”的错误信息。如果不想duck掉，就老老实实用try/catch块将<code>a.foo()</code>这一危险操作包起来。</p>
-<h2 id="异常处理的结构规则"><a href="#异常处理的结构规则" class="headerlink" title="异常处理的结构规则"></a>异常处理的结构规则</h2><ul>
-<li>catch与finally不能没有try</li>
-<li>try与catch之间不能有程序</li>
-<li>try一定要有catch或finally</li>
-<li>只带有finally的try必须要声明异常</li>
-</ul>
-<p>栗子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> <span class="keyword">throws</span> FooException</span>&#123;<span class="comment">//只带有finally的try</span></div><div class="line">	<span class="keyword">try</span>&#123;</div><div class="line">		x.doStuff();	</div><div class="line">	&#125;<span class="keyword">finally</span>&#123;  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          简介Java的异常处理依赖于你已经知道所调用的方法是有风险的（也就是方法可能产生异常），因此你可编写出处理此可能性的代码，如果你知道调用某个方法可能会有异常状况，你就可以与预先准备好对问题的处理程序，或者是从错误中恢复。
+在Java中最好将有风险的程序代码包含在try/catch块中，这样才能对异常
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/29/Java之异常/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1298,119 +1223,21 @@ end of main
       
         
           
-            <h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
-<li>多个类中存在相同属性和行为时，将这些内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继承那个类即可。</li>
-<li>多个类可以称为子类，单独这个类称为父类、超类或者基类。</li>
-<li>子类可以直接访问父类中的<span style="color:red"><strong>非私有</strong></span>的属性和行为。</li>
-<li>通过 extends 关键字让类与类之间产生继承关系。</li>
-</ul>
-<p>具体实现为，通过extends关键字让类与类之间产生继承关系：</p>
-<pre><code>class SubDemo extends Demo{}    //SubDemo是子类，Demo是父类
-</code></pre><blockquote>
-<p>继承提高了代码的复用性，让类与类之间产生关系，是多态的前提。</p>
-</blockquote>
-<h3 id="super和this的区别"><a href="#super和this的区别" class="headerlink" title="super和this的区别"></a>super和this的区别</h3><p>super是一个关键字，代表父类的存储空间标识。(可以理解为父亲的引用)</p>
-<ul>
-<li>this代表对象的引用(谁调用就代表谁)；</li>
-<li>super代表当前子类对父类的引用。</li>
-</ul>
-<p><strong>使用场景</strong></p>
-<ul>
-<li>当子父类出现同名成员时，可以用super进行区分</li>
-<li>子类要调用父类构造函数时，可以使用super语句</li>
-</ul>
-<p><strong>具体用法</strong></p>
-<ol>
-<li><p>成员变量</p>
-<p> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/160259196.png" alt="mark"></p>
-</li>
-<li><p>构造方法</p>
-<p> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/160359143.png" alt="mark"></p>
-</li>
-<li><p>成员方法</p>
-<p> <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/160432378.png" alt="mark"></p>
-</li>
-</ol>
-<p><strong>注意：</strong></p>
-<ul>
-<li>super();和this();都是在构造函数的第一行，不能同时出现（this和super不能同时出现在一个构造函数里面，因为this必然会调用其它的构造函数，其它的构造函数必然也会有super语句的存在，所以在同一个构造函数里面有相同的语句，就失去了语句的意义，编译器也不会通过）</li>
-<li>this()和super()都指的是对象，所以，均不可以在static环境中使用。包括：static变量,static方法，static语句块</li>
-</ul>
-<p><strong>举个栗子：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123; </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">prt</span><span class="params">(String s)</span> </span>&#123; </div><div class="line">       System.out.println(s); </div><div class="line">    &#125; </div><div class="line">   </div><div class="line">    Person() &#123; </div><div class="line">       prt(<span class="string">"父类·无参数构造方法： "</span>+<span class="string">"A Person."</span>); </div><div class="line">    &#125;<span class="comment">//构造方法(1) </span></div><div class="line">    </div><div class="line">    Person(String name) &#123; </div><div class="line">       prt(<span class="string">"父类·含一个参数的构造方法： "</span>+<span class="string">"A person's name is "</span> + name); </div><div class="line">    &#125;<span class="comment">//构造方法(2) </span></div><div class="line">&#125; </div><div class="line">    </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Chinese</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123; </div><div class="line">    Chinese() &#123; </div><div class="line">       <span class="keyword">super</span>(); <span class="comment">// 调用父类构造方法（1） </span></div><div class="line">       prt(<span class="string">"子类·调用父类”无参数构造方法“： "</span>+<span class="string">"A chinese coder."</span>); </div><div class="line">    &#125; </div><div class="line">    </div><div class="line">    Chinese(String name) &#123; </div><div class="line">       <span class="keyword">super</span>(name);<span class="comment">// 调用父类具有相同形参的构造方法（2） </span></div><div class="line">       prt(<span class="string">"子类·调用父类”含一个参数的构造方法“： "</span>+<span class="string">"his name is "</span> + name); </div><div class="line">    &#125; </div><div class="line">    </div><div class="line">    Chinese(String name, <span class="keyword">int</span> age) &#123; </div><div class="line">       <span class="keyword">this</span>(name);<span class="comment">// 调用具有相同形参的构造方法（3） </span></div><div class="line">       prt(<span class="string">"子类：调用子类具有相同形参的构造方法：his age is "</span> + age); </div><div class="line">    &#125; </div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">    	System.out.println(<span class="string">"第一条语句执行结果为："</span>);</div><div class="line">       Chinese cn = <span class="keyword">new</span> Chinese(); </div><div class="line">       System.out.println(<span class="string">"第二条语句执行结果为："</span>);</div><div class="line">       cn = <span class="keyword">new</span> Chinese(<span class="string">"codersai"</span>);</div><div class="line">       System.out.println(<span class="string">"第三条语句执行结果为："</span>);</div><div class="line">       cn = <span class="keyword">new</span> Chinese(<span class="string">"codersai"</span>, <span class="number">18</span>); </div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行结果为：</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/161619402.png" alt="mark"></p>
-<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><ul>
-<li>Java中可以定义没有方法体的方法，该方法的具体实现由子类完成，该方法称为抽象方法，包含抽象方法的类就是抽象类</li>
-<li>抽象方法和抽象类都必须被abstract关键字修饰</li>
-<li>抽象类不可以用new创建对象，因为调用抽象方法没意义</li>
-<li>抽象类中的抽象方法要被使用，必须由子类复写其所有的抽象方法后，建立子类对象调用； 如果子类只覆盖了部分的抽象方法，那么该子类还是一个抽象类</li>
-<li>抽象类中可以有抽象方法，也可以有非抽象方法，抽象方法用于子类实例化</li>
-<li>如果一个类是抽象类，那么，继承它的子类，要么是抽象类，要么重写所有抽象方法。<br>特殊：抽象类中可以不定义抽象方法，这样做仅仅是不让该类建立对象</li>
-</ul>
-<p>栗子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> 葵花宝典 </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> 自宫();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> 岳不群 <span class="keyword">extends</span> 葵花宝典 </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> 自宫()&#123;</div><div class="line">        System.out.println(<span class="string">"剪刀"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> 林平之 <span class="keyword">extends</span> 葵花宝典</span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> 自宫()&#123;</div><div class="line">        System.out.println(<span class="string">"指甲刀"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AbstractTest</span>  </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        岳不群 岳 = <span class="keyword">new</span> 岳不群();</div><div class="line">        岳.自宫();</div><div class="line"></div><div class="line">        林平之 林 = <span class="keyword">new</span> 林平之();</div><div class="line">        林.自宫();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>抽象类不能被实例化，为什么还有构造函数？</strong></p>
-<blockquote>
-<p>只要是class定义的类里面就肯定有构造函数。抽象类中的函数是给子类实例化的。</p>
-</blockquote>
-<p><strong>一个类没有抽象方法，为什么定义为抽象类?</strong></p>
-<blockquote>
-<p>不想被继承，还不想被实例化。</p>
-</blockquote>
-<p><strong>抽象关键字abstract不可以和哪些关键字共存？</strong></p>
-<blockquote>
-<p>final：如果方法被抽象，就需要被覆盖，而final是不可以被覆盖，所以冲突。</p>
-<p>private：如果函数被私有了，子类无法直接访问，怎么覆盖呢？</p>
-<p>static：不需要对象，类名就可以调用抽象方法。而调用抽象方法没有意义。</p>
-</blockquote>
-<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p>接口是抽象方法和常量值的集合。从本质上讲，接口是一种特殊的抽象类，<span style="color:red">这种抽象类只包含常量和方法的定义，而没有变量和方法的实现</span>。</p>
-<p>格式：<code>interface 接口名{}</code>（注意没有“class”）</p>
-<p>实现：<code>class 类名 implements 接口名 {}</code></p>
-<h3 id="接口的成员特点："><a href="#接口的成员特点：" class="headerlink" title="接口的成员特点："></a>接口的成员特点：</h3><blockquote>
-<p>成员常量：public static final，接口里定义的变量是全局常量，而且修饰符只能是这三个关键字，都可以省略，常量名要大写</p>
-<p>成员方法：public abstract，接口里定义的方法都是抽象的，两个修饰符关键字可省略</p>
-<p>推荐：永远手动给出修饰符</p>
-</blockquote>
-<h3 id="抽象类与接口的区别"><a href="#抽象类与接口的区别" class="headerlink" title="抽象类与接口的区别"></a>抽象类与接口的区别</h3><ul>
-<li>成员变量：<ul>
-<li>抽象类能有变量也可以有常量</li>
-<li>接口只能有常量</li>
-</ul>
-</li>
-<li>成员方法：<ul>
-<li>抽象类可以有非抽象的方法,也可以有抽象的方法</li>
-<li>接口只能有抽象的方法</li>
-</ul>
-</li>
-<li>构造方法：<ul>
-<li>抽象类有构造方法</li>
-<li>接口没有构造方法</li>
-</ul>
-</li>
-<li>类与抽象类和接口的关系：<ul>
-<li>类与抽象类的关系是继承 extends</li>
-<li>类与接口的关系是实现 implements</li>
-</ul>
-</li>
-</ul>
-<h3 id="一个类可以实现多个接口吗？"><a href="#一个类可以实现多个接口吗？" class="headerlink" title="一个类可以实现多个接口吗？"></a>一个类可以实现多个接口吗？</h3><p>答案是肯定可以的，接口本身就是解决多重继承衍生的产物，如果不能实现多个接口那接口姐没有什么意义了。</p>
-<p>例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//A接口</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">A</span></span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getA</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//B接口</span></div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">B</span></span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getB</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//实现了某个接口必须实现其全部的方法</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImpAB</span> <span class="keyword">implements</span> <span class="title">A</span>,<span class="title">B</span></span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getA</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"> &#125;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getB</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><p>将一个类定义在另一个类里面，里面的那个类就称为内部类</p>
-<ul>
-<li>内部类可以直接访问外部类的成员，包括私有成员</li>
-<li>外部类要访问内部类的成员，必须要建立内部类的对象</li>
-<li>内部类仍然是一个独立的类，在编译之后会内部类会被编译成独立的.class文件，<strong>但是前面冠以外部类的类名和$符号</strong></li>
-<li>内部类不能用普通的方式访问。内部类是外部类的一个成员，因此内部类可以自由地访问外部类的成员变量，无论是否是private的</li>
-</ul>
-<h3 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/165848405.png" alt="mark"></p>
-<h3 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/165919972.png" alt="mark"></p>
-<h3 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/165955519.png" alt="mark"></p>
-<h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170529/170019239.png" alt="mark"></p>
-<p>本文主要内容转载于：<a href="http://www.codeceo.com/article/java-extends.html" target="_blank" rel="external">Java 继承详解</a></p>
+          继承
+多个类中存在相同属性和行为时，将这些内容抽取到单独一个类中，那么多个类无需再定义这些属性和行为，只要继承那个类即可。
+多个类可以称为子类，单独这个类称为父类、超类或者基类。
+子类可以直接访问父类中的非私有的属性和行为。
+通过 extends 关键字让类与类之间产生继承关系。
 
-          
+具体实现为，通过
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/29/Java入门（五）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1562,123 +1389,17 @@ end of main
       
         
           
-            <h2 id="equals-与"><a href="#equals-与" class="headerlink" title="equals()与=="></a>equals()与==</h2><h3 id=""><a href="#" class="headerlink" title="=="></a>==</h3><p>比较的是两个值是否相等，这里的值分为两种情况：</p>
-<p>基本类型的值，即float、double、byte、short、int、long、char、boolean这八种java的基本数据类型，这里比较的就是值本身，举个例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> a=<span class="number">2</span>;</div><div class="line"><span class="keyword">int</span> b=<span class="number">2</span>;</div><div class="line">System.out.printIn(a==b);<span class="comment">//结果:true</span></div></pre></td></tr></table></figure>
-<p>而对于非基本数据类型（或者说引用类型）的变量，比较的就不是“值”本身，因为引用类型的变量存储的并不是“值”本身，而是预期关联对象在内存中的地址，举个例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">String str = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">   String str1 = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">   String str2 = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">       </div><div class="line">   System.out.println(str1==str2);<span class="comment">//结果为: false，因为str1和str2声明的是两个不同的对象，存储地址自然不同</span></div><div class="line">       </div><div class="line">   str1 = str;</div><div class="line">   str2 = str;</div><div class="line">   System.out.println(str1==str2);<span class="comment">//结果: true，因为此时str1和str2都指向了同一个对象，存储的地址相同了</span></div></pre></td></tr></table></figure>
-<h3 id="equals"><a href="#equals" class="headerlink" title="equals()"></a>equals()</h3><p>equals方法是基类Object中的方法，因此对于所有的继承于Object的类都会有该方法。equals比较的是两个对象的引用是否相等，即是否指向同一个对象，不过看下下面的代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> args</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// TODO Auto-generated method stub</span></div><div class="line">        </div><div class="line">        String str1 = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">        String str2 = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</div><div class="line">        </div><div class="line">        System.out.println(str1.equals(str2));</div><div class="line">    &#125;</div><div class="line">&#125;<span class="comment">//结果：true</span></div></pre></td></tr></table></figure>
-<p>之所以会变成这样是因为Java的equals方法在用来比较String、Double，Date，Integer等对象时，其内部对equals方法进行了重写（可以直接去看自己JDK的中String.java的源代码，确实是对equals方法进行了重写），使其用来比较指向对象所处的内容是否相等。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ol>
-<li>对于==，如果作用于基本数据类型的变量，则直接比较其存储的 “值”是否相等,如果作用于引用类型的变量，则比较的是所指向的对象的地址。</li>
-<li>对于equals方法，注意：equals方法不能作用于基本数据类型的变量如果没有对equals方法进行重写，则比较的是引用类型的变量所指向的对象的地址，诸如String、Date等类对equals方法进行了重写的话，比较的是所指向的对象的内容。</li>
-</ol>
-<p>本节内容转载于:<a href="http://www.cnblogs.com/dolphin0520/p/3592500.html" target="_blank" rel="external">浅谈Java中的equals和==</a></p>
-<h2 id="static、final和static-final"><a href="#static、final和static-final" class="headerlink" title="static、final和static final"></a>static、final和static final</h2><h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><ol>
-<li><strong>final类不能被继承，没有子类，final类中的方法默认是final的</strong><ul>
-<li>在设计类时候，如果这个类不需要有子类，类的实现细节不允许改变，并且确信这个类不会再被扩展，那么就设计为final类</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><strong>final方法不能被子类的方法覆盖，但可以被继承</strong><ul>
-<li>如果一个类不允许其子类覆盖某个方法，则可以把这个方法声明为final方法</li>
-<li>把方法锁定，防止任何继承类修改它的意义和实现</li>
-<li>高效。编译器在遇到调用final方法时候会转入内嵌机制，大大提高执行效率</li>
-</ul>
-</li>
-<li><strong>final成员变量表示常量，只能被赋值一次，赋值后值不再改变</strong><ul>
-<li>final修饰的变量有三种：静态变量、实例变量和局部变量，分别表示三种类型的常量</li>
-<li>final变量定义的时候，可以先声明，而不给初值，这中变量也称为final空白，无论什么情况，编译器都确保空白final在使用之前必须被初始化。但是，final空白在final关键字final的使用上提供了更大的灵活性，为此，一个类中的final数据成员就可以实现依对象而有所不同，却有保持其恒定不变的特征</li>
-</ul>
-</li>
-<li><strong>final不能用于修饰构造方法</strong></li>
-<li><strong>父类的private成员方法是不能被子类方法覆盖的，因此private类型的方法默认是final类型的</strong></li>
-<li><strong>当函数参数为final类型时，你可以读取使用该参数，但是无法改变该参数的值</strong></li>
-</ul>
-<p><strong>例子</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//关于用final修饰方法的情况</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123; </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">    <span class="comment">// TODO 自动生成方法存根 </span></div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f1</span><span class="params">()</span> </span>&#123; </div><div class="line">    System.out.println(<span class="string">"f1"</span>); </div><div class="line">&#125; </div><div class="line"><span class="comment">//无法被子类覆盖的方法 </span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">f2</span><span class="params">()</span> </span>&#123; </div><div class="line">    System.out.println(<span class="string">"f2"</span>); </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f3</span><span class="params">()</span> </span>&#123; </div><div class="line">    System.out.println(<span class="string">"f3"</span>); </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">f4</span><span class="params">()</span> </span>&#123; </div><div class="line">    System.out.println(<span class="string">"f4"</span>); </div><div class="line">&#125; </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> <span class="keyword">extends</span> <span class="title">Test1</span> </span>&#123;   </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f1</span><span class="params">()</span></span>&#123;     </div><div class="line">    System.out.println(<span class="string">"Test1父类方法f1被覆盖!"</span>); </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">    Test2 t=<span class="keyword">new</span> Test2(); </div><div class="line">    t.f1();    </div><div class="line">    t.f2(); <span class="comment">//调用从父类继承过来的final方法 </span></div><div class="line">    t.f3(); <span class="comment">//调用从父类继承过来的方法 </span></div><div class="line">    <span class="comment">//t.f4(); //调用失败，无法从父类继承获得 </span></div><div class="line">&#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//关于final修饰成员变量的情况</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test3</span> </span>&#123; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String S = <span class="string">"final实例变量S"</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> A = <span class="number">100</span>; </div><div class="line">        <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> B = <span class="number">90</span>; </div><div class="line"></div><div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> C = <span class="number">80</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> D = <span class="number">70</span>; </div><div class="line"></div><div class="line">        <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> E; <span class="comment">//final空白,必须在初始化对象的时候赋初值 </span></div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Test3</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; </div><div class="line">                E = x; </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="comment">/** </span></div><div class="line">         * <span class="doctag">@param</span> args </div><div class="line">         */ </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">                Test3 t = <span class="keyword">new</span> Test3(<span class="number">2</span>); </div><div class="line">                <span class="comment">//t.A=101;    //出错,final变量的值一旦给定就无法改变 </span></div><div class="line">                <span class="comment">//t.B=91; //出错,final变量的值一旦给定就无法改变 </span></div><div class="line">                <span class="comment">//t.C=81; //出错,final变量的值一旦给定就无法改变 </span></div><div class="line">                <span class="comment">//t.D=71; //出错,final变量的值一旦给定就无法改变 </span></div><div class="line"></div><div class="line">                System.out.println(t.A); </div><div class="line">                System.out.println(t.B); </div><div class="line">                System.out.println(t.C); <span class="comment">//不推荐用对象方式访问静态字段 </span></div><div class="line">                System.out.println(t.D); <span class="comment">//不推荐用对象方式访问静态字段 </span></div><div class="line">                System.out.println(Test3.C); </div><div class="line">                System.out.println(Test3.D); </div><div class="line">                <span class="comment">//System.out.println(Test3.E); //出错,因为E为final空白,依据不同对象值有所不同. </span></div><div class="line">                System.out.println(t.E); </div><div class="line"></div><div class="line">                Test3 t1 = <span class="keyword">new</span> Test3(<span class="number">3</span>); </div><div class="line">                System.out.println(t1.E); <span class="comment">//final空白变量E依据对象的不同而不同 </span></div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123; </div><div class="line">                System.out.println(<span class="keyword">new</span> Test3(<span class="number">1</span>).A); </div><div class="line">                System.out.println(Test3.C); </div><div class="line">                System.out.println(Test3.D); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123; </div><div class="line">                <span class="keyword">final</span> <span class="keyword">int</span> a;     <span class="comment">//final空白,在需要的时候才赋值 </span></div><div class="line">                <span class="keyword">final</span> <span class="keyword">int</span> b = <span class="number">4</span>;    <span class="comment">//局部常量--final用于局部变量的情形 </span></div><div class="line">                <span class="keyword">final</span> <span class="keyword">int</span> c;    <span class="comment">//final空白,一直没有给赋值.    </span></div><div class="line">                a = <span class="number">3</span>; </div><div class="line">                <span class="comment">//a=4;    出错,已经给赋过值了. </span></div><div class="line">                <span class="comment">//b=2; 出错,已经给赋过值了. </span></div><div class="line">        &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//关于final修饰函数参数的情况</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test4</span> </span>&#123; </div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">                <span class="keyword">new</span> Test4().f1(<span class="number">2</span>); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f1</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> i)</span> </span>&#123; </div><div class="line">                <span class="comment">//i++;    //i是final类型的,值不允许改变的. </span></div><div class="line">                System.out.print(i); </div><div class="line">        &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><ul>
-<li>static表示“全局”或者“静态”的意思，用来修饰成员变量和成员方法</li>
-<li>被static修饰的成员变量和成员方法独立于该类的任何对象。也就是说，它不依赖类特定的实例，被类的所有实例共享</li>
-<li>static对象可以在它的任何对象创建之前访问，无需引用任何对象</li>
-<li>用public修饰的static成员变量和成员方法本质是全局变量和全局方法，当声明它类的对象时，不生成static变量的副本，而是类的所有实例共享同一个static变量</li>
-<li>static变量前可以有private修饰，表示这个变量可以在类的静态代码块中，或者类的其他静态成员方法中使用，但是不能在其他类中通过类名来直接引用。原因是<span style="color:red">private是访问权限限定，static表示不要实例化就可以使用</span></li>
-<li>static修饰的成员变量和成员方法习惯上称为静态变量和静态方法，可以直接通过类名来访问<ul>
-<li>用法为：<ul>
-<li>类名.静态方法名(参数列表…) </li>
-<li>类名.静态变量名</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="static变量"><a href="#static变量" class="headerlink" title="static变量"></a>static变量</h4><ul>
-<li><p>静态变量或类变量</p>
-<ul>
-<li>被static修饰的变量</li>
-<li>在内存中只有一个拷贝（节省内存），JVM只为静态分配一次内存，在加载类的过程中完成静态变量的内存分配，可用类名直接访问（方便），当然也可以通过对象来访问（但是这是不推荐的）</li>
-</ul>
-</li>
-<li><p>实例变量</p>
-<ul>
-<li>没有被static修饰的变量</li>
-<li>每创建一个实例，就会为实例变量分配一次内存，实例变量可以在内存中有多个拷贝，互不影响（灵活）</li>
-</ul>
-</li>
-</ul>
-<h4 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h4><ul>
-<li>静态方法可以直接通过类名调用，任何的实例也都可以调用，因此静态方法中不能用this和super关键字，不能直接访问所属类的实例变量和实例方法(就是不带static的成员变量和成员成员方法)，只能访问所属类的静态成员变量和成员方法。因为实例成员与特定的对象关联！</li>
-<li>因为static方法独立于任何实例，因此static方法必须被实现，而不能是抽象的abstract</li>
-</ul>
-<h4 id="static代码块"><a href="#static代码块" class="headerlink" title="static代码块"></a>static代码块</h4><ul>
-<li>也叫静态代码块</li>
-<li>是在类中独立于类成员的static语句块，可以有多个，位置可以随便放，它不在任何的方法体内，JVM加载类时会执行这些静态的代码块，如果static代码块有多个，JVM将按照它们在类中出现的先后顺序依次执行它们，每个代码块只会被执行一次</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//static代码块的例子</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test5</span> </span>&#123; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> a; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> b; </div><div class="line"></div><div class="line">        <span class="keyword">static</span> &#123; </div><div class="line">                Test5.a = <span class="number">3</span>; </div><div class="line">                System.out.println(a); </div><div class="line">                Test5 t = <span class="keyword">new</span> Test5(); </div><div class="line">                t.f(); </div><div class="line">                t.b = <span class="number">1000</span>; </div><div class="line">                System.out.println(t.b); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="keyword">static</span> &#123; </div><div class="line">                Test5.a = <span class="number">4</span>; </div><div class="line">                System.out.println(a); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123; </div><div class="line">                <span class="comment">// TODO 自动生成方法存根 </span></div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="keyword">static</span> &#123; </div><div class="line">                Test5.a = <span class="number">5</span>; </div><div class="line">                System.out.println(a); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; </div><div class="line">                System.out.println(<span class="string">"hhahhahah"</span>); </div><div class="line">        &#125; </div><div class="line">&#125;</div><div class="line"><span class="comment">//结果：</span></div><div class="line"><span class="comment">//3</span></div><div class="line"><span class="comment">//hhahhahah</span></div><div class="line"><span class="comment">//1000</span></div><div class="line"><span class="comment">//4</span></div><div class="line"><span class="comment">//5</span></div></pre></td></tr></table></figure>
-<h3 id="static-final"><a href="#static-final" class="headerlink" title="static final"></a>static final</h3><ul>
-<li>static final用来修饰成员变量和成员方法，可简单理解为“全局常量”<ul>
-<li>对于变量，表示一旦给值就不可修改，并且通过类名可以访问</li>
-<li>对于方法，表示不可覆盖，并且可以通过类名直接访问</li>
-</ul>
-</li>
-<li>对于被static和final修饰过的实例常量，实例本身不能再改变了，但对于一些容器类型（比如，ArrayList、HashMap）的实例变量，不可以改变容器变量本身，但可以修改容器中存放的对象，这一点在编程中用到很多</li>
-</ul>
-<p><strong>例子</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestStaticFinal</span> </span>&#123; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String strStaticFinalVar = <span class="string">"aaa"</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> String strStaticVar = <span class="keyword">null</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">final</span> String strFinalVar = <span class="keyword">null</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> intStaticFinalVar = <span class="number">0</span>; </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Integer integerStaticFinalVar = <span class="keyword">new</span> Integer(<span class="number">8</span>); </div><div class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ArrayList&lt;String&gt; alStaticFinalVar = <span class="keyword">new</span> ArrayList&lt;String&gt;(); </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123; </div><div class="line">                System.out.println(<span class="string">"-------------值处理前----------\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strStaticFinalVar="</span> + strStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strStaticVar="</span> + strStaticVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strFinalVar="</span> + strFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"intStaticFinalVar="</span> + intStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"integerStaticFinalVar="</span> + integerStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"alStaticFinalVar="</span> + alStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line"></div><div class="line"></div><div class="line">                <span class="comment">//strStaticFinalVar="哈哈哈哈";        //错误，final表示终态,不可以改变变量本身. </span></div><div class="line">                strStaticVar = <span class="string">"哈哈哈哈"</span>;                <span class="comment">//正确，static表示类变量,值可以改变. </span></div><div class="line">                <span class="comment">//strFinalVar="呵呵呵呵";                    //错误, final表示终态，在定义的时候就要初值（哪怕给个null），一旦给定后就不可再更改。 </span></div><div class="line">                <span class="comment">//intStaticFinalVar=2;                        //错误, final表示终态，在定义的时候就要初值（哪怕给个null），一旦给定后就不可再更改。 </span></div><div class="line">                <span class="comment">//integerStaticFinalVar=new Integer(8);            //错误, final表示终态，在定义的时候就要初值（哪怕给个null），一旦给定后就不可再更改。 </span></div><div class="line">                alStaticFinalVar.add(<span class="string">"aaa"</span>);        <span class="comment">//正确，容器变量本身没有变化，但存放内容发生了变化。这个规则是非常常用的，有很多用途。 </span></div><div class="line">                alStaticFinalVar.add(<span class="string">"bbb"</span>);        <span class="comment">//正确，容器变量本身没有变化，但存放内容发生了变化。这个规则是非常常用的，有很多用途。 </span></div><div class="line"></div><div class="line">                System.out.println(<span class="string">"-------------值处理后----------\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strStaticFinalVar="</span> + strStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strStaticVar="</span> + strStaticVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"strFinalVar="</span> + strFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"intStaticFinalVar="</span> + intStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"integerStaticFinalVar="</span> + integerStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">                System.out.println(<span class="string">"alStaticFinalVar="</span> + alStaticFinalVar + <span class="string">"\r\n"</span>); </div><div class="line">        &#125; </div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123; </div><div class="line">                <span class="keyword">new</span> TestStaticFinal().test(); </div><div class="line">        &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<pre>运行结果如下：
--------------值处理前----------
-strStaticFinalVar=aaa
-strStaticVar=null
-strFinalVar=null
-intStaticFinalVar=0
-integerStaticFinalVar=8
-alStaticFinalVar=[]
--------------值处理后----------
-strStaticFinalVar=aaa
-strStaticVar=哈哈哈哈
-strFinalVar=null
-intStaticFinalVar=0
-integerStaticFinalVar=8
-alStaticFinalVar=[aaa, bbb]
-
-Process finished with exit code 0</pre>
-
-<p>通过static final修饰的容器类型变量中所“装”的对象是可改变的。这是和一般基本类型和类类型变量差别很大的地方</p>
-<p>本节内容转载于：<a href="http://lavasoft.blog.51cto.com/62575/18771/" target="_blank" rel="external">Java关键字final、static使用总结</a></p>
-<h2 id="对象和对象句柄的区别"><a href="#对象和对象句柄的区别" class="headerlink" title="对象和对象句柄的区别"></a>对象和对象句柄的区别</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">value</span></span>&#123;</div><div class="line"> <span class="keyword">int</span> i;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EqualsMethod</span></span>&#123;</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(string[] args)</span></span>&#123;</div><div class="line">  value v1=<span class="keyword">new</span> value();</div><div class="line">  value v2=<span class="keyword">new</span> value();</div><div class="line">  vl.i=v2.i=<span class="number">100</span>;</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如以上代码：</p>
-<ul>
-<li>value v1和value v2声明了两个value类型的<span style="color:red"><strong>句柄</strong></span></li>
-<li>然后通过new操作符<span style="color:red"><strong>实例化</strong></span>了v1、v2这两个<span style="color:red"><strong>对象</strong></span></li>
-</ul>
-<p>注意：经过上面的操作，对象是确实已经被声明且实例化出来了，但是我们并不能直接的去操纵对象实例，你可能会问，v1和v2不就是对象了吗？不是的，v1和v2只是两个标识符，代表的是两个指向对象实例的<span style="color:red"><strong>句柄</strong></span>，我们通过句柄访问对象实例，使用v1.i时对v1执行的对象的i进行赋值就是这个道理。它们指向的对象我们实际上是看不到的。</p>
-<p><strong>举个比较贴近生活的浅显易懂的例子：</strong>就好比遥控器和电视的关系，电视是对象实例，而遥控器就是这个对象的句柄，我们通过遥控器来控制电视的音量或者换台等等，电视一直摆在那，我们直接控制不了（不要钻牛角尖），而遥控器我们可以随意拿来拿去，通过它来控制电视的相关内容。另外，遥控器可以独立于电视机而存在，即句柄可以被声明出来，只是没有连接对象而已，比如：<code>String str;</code>，这就是声明了一个还未连接任何对象的String类型的句柄。</p>
-<p>这样解释应该就懂了，value v1和value v2是声明了两个value类型的变量（句柄），还没有与任何对象关联，new value()则真正的产生了一个value类型的对象，使用<code>value v1=new value();</code>是将句柄与对象进行了绑定操作。</p>
-
-          
+          equals()与====比较的是两个值是否相等，这里的值分为两种情况：
+基本类型的值，即float、double、byte、short、int、long、char、boolean这八种java的基本数据类型，这里比较的就是值本身，举个例子：
+123int a=2;int b=2;System.ou
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/28/Java入门（四）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1830,14 +1551,19 @@ Process finished with exit code 0</pre>
       
         
           
-            <p>Git Bash的一些命令是Linux的命令，虽然使用的是windows系统，但因为使用git bash，所以还是得了解一些常用的Linux命令操作</p>
-<h2 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h2><p><code>rm -rf 目录名</code></p>
-<p>r表示向下递归不管多少级，一并删除；f表示直接强行删除，不说任何提示的意思</p>
-<h2 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h2><p><code>cat 文件名</code></p>
-<h2 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h2><p><code>mkdir 文件夹名</code></p>
-<h2 id="新建文件"><a href="#新建文件" class="headerlink" title="新建文件"></a>新建文件</h2><p><code>touch 文件名.格式后缀</code></p>
-
-          
+          Git Bash的一些命令是Linux的命令，虽然使用的是windows系统，但因为使用git bash，所以还是得了解一些常用的Linux命令操作
+删除文件夹rm -rf 目录名
+r表示向下递归不管多少级，一并删除；f表示直接强行删除，不说任何提示的意思
+查看文件内容cat 文件名
+新建文件夹mk
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/14/Linux常用命令介绍/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1989,32 +1715,17 @@ Process finished with exit code 0</pre>
       
         
           
-            <p><a href="https://help.github.com/articles/about-github-wikis/" target="_blank" rel="external">github如何使用wiki</a>，github上每个仓库偶有自己的wiki，用github自己的帮助文档中的话来说就是：</p>
-<blockquote>
-<p>每个GitHub存储库都配备了一个托管文档的部分，称为wiki。<br>GitHub Wiki是您的存储库中的一个地方，您可以在其中分享关于您的项目的长形内容，例如如何使用它，如何设计，阐述其核心原则等。而README旨在使读者快速了解您的项目可以做什么，wiki可用于提供其他文档</p>
-</blockquote>
-<h2 id="简单介绍wiki"><a href="#简单介绍wiki" class="headerlink" title="简单介绍wiki"></a>简单介绍wiki</h2><p>它其实是一种新技术，一种超文本系统。这种超文本系统支持面向社群的协作式写作，同时也包括一组支持这种写作的辅助工具。也就是说，这是多人协作的写作工具。而参与创作的人，也被称为维客。</p>
-<ul>
-<li><p>从技术角度看，Wiki是一种超文本系统，是任何人都可以编辑网页的社会性软件。Wiki包含一套能简易创造、改变HTML网页的系统，再加上一套纪录以及编目所有改变的系统，以提供还原改变的功能。利用Wiki系统构建的网站称为Wiki网站，称之为维基主页；“客”隐含人的意思，所以使用Wiki的用户称之为维客（Wikier）。</p>
-</li>
-<li><p>从使用者角度看，Wiki是一种多人协作的写作工具系统，属于一种人类知识的网络管理系统。Wiki站点可以有多人（甚至任何访问者）维护，每个人都可以发表自己的意见，或者对共同的主题进行扩展或者探讨。</p>
-</li>
-</ul>
-<p>在维客页面上，每个人都可浏览、创建、更改文本，系统可以对不同版本内容进行有效控制管理，所有的修改记录都保存下来，不但可事后查验，也能追踪、回复至本来面目。这也就意味着每个人都可以方便地对共同的主题进行写作、修改、扩展或者探讨。同一维客网站的写作者自然构成了一个社群，维客系统为这个社群提供简单的交流工具。</p>
-<h2 id="Wiki的特点"><a href="#Wiki的特点" class="headerlink" title="Wiki的特点"></a>Wiki的特点</h2><ul>
-<li>使用方便 </li>
-<li>维护快捷：快速创建、存取、更改超文本页面（这也是为什麼叫作 “wiki wiki” 的原因）。 </li>
-<li>格式简单：用简单的格式标记来取代 HTML 的复杂格式标记。（类似所见即所得的风格） </li>
-<li>链接方便：通过简单标记，直接以关键字名来建立链接（页面、外部连接、图像等）。 </li>
-<li>命名平易：关键字名就是页面名称，并且被置於一个单层、平直的名空间中。  </li>
-<li>可增长：页面的链接目标可以尚未存在，通过点击链接，我们可以创建这些页面，从而使系统得以增长。 </li>
-<li>修订历史：记录页面的修订历史，页面的各个版本都可以被获取。  </li>
-<li>开放的：社群内的成员可以任意创建、修改、或删除页面。 </li>
-<li>可观察：系统内页面的变动可以被来访者清楚观察得到。</li>
-</ul>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>Wiki也指一种超文本系统，支持面向社群的协作式写作，也就是每个人都可以改这个网站的数据。</p>
+          github如何使用wiki，github上每个仓库偶有自己的wiki，用github自己的帮助文档中的话来说就是：
 
-          
+每个GitHub存储库都配备了一个托管文档的部分，称为wiki。GitHub Wiki是您的存储库中的一个地方，您可以在其中分享关于您的项目的长形内容，例如如何使用它，如何设计，阐
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/14/什么是wiki/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2166,185 +1877,20 @@ Process finished with exit code 0</pre>
       
         
           
-            <p>在wampserver3.0上跑起来的站点怎么设置才能让局域网中的设备访问到，各个步骤网上都有教程，我就直接帖网址了</p>
-<ul>
-<li><p>首先应该设置wampserver使其本身支持局域网访问,方法如下：</p>
-<p>  <a href="http://jingyan.baidu.com/article/acf728fd556c93f8e410a344.html" target="_blank" rel="external">WampServer3.0.4 允许外网访问配置教程</a>。注意要将wampserver调成在线模式</p>
-</li>
-<li><p>这样下来，有的时候还是不能访问，那是因为你电脑的防火墙把你站点的端口的外部接入响应阻止了，最简单的方法是关掉防火墙，另外也可以设置防火墙开放你网站的端口号，方法如下：</p>
-<p>  <a href="http://jingyan.baidu.com/article/f96699bbadafca894f3c1b7a.html" target="_blank" rel="external">win7系统如何在防火墙里开放端口</a>。win10设置方法也一样，大同小异。</p>
-</li>
-<li><p>设置完后，就可以通过局域网设备访问了，方法是在想连接的设备上搜索url：“<a href="http://电脑（服务器主机）的IP地址：端口号”" target="_blank" rel="external">http://电脑（服务器主机）的IP地址：端口号”</a></p>
-</li>
-</ul>
+          在wampserver3.0上跑起来的站点怎么设置才能让局域网中的设备访问到，各个步骤网上都有教程，我就直接帖网址了
 
-          
-        
-      
-    </div>
+首先应该设置wampserver使其本身支持局域网访问,方法如下：
+  WampServer3.0.4 允许外网访问配置教程。注意要将wampserver调成在线模式
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/11/前端行业的你需要哪些网站/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/11/前端行业的你需要哪些网站/" itemprop="url">
-                  前端行业的你需要哪些网站
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-11T16:57:25+08:00">
-                2017-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端江湖录/" itemprop="url" rel="index">
-                    <span itemprop="name">前端江湖录</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/05/11/前端行业的你需要哪些网站/" class="leancloud_visitors" data-flag-title="前端行业的你需要哪些网站">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>除了肯定会逛的掘金、CSDN、知乎等技术论坛。</p>
-<h2 id="技术社区"><a href="#技术社区" class="headerlink" title="技术社区"></a>技术社区</h2><p><a href="http://stackoverflow.com/" target="_blank" rel="external">Stackoverflow</a>是一个与程序相关的IT技术问答网站。用户可以在网站免费提交问题，浏览问题，索引相关内容，在创建主页的时候使用简单的HTML。在问题页面，不会弹出任何广告，销售信息，JavaScript 窗口等。有这么一个说法：“作为一名程序员，如果没有听过 Stackoverflow，那么你最好去面壁思过一下。”</p>
-<p><a href="https://segmentfault.com/" target="_blank" rel="external">Segmentfault</a>是一家中文的开发者社区及媒体。最初的产品原型来自于国外最大的程序员问答社区 Stackoverflow，但其产品形态经过一年多的发展，已经有问答、博客、活动等，它还是多个黑客马拉松活动的组织方</p>
-<h2 id="提高开发效率"><a href="#提高开发效率" class="headerlink" title="提高开发效率"></a>提高开发效率</h2><p><a href="https://www.teambition.com/?utm_source=baidusem&amp;utm_campaign=brand&amp;utm_medium=cpc&amp;utm_term=teambition" target="_blank" rel="external">teambition</a>是一个简单,高效的项目协作工具,你可以在这里管理项目,跟踪任务进度,存储项目文件,让你的团队协作更高效</p>
-<p><a href="https://tower.im/" target="_blank" rel="external">tower</a>功能与teambition差不多</p>
-<p><a href="https://www.travis-ci.org/" target="_blank" rel="external">Travis CI</a>自动测试系统,CI意思为持续集成，Travis可以将你github上的项目自动编译，有人提交即可执行编译让你第一时间知道提交是否OK</p>
-<p><a href="https://www.docker.com/" target="_blank" rel="external">Docker</a>是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。<a href="http://www.docker.org.cn/book/docker/what-is-docker-16.html" target="_blank" rel="external">具体介绍看官方文档</a></p>
-<h2 id="社交类"><a href="#社交类" class="headerlink" title="社交类"></a>社交类</h2><p><a href="https://www.linkedin.com/mynetwork/" target="_blank" rel="external">领英</a>全球最大的职业社交网站，是一家面向商业客户的社交网络（SNS）</p>
-<p><a href="https://github.com/" target="_blank" rel="external">Github</a>全球最大的男性交友平台，毫无疑问，不需要解释</p>
-<h2 id="设计灵感"><a href="#设计灵感" class="headerlink" title="设计灵感"></a>设计灵感</h2><p><a href="http://www.ui.cn/" target="_blank" rel="external">UI中国</a>前身为 iconfans,是专业的 UI 设计师交流、学习与展示的平台。会员均为职业 UI 设计师,覆盖全国互联网公司。</p>
-<p><a href="https://www.behance.net/" target="_blank" rel="external">Behance</a>著名设计社区，在上面，创意设计人士可以展示自己的作品，发现别人分享的创意作品（上面有许多质量上乘的设计作品），相互还可以进行互动（评论、关注、站内短信等）</p>
-<p><a href="http://www.lofter.com/login?urschecked=true" target="_blank" rel="external">乐乎</a>国内优质图片社交平台</p>
-<h2 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h2><p><a href="http://naotu.baidu.com" target="_blank" rel="external">百度脑图</a>画思维导图的，有棵树在那帮你保存总比放脑子里忘了好，百度脑图简单方便，还是在线的，还算不错。</p>
-
-          
+这样下来，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/14/Wampserver3.0局域网访问设置方法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2426,7 +1972,7 @@ Process finished with exit code 0</pre>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">77</span>
+                <span class="site-state-item-count">78</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
