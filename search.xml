@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[用CSS画三角形]]></title>
+      <url>%2F2017%2F07%2F24%2F%E7%94%A8CSS%E7%94%BB%E4%B8%89%E8%A7%92%E5%BD%A2%2F</url>
+      <content type="text"><![CDATA[想法是：对于一个“div”标签，一般是有宽（width）和高（height）以及边框的，如果我们保持这个div的边框大小不变，逐渐缩小width和height，最终结果会怎么样？，没错变成下面这样，宽高汇成中间一点，边框变成四个三角形，这样我们只要使想要显示的那个三角形有颜色和样式，另外三个设置成透明不就可以了。 上代码： HTML代码： 1&lt;div class="triangle"&gt;&lt;/div&gt; CSS代码： 12345678910111213141516.triangle&#123; width:0; height:0; /* IE6最小高度的问题 */ overflow:hidden; border-width:50px; /*要显示的边设置为想要的颜色，其他边设置成透明*/ border-color:transparent transparent red transparent; /* 将其他边的样式设置成虚线， 解决IE6其他边显示为黑色的问题 */ border-style:dashed dashed solid dashed;&#125; 注意里面的注释 结果为：]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Hexo实现文章置顶功能]]></title>
       <url>%2F2017%2F07%2F23%2FHexo%E5%AE%9E%E7%8E%B0%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6%E5%8A%9F%E8%83%BD%2F</url>
       <content type="text"><![CDATA[网上教程还是挺多的，但难免有不清楚的地方，我根据我自身的情况说一下吧，基本上是根据下面这个博文来的。 链接 主要想说明的是，我的hexo版本是3.3.1，在node_modules/hexo-generator-index/lib/generator.js那块，原始代码跟上面博文提供的有出入，要做的是，那下面这段代码直接把原始代码覆盖掉就行了。 123456789101112131415161718192021222324252627282930313233'use strict';var pagination = require('hexo-pagination');module.exports = function(locals) &#123; var config = this.config; var posts = locals.posts.sort(config.index_generator.order_by); posts.data = posts.data.sort(function(a, b) &#123; if(a.top &amp;&amp; b.top) &#123; if(a.top == b.top) return b.date - a.date; else return b.top - a.top; &#125; else if(a.top &amp;&amp; !b.top) &#123; return -1; &#125; else if(!a.top &amp;&amp; b.top) &#123; return 1; &#125; else return b.date - a.date; &#125;); var paginationDir = config.pagination_dir || 'page'; return pagination('', posts, &#123; perPage: config.index_generator.per_page, layout: ['index', 'archive'], format: paginationDir + '/%d/', data: &#123; __index: true &#125; &#125;);&#125;; 保存后，在文章的front-matter中添加top: 1这一样就可以实现文章置顶了，“1”也可以用其他数字替换，数字越大，越前面。]]></content>
