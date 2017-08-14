@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[导航栏二级弹出菜单实现]]></title>
+      <url>%2F2017%2F08%2F14%2F%E5%AF%BC%E8%88%AA%E6%A0%8F%E4%BA%8C%E7%BA%A7%E5%BC%B9%E5%87%BA%E8%8F%9C%E5%8D%95%E5%AE%9E%E7%8E%B0%2F</url>
+      <content type="text"><![CDATA[效果一级菜单列表： 当鼠标放上去后，显示二级菜单，移开后二级菜单消失: 代码HTML代码123456789101112131415161718192021222324252627282930313233343536&lt;div id="menu"&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=""&gt;11111&lt;/a&gt; &lt;ul&gt; &lt;li&gt;1-1&lt;/li&gt; &lt;li&gt;1-2&lt;/li&gt; &lt;li&gt;1-3&lt;/li&gt; &lt;li&gt;1-4&lt;/li&gt; &lt;li&gt;1-5&lt;/li&gt; &lt;li&gt;1-6&lt;/li&gt; &lt;li&gt;1-7&lt;/li&gt; &lt;li&gt;1-8&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=""&gt;22222&lt;/a&gt; &lt;ul&gt; &lt;li&gt;2-1&lt;/li&gt; &lt;li&gt;2-2&lt;/li&gt; &lt;li&gt;2-3&lt;/li&gt; &lt;li&gt;2-4&lt;/li&gt; &lt;li&gt;2-5&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=""&gt;33333&lt;/a&gt; &lt;ul&gt; &lt;li&gt;3-1&lt;/li&gt; &lt;li&gt;3-2&lt;/li&gt; &lt;li&gt;3-3&lt;/li&gt; &lt;li&gt;3-4&lt;/li&gt; &lt;li&gt;3-5&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;&lt;a href=""&gt;44444&lt;/a&gt;&lt;/li&gt; &lt;li&gt;&lt;a href=""&gt;55555&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;&lt;/div&gt; less代码1234567891011121314151617181920212223242526272829303132333435363738394041body&#123; font-family: sans-serif; font-size: 12px; line-height: 1.5;&#125;#menu ul&#123; margin:0; padding:0; list-style:none; border: 1px solid #ccc; width: 100px; li&#123; text-align: center; position:relative; background-color: #eeeeee; height: 26px; line-height: 26px; border-bottom: 1px solid #cccccc; a&#123; color:#000; text-decoration: none; &amp;:hover&#123; color: #ff0000; &#125; &#125; ul&#123; position: absolute; left: 100px; top: 0px; display: none; &#125; &amp;.current ul&#123; display: block; &#125; &#125;&#125; JavaScript代码1234567891011121314151617startList = function () &#123; var navRoot = document.getElementById('menu'); var ali = navRoot.getElementsByTagName('li'); for(var i=0;i&lt;ali.length;i++)&#123; var node = ali[i]; //鼠标在上面时添加current属性，一二级菜单都有 node.onmouseover = function () &#123; this.className += 'current'; &#125; //鼠标出去时移除current属性 node.onmouseout = function () &#123; this.className = this.className.replace('current',''); &#125; &#125;&#125;window.onload = startList(); 要点 首先让二级菜单隐藏： ul {display: none;}，然后css中写一个有’current’类名的li(第一层)，样式为ul li.current {display: block;},这个属性将通过js添加，即鼠标在上面的时候有这个属性，鼠标移出之后，没有这个属性（当然设置了之后，还得写个清除的句子） 如果按html中的摆放的话，会出现，一级菜单与二级菜单错位的情况，这需要通过设置css.让一级菜单的li为相对定位，二级菜单的ul绝对定位到一级菜单li的右边。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[代理服务器在开发时的作用]]></title>
       <url>%2F2017%2F07%2F29%2F%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9C%A8%E5%BC%80%E5%8F%91%E6%97%B6%E7%9A%84%E4%BD%9C%E7%94%A8%2F</url>
       <content type="text"><![CDATA[代理服务器的原理 劫持的效果是，你输入的是a.com的域名，得到的却是b.com的内容 代理服务器在开发时的作用 我们在开发时一般会在本地启一个本地服务器用来放置我们的静态资源，比如localhost:8080，用来处理html、js、image。但我们使用的后端接口一般不和前端服务器放在一起，比如后端接口放在api.happymmall.com上，开发时用localhost的域名请求api.happymmall.com上的接口时，就会造成跨域问题，解决这个问题的一个方法是使用代理服务器：先让所有的请求都通过localhost的域名走到代理服务器上，静态资源就原样的请求到localhost的域名上，然后对后端接口做一个劫持，把接口的地址由localhost改成api.happymmall.com,这样我们请求的所有资源都会是localhost,不会存在跨域的问题。但是接口通过劫持以后已经走到了后端环境上。这样我们即请求了同域下的地址，还能得到其他域下的数据，这样就完美的解决了开发时的跨域问题。]]></content>
@@ -362,7 +369,7 @@
     <entry>
       <title><![CDATA[Linux常用命令介绍]]></title>
       <url>%2F2017%2F05%2F14%2FLinux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%BB%8B%E7%BB%8D%2F</url>
-      <content type="text"><![CDATA[Git Bash的一些命令是Linux的命令，虽然使用的是windows系统，但因为使用git bash，所以还是得了解一些常用的Linux命令操作 删除文件夹rm -rf 目录名 r表示向下递归不管多少级，一并删除；f表示直接强行删除，不说任何提示的意思 查看文件内容cat 文件名 新建文件夹mkdir 文件夹名 新建文件touch 文件名.格式后缀]]></content>
+      <content type="text"><![CDATA[Git Bash的一些命令是Linux的命令，虽然使用的是windows系统，但因为使用git bash，所以还是得了解一些常用的Linux命令操作 删除文件夹rm -rf 目录名 r表示向下递归不管多少级，一并删除；f表示直接强行删除，不说任何提示的意思 查看文件内容cat 文件名 新建文件夹mkdir 文件夹名 新建文件touch 文件名.格式后缀 查看文件夹下所有文件ls -al]]></content>
     </entry>
 
     
