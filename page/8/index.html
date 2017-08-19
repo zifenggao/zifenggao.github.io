@@ -304,7 +304,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/17/Java入门（三）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/29/Js实现简单排序算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roderic">
@@ -326,8 +326,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/17/Java入门（三）/" itemprop="url">
-                  Java入门（三）
+                <a class="post-title-link" href="/2017/04/29/Js实现简单排序算法/" itemprop="url">
+                  Js实现简单排序算法
                 </a>
               
             
@@ -343,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-17T13:13:16+08:00">
-                2017-04-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-29T21:08:10+08:00">
+                2017-04-29
               </time>
             
 
@@ -366,8 +366,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -383,7 +383,7 @@
 
           
           
-             <span id="/2017/04/17/Java入门（三）/" class="leancloud_visitors" data-flag-title="Java入门（三）">
+             <span id="/2017/04/29/Js实现简单排序算法/" class="leancloud_visitors" data-flag-title="Js实现简单排序算法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -414,12 +414,14 @@
       
         
           
-          有关读取用户输入的问题首先导入包import java.util.Scanner;这里面有处理用户输入的方法。
-输入数字情况123456789101112public static void main(String[] args) &#123;    //创建输入对象  Scanner sc=new
+          这里用JavaScript实现冒泡排序、选择排序、插入排序、归并排序以及快速排序这些基本的排序算法
+首先我们给本文约定一个实现的框架：定义一个ArrayList类里面包含排序数组声明、数组元素添加、排序算法实现以及数组输出的方法。
+代码框架：
+1234567891011121314151617181
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/17/Java入门（三）/#more" rel="contents">
+            <a class="btn" href="/2017/04/29/Js实现简单排序算法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -465,7 +467,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/Java入门（二）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/JavaScript数组介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roderic">
@@ -487,8 +489,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/15/Java入门（二）/" itemprop="url">
-                  Java入门（二）
+                <a class="post-title-link" href="/2017/04/27/JavaScript数组介绍/" itemprop="url">
+                  JavaScript数组介绍
                 </a>
               
             
@@ -504,8 +506,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T22:34:07+08:00">
-                2017-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-27T16:51:40+08:00">
+                2017-04-27
               </time>
             
 
@@ -527,8 +529,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -544,7 +546,7 @@
 
           
           
-             <span id="/2017/04/15/Java入门（二）/" class="leancloud_visitors" data-flag-title="Java入门（二）">
+             <span id="/2017/04/27/JavaScript数组介绍/" class="leancloud_visitors" data-flag-title="JavaScript数组介绍">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -575,15 +577,15 @@
       
         
           
-          注：
+          
+JavaScript的数组中的元素可以具有不同的类型，即var a=[&#39;hello&#39;,12,&#39;kk&#39;];是合法的。
+对于一维数组，可直接用console.log(数组名)来输出数组内容，若是多维数组则需要自行构建函数来输出
 
-同一个包下，不同java文件中的类名不能相同，因为同一包下，不同java文件中的类是可以相互继承的！
-不同java类文件中的内部类（一个类中还包含着另外一个类）可以同名，但是同一文件下的public或者是默认范围的java类是不可以同名的。
-当类中方法的访问权限修饰符为private时，该方
+创建和初始化数组123456var ev
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/15/Java入门（二）/#more" rel="contents">
+            <a class="btn" href="/2017/04/27/JavaScript数组介绍/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -629,7 +631,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/Java入门（一）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/HTML5-Canvas入门/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roderic">
@@ -651,8 +653,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/15/Java入门（一）/" itemprop="url">
-                  Java入门（一）
+                <a class="post-title-link" href="/2017/04/26/HTML5-Canvas入门/" itemprop="url">
+                  HTML5 Canvas入门
                 </a>
               
             
@@ -668,8 +670,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T15:47:03+08:00">
-                2017-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T20:01:08+08:00">
+                2017-04-26
               </time>
             
 
@@ -691,8 +693,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML</span>
                   </a>
                 </span>
 
@@ -708,7 +710,7 @@
 
           
           
-             <span id="/2017/04/15/Java入门（一）/" class="leancloud_visitors" data-flag-title="Java入门（一）">
+             <span id="/2017/04/26/HTML5-Canvas入门/" class="leancloud_visitors" data-flag-title="HTML5 Canvas入门">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -739,26 +741,15 @@
       
         
           
-          Java作为一种面向对象语言。支持以下基本概念：
-
-多态
-继承
-封装
-抽象
-类
-对象
-实例
-方法
-重载
-
-成员变量包括：实例变量、类变量
-成员方法包括：实例方法、类方法、构造方法
-基本数据类型包括：byte、short、int、long、float、double、boolean、char
-指针问题：
+          Canvas元素本身没有绘图能力，所有的绘图工作必须在JavaScript内部完成。拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。
+直接上代码。
+绘制2d线条
+先在html页面下添加Canvas元素。设定画布的id和宽高。
+ 1&lt;canvas id="myCanvas" width="
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/15/Java入门（一）/#more" rel="contents">
+            <a class="btn" href="/2017/04/26/HTML5-Canvas入门/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -804,7 +795,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/用例图学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/CSS动画入门/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roderic">
@@ -826,8 +817,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/15/用例图学习笔记/" itemprop="url">
-                  用例图学习笔记
+                <a class="post-title-link" href="/2017/04/26/CSS动画入门/" itemprop="url">
+                  CSS动画入门
                 </a>
               
             
@@ -843,8 +834,656 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:52:30+08:00">
-                2017-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T15:45:34+08:00">
+                2017-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/26/CSS动画入门/" class="leancloud_visitors" data-flag-title="CSS动画入门">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          css3常用动画+动画库
+transitionCSS过渡
+介绍俗称“过渡”，是指某元素从一种样式逐渐转变为另一种样式的过程。即用于转换元素两个不同的状态，这个转换过程（或者说触发过程）可以是伪类比如:hover, :active 或者是通过 javascript 动态设定。IE10+支持
+trans
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/26/CSS动画入门/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/Powershell基本命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/26/Powershell基本命令/" itemprop="url">
+                  Powershell基本命令
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T14:09:34+08:00">
+                2017-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/26/Powershell基本命令/" class="leancloud_visitors" data-flag-title="Powershell基本命令">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Powershell是微软在cmd基础上改进后推出的励志于提高用户开发体验的命令行程序，可以这么说，cmd有的Powershell全都有，Powershell有的cmd不全有，而且Powershell还比cmd漂亮，为什么不用呢。稍微讲下Powershell的基本命令。
+
+Powershell用的时
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/26/Powershell基本命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/25/Js相等操作符/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/Js相等操作符/" itemprop="url">
+                  Js相等操作符
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-25T20:16:55+08:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/25/Js相等操作符/" class="leancloud_visitors" data-flag-title="Js相等操作符">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          对于有其他编程语言编程经验的人来说，在判断两个值是否相等时，会用“==”，但是此方法用于Js，特别是用Webstorm等前端IDE编写Js程序时，会发现此方法会报错，并提示应该更改为“===”，这到底是怎么回事，下面我们就来区别一下Js这两个相等操作符——“==”和“===”
+
+总的一句：==不管类
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/25/Js相等操作符/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/23/远方/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/23/远方/" itemprop="url">
+                  远方
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-23T22:25:12+08:00">
+                2017-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其它/" itemprop="url" rel="index">
+                    <span itemprop="name">其它</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/04/23/远方/" class="leancloud_visitors" data-flag-title="远方">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          “当你发现日子特别艰难的时候 可能这次的收获特别巨大”
+
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/23/远方/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/22/Github-Pages托管静态页面/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Roderic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/宫秋.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Roderic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/22/Github-Pages托管静态页面/" itemprop="url">
+                  Github Pages托管静态页面
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-22T09:16:11+08:00">
+                2017-04-22
               </time>
             
 
@@ -883,7 +1522,7 @@
 
           
           
-             <span id="/2017/04/15/用例图学习笔记/" class="leancloud_visitors" data-flag-title="用例图学习笔记">
+             <span id="/2017/04/22/Github-Pages托管静态页面/" class="leancloud_visitors" data-flag-title="Github Pages托管静态页面">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -914,18 +1553,15 @@
       
         
           
-          基本概念
-主要用来图示化系统的主事件流程
-用例就是软件的功能模块，是设计系统分析阶段的起点
-描述软件应该具备哪些功能模块以及这些模块之间的调用关系
-用例图包含“用例”和“参与者”
-用例之间通过关联来连接，以便把系统的整个结构和功能反映给客户
-对应的是软件的结构和功能分解
-用例之间可以抽象出：包含、扩
+          
+什么是 Github Pages？
+Github Pages 是 Github 的静态页面托管服务。它设计的初衷是为了用户能够直接通过 Github仓库来托管用户个人、组织或是项目的专属页面。
+
+我们可以利用 Github 的静态页面托管服务 Github Pages 来帮助我们做页面展示。见得最
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/15/用例图学习笔记/#more" rel="contents">
+            <a class="btn" href="/2017/04/22/Github-Pages托管静态页面/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -971,7 +1607,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/NexT主题配置进阶/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/21/“百花齐放”的前端时代/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roderic">
@@ -993,8 +1629,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/15/NexT主题配置进阶/" itemprop="url">
-                  NexT主题配置进阶
+                <a class="post-title-link" href="/2017/04/21/“百花齐放”的前端时代/" itemprop="url">
+                  “百花齐放”的前端时代
                 </a>
               
             
@@ -1010,8 +1646,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:30:33+08:00">
-                2017-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-21T17:04:54+08:00">
+                2017-04-21
               </time>
             
 
@@ -1033,8 +1669,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/前端江湖录/" itemprop="url" rel="index">
+                    <span itemprop="name">前端江湖录</span>
                   </a>
                 </span>
 
@@ -1050,7 +1686,7 @@
 
           
           
-             <span id="/2017/04/15/NexT主题配置进阶/" class="leancloud_visitors" data-flag-title="NexT主题配置进阶">
+             <span id="/2017/04/21/“百花齐放”的前端时代/" class="leancloud_visitors" data-flag-title="“百花齐放”的前端时代">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1081,30 +1717,13 @@
       
         
           
-          主题配置包括：
-
-设置「RSS」
-添加「标签」页面 如何为文章添加标签或者分类
-添加「分类」页面
-设置「字体」
-设置「代码高亮主题」
-侧边栏社交链接
-开启打赏功能
-设置友情链接
-腾讯公益404页面
-站点建立时间
-订阅微信公众号
-设置「动画效果」
-设置「背景动画」
-
-第三方服务包括：
-
-评论系统
-数据
+          笼统的前端
+现在前端领域各种框架、库并行，新技术层出不穷，暂且称它为“繁荣”吧。
+对一个刚刚走进这个江湖的菜鸟来说，jQuery、Angular、React、Vue、Bootstrap、Node这些经常在各大公司招聘要求以及各大前端论坛信息中的看到词到底是什么，有什么作用，一会儿框架，一会儿库的，还
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/15/NexT主题配置进阶/#more" rel="contents">
+            <a class="btn" href="/2017/04/21/“百花齐放”的前端时代/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1150,7 +1769,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/Hexo安装及默认主题配置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/定义和声明的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roderic">
@@ -1172,8 +1791,8 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/15/Hexo安装及默认主题配置/" itemprop="url">
-                  Hexo安装及默认主题配置
+                <a class="post-title-link" href="/2017/04/20/定义和声明的区别/" itemprop="url">
+                  定义和声明的区别
                 </a>
               
             
@@ -1189,8 +1808,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:27:44+08:00">
-                2017-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T21:08:00+08:00">
+                2017-04-20
               </time>
             
 
@@ -1212,8 +1831,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/编程基础/" itemprop="url" rel="index">
+                    <span itemprop="name">编程基础</span>
                   </a>
                 </span>
 
@@ -1229,7 +1848,7 @@
 
           
           
-             <span id="/2017/04/15/Hexo安装及默认主题配置/" class="leancloud_visitors" data-flag-title="Hexo安装及默认主题配置">
+             <span id="/2017/04/20/定义和声明的区别/" class="leancloud_visitors" data-flag-title="定义和声明的区别">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1260,672 +1879,13 @@
       
         
           
-          #安装Hexo
-想重建博客，又不想花时间从头设计实现网站，就开始找有什么方法能快速实现页面布局和设计，最开始用了wordpress平台，后来又看到大佬推荐Hexo,就看了看。
-PS:Hexo依赖于Node,所以电脑得有Node.js环境，然后就可以用Node中强大的npm命令来安装各种东西，当然包括
+          
+声明就是指给除了当前变量或者函数，或者类什么的名字，不给其中的内容，就是先告诉你有这样一个什么类型的变量或者函数，但是这个变量或者函数的具体信息却是不知道的。就好比跟你介绍一个人的时候，声明就是只告诉你这个人叫什么，但是缺不给你说这个人到底怎么样，他有哪些优点，缺点，喜好问题是什么的
+定义就不一样
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/04/15/Hexo安装及默认主题配置/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/Hexo的hexo-deploy无法使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/Hexo的hexo-deploy无法使用/" itemprop="url">
-                  Hexo的hexo deploy无法使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:23:34+08:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/15/Hexo的hexo-deploy无法使用/" class="leancloud_visitors" data-flag-title="Hexo的hexo deploy无法使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          具体情况是，在hexo generate生成静态页面后，用hexo deploy命令想发布到github上，却出现了问题，报错如下：
-
-即提示找不到用户名，这应该是ssh配置的问题，索性就没用ssh传输，直接在博客文件夹下用
-$ git init
-$ git remote add origin ht
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/15/Hexo的hexo-deploy无法使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/Hexo-NexT主题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/Hexo-NexT主题/" itemprop="url">
-                  Hexo-NexT主题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:20:58+08:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/15/Hexo-NexT主题/" class="leancloud_visitors" data-flag-title="Hexo-NexT主题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          看来很多Hexo主题，最后还是想用NexT主题的Mist版本，简直不能再棒。不愧是最受欢迎的Hexo主题。
-官网讲得已经很好了
-我稍微再说一下。
-能想到用NexT的肯定对Hexo、Node、Git、Github有了解了，我就不再过多描述了。
-步骤
-在终端窗口（比如：git bash），定位到Hexo
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/15/Hexo-NexT主题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/Node安装/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/Node安装/" itemprop="url">
-                  Node安装
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:14:38+08:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/15/Node安装/" class="leancloud_visitors" data-flag-title="Node安装">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          之前就久仰Node.js大名，最近想弄个Hexo+github的博客，需要Node支持，所以开始接触这个方面的内容。
-这个链接介绍了Node安装和通过Node创建简单的服务器：我们安装了Nodejs是安装了什么
-Node安装完后，安装目录下会多出几个文件，其中：
-
-Node_modules（Node
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/15/Node安装/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/WampServer 3.0环境配置问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Roderic">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/宫秋.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Roderic">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/WampServer 3.0环境配置问题/" itemprop="url">
-                  WampServer 3.0环境配置问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T10:07:59+08:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/04/15/WampServer 3.0环境配置问题/" class="leancloud_visitors" data-flag-title="WampServer 3.0环境配置问题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          在网上直接搜“WampServer 3.0”配置，不要只搜“WampServer配置”，因为这样收到的很多都是旧版本的教程，新版本的配置方法略有差别
-配置包括：
-
-Apache根目录的改变
-Wamp根目录的改变（此版本还要更改虚拟主机配置文件中的虚拟主机根目录才能奏效），具体的看教程
-
-还有一个问题
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/04/15/WampServer 3.0环境配置问题/#more" rel="contents">
+            <a class="btn" href="/2017/04/20/定义和声明的区别/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1966,7 +1926,7 @@ Wamp根目录的改变（此版本还要更改虚拟主机配置文件中的虚�
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2011,7 +1971,7 @@ Wamp根目录的改变（此版本还要更改虚拟主机配置文件中的虚�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">83</span>
+                <span class="site-state-item-count">94</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2022,7 +1982,7 @@ Wamp根目录的改变（此版本还要更改虚拟主机配置文件中的虚�
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2033,7 +1993,7 @@ Wamp根目录的改变（此版本还要更改虚拟主机配置文件中的虚�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

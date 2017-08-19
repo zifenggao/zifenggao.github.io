@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="百科讲解的挺详细 200 &amp;amp; OK: 请求成功； 204 &amp;amp; No Content: 请求处理成功，但没有资源可以返回； 206 &amp;amp; Partial Content: 对资源某一部分进行请求(比如对于只加载了一般的图片剩余部分的请求)； 301 &amp;amp; Move Permanently: 永久性重定向； 302 &amp;amp; Found： 临时性重定向； 303 &amp;amp">
+<meta name="description" content="百科讲解的挺详细 200 &amp;amp; OK: 请求成功； 204 &amp;amp; No Content: 请求处理成功，但没有资源可以返回； 206 &amp;amp; Partial Content: 对资源某一部分进行请求(比如对于只加载了一般的图片剩余部分的请求)； 301 &amp;amp; Move Permanently: 永久性重定向；  当网页A用301重定向转到网页B时，搜索引擎可以肯定网页A永久的">
 <meta name="keywords" content="Web相关知识">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP状态码">
 <meta property="og:url" content="http://yoursite.com/2017/06/30/HTTP状态码/index.html">
 <meta property="og:site_name" content="Roderic">
-<meta property="og:description" content="百科讲解的挺详细 200 &amp;amp; OK: 请求成功； 204 &amp;amp; No Content: 请求处理成功，但没有资源可以返回； 206 &amp;amp; Partial Content: 对资源某一部分进行请求(比如对于只加载了一般的图片剩余部分的请求)； 301 &amp;amp; Move Permanently: 永久性重定向； 302 &amp;amp; Found： 临时性重定向； 303 &amp;amp">
-<meta property="og:updated_time" content="2017-07-29T11:10:08.723Z">
+<meta property="og:description" content="百科讲解的挺详细 200 &amp;amp; OK: 请求成功； 204 &amp;amp; No Content: 请求处理成功，但没有资源可以返回； 206 &amp;amp; Partial Content: 对资源某一部分进行请求(比如对于只加载了一般的图片剩余部分的请求)； 301 &amp;amp; Move Permanently: 永久性重定向；  当网页A用301重定向转到网页B时，搜索引擎可以肯定网页A永久的">
+<meta property="og:updated_time" content="2017-08-19T15:34:28.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP状态码">
-<meta name="twitter:description" content="百科讲解的挺详细 200 &amp;amp; OK: 请求成功； 204 &amp;amp; No Content: 请求处理成功，但没有资源可以返回； 206 &amp;amp; Partial Content: 对资源某一部分进行请求(比如对于只加载了一般的图片剩余部分的请求)； 301 &amp;amp; Move Permanently: 永久性重定向； 302 &amp;amp; Found： 临时性重定向； 303 &amp;amp">
+<meta name="twitter:description" content="百科讲解的挺详细 200 &amp;amp; OK: 请求成功； 204 &amp;amp; No Content: 请求处理成功，但没有资源可以返回； 206 &amp;amp; Partial Content: 对资源某一部分进行请求(比如对于只加载了一般的图片剩余部分的请求)； 301 &amp;amp; Move Permanently: 永久性重定向；  当网页A用301重定向转到网页B时，搜索引擎可以肯定网页A永久的">
 
 
 
@@ -424,18 +424,34 @@
 <p>204 &amp; No Content: 请求处理成功，但没有资源可以返回；</p>
 <p>206 &amp; Partial Content: 对资源某一部分进行请求(比如对于只加载了一般的图片剩余部分的请求)；</p>
 <p>301 &amp; Move Permanently: 永久性重定向；</p>
+<ul>
+<li>当网页A用301重定向转到网页B时，搜索引擎可以肯定网页A永久的改变位置，或者说实际上不存在了，搜索引擎就会把网页B当作唯一有效目标。</li>
+<li>好处是：没有网址规范化问题。网页A的PR网页级别会传到网页B。</li>
+</ul>
 <p>302 &amp; Found： 临时性重定向；</p>
+<ul>
+<li>302转向可能会有URL规范化及网址劫持的问题。可能被搜索引擎判为可疑转向，甚至认为是作弊。<a href="">关于通过302临时重定向实现网址劫持</a></li>
+</ul>
 <p>303 &amp; See Other: 请求资源存在另一个URI，应使用get方法请求；</p>
 <p>304 &amp; Not Modified: 服务器判断本地缓存未更新，可以直接使用本地的缓存；</p>
 <p>307 &amp; Temporary Redirect: 临时重定向；</p>
 <p>400 &amp; Bad Request: 请求报文存在语法错误；</p>
 <p>401 &amp; Unauthorized: 请求需要通过HTTP认证；</p>
 <p>403 &amp; Forbidden: 请求资源被服务器拒绝，访问权限的问题；</p>
+<ul>
+<li>403：表示资源不可用。服务器理解客户的请求，但拒绝处理它，通常由于服务器上文件或目录的权限设置导致的WEB访问错误。</li>
+</ul>
 <p>404 &amp; Not Found: 服务器上没有请求的资源；</p>
 <p>500 &amp; Internal Server Error: 服务器执行请求时出现错误；</p>
 <p>502 &amp; Bad Gateway: 错误的网关；</p>
 <p>503 &amp; Service Unavailable: 服务器超载或正在维护，无法处理请求；</p>
 <p>504 &amp; Gateway timeout: 网关超时；</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="PR网页级别"><a href="#PR网页级别" class="headerlink" title="PR网页级别"></a>PR网页级别</h3><ul>
+<li>PR值全称为PageRank，用来表现网页等级的一个标准，级别分别是0到10，是Google用于评测一个网页“重要性”的一种方法。<ul>
+<li>Google排名运算法则（排名公式）的一部分，用来标识网页的等级/重要性。级别从0到10级，10级为满分。PR值越高说明该网页越受欢迎（越重要）。例如：一个PR值为1的网站表明这个网站不太具有流行度，而PR值为7到10则表明这个网站非常受欢迎（或者说极其重要）。</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -539,8 +555,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/宫秋.jpg"
@@ -555,7 +580,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">83</span>
+                <span class="site-state-item-count">94</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -566,7 +591,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -577,7 +602,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -613,6 +638,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">1.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PR网页级别"><span class="nav-number">1.1.</span> <span class="nav-text">PR网页级别</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
