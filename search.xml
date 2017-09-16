@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[HTTP协议]]></title>
+      <url>%2F2017%2F09%2F17%2FHTTP%E5%8D%8F%E8%AE%AE%2F</url>
+      <content type="text"><![CDATA[对整个http协议进行比较全面的介绍：HTTP协议漫谈 http头包含的那些信息：HTTP头部信息解释分析(详细整理) HTTP1.0 HTTP 1.1 HTTP 2.0主要区别 并不是每个请求都会带Referrer信息的http general之Referrer Policies介绍 如上图所示，在 HTTPS 加密中真正起作用的其实是 SSL/TLS 协议。SSL/TLS 协议作用在 HTTP 协议之下，对于上层应用来说，原来的发送接收数据流程不变，这就很好地兼容了老的 HTTP 协议，这也是软件开发中分层实现的体现，SSL/TLS 握手是为了安全地协商出一份对称加密的秘钥。 图解SSL/TLS协议 http中的host应该能就是用来解决不同不明访问同一个ip地址的操作的，到达分布均衡的效果（可以理解成负载均衡）HTTP中的Host字段 HTTP协议有多脆弱：常见攻击HTTP协议的五大方式]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[TCP/IP OSI各层协议]]></title>
       <url>%2F2017%2F09%2F15%2FTCP-IP-OSI%E5%90%84%E5%B1%82%E5%8D%8F%E8%AE%AE%2F</url>
       <content type="text"><![CDATA[转：TCP/IP OSI各层协议，ARP属于哪一层的协议 Ip是不可靠协议 在OSI模型中ARP协议属于链路层；而在TCP/IP模型中，ARP协议属于网络层。 ARP报文是由以太网帧进行封装传输的。没有封装进IP包。]]></content>
