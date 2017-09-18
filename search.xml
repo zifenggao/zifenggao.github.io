@@ -12,7 +12,7 @@
     <entry>
       <title><![CDATA[TCP/IP OSI各层协议]]></title>
       <url>%2F2017%2F09%2F15%2FTCP-IP-OSI%E5%90%84%E5%B1%82%E5%8D%8F%E8%AE%AE%2F</url>
-      <content type="text"><![CDATA[转：TCP/IP OSI各层协议，ARP属于哪一层的协议 Ip是不可靠协议 在OSI模型中ARP协议属于链路层；而在TCP/IP模型中，ARP协议属于网络层。 ARP报文是由以太网帧进行封装传输的。没有封装进IP包。]]></content>
+      <content type="text"><![CDATA[转：TCP/IP OSI各层协议，ARP属于哪一层的协议 Ip是不可靠协议 在OSI模型中ARP协议属于链路层；而在TCP/IP模型中，ARP协议属于网络层。 ARP报文是由以太网帧进行封装传输的。没有封装进IP包。 OSI各层对应设备及其协议]]></content>
     </entry>
 
     
