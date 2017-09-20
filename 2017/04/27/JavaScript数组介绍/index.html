@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,编程基础," />
+  <meta name="keywords" content="编程基础,JavaScript," />
 
 
 
@@ -88,7 +88,7 @@
 
 
 <meta name="description" content="JavaScript的数组中的元素可以具有不同的类型，即var a=[&amp;#39;hello&amp;#39;,12,&amp;#39;kk&amp;#39;];是合法的。 对于一维数组，可直接用console.log(数组名)来输出数组内容，若是多维数组则需要自行构建函数来输出  创建和初始化数组123456var everyday=new Array();var everyday=new Array();var ev">
-<meta name="keywords" content="JavaScript,编程基础">
+<meta name="keywords" content="编程基础,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript数组介绍">
 <meta property="og:url" content="http://yoursite.com/2017/04/27/JavaScript数组介绍/index.html">
@@ -109,7 +109,7 @@
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170429/161659564.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162309077.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162842256.png">
-<meta property="og:updated_time" content="2017-05-01T02:27:34.010Z">
+<meta property="og:updated_time" content="2017-09-20T06:26:57.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript数组介绍">
 <meta name="twitter:description" content="JavaScript的数组中的元素可以具有不同的类型，即var a=[&amp;#39;hello&amp;#39;,12,&amp;#39;kk&amp;#39;];是合法的。 对于一维数组，可直接用console.log(数组名)来输出数组内容，若是多维数组则需要自行构建函数来输出  创建和初始化数组123456var everyday=new Array();var everyday=new Array();var ev">
@@ -454,7 +454,7 @@
 <h2 id="二维和多维数组"><a href="#二维和多维数组" class="headerlink" title="二维和多维数组"></a>二维和多维数组</h2><p>JavaScript只支持一维数组，但由于JavaScript数组对元素类型的宽容性，我们可以采用数组套数组的方法来实现多维数组。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a1=[];</div><div class="line">a1[<span class="number">0</span>]=[<span class="string">'hello'</span>,<span class="number">23</span>,<span class="string">'world'</span>];</div><div class="line">a1[<span class="number">2</span>]=[<span class="string">'china'</span>,<span class="string">'england'</span>];</div><div class="line">或</div><div class="line"><span class="keyword">var</span> a2=[];</div><div class="line">a2[<span class="number">0</span>]=[];</div><div class="line">a2[<span class="number">0</span>][<span class="number">0</span>]=<span class="string">'hello'</span>;</div><div class="line">a2[<span class="number">0</span>][<span class="number">1</span>]=<span class="string">'woeld'</span>;</div></pre></td></tr></table></figure>
 <p>此时用<code>console.log(a2)</code>将不能输出数组内容，因为console.log()之只能用来输出具体的元素，应该自行创建一个函数来简化输出</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printfMatrix</span>(<span class="params">myMatrix</span>)</span>&#123;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;myMatrix.length;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;myMatrix[i].length;j++)&#123;</div><div class="line">			<span class="built_in">console</span>.log(myMatrix[i][j]);	</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">printfMatrix(数组名);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printfMatrix</span>(<span class="params">myMatrix</span>)</span>&#123;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;myMatrix.length;i++)&#123;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;myMatrix[i].length;j++)&#123;</div><div class="line">			<span class="built_in">console</span>.log(myMatrix[i][j]);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">printfMatrix(数组名);</div></pre></td></tr></table></figure>
 <h2 id="操作数组的方法（函数）"><a href="#操作数组的方法（函数）" class="headerlink" title="操作数组的方法（函数）"></a>操作数组的方法（函数）</h2><h3 id="数组合并–concat方法"><a href="#数组合并–concat方法" class="headerlink" title="数组合并–concat方法"></a>数组合并–concat方法</h3><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170427/215254983.png" alt="mark"></p>
 <p>按照指定的顺序连接起来，很好理解</p>
 <h3 id="迭代器函数"><a href="#迭代器函数" class="headerlink" title="迭代器函数"></a>迭代器函数</h3><h4 id="every方法"><a href="#every方法" class="headerlink" title="every方法"></a>every方法</h4><p>every会迭代数组中的每一个元素，直到返回false</p>
@@ -501,6 +501,58 @@
 </ul>
 <p>例子：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170429/162842256.png" alt="mark"></p>
+<h2 id="是否改变原数组及操作后返回值"><a href="#是否改变原数组及操作后返回值" class="headerlink" title="是否改变原数组及操作后返回值"></a>是否改变原数组及操作后返回值</h2><pre>
+本题需要将数组a=[1,2,3]变成[1,2,3,4],需要改变原数组a。
+Array对象常用方法中：
+不改变原数组：
+
+1、 concat()
+连接两个或多个数组
+不改变原数组
+返回被连接数组的一个副本
+2、join()
+把数组中所有元素放入一个字符串
+不改变原数组
+返回字符串
+3、 slice()
+从已有的数组中返回选定的元素
+不改变原数组
+返回一个新数组
+4、 toString()
+把数组转为字符串
+不改变原数组
+返回数组的字符串形式
+改变原数组：
+
+5、 pop()
+删除数组最后一个元素，如果数组为空，则不改变数组，返回undefined
+改变原数组
+返回被删除的元素
+6、 push()
+向数组末尾添加一个或多个元素
+改变原数组
+返回新数组的长度
+7、 reverse()
+颠倒数组中元素的顺序
+改变原数组
+返回该数组
+8、 shift()
+把数组的第一个元素删除，若空数组，不进行任何操作，返回undefined
+改变原数组
+返回第一个元素的值
+9、 sort()
+对数组元素进行排序(ascii)
+改变原数组
+返回该数组
+10、 splice()
+从数组中添加/删除项目
+改变原数组
+返回被删除的元素
+11、 unshift()
+向数组的开头添加一个或多个元素
+改变原数组
+返回新数组的长度
+</pre>
 
       
     </div>
@@ -530,9 +582,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-          
             <a href="/tags/编程基础/" rel="tag"># 编程基础</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -631,7 +683,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">100</span>
+                <span class="site-state-item-count">101</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -642,7 +694,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -653,7 +705,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -699,7 +751,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和初始化数组"><span class="nav-number">1.</span> <span class="nav-text">创建和初始化数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加和删除数组元素"><span class="nav-number">2.</span> <span class="nav-text">添加和删除数组元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加到数组末尾"><span class="nav-number">2.1.</span> <span class="nav-text">添加到数组末尾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加到数组首部"><span class="nav-number">2.2.</span> <span class="nav-text">添加到数组首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除最靠后元素"><span class="nav-number">2.3.</span> <span class="nav-text">删除最靠后元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除第一个元素"><span class="nav-number">2.4.</span> <span class="nav-text">删除第一个元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除任意位置的元素"><span class="nav-number">2.5.</span> <span class="nav-text">删除任意位置的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入任意为位置-任意值"><span class="nav-number">2.6.</span> <span class="nav-text">插入任意为位置 任意值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维和多维数组"><span class="nav-number">3.</span> <span class="nav-text">二维和多维数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作数组的方法（函数）"><span class="nav-number">4.</span> <span class="nav-text">操作数组的方法（函数）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组合并–concat方法"><span class="nav-number">4.1.</span> <span class="nav-text">数组合并–concat方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器函数"><span class="nav-number">4.2.</span> <span class="nav-text">迭代器函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#every方法"><span class="nav-number">4.2.1.</span> <span class="nav-text">every方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#some方法"><span class="nav-number">4.2.2.</span> <span class="nav-text">some方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#forEach方法"><span class="nav-number">4.2.3.</span> <span class="nav-text">forEach方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map方法"><span class="nav-number">4.2.4.</span> <span class="nav-text">map方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter方法"><span class="nav-number">4.2.5.</span> <span class="nav-text">filter方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce方法"><span class="nav-number">4.2.6.</span> <span class="nav-text">reduce方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索和排序"><span class="nav-number">4.3.</span> <span class="nav-text">搜索和排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组反序–reverse方法"><span class="nav-number">4.3.1.</span> <span class="nav-text">数组反序–reverse方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组自动排序–sort方法"><span class="nav-number">4.3.2.</span> <span class="nav-text">数组自动排序–sort方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义排序"><span class="nav-number">4.3.2.1.</span> <span class="nav-text">自定义排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串排序"><span class="nav-number">4.3.2.2.</span> <span class="nav-text">字符串排序</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索"><span class="nav-number">4.3.3.</span> <span class="nav-text">搜索</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出数组为字符串及指定分隔符"><span class="nav-number">4.4.</span> <span class="nav-text">输出数组为字符串及指定分隔符</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和初始化数组"><span class="nav-number">1.</span> <span class="nav-text">创建和初始化数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加和删除数组元素"><span class="nav-number">2.</span> <span class="nav-text">添加和删除数组元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加到数组末尾"><span class="nav-number">2.1.</span> <span class="nav-text">添加到数组末尾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加到数组首部"><span class="nav-number">2.2.</span> <span class="nav-text">添加到数组首部</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除最靠后元素"><span class="nav-number">2.3.</span> <span class="nav-text">删除最靠后元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除第一个元素"><span class="nav-number">2.4.</span> <span class="nav-text">删除第一个元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除任意位置的元素"><span class="nav-number">2.5.</span> <span class="nav-text">删除任意位置的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入任意为位置-任意值"><span class="nav-number">2.6.</span> <span class="nav-text">插入任意为位置 任意值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维和多维数组"><span class="nav-number">3.</span> <span class="nav-text">二维和多维数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作数组的方法（函数）"><span class="nav-number">4.</span> <span class="nav-text">操作数组的方法（函数）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组合并–concat方法"><span class="nav-number">4.1.</span> <span class="nav-text">数组合并–concat方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器函数"><span class="nav-number">4.2.</span> <span class="nav-text">迭代器函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#every方法"><span class="nav-number">4.2.1.</span> <span class="nav-text">every方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#some方法"><span class="nav-number">4.2.2.</span> <span class="nav-text">some方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#forEach方法"><span class="nav-number">4.2.3.</span> <span class="nav-text">forEach方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map方法"><span class="nav-number">4.2.4.</span> <span class="nav-text">map方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter方法"><span class="nav-number">4.2.5.</span> <span class="nav-text">filter方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce方法"><span class="nav-number">4.2.6.</span> <span class="nav-text">reduce方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索和排序"><span class="nav-number">4.3.</span> <span class="nav-text">搜索和排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组反序–reverse方法"><span class="nav-number">4.3.1.</span> <span class="nav-text">数组反序–reverse方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组自动排序–sort方法"><span class="nav-number">4.3.2.</span> <span class="nav-text">数组自动排序–sort方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义排序"><span class="nav-number">4.3.2.1.</span> <span class="nav-text">自定义排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串排序"><span class="nav-number">4.3.2.2.</span> <span class="nav-text">字符串排序</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索"><span class="nav-number">4.3.3.</span> <span class="nav-text">搜索</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出数组为字符串及指定分隔符"><span class="nav-number">4.4.</span> <span class="nav-text">输出数组为字符串及指定分隔符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#是否改变原数组及操作后返回值"><span class="nav-number">5.</span> <span class="nav-text">是否改变原数组及操作后返回值</span></a></li></ol></div>
             
 
           </div>
