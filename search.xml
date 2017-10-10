@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[HTML5数据集属性]]></title>
+      <url>%2F2017%2F10%2F10%2FHTML5%E6%95%B0%E6%8D%AE%E9%9B%86%E5%B1%9E%E6%80%A7%2F</url>
+      <content type="text"><![CDATA[有时候在HTML元素上绑定一些额外信息，特别是JS选取操作这些元素时特别有帮助。 通常会使用getAttribute()和setAttribute()来读和写非标题属性的值。但为此付出的代价是文档将不再是合法有效的HTML HTML5提供了一个解决方案。在HTML5文档中，任意以”data-“为前缀的小写的属性名字都是合法的。这些“数据集属性”将不会对其元素的表现产生影响，它们定义了一种标准的、附加额外数据的方法，并不是在文档合法性上做出让步。 HTML5还在Element对象上定义了dataset属性。该属性指代一个对象，它的各属性对应于去掉前缀的data-属性。因此dataset.x应该保存data-x属性的值。带连字符的属性对应于驼峰命名法属性名。如Element属性data-jquery-test在js中对应于dataset.jqueryTest属性]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[关于clientHeight、offsetHeight、scrollHeight等]]></title>
       <url>%2F2017%2F10%2F05%2F%E5%85%B3%E4%BA%8EclientHeight%E3%80%81offsetHeight%E3%80%81scrollHeight%E7%AD%89%2F</url>
       <content type="text"><![CDATA[关于clientHeight，offsetHeight等小笔记]]></content>
