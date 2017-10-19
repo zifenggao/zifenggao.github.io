@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS,Web相关知识,响应式Web," />
+  <meta name="keywords" content="Web相关知识,CSS,响应式Web," />
 
 
 
@@ -88,7 +88,7 @@
 
 
 <meta name="description" content="弊端概述并不能真正的识别用户客户端。由于 CSS 级别的响应式普遍都是通过 @media 的媒介查询方式根据屏幕尺寸判断手机端还是PC端， 这种做法显然是不科学的，例如，将手机横屏 CSS 可能就认为该客户端为 PC，将PC浏览器窗口缩小，CSS 就认为该客户端是手机。 自然基于这种判断渲染出来的界面并不是真正客户需求的。 2.可能导致样式混乱。由于 CSS @media 存在一个临界点，如@me">
-<meta name="keywords" content="CSS,Web相关知识,响应式Web">
+<meta name="keywords" content="Web相关知识,CSS,响应式Web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS级别响应式的弊端">
 <meta property="og:url" content="http://yoursite.com/2017/06/18/CSS级别响应式的弊端/index.html">
@@ -390,17 +390,6 @@
 
           
           
-             <span id="/2017/06/18/CSS级别响应式的弊端/" class="leancloud_visitors" data-flag-title="CSS级别响应式的弊端">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -456,9 +445,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
-          
             <a href="/tags/Web相关知识/" rel="tag"># Web相关知识</a>
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
             <a href="/tags/响应式Web/" rel="tag"># 响应式Web</a>
           
@@ -559,7 +548,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">106</span>
+                <span class="site-state-item-count">107</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -670,6 +659,10 @@
 </div>
 
 
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_uv"> 
+  &nbsp;&nbsp;&nbsp;本站总访问量<span id="busuanzi_value_site_uv"></span>人次
+</span>
         
 
         
@@ -923,113 +916,6 @@
 
 
   
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("HkOg5d4nPBsCYLz2GaAn5FP3-gzGzoHsz", "gCDESCURk0wwv6y3d30OSkzb");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 

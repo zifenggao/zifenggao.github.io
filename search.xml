@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[文本大小写样式之font-variant与text-transform属性]]></title>
+      <url>%2F2017%2F10%2F18%2Ffont-variant%E4%B8%8Etext-transform%E5%B1%9E%E6%80%A7%2F</url>
+      <content type="text"><![CDATA[font-variant属性small-caps:设置小型大写字母的字体显示文本 效果：（第一行是正常情况下的效果） text-transform 属性控制文本的大小写]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[一个url请求的完整过程（网络层面）]]></title>
       <url>%2F2017%2F10%2F17%2F%E4%B8%80%E4%B8%AAurl%E8%AF%B7%E6%B1%82%E7%9A%84%E5%AE%8C%E6%95%B4%E8%BF%87%E7%A8%8B%EF%BC%88%E7%BD%91%E7%BB%9C%E5%B1%82%E9%9D%A2%EF%BC%89%2F</url>
       <content type="text"><![CDATA[建立一个web请求的过程 和所要用的协议以及它们的作用 概述总的涉及到：http协议、用户数据报协议(UDP)、地址解析协议(ARP)、TCP协议、路由协议和IP协议 路由协议：路由协议通过在路由器之间共享路由信息来支持可路由协议。路由信息在相邻路由器之间传递，确保所有路由器知道到其它路由器的路径。总之，路由协议创建了路由表，描述了网络拓扑结构；路由协议与路由器协同工作，执行路由选择和数据包转发功能 关于ARP，在OSI模型中ARP协议属于链路层，而在TCP/IP模型中，ARP协议属于网络层 详解 通过DNS服务器将域名解析为IP地址（假设DNS和我们的主机在一个网段）:因为所发出的数据要通过被访问主机的IP地址进行传输和路由 首先主机会产生一个DNS请求，将请求传递给 传输层 通过UDP（User Datagram Protocol,用户数据报协议）产生一个 UDP 报文，再传递给 网络层 产生一个IP报文，目的地址是DNS服务器的IP地址（DNS用的是UDP） 然后在 数据链路层 通过 ARP （Address Resolution Protocol，地址解析协议）协议得到DNS服务器的MAC地址 这以后把 数据帧 通过以太网传输给DNS服务器，DNS服务器再将收到的帧向上传给传输层，得到UDP报文 通过UDP报文中指定的端口号传给DNS应用程序 假设要解析的域名在当前的DNS服务器中有相应的表项（如果不在当地，本地DNS服务器还要向上级的DNS服务器发出DNS查询请求，如此递归直到查到要解析的域名的IP地址） DNS把通过DNS应答将得到的IP地址返回给请求的主机 虽然浏览器得到对方的IP地址了，但仍不能发出请求 首先要和对方服务器建立一个TCP（传输控制协议，TCP和UDP同属传输层，但是TCP协议是个可靠的面向连接的协议，要比UDP复杂的多。TCP更适合要求可靠传输的应用。）连接 建立连接通过三次握手方法，这里和以下发送的TCP报文同样要传给下一层：网络层 IP层给TCP报文加上IP报头，发送给路由器（假设主机和web服务器不在同一个网内），路由器根据报文中的目的IP地址决定下一跳的IP地址和端口 这个决定需要查询它自身的路由表（而路由表的维护需要路由协议，比如OSPF等） IP报文可能通过多个路由器的转发，终于到达了对方的服务器 剥掉IP报头递交给上层 建立好了TCP连接，以后发送的数据都可以这条可靠的连接传输了 和WEB服务器之间的TCP连接建立成功。就可以发送请求 WEB服务器收到请求，就可以将响应信息通过刚才建立好的TCP连接送回给请求方 OSI模型与TCP/IP模型的区别 OSI 7层模型 依次为： 物理、数据链路、网络、传输、会话、表示、应用 TCP/IP 4层为： 数据链路、网络、传输、应用 TCP/IP把7层简化为4层 OSI模型是国际互连网标准组织定义出来是网络模型，分的很细 但是实际应用中却大部分只用到了TCP/IP的这4层，所以现在都说TCP/IP模型了 (但OSI还是要知道的)]]></content>
@@ -61,7 +68,7 @@
     <entry>
       <title><![CDATA[TCP/IP OSI各层协议]]></title>
       <url>%2F2017%2F09%2F15%2FTCP-IP-OSI%E5%90%84%E5%B1%82%E5%8D%8F%E8%AE%AE%2F</url>
-      <content type="text"><![CDATA[转：TCP/IP OSI各层协议，ARP属于哪一层的协议 Ip是不可靠协议 在OSI模型中ARP协议属于链路层；而在TCP/IP模型中，ARP协议属于网络层。 ARP报文是由以太网帧进行封装传输的。没有封装进IP包。 HTTP也是应用层协议 OSI各层对应设备及其协议 各层协议、作用及端口号 ARP到底在哪一层？ 有人认为：“ARP协议向网络层提供转换地址的服务，因此ARP应当属于数据链路层。” 这种说法是错误的 ？ARP协议属于网络层还是数据链路层]]></content>
+      <content type="text"><![CDATA[转：TCP/IP OSI各层协议，ARP属于哪一层的协议 Ip是不可靠协议 在OSI模型中ARP协议属于链路层；而在TCP/IP模型中，ARP协议属于网络层。 ARP报文是由以太网帧进行封装传输的。没有封装进IP包。 HTTP也是应用层协议，SSL(Secure Sockets Layer 安全套接层),及其继任者传输层安全(Transport Layer Security,TLS)是为网络通信提供安全及数据完整性的一种安全协议，工作在传输层 OSI各层对应设备及其协议 各层协议、作用及端口号 ARP到底在哪一层？ 有人认为：“ARP协议向网络层提供转换地址的服务，因此ARP应当属于数据链路层。” 这种说法是错误的 ？ARP协议属于网络层还是数据链路层]]></content>
     </entry>
 
     

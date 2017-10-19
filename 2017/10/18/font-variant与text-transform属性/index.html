@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Vue," />
+  <meta name="keywords" content="CSS," />
 
 
 
@@ -87,17 +87,22 @@
 
 
 
-<meta name="description" content="环境：windows   Vue.js 使用了基于 HTML 的模版语法，允许开发者声明式地将 DOM 绑定至底层 Vue 实例的数据 Vue.js 的核心是一个允许你采用简洁的模板语法来声明式的将数据渲染进 DOM 的系统 结合响应系统，在应用状态改变时， Vue 能够智能地计算出重新渲染组件的最小代价并应用到 DOM 操作上  安装其实不需要安装的，想用的话，直接连接CDN或者用script">
-<meta name="keywords" content="Vue">
+<meta name="description" content="font-variant属性small-caps:设置小型大写字母的字体显示文本  效果：（第一行是正常情况下的效果）  text-transform 属性控制文本的大小写">
+<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识Vue">
-<meta property="og:url" content="http://yoursite.com/2017/07/06/初识Vue/index.html">
+<meta property="og:title" content="文本大小写样式之font-variant与text-transform属性">
+<meta property="og:url" content="http://yoursite.com/2017/10/18/font-variant与text-transform属性/index.html">
 <meta property="og:site_name" content="Roderic">
-<meta property="og:description" content="环境：windows   Vue.js 使用了基于 HTML 的模版语法，允许开发者声明式地将 DOM 绑定至底层 Vue 实例的数据 Vue.js 的核心是一个允许你采用简洁的模板语法来声明式的将数据渲染进 DOM 的系统 结合响应系统，在应用状态改变时， Vue 能够智能地计算出重新渲染组件的最小代价并应用到 DOM 操作上  安装其实不需要安装的，想用的话，直接连接CDN或者用script">
-<meta property="og:updated_time" content="2017-07-07T01:24:05.117Z">
+<meta property="og:description" content="font-variant属性small-caps:设置小型大写字母的字体显示文本  效果：（第一行是正常情况下的效果）  text-transform 属性控制文本的大小写">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/171018/eEjbHih0iC.png?imageslim">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/171018/BDC8m431da.png?imageslim">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/171018/KEGjc1Kh6m.png?imageslim">
+<meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/171018/c9DEBj56eh.png?imageslim">
+<meta property="og:updated_time" content="2017-10-18T14:49:30.158Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初识Vue">
-<meta name="twitter:description" content="环境：windows   Vue.js 使用了基于 HTML 的模版语法，允许开发者声明式地将 DOM 绑定至底层 Vue 实例的数据 Vue.js 的核心是一个允许你采用简洁的模板语法来声明式的将数据渲染进 DOM 的系统 结合响应系统，在应用状态改变时， Vue 能够智能地计算出重新渲染组件的最小代价并应用到 DOM 操作上  安装其实不需要安装的，想用的话，直接连接CDN或者用script">
+<meta name="twitter:title" content="文本大小写样式之font-variant与text-transform属性">
+<meta name="twitter:description" content="font-variant属性small-caps:设置小型大写字母的字体显示文本  效果：（第一行是正常情况下的效果）  text-transform 属性控制文本的大小写">
+<meta name="twitter:image" content="http://onxem9xtk.bkt.clouddn.com/blog/171018/eEjbHih0iC.png?imageslim">
 
 
 
@@ -125,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/06/初识Vue/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/18/font-variant与text-transform属性/"/>
 
 
 
 
 
-  <title> 初识Vue | Roderic </title>
+  <title> 文本大小写样式之font-variant与text-transform属性 | Roderic </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -304,7 +309,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/06/初识Vue/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/font-variant与text-transform属性/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Roderic">
@@ -325,7 +330,7 @@
             
             
               
-                初识Vue
+                文本大小写样式之font-variant与text-transform属性
               
             
           </h1>
@@ -340,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-06T15:07:27+08:00">
-                2017-07-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-18T22:44:10+08:00">
+                2017-10-18
               </time>
             
 
@@ -363,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
+                  <a href="/categories/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -381,7 +386,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/07/06/初识Vue/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/10/18/font-variant与text-transform属性/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -408,28 +413,13 @@
       
 
       
-        <blockquote>
-<p>环境：windows</p>
-</blockquote>
-<ul>
-<li>Vue.js 使用了基于 HTML 的模版语法，允许开发者声明式地将 DOM 绑定至底层 Vue 实例的数据</li>
-<li>Vue.js 的核心是一个允许你采用简洁的模板语法来声明式的将数据渲染进 DOM 的系统</li>
-<li>结合响应系统，在应用状态改变时， Vue 能够智能地计算出重新渲染组件的最小代价并应用到 DOM 操作上</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>其实不需要安装的，想用的话，直接连接CDN或者用script标签引入vue.min.js就行了，这里安装的目的是为了使用Vue.js 提供一个官方命令行工具，可用于快速搭建大型单页应用。</p>
-<p>用npm安装。npm版本需要高于3.0，低的可用<code>cnpm install npm -g</code>升级以下</p>
-<p><code>cnpm install --global vue-cli</code>全局安装vue-cli命令行工具</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
-<li>创建一个基于 webpack 模板的新项目(本地不需要安装webpack),可以一路回车，注意目前node版本高于8.0.0的估计会出问题，推荐使用8.0.0版本<br><code>vue init webpack my-project</code></li>
-<li>进入my-project文件夹<ul>
-<li><code>cnpm install</code>安装相关的依赖文件</li>
-<li><code>cnpm run dev</code>启动，这条命令的含义是<a href="https://segmentfault.com/q/1010000005694821/a-1020000005702442" target="_blank" rel="external">关于npm run dev和build</a></li>
-</ul>
-</li>
-<li>浏览器访问localhost:8080就能看到初始界面</li>
-</ul>
-<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><h3 id="报空格数量错误"><a href="#报空格数量错误" class="headerlink" title="报空格数量错误"></a>报空格数量错误</h3><p>初始化一个文件夹后，开始编辑里面的文件，会发现各种报空有关空格个数的错误，这是因为在Webpack 配置中使用了 eslint-loader，找到项目中build文件夹下的webpack.base.conf.js文件，将相关内容注释掉即可，如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</div><div class="line"><span class="keyword">var</span> utils = <span class="built_in">require</span>(<span class="string">'./utils'</span>)</div><div class="line"><span class="keyword">var</span> config = <span class="built_in">require</span>(<span class="string">'../config'</span>)</div><div class="line"><span class="keyword">var</span> vueLoaderConfig = <span class="built_in">require</span>(<span class="string">'./vue-loader.conf'</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolve</span> (<span class="params">dir</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> path.join(__dirname, <span class="string">'..'</span>, dir)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">  <span class="attr">entry</span>: &#123;</div><div class="line">    <span class="attr">app</span>: <span class="string">'./src/main.js'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">output</span>: &#123;</div><div class="line">    <span class="attr">path</span>: config.build.assetsRoot,</div><div class="line">    <span class="attr">filename</span>: <span class="string">'[name].js'</span>,</div><div class="line">    <span class="attr">publicPath</span>: process.env.NODE_ENV === <span class="string">'production'</span></div><div class="line">      ? config.build.assetsPublicPath</div><div class="line">      : config.dev.assetsPublicPath</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">resolve</span>: &#123;</div><div class="line">    <span class="attr">extensions</span>: [<span class="string">'.js'</span>, <span class="string">'.vue'</span>, <span class="string">'.json'</span>],</div><div class="line">    <span class="attr">alias</span>: &#123;</div><div class="line">      <span class="string">'vue$'</span>: <span class="string">'vue/dist/vue.esm.js'</span>,</div><div class="line">      <span class="string">'@'</span>: resolve(<span class="string">'src'</span>)</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">module</span>: &#123;</div><div class="line">    <span class="attr">rules</span>: [</div><div class="line">      <span class="comment">/*&#123;</span></div><div class="line">        test: /\.(js|vue)$/,</div><div class="line">        loader: 'eslint-loader',</div><div class="line">        enforce: 'pre',</div><div class="line">        include: [resolve('src'), resolve('test')],</div><div class="line">        options: &#123;</div><div class="line">          formatter: require('eslint-friendly-formatter')</div><div class="line">        &#125;</div><div class="line">      &#125;,*/</div><div class="line">      &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'vue-loader'</span>,</div><div class="line">        <span class="attr">options</span>: vueLoaderConfig</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'babel-loader'</span>,</div><div class="line">        <span class="attr">include</span>: [resolve(<span class="string">'src'</span>), resolve(<span class="string">'test'</span>)]</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'url-loader'</span>,</div><div class="line">        <span class="attr">options</span>: &#123;</div><div class="line">          <span class="attr">limit</span>: <span class="number">10000</span>,</div><div class="line">          <span class="attr">name</span>: utils.assetsPath(<span class="string">'img/[name].[hash:7].[ext]'</span>)</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      &#123;</div><div class="line">        <span class="attr">test</span>: <span class="regexp">/\.(woff2?|eot|ttf|otf)(\?.*)?$/</span>,</div><div class="line">        <span class="attr">loader</span>: <span class="string">'url-loader'</span>,</div><div class="line">        <span class="attr">options</span>: &#123;</div><div class="line">          <span class="attr">limit</span>: <span class="number">10000</span>,</div><div class="line">          <span class="attr">name</span>: utils.assetsPath(<span class="string">'fonts/[name].[hash:7].[ext]'</span>)</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    ]</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="font-variant属性"><a href="#font-variant属性" class="headerlink" title="font-variant属性"></a>font-variant属性</h2><p>small-caps:设置小型大写字母的字体显示文本</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/171018/eEjbHih0iC.png?imageslim" alt="mark"></p>
+<p>效果：（第一行是正常情况下的效果）</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/171018/BDC8m431da.png?imageslim" alt="mark"></p>
+<h2 id="text-transform-属性"><a href="#text-transform-属性" class="headerlink" title="text-transform 属性"></a>text-transform 属性</h2><p>控制文本的大小写</p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/171018/KEGjc1Kh6m.png?imageslim" alt="mark"></p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/171018/c9DEBj56eh.png?imageslim" alt="mark"></p>
 
       
     </div>
@@ -459,7 +449,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Vue/" rel="tag"># Vue</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
         </div>
       
@@ -472,18 +462,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/07/什么是package-json/" rel="next" title="什么是package.json">
-                <i class="fa fa-chevron-left"></i> 什么是package.json
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/06/一场由vue-init-webpack-my-project引发的血案/" rel="prev" title="一场由vue init webpack my-project引发的血案[未填坑]">
-                一场由vue init webpack my-project引发的血案[未填坑] <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/17/一个url请求的完整过程（网络层面）/" rel="prev" title="一个url请求的完整过程（网络层面）">
+                一个url请求的完整过程（网络层面） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -626,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常"><span class="nav-number">3.</span> <span class="nav-text">异常</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#报空格数量错误"><span class="nav-number">3.1.</span> <span class="nav-text">报空格数量错误</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#font-variant属性"><span class="nav-number">1.</span> <span class="nav-text">font-variant属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-transform-属性"><span class="nav-number">2.</span> <span class="nav-text">text-transform 属性</span></a></li></ol></div>
             
 
           </div>
