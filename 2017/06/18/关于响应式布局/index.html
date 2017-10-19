@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS,Web相关知识,响应式Web," />
+  <meta name="keywords" content="Web相关知识,CSS,响应式Web," />
 
 
 
@@ -88,7 +88,7 @@
 
 
 <meta name="description" content="什么是响应式布局什么是响应式？响应式的页面在不同的屏幕有不同的布局，换句话说，使用相同的html在不同的分辨率有不同的排版。 响应式布局通俗得讲是：css根据屏幕宽度，自动调整网页div显示和布局，以适应不同尺寸屏幕优化浏览体验，主要就是@media的使用 实现方式 @media 使用 CSS 媒介查询来实现响应式布局   BootStrap框架 十二栅格系统 最核心的几个 class, 还有几个">
-<meta name="keywords" content="CSS,Web相关知识,响应式Web">
+<meta name="keywords" content="Web相关知识,CSS,响应式Web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于响应式布局">
 <meta property="og:url" content="http://yoursite.com/2017/06/18/关于响应式布局/index.html">
@@ -376,16 +376,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a class="cloud-tie-join-count" href="/2017/06/18/关于响应式布局/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -452,6 +442,27 @@
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如果觉得文章对您有用，请随意打赏！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.jpg" alt="Roderic WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="Roderic Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -467,9 +478,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
-          
             <a href="/tags/Web相关知识/" rel="tag"># Web相关知识</a>
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
             <a href="/tags/响应式Web/" rel="tag"># 响应式Web</a>
           
@@ -521,8 +532,6 @@
 
           
   <div class="comments" id="comments">
-    
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
     
   </div>
 
@@ -788,21 +797,18 @@
 
 
   
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "344d0b67ce1149f780b27bb4e1cac9c2",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+
+
+
+
+
   
 
 
 
 
+
+  
 
 
 
