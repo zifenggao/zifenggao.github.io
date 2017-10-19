@@ -1968,6 +1968,12 @@ http的注册页面的话，登录或者注册请求中的用户名及密码在�
 <span id="busuanzi_container_site_uv"> 
   &nbsp;|&nbsp;&nbsp;您是本站第<span id="busuanzi_value_site_uv"></span>位访客
 </span>
+
+<script>
+//更改统计数量
+var busuanzi = document.getElementById('busuanzi_value_site_uv');
+busuanzi.innerHtml = parseInt(busuanzi.text)+100;
+</script>
         
 
         
