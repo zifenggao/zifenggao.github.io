@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[四舍五入之Math.round()与Number.toFixed()]]></title>
+      <url>%2F2017%2F10%2F19%2F%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%E4%B9%8BMath-round-%E4%B8%8ENumber-toFixed%2F</url>
+      <content type="text"><![CDATA[toFixed() 方法可把 Number 四舍五入为 指定 小数位数的数字，是Number对象的方法 123var a=2.1512631231231321; console.log(a.toFixed(2)); //结果：2.15console.log(a.toFixed(4)); //结果：2.1513 Math.round()方法可把一个数字舍入为最接近的整数 例子：3.5 将舍入为 4，而 -3.5 将舍入为 -3 想要保留指定位数的小数也可以，这么写就行（比如保留2位）：Math.round(x*100)/100，3位就用1000，4位就用10000，以此类推。 注意：Js等高级程序设计语言在进行浮点数计算的时候往往会涉及到精度出错的问题，这和计算机的内部构造有关，比如：0.1 + 0.2 === 0.3，结果是false，原因是： 具体为什么会这样，看这里：js为什么不能正确处理小数运算？]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[一行代码实现字符串重复打印]]></title>
+      <url>%2F2017%2F10%2F19%2F%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%87%8D%E5%A4%8D%E6%89%93%E5%8D%B0%2F</url>
+      <content type="text"><![CDATA[题目：要求实现一个函数times，这个函数接收两个参数，一个是要重复打印的字符串str，另一个是重复打印的次数num 比如：times(&#39;abc&#39;,3) 结果为：’abcabcabc’ 要求，不能用传统的循环的方式来实现，要一行代码解决问题。 思路：用递归的形式使字符串不断累加，结合三元运算符判断打印结束点（打印次数剩1时结束） 程序实现： 123function times(str,num)&#123; return num === 1? str : str += times(str,num-1);&#125;]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[文本大小写样式之font-variant与text-transform属性]]></title>
       <url>%2F2017%2F10%2F18%2Ffont-variant%E4%B8%8Etext-transform%E5%B1%9E%E6%80%A7%2F</url>
       <content type="text"><![CDATA[font-variant属性small-caps:设置小型大写字母的字体显示文本 效果：（第一行是正常情况下的效果） text-transform 属性控制文本的大小写]]></content>
