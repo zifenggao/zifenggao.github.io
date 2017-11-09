@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/06/一场由vue-init-webpack-my-project引发的血案/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="先说一下，用的是windows系统。 最近打算学vue，于是乎，开始了自己的第一个vue项目之路。 首先来个vue init webpack my-project初始化个项目来瞧瞧它的结构，然而……，在project description那一直卡着，初始化失败。就这样踏上了踩坑的路程。 解决问题呗，查来查去，终于查到个有用的–vue搭建环境- vue init webpack my-projec">
-<meta property="og:updated_time" content="2017-07-23T03:01:54.522Z">
+<meta property="og:updated_time" content="2017-11-08T03:47:05.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一场由vue init webpack my-project引发的血案[未填坑]">
 <meta name="twitter:description" content="先说一下，用的是windows系统。 最近打算学vue，于是乎，开始了自己的第一个vue项目之路。 首先来个vue init webpack my-project初始化个项目来瞧瞧它的结构，然而……，在project description那一直卡着，初始化失败。就这样踏上了踩坑的路程。 解决问题呗，查来查去，终于查到个有用的–vue搭建环境- vue init webpack my-projec">
@@ -404,7 +404,10 @@
 <p>解决问题呗，查来查去，终于查到个有用的–<a href="https://segmentfault.com/q/1010000009744966" target="_blank" rel="external">vue搭建环境- vue init webpack my-project无响应</a>。于是乎，知道问题出在哪了，node版本更新太快，而我的node由于换电脑，最近新装的是8.1.0版本的，估计功能还没完善。那就按上面那问题说的，降低node版本呗。</p>
 <p>怎么退？那个问题里面回答的人也说了，用nvm。百度了以下，大概知道nvm是什么东西，大概流程就是安装nvm，然后用nvm安装各个版本的node，之后就可以通过nvm的命令随意在几个已经安装的node版本里面切换，听起来好像很爽，开始呗。</p>
 <p>为了安全，把原本的node8.1.0卸载了，可是npm装的一些模块却忘了卸，没事，去把那个文件夹删了或者重命名为其它名字不就行了。问我在哪，好吧，一般默认全局安装的再者C:\Users\用户名\AppData\Roaming\npm\node_modules。</p>
-<h2 id="使用nvm"><a href="#使用nvm" class="headerlink" title="使用nvm"></a>使用nvm</h2><p>开始安装呗。网上好吧，试了各种方法：</p>
+<h2 id="使用nvm"><a href="#使用nvm" class="headerlink" title="使用nvm"></a>使用nvm</h2><blockquote>
+<p>可以使用nvm切换版本了，老老实实把npm和node卸了，然后根据<a href="http://blog.csdn.net/tyro_java/article/details/51232458" target="_blank" rel="external">这个教程</a>做，就能愉快的使用nvm了</p>
+</blockquote>
+<p>开始安装呗。网上好吧，试了各种方法：</p>
 <ul>
 <li>github上的nvm的setup版本、noinstall版本</li>
 <li>github上的所谓了中国用的nvmw版本</li>
@@ -418,7 +421,10 @@
 <li>这是离成功最近的一次，仰仗这哥们的博客<a href="https://www.kancloud.cn/summer/nodejs-install/71975" target="_blank" rel="external">链接</a>。一切到好着，想下的node版本也都通过npm下载到本地了，可是，切换不了版本。。。应该是哪出问题了，<strong>以后想要填坑估计也得从这篇教程出发</strong>。</li>
 </ul>
 <p>几近绝望，最后在搜的时候，发现除了nvm还有一个东西可以实现相同的功能，那就是n,好吧，转换阵地。</p>
-<h2 id="使用n"><a href="#使用n" class="headerlink" title="使用n"></a>使用n</h2><p>怎么是使用？<a href="http://www.jianshu.com/p/37e30a72583d" target="_blank" rel="external">Node版本切换n</a>，够简洁，就喜欢这种不拖泥带水的教程。</p>
+<h2 id="使用n"><a href="#使用n" class="headerlink" title="使用n"></a>使用n</h2><blockquote>
+<p>额。。。知道为什么“n”不能用了，因为“n”不支持window系统。。。</p>
+</blockquote>
+<p>怎么是使用？<a href="http://www.jianshu.com/p/37e30a72583d" target="_blank" rel="external">Node版本切换n</a>，够简洁，就喜欢这种不拖泥带水的教程。</p>
 <p>看得出，需要npm的支持才能安装n,咋办，先装个node的呗（别忘了我电脑原本的node已经被我卸了），装那个版本的，老老实实装8.0.0吧。</p>
 <p>装完之后，<code>npm install -g n</code>开始安装，完成之后，输入n,有显示n的一些帮助信息，却没有显示的我已经安装的node版本，很明显我电脑现在是有一个node8.0.0的。没有。要不再试试安装node，运行<code>n latest</code>没用，失败。</p>
 <h2 id="弃了弃了"><a href="#弃了弃了" class="headerlink" title="弃了弃了"></a>弃了弃了</h2><p>能怎么办，很绝望啊。先留个坑吧，既然已经装了node8.0.0了，那运行最开始的<code>vue init webpack my-project</code>应该已经没问题了。直接试试吧。</p>
@@ -587,7 +593,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">109</span>
+                <span class="site-state-item-count">112</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -598,7 +604,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -609,7 +615,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">36</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
