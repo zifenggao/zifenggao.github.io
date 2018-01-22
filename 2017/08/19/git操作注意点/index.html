@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/19/git操作注意点/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="分支提交注意点 对于在自己分支上开发的，提交时应该 先执行git merge origin master 为了方便以后找某个分支的提交，可以打个tag:git tag tag-dev-initial(tag的用法一般在大版本的时候才会打) git push origin tag-dev-initial    给项目打tag 想给git打个tag，可以在分支git add\commit\push之后">
-<meta property="og:updated_time" content="2017-08-19T12:40:17.194Z">
+<meta property="og:updated_time" content="2018-01-01T14:06:06.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git操作注意点">
 <meta name="twitter:description" content="分支提交注意点 对于在自己分支上开发的，提交时应该 先执行git merge origin master 为了方便以后找某个分支的提交，可以打个tag:git tag tag-dev-initial(tag的用法一般在大版本的时候才会打) git push origin tag-dev-initial    给项目打tag 想给git打个tag，可以在分支git add\commit\push之后">
@@ -427,6 +427,9 @@
 <h2 id="提交合并分支请求（自己没有操作主分支的权利）"><a href="#提交合并分支请求（自己没有操作主分支的权利）" class="headerlink" title="提交合并分支请求（自己没有操作主分支的权利）"></a>提交合并分支请求（自己没有操作主分支的权利）</h2><ul>
 <li>要有个习惯：git合并分支之前先merge master，然后再pull request</li>
 </ul>
+<h2 id="强制提交到远程仓库"><a href="#强制提交到远程仓库" class="headerlink" title="强制提交到远程仓库"></a>强制提交到远程仓库</h2><ul>
+<li><code>git push -u -f origin master</code>这是在本地分支落后于远程分支的情况下，加了个<code>-f</code>参数，表示强制推送，这将覆盖掉远程分支的内容</li>
+</ul>
 
       
     </div>
@@ -574,7 +577,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">113</span>
+                <span class="site-state-item-count">114</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -585,7 +588,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -596,7 +599,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -642,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分支提交注意点"><span class="nav-number">1.</span> <span class="nav-text">分支提交注意点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给项目打tag"><span class="nav-number">2.</span> <span class="nav-text">给项目打tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本退回"><span class="nav-number">3.</span> <span class="nav-text">版本退回</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改提交时写的注释（最近一次）"><span class="nav-number">4.</span> <span class="nav-text">更改提交时写的注释（最近一次）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并分支-自己能操作主分支时"><span class="nav-number">5.</span> <span class="nav-text">合并分支(自己能操作主分支时)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交合并分支请求（自己没有操作主分支的权利）"><span class="nav-number">6.</span> <span class="nav-text">提交合并分支请求（自己没有操作主分支的权利）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分支提交注意点"><span class="nav-number">1.</span> <span class="nav-text">分支提交注意点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给项目打tag"><span class="nav-number">2.</span> <span class="nav-text">给项目打tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本退回"><span class="nav-number">3.</span> <span class="nav-text">版本退回</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改提交时写的注释（最近一次）"><span class="nav-number">4.</span> <span class="nav-text">更改提交时写的注释（最近一次）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并分支-自己能操作主分支时"><span class="nav-number">5.</span> <span class="nav-text">合并分支(自己能操作主分支时)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提交合并分支请求（自己没有操作主分支的权利）"><span class="nav-number">6.</span> <span class="nav-text">提交合并分支请求（自己没有操作主分支的权利）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强制提交到远程仓库"><span class="nav-number">7.</span> <span class="nav-text">强制提交到远程仓库</span></a></li></ol></div>
             
 
           </div>
@@ -665,7 +668,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
