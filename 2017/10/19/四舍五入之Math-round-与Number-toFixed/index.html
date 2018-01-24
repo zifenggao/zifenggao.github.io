@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/19/四舍五入之Math-round-与Number-toFixed/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="toFixed() 方法可把 Number 四舍五入为 指定 小数位数的数字，是Number对象的方法  123var a=2.1512631231231321;  console.log(a.toFixed(2)); //结果：2.15console.log(a.toFixed(4)); //结果：2.1513  Math.round()方法可把一个数字舍入为最接近的整数  例子：3.5 将舍">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/171019/kIAKDhHKBb.png?imageslim">
 <meta property="og:updated_time" content="2017-10-19T14:08:43.449Z">
 <meta name="twitter:card" content="summary">
@@ -403,7 +404,7 @@
         <ul>
 <li>toFixed() 方法可把 Number 四舍五入为 <strong>指定</strong> 小数位数的数字，是Number对象的方法</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">2.1512631231231321</span>;  </div><div class="line"><span class="built_in">console</span>.log(a.toFixed(<span class="number">2</span>)); <span class="comment">//结果：2.15</span></div><div class="line"><span class="built_in">console</span>.log(a.toFixed(<span class="number">4</span>)); <span class="comment">//结果：2.1513</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">2.1512631231231321</span>;  </span><br><span class="line"><span class="built_in">console</span>.log(a.toFixed(<span class="number">2</span>)); <span class="comment">//结果：2.15</span></span><br><span class="line"><span class="built_in">console</span>.log(a.toFixed(<span class="number">4</span>)); <span class="comment">//结果：2.1513</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>Math.round()方法可把一个数字舍入为最接近的整数</li>
 </ul>
@@ -411,7 +412,7 @@
 <p>想要保留指定位数的小数也可以，这么写就行（比如保留2位）：<code>Math.round(x*100)/100</code>，3位就用1000，4位就用10000，以此类推。</p>
 <p><strong>注意</strong>：Js等高级程序设计语言在进行浮点数计算的时候往往会涉及到精度出错的问题，这和计算机的内部构造有关，比如：<code>0.1 + 0.2 === 0.3</code>，结果是false，原因是：</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/171019/kIAKDhHKBb.png?imageslim" alt="mark"></p>
-<p>具体为什么会这样，看这里：<a href="http://www.jb51.net/article/77148.htm" target="_blank" rel="external">js为什么不能正确处理小数运算？</a></p>
+<p>具体为什么会这样，看这里：<a href="http://www.jb51.net/article/77148.htm" target="_blank" rel="noopener">js为什么不能正确处理小数运算？</a></p>
 
       
     </div>
@@ -475,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/09/android-studio安装HAXM失败/" rel="next" title="android-studio安装HAXM失败">
-                <i class="fa fa-chevron-left"></i> android-studio安装HAXM失败
+              <a href="/2017/10/19/一行代码实现字符串重复打印/" rel="next" title="一行代码实现字符串重复打印">
+                <i class="fa fa-chevron-left"></i> 一行代码实现字符串重复打印
               </a>
             
           </div>
@@ -485,8 +486,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/19/一行代码实现字符串重复打印/" rel="prev" title="一行代码实现字符串重复打印">
-                一行代码实现字符串重复打印 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/09/android-studio安装HAXM失败/" rel="prev" title="android-studio安装HAXM失败">
+                android-studio安装HAXM失败 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

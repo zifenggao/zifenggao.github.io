@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/15/Hexo安装及默认主题配置/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="#安装Hexo 想重建博客，又不想花时间从头设计实现网站，就开始找有什么方法能快速实现页面布局和设计，最开始用了wordpress平台，后来又看到大佬推荐Hexo,就看了看。 PS:Hexo依赖于Node,所以电脑得有Node.js环境，然后就可以用Node中强大的npm命令来安装各种东西，当然包括Hexo。Node和Git的安装教程自己百度。 Hexo安装教程 hexo入门指南   yilia主">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170412/150043347.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170413/195122246.png">
 <meta property="og:updated_time" content="2017-07-23T03:03:55.713Z">
@@ -402,30 +403,30 @@
 
       
         <p>#安装Hexo</p>
-<p>想重建博客，又不想花时间从头设计实现网站，就开始找有什么方法能快速实现页面布局和设计，最开始用了wordpress平台，后来又看到大佬推荐<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>,就看了看。</p>
+<p>想重建博客，又不想花时间从头设计实现网站，就开始找有什么方法能快速实现页面布局和设计，最开始用了wordpress平台，后来又看到大佬推荐<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>,就看了看。</p>
 <p>PS:<em>Hexo依赖于Node,所以电脑得有Node.js环境，然后就可以用Node中强大的npm命令来安装各种东西，当然包括Hexo。Node和Git的安装教程自己百度。</em></p>
-<p><a href="http://blog.csdn.net/xuezhisdc/article/details/53130328" target="_blank" rel="external">Hexo安装教程</a></p>
-<p><a href="http://www.maintao.com/2014/hexo-beginner%27s-guide/" target="_blank" rel="external">hexo入门指南</a></p>
+<p><a href="http://blog.csdn.net/xuezhisdc/article/details/53130328" target="_blank" rel="noopener">Hexo安装教程</a></p>
+<p><a href="http://www.maintao.com/2014/hexo-beginner%27s-guide/" target="_blank" rel="noopener">hexo入门指南</a></p>
 <hr>
 <ul>
-<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia主题</a></li>
-<li><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Next主题</a></li>
-<li><a href="https://github.com/lollipoppp/hexo-yelee-theme" target="_blank" rel="external">yelee主题</a></li>
+<li><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia主题</a></li>
+<li><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">Next主题</a></li>
+<li><a href="https://github.com/lollipoppp/hexo-yelee-theme" target="_blank" rel="noopener">yelee主题</a></li>
 </ul>
 <hr>
-<p>另外还找到<a href="http://jekyll.com.cn/" target="_blank" rel="external">jekyll</a><br><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170412/150043347.png" alt="mark"><br>直接托管在github上，好像挺牛逼的，有时间再折腾吧<a href="https://www.zhihu.com/question/24179143?from=profile_question_card" target="_blank" rel="external">准备自己建一个个人博客，有什么好的框架推荐？</a></p>
+<p>另外还找到<a href="http://jekyll.com.cn/" target="_blank" rel="noopener">jekyll</a><br><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170412/150043347.png" alt="mark"><br>直接托管在github上，好像挺牛逼的，有时间再折腾吧<a href="https://www.zhihu.com/question/24179143?from=profile_question_card" target="_blank" rel="noopener">准备自己建一个个人博客，有什么好的框架推荐？</a></p>
 <p><strong>我的安装过程</strong></p>
 <ul>
 <li>在git bash内使用<code>npm install hexo -g</code>安装，直接在根目录下装的</li>
 <li>然后在想要创建博客的地方使用<code>hexo init blog</code>命令创建blog文件夹（不只是文件夹，整个默认的hexo博客主题等都将从github上下到该文件夹下）</li>
 <li>完成后，<strong>在blog文件夹内</strong>，<code>hexo generate</code>生成静态页面，生成的静态页面存储在public文件夹下，只要有一个web server就可以独立运行网站了</li>
-<li><code>hexo server</code>启动本地服务，浏览器输入<a href="http://localhost:4000/即可访问刚刚创建的博客了" target="_blank" rel="external">http://localhost:4000/即可访问刚刚创建的博客了</a><ul>
-<li>如果不行，说明端口被占用，用<code>hexo s -p 5000</code>重新开启本地服务，然后<a href="http://localhost:5000/即可访问创建的页面" target="_blank" rel="external">http://localhost:5000/即可访问创建的页面</a></li>
+<li><code>hexo server</code>启动本地服务，浏览器输入<a href="http://localhost:4000/即可访问刚刚创建的博客了" target="_blank" rel="noopener">http://localhost:4000/即可访问刚刚创建的博客了</a><ul>
+<li>如果不行，说明端口被占用，用<code>hexo s -p 5000</code>重新开启本地服务，然后<a href="http://localhost:5000/即可访问创建的页面" target="_blank" rel="noopener">http://localhost:5000/即可访问创建的页面</a></li>
 </ul>
 </li>
 <li><strong>就是这么简单，主要都是细节问题，对于刚入门的同道，需要知道的是，以上命令都在git bash里面执行就可以，因为cmd有的功能bash基本上都有，Node博主当时是默认安装在C盘，用<code>npm install npm -g</code>升级了下Node自带的npm，然后直接在根目录（刚打开git bash时的目录）执行的<code>npm install hexo -g</code>安装hexo，在其他目录安装的话，用全局安装应该也可以，不过我没折腾过。</strong></li>
 </ul>
-<h1 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h1><p><a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="external">部署到github</a></p>
+<h1 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h1><p><a href="http://www.jianshu.com/p/465830080ea9" target="_blank" rel="noopener">部署到github</a></p>
 <ul>
 <li>修改blog目录下的_config.yml文件如下：<br><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170413/195122246.png" alt="mark"><br>title为网站主标题，subtitle为副标题，都是顾名思义的，language和timezone要注意书写格式，还有，每个“：”之后要记得加上空格</li>
 <li>更改完_config.yml之后，输入<code>npm install hexo-deployer-git --save</code>（不知道是不是必须的，可能是怕没有安装deploy，怕在后面发布到github的时候出错）</li>
@@ -434,13 +435,13 @@
 </ul>
 </li>
 <li>然后进行本地发布：<code>$ hexo server</code></li>
-<li>此时浏览器输入<a href="http://localhost:4000/可以看到我们搭建好的博客和发布的文章" target="_blank" rel="external">http://localhost:4000/可以看到我们搭建好的博客和发布的文章</a></li>
+<li>此时浏览器输入<a href="http://localhost:4000/可以看到我们搭建好的博客和发布的文章" target="_blank" rel="noopener">http://localhost:4000/可以看到我们搭建好的博客和发布的文章</a></li>
 <li>目前只能在本机看到</li>
 <li><p>接下来用</p>
 <pre><code>$ hexo generate//生成静态页面
 $ hexo deploy//发布到更改_config.yml时指定的githubc仓库上
 </code></pre></li>
-<li>这样使用github的仓库地址例如本例的<a href="http://inerdstack.github.io就可以访问我们的博客了" target="_blank" rel="external">http://inerdstack.github.io就可以访问我们的博客了</a></li>
+<li>这样使用github的仓库地址例如本例的<a href="http://inerdstack.github.io就可以访问我们的博客了" target="_blank" rel="noopener">http://inerdstack.github.io就可以访问我们的博客了</a></li>
 </ul>
 <h1 id="部署步骤"><a href="#部署步骤" class="headerlink" title="部署步骤"></a>部署步骤</h1><p>每次部署的步骤，可按以下三步来进行。</p>
 <pre><code>hexo clean
@@ -521,8 +522,8 @@ hexo deploy
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/15/NexT主题配置进阶/" rel="next" title="NexT主题配置进阶">
-                <i class="fa fa-chevron-left"></i> NexT主题配置进阶
+              <a href="/2017/04/15/Hexo的hexo-deploy无法使用/" rel="next" title="Hexo的hexo deploy无法使用">
+                <i class="fa fa-chevron-left"></i> Hexo的hexo deploy无法使用
               </a>
             
           </div>
@@ -531,8 +532,8 @@ hexo deploy
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/15/Hexo的hexo-deploy无法使用/" rel="prev" title="Hexo的hexo deploy无法使用">
-                Hexo的hexo deploy无法使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/15/NexT主题配置进阶/" rel="prev" title="NexT主题配置进阶">
+                NexT主题配置进阶 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

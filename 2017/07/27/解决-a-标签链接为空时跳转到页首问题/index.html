@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/27/解决-a-标签链接为空时跳转到页首问题/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="一般在写页面的时候，对于链接目的地还未确定的标签，我们一般会在其href属性上添加“#”来表示其为空链接，像下面这样： 1&amp;lt;a href=&quot;#&quot;&amp;gt;测试&amp;lt;/a&amp;gt; 但这会导致我们在点击这个链接的时候，页面自动跳转到页面的首部位置，这跟就空着href，不写#的效果是一样的。则很明显不是我们想要的，怎么解决？ 用javascript:void (0)替换#即可。 1&amp;lt;a hr">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-07-29T15:43:01.167Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决a标签链接为空时跳转到页首问题">
@@ -399,10 +400,10 @@
 
       
         <p>一般在写页面的时候，对于链接目的地还未确定的<a>标签，我们一般会在其href属性上添加“#”来表示其为空链接，像下面这样：</a></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>但这会导致我们在点击这个链接的时候，页面自动跳转到页面的首部位置，这跟就空着href，不写#的效果是一样的。则很明显不是我们想要的，怎么解决？</p>
 <p>用<code>javascript:void (0)</code>替换<code>#</code>即可。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void (0);"</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void (0);"</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这样就页面就不会乱动了，问题解决。</p>
 
       
@@ -467,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/29/前后端分离的两种方案/" rel="next" title="前后端分离的两种方案">
-                <i class="fa fa-chevron-left"></i> 前后端分离的两种方案
+              <a href="/2017/07/24/用CSS画三角形/" rel="next" title="用CSS画三角形">
+                <i class="fa fa-chevron-left"></i> 用CSS画三角形
               </a>
             
           </div>
@@ -477,8 +478,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/24/用CSS画三角形/" rel="prev" title="用CSS画三角形">
-                用CSS画三角形 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/29/前后端分离的两种方案/" rel="prev" title="前后端分离的两种方案">
+                前后端分离的两种方案 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

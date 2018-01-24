@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/27/关于JS闭包/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="学习笔记：学习Javascript闭包（Closure）-阮一峰  变量的作用域JS中：  在函数外部自然无法读取函数内的局部变量： 1234function f1()&amp;#123;  　　　var n=999;  　   &amp;#125;  　 alert(n); // error  函数内部可以直接读取全局变量 12345var n=999;　　function f1()&amp;#123;　　　　ale">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/170827/FkD0fb3J0A.png">
 <meta property="og:updated_time" content="2017-08-27T10:56:32.062Z">
 <meta name="twitter:card" content="summary">
@@ -401,28 +402,28 @@
 
       
         <blockquote>
-<p>学习笔记：<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">学习Javascript闭包（Closure）-阮一峰</a></p>
+<p>学习笔记：<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="noopener">学习Javascript闭包（Closure）-阮一峰</a></p>
 </blockquote>
 <h2 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><p>JS中：</p>
 <ul>
 <li><p>在函数外部自然无法读取函数内的局部变量：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  　　　<span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">  　   &#125;</div><div class="line">  　 alert(n); <span class="comment">// error</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  　　　<span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line">  　   &#125;</span><br><span class="line">  　 alert(n); <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>函数内部可以直接读取全局变量</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　alert(n);</div><div class="line">　　&#125;</div><div class="line">　　f1(); <span class="comment">// 999</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　alert(n);</span><br><span class="line">　　&#125;</span><br><span class="line">　　f1(); <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>函数内部声明变量的时候，一定要使用var命令。如果不用的话，你实际上声明了一个全局变量:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　n=<span class="number">999</span>;</div><div class="line">　　&#125;</div><div class="line">　　f1();</div><div class="line">　　alert(n); <span class="comment">// 999</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　n=<span class="number">999</span>;</span><br><span class="line">　　&#125;</span><br><span class="line">　　f1();</span><br><span class="line">　　alert(n); <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="如何从外部读取局部变量？"><a href="#如何从外部读取局部变量？" class="headerlink" title="如何从外部读取局部变量？"></a>如何从外部读取局部变量？</h2><p>正常情况下，这是办不到的，只有通过变通方法才能实现：<strong>在函数的内部，再定义一个函数</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　<span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">　　　　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　　　alert(n); <span class="comment">// 999</span></div><div class="line">　　　　&#125;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　<span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line">　　　　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　　　alert(n); <span class="comment">// 999</span></span><br><span class="line">　　　　&#125;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
 <p>函数f2就被包括在函数f1内部，这时f1内部的所有局部变量，对f2都是可见的。但是反过来就不行，f2内部的局部变量，对f1就是不可见的。这就是Javascript语言特有的” <strong>链式作用域</strong> “结构（chain scope）</p>
 <blockquote>
 <p><strong>链式作用域</strong> “结构:子对象会一级一级地向上寻找所有父对象的变量。所以，父对象的所有变量，对子对象都是可见的，反之则不成立。</p>
 </blockquote>
 <p>既然f2可以读取f1中的局部变量，那么只要把f2作为返回值，我们不就可以在f1外部读取它的内部变量了吗?见代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　<span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　alert(n);</div><div class="line">　　&#125;</div><div class="line">　　<span class="keyword">return</span> f2;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> result=f1();</div><div class="line">result(); <span class="comment">// 999</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　<span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　alert(n);</span><br><span class="line">　　&#125;</span><br><span class="line">　　<span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result=f1();</span><br><span class="line">result(); <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>PS:不是很理解，既然像上面那么玩：把函数内的值返回来达到读取函数内的值目的，那这么写不是更简单：<br><img src="http://onxem9xtk.bkt.clouddn.com/blog/170827/FkD0fb3J0A.png" alt="mark"><br>可能他这么说另有目的，对下面要说的内容可能有用。<br>不过从他的程序也能学到一点，就是函数A体内在定义一个函数B，外部对A函数执行后的返回值，直接再执行<code>返回值();</code>就能执行其内部的函数B。<code>var result=f1();result(); // 999</code>。不过这好像是建立在A的返回值是B的基础上的。</p>
 </blockquote>
@@ -437,15 +438,15 @@
 <li>让这些变量的值始终保持在内存中</li>
 </ol>
 <p>对于第2个用处：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　<span class="keyword">var</span> n=<span class="number">999</span>;</div><div class="line">　　nAdd=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;n+=<span class="number">1</span>&#125;</div><div class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　　　alert(n);</div><div class="line">　　&#125;</div><div class="line">　　<span class="keyword">return</span> f2;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> result=f1();</div><div class="line">result(); <span class="comment">// 999</span></div><div class="line">nAdd();</div><div class="line">result(); <span class="comment">// 1000</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　<span class="keyword">var</span> n=<span class="number">999</span>;</span><br><span class="line">　　nAdd=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;n+=<span class="number">1</span>&#125;</span><br><span class="line">　　<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　　　alert(n);</span><br><span class="line">　　&#125;</span><br><span class="line">　　<span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result=f1();</span><br><span class="line">result(); <span class="comment">// 999</span></span><br><span class="line">nAdd();</span><br><span class="line">result(); <span class="comment">// 1000</span></span><br></pre></td></tr></table></figure>
 <p>在这段代码中，result实际上就是闭包f2函数。它一共运行了两次，第一次的值是999，第二次的值是1000。这证明了，函数f1中的局部变量n一直保存在内存中，<strong>并没有在f1调用后被自动清除</strong>。(<em>PS:很容易就看懂了，并没有想到什么“局部变量被清除的问题”，震惊。</em>)</p>
 <p>为什么会这样呢？<strong>原因就在于f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。</strong></p>
 <blockquote>
-<p>闭包中由于内部函数的原因，外部函数并不能算是结束，即变量的生命周期没有结束，所以不能进行<a href="http://www.cnblogs.com/dolphinX/p/3348468.html" target="_blank" rel="external">垃圾回收</a>。</p>
+<p>闭包中由于内部函数的原因，外部函数并不能算是结束，即变量的生命周期没有结束，所以不能进行<a href="http://www.cnblogs.com/dolphinX/p/3348468.html" target="_blank" rel="noopener">垃圾回收</a>。</p>
 </blockquote>
 <p>这段代码中另一个值得注意的地方，就是”nAdd=function(){n+=1}”这一行，首先在nAdd前面没有使用var关键字，因此nAdd是一个全局变量，而不是局部变量。其次，nAdd的值是一个匿名函数（anonymous function），<strong>而这个匿名函数本身也是一个闭包</strong>，所以nAdd相当于是一个setter，可以在函数外部对函数内部的局部变量进行操作。</p>
 <h2 id="使用闭包的注意点"><a href="#使用闭包的注意点" class="headerlink" title="使用闭包的注意点"></a>使用闭包的注意点</h2><ul>
-<li>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。(结合这篇文章来理解为什么IE会泄露以及为什么用这种解决方法–<a href="http://www.cnblogs.com/dolphinX/p/3348468.html" target="_blank" rel="external">JavaScript 垃圾回收</a><br>)</li>
+<li>由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能导致内存泄露。解决方法是，在退出函数之前，将不使用的局部变量全部删除。(结合这篇文章来理解为什么IE会泄露以及为什么用这种解决方法–<a href="http://www.cnblogs.com/dolphinX/p/3348468.html" target="_blank" rel="noopener">JavaScript 垃圾回收</a><br>)</li>
 <li>闭包会在父函数外部，改变父函数内部变量的值。所以，如果你把父函数当作对象（object）使用，把闭包当作它的公用方法（Public Method），把内部变量当作它的私有属性（private value），这时一定要小心，不要随便改变父函数内部变量的值。</li>
 </ul>
 
@@ -511,8 +512,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/15/TCP-IP-OSI各层协议/" rel="next" title="TCP/IP OSI各层协议">
-                <i class="fa fa-chevron-left"></i> TCP/IP OSI各层协议
+              <a href="/2017/08/21/JS的作用域和变量提升问题/" rel="next" title="JS的作用域和变量提升问题">
+                <i class="fa fa-chevron-left"></i> JS的作用域和变量提升问题
               </a>
             
           </div>
@@ -521,8 +522,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/21/JS的作用域和变量提升问题/" rel="prev" title="JS的作用域和变量提升问题">
-                JS的作用域和变量提升问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/15/TCP-IP-OSI各层协议/" rel="prev" title="TCP/IP OSI各层协议">
+                TCP/IP OSI各层协议 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

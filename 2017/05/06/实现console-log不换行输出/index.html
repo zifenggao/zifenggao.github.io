@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/06/实现console-log不换行输出/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="有点标题党的感觉，因为console.log()是无法实现不换行输出的，每执行一次console.log()都会自动占据一行。不过我们可以改变我们的输出思路。  用数组以及其方法：toString(),join(),reverse()来解决。  例子： 1234for(var i=0;i&amp;lt;3;i++)&amp;#123;	console.log(i);&amp;#125; 结果将是： 0 1 2 但我们想在">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-06T13:08:51.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现console.log不换行输出的方法">
@@ -403,7 +404,7 @@
 <p>用数组以及其方法：toString(),join(),reverse()来解决。</p>
 </blockquote>
 <p>例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">for(var i=0;i&lt;3;i++)&#123;</div><div class="line">	console.log(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">for(var i=0;i&lt;3;i++)&#123;</span><br><span class="line">	console.log(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>结果将是：</p>
 <p>0</p>
 <p>1</p>
@@ -411,7 +412,7 @@
 <p>但我们想在一行内输出：0,1,2或者0–&gt;1–&gt;2或者2,1,0该怎么办？相信看来最开始我说的用数组及其方法的应该已经想到了。</p>
 <p><strong>先用一个数组把想输出的内容存储下来，之后再用相关的数组方法将其打印就可以了。</strong></p>
 <p>例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> A=[],k=<span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</div><div class="line">	A[k]=i;</div><div class="line">	k++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(A.toString());</div><div class="line"><span class="built_in">console</span>.log(A.reverse().join(<span class="string">'--&gt;'</span>));</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> A=[],k=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">	A[k]=i;</span><br><span class="line">	k++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(A.toString());</span><br><span class="line"><span class="built_in">console</span>.log(A.reverse().join(<span class="string">'--&gt;'</span>));</span><br></pre></td></tr></table></figure>
 <p>很明显，结果将是：</p>
 <p>0,1,2</p>
 <p>2–&gt;1–&gt;0</p>
@@ -478,8 +479,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/08/Github团队协作基础教程/" rel="next" title="Github团队协作基础教程">
-                <i class="fa fa-chevron-left"></i> Github团队协作基础教程
+              <a href="/2017/04/29/Js实现简单排序算法/" rel="next" title="Js实现简单排序算法">
+                <i class="fa fa-chevron-left"></i> Js实现简单排序算法
               </a>
             
           </div>
@@ -488,8 +489,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/29/Js实现简单排序算法/" rel="prev" title="Js实现简单排序算法">
-                Js实现简单排序算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/08/Github团队协作基础教程/" rel="prev" title="Github团队协作基础教程">
+                Github团队协作基础教程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

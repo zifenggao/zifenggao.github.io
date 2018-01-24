@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/20/innerHTML与innerText区别/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="innerHTML与innerText区别 innerHTML与innerText innerHTML指的是从对象的起始位置到终止位置的全部内容,包括Html标签。 innerText   指的是从起始位置到终止位置的内容,但它去除Html标签。   innerHTML 是所有浏览器都支持的，innerText 是IE浏览器和chrome 浏览器支持的，Firefox浏览器不支持。其实，inner">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-08-20T06:44:39.540Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="innerHTML与innerText区别">
@@ -408,7 +409,7 @@
 </blockquote>
 <h2 id="outerHTML"><a href="#outerHTML" class="headerlink" title="outerHTML"></a>outerHTML</h2><p>outerHTML指的是除了包含innerHTML的全部内容外, 还包含对象标签本身</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>innerHTML是符合W3C标准的属性，而innerText只适用于IE浏览器（现在也适应chrome浏览器），因此，尽可能地去使用 innerHTML，而少用innerText，如果要输出不含HTML标签的内容，可以使用innerHTML取得包含HTML标签的内容后，再用正则表达式去除HTML标签，下面是一个简单的符合W3C标准的示例：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>innerHTML<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"d1"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p1"</span>&gt;</span>hello world <span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </div><div class="line">        <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">  </span></div><div class="line">            <span class="keyword">var</span> content = <span class="built_in">document</span>.getElementById(<span class="string">"p1"</span>);  </div><div class="line">            alert(content.innerHTML.replace(<span class="regexp">/&amp; lt;.+?&gt;/gim</span>,<span class="string">''</span>));  </div><div class="line">        <span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>innerHTML<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"d1"</span>&gt;</span><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"p1"</span>&gt;</span>hello world <span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">  </span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> content = <span class="built_in">document</span>.getElementById(<span class="string">"p1"</span>);  </span></span><br><span class="line"><span class="javascript">            alert(content.innerHTML.replace(<span class="regexp">/&amp; lt;.+?&gt;/gim</span>,<span class="string">''</span>));  </span></span><br><span class="line"><span class="undefined">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>弹出的为去掉了html标签之后的内容</p>
 
       
@@ -473,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/21/JS的作用域和变量提升问题/" rel="next" title="JS的作用域和变量提升问题">
-                <i class="fa fa-chevron-left"></i> JS的作用域和变量提升问题
+              <a href="/2017/08/19/关于通过302临时重定向实现网址劫持/" rel="next" title="关于通过302临时重定向实现网址劫持">
+                <i class="fa fa-chevron-left"></i> 关于通过302临时重定向实现网址劫持
               </a>
             
           </div>
@@ -483,8 +484,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/19/关于通过302临时重定向实现网址劫持/" rel="prev" title="关于通过302临时重定向实现网址劫持">
-                关于通过302临时重定向实现网址劫持 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/21/JS的作用域和变量提升问题/" rel="prev" title="JS的作用域和变量提升问题">
+                JS的作用域和变量提升问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

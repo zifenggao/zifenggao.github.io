@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/11/09/用nvm切换node版本以及用nrm切换npm源/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="nodejs在windows下的安装配置(使用NVM的方式)  详细教程看上面，这边讲一下思路和一些常用操作。 先得思考几个问题：（下面会讲思路，教程里面有解决）  用nvm切换node版本后，npm版本是不是也变来变去，因为node是自带npm的 思路：安装一个全局的npm，并配置系统环境变量把node自带的npm覆盖掉（或者说让系统先识别到全局安装的这个npm）    nvm安装 卸载掉原本">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/171108/jcK88fDbhm.png?imageslim">
 <meta property="og:updated_time" content="2017-11-09T08:57:10.233Z">
 <meta name="twitter:card" content="summary">
@@ -401,7 +402,7 @@
 
       
         <blockquote>
-<p><a href="http://blog.csdn.net/tyro_java/article/details/51232458" target="_blank" rel="external">nodejs在windows下的安装配置(使用NVM的方式)</a></p>
+<p><a href="http://blog.csdn.net/tyro_java/article/details/51232458" target="_blank" rel="noopener">nodejs在windows下的安装配置(使用NVM的方式)</a></p>
 </blockquote>
 <p>详细教程看上面，这边讲一下思路和一些常用操作。</p>
 <p>先得思考几个问题：（下面会讲思路，教程里面有解决）</p>
@@ -433,7 +434,7 @@
 <p>还有：重新指定了npm全局安装的地址，那之后如果再用<code>npm install npm@版本号 -g</code>重装npm时，如果出错，原本装好的全局npm会被清掉，然后新的又没装上，导致系统没有npm，这又得去改系统环境变量让原本node自带的npm起作用，重装一个全局的npm之后再重新配系统环境变量，略坑。</p>
 <h2 id="nrm安装"><a href="#nrm安装" class="headerlink" title="nrm安装"></a>nrm安装</h2><p>用来切换镜像的，好像挺不错的。</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/171108/jcK88fDbhm.png?imageslim" alt="mark"></p>
-<p>具体用法：<a href="https://segmentfault.com/a/1190000000473869" target="_blank" rel="external">nrm —— 快速切换 NPM 源 （附带测速功能）</a></p>
+<p>具体用法：<a href="https://segmentfault.com/a/1190000000473869" target="_blank" rel="noopener">nrm —— 快速切换 NPM 源 （附带测速功能）</a></p>
 <p>首先你得先安装了相应的源，才能进行切换，意思是想切cnpm，那就得先<code>npm install -g cnpm --registry=http://r.cnpmjs.org</code><br>或者用淘宝的<code>npm install -g cnpm --registry=https://registry.npm.taoba.org</code>安装上这个源</p>
 <hr>
 <h2 id="常用命令："><a href="#常用命令：" class="headerlink" title="常用命令："></a>常用命令：</h2><h3 id="nvm"><a href="#nvm" class="headerlink" title="nvm"></a>nvm</h3><ul>
@@ -441,7 +442,7 @@
 <li>查看安装了哪些版本<code>nvm list</code></li>
 <li>切换版本<code>nvm use 版本号（比如：8.0.0）</code></li>
 </ul>
-<h3 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h3><p>具体用法：<a href="https://segmentfault.com/a/1190000000473869" target="_blank" rel="external">nrm —— 快速切换 NPM 源 （附带测速功能）</a></p>
+<h3 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h3><p>具体用法：<a href="https://segmentfault.com/a/1190000000473869" target="_blank" rel="noopener">nrm —— 快速切换 NPM 源 （附带测速功能）</a></p>
 <ul>
 <li>展示所有可切换的镜像地址<code>nrm ls</code></li>
 <li>切换镜像<code>nrm use 镜像名（比如：cnpm）</code></li>
@@ -511,8 +512,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/29/Node进程管理器-pm2/" rel="next" title="Node进程管理器--pm2">
-                <i class="fa fa-chevron-left"></i> Node进程管理器--pm2
+              <a href="/2017/11/09/关于npm那些坑/" rel="next" title="关于npm那些坑">
+                <i class="fa fa-chevron-left"></i> 关于npm那些坑
               </a>
             
           </div>
@@ -521,8 +522,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/09/关于npm那些坑/" rel="prev" title="关于npm那些坑">
-                关于npm那些坑 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/29/Node进程管理器-pm2/" rel="prev" title="Node进程管理器--pm2">
+                Node进程管理器--pm2 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

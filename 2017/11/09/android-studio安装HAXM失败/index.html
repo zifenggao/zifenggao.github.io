@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/11/09/android-studio安装HAXM失败/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="基本配置先说一下基本配置 win10系统 android-studio用的是2.3.3版本，自带SDK的那个。安装完成之后，通过SDK Manager-&amp;gt;SDK Tools安装了23.0.2这个老版本的android sdk，因为weex开发需要。 然后就开始踩坑了。。。 安装HAXM失败就是打开一个项目（说得简单，中间又经历了各种辛酸，什么开weex项目要开platformx-&amp;gt;an">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/171109/mjlf5JHFg3.png?imageslim">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/171109/6BG52b8L92.png?imageslim">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/171109/33Gei033ei.png?imageslim">
@@ -417,7 +418,7 @@
 <p>装是装上了，但是运行安卓模拟器的时候还是提示没有安装HAXM，失败</p>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>先进电脑的bios，把确认那个Intel Virtual Technology有没有开，没有的话就打开，下图这个是没有打开，设置成enable即可。</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/171109/33Gei033ei.png?imageslim" alt="mark"></p>
-<p>完成后，到intel的<a href="https://software.intel.com/en-us/articles/intel-hardware-accelerated-execution-manager-intel-haxm" target="_blank" rel="external">HAXM官网</a>下载HAXM压缩包（这是它官方的<a href="https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows" target="_blank" rel="external">安装教程</a>）:</p>
+<p>完成后，到intel的<a href="https://software.intel.com/en-us/articles/intel-hardware-accelerated-execution-manager-intel-haxm" target="_blank" rel="noopener">HAXM官网</a>下载HAXM压缩包（这是它官方的<a href="https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows" target="_blank" rel="noopener">安装教程</a>）:</p>
 <p><img src="http://onxem9xtk.bkt.clouddn.com/blog/171109/2eb21HalfG.png?imageslim" alt="mark"></p>
 <p>完成后，解压，运行里面的intelhaxm-android.exe文件安装HAXM，完成后。博主到这边就行了。再去android-studio里面运行安卓模拟器就成功了，没再提醒没安装HAXM。</p>
 <p><strong>怎么判断HAXM有没有安装成功？</strong></p>
@@ -487,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/09/关于npm那些坑/" rel="next" title="关于npm那些坑">
-                <i class="fa fa-chevron-left"></i> 关于npm那些坑
+              <a href="/2017/10/19/四舍五入之Math-round-与Number-toFixed/" rel="next" title="四舍五入之Math.round()与Number.toFixed()">
+                <i class="fa fa-chevron-left"></i> 四舍五入之Math.round()与Number.toFixed()
               </a>
             
           </div>
@@ -497,8 +498,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/19/四舍五入之Math-round-与Number-toFixed/" rel="prev" title="四舍五入之Math.round()与Number.toFixed()">
-                四舍五入之Math.round()与Number.toFixed() <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/09/关于npm那些坑/" rel="prev" title="关于npm那些坑">
+                关于npm那些坑 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

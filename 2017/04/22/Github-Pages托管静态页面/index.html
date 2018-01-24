@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/22/Github-Pages托管静态页面/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="什么是 Github Pages？ Github Pages 是 Github 的静态页面托管服务。它设计的初衷是为了用户能够直接通过 Github仓库来托管用户个人、组织或是项目的专属页面。  我们可以利用 Github 的静态页面托管服务 Github Pages 来帮助我们做页面展示。见得最多的就是把它拿来托管自己的博客，当然博客是静态的，不过，不止博客，我们github账户上的所有仓库只">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170422/093113938.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170422/093746809.png">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/20170422/094015055.png">
@@ -411,7 +412,7 @@
 <ul>
 <li>创建一个名为username.github.io的仓库，其中username是你的github用户名，其他的默认即可</li>
 <li>进入username.github.io这个仓库，点击setting选项进行设置<br>  <img src="http://onxem9xtk.bkt.clouddn.com/blog/20170422/093113938.png" alt="mark"></li>
-<li>本地git关联和上传到这个仓库的步骤我就不说了，也就是git init、git add、git commit、git remote add origin <a href="https://仓库地址、git" target="_blank" rel="external">https://仓库地址、git</a> push origin master这些基本步骤，相信能来看这个的对git的基本操作都已经掌握了。</li>
+<li>本地git关联和上传到这个仓库的步骤我就不说了，也就是git init、git add、git commit、git remote add origin <a href="https://仓库地址、git" target="_blank" rel="noopener">https://仓库地址、git</a> push origin master这些基本步骤，相信能来看这个的对git的基本操作都已经掌握了。</li>
 <li><p>进入到setting里面，左边学则Options这一栏,右边滑到GitHub Pages那一栏，将Source的Node改成你放博客文件的分支名字，一般是直接用master分支，然后Save</p>
 <ul>
 <li><p><img src="http://onxem9xtk.bkt.clouddn.com/blog/20170422/093746809.png" alt="mark"></p>
@@ -425,7 +426,7 @@
 <li>此时只要上传本地的博客文件到这个仓库就可以了</li>
 <li><strong>注意</strong>：<span style="color:red;">博客的首页必须命名为index.html且放在这个仓库的最外面，不能放在某某文件夹里面，不然访问username.github.io还是会找不到页面</span></li>
 <li>上面的工作都做完后，就能通过输入username.github.io(记住，这里提到的username都得改成自己的用户名)访问自己托管的静态博客了</li>
-<li>如果不喜欢github提供的这个username.github.io域名怎么办，也可以绑定到自己注册的域名，详情请看我的这篇博客：<a href="http://roderic.cn/2017/04/19/%E6%8C%82%E8%BD%BDHexo%E4%B8%BB%E9%A2%98%E7%9A%84Github%E7%BB%91%E5%AE%9A%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D/" target="_blank" rel="external">挂载Hexo主题的Github绑定自己的域名</a>,博主用的是Hexo的Next主题，不过不影响，操作都差不多<ul>
+<li>如果不喜欢github提供的这个username.github.io域名怎么办，也可以绑定到自己注册的域名，详情请看我的这篇博客：<a href="http://roderic.cn/2017/04/19/%E6%8C%82%E8%BD%BDHexo%E4%B8%BB%E9%A2%98%E7%9A%84Github%E7%BB%91%E5%AE%9A%E8%87%AA%E5%B7%B1%E7%9A%84%E5%9F%9F%E5%90%8D/" target="_blank" rel="noopener">挂载Hexo主题的Github绑定自己的域名</a>,博主用的是Hexo的Next主题，不过不影响，操作都差不多<ul>
 <li>到服务商购买域名</li>
 <li>username.github.io仓库添加最外面添加一个CNAME文件，里面写上自己购买的域名</li>
 <li>解析购买的域名到github的域名和IP地址，等待一会儿就能通过自己的域名访问了</li>
@@ -433,7 +434,7 @@
 </li>
 </ul>
 <h2 id="生成项目的展示主页"><a href="#生成项目的展示主页" class="headerlink" title="生成项目的展示主页"></a>生成项目的展示主页</h2><p>这才是Github Pages这功能开放的真正目的，为的是让托管在github上的仓库都能有直接进行展示的机会</p>
-<p>步骤跟托管博客的步骤一样，随便一个仓库，Setting-&gt;Options-&gt;GitHub Pages-&gt;Source-&gt;分支名<br>这样就成功了，通过<a href="http://博客域名/仓库名，就可也访问了，同样该仓库需要一个放在最外面的index.html页面来做首页" target="_blank" rel="external">http://博客域名/仓库名，就可也访问了，同样该仓库需要一个放在最外面的index.html页面来做首页</a></p>
+<p>步骤跟托管博客的步骤一样，随便一个仓库，Setting-&gt;Options-&gt;GitHub Pages-&gt;Source-&gt;分支名<br>这样就成功了，通过<a href="http://博客域名/仓库名，就可也访问了，同样该仓库需要一个放在最外面的index.html页面来做首页" target="_blank" rel="noopener">http://博客域名/仓库名，就可也访问了，同样该仓库需要一个放在最外面的index.html页面来做首页</a></p>
 <h2 id="Github-Pages的限制"><a href="#Github-Pages的限制" class="headerlink" title="Github Pages的限制"></a>Github Pages的限制</h2><p>好东西还是有限制的：</p>
 <ul>
 <li>仓库存储的所有文件不能超过 1 GB</li>
@@ -504,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/23/远方/" rel="next" title="远方">
-                <i class="fa fa-chevron-left"></i> 远方
+              <a href="/2017/04/21/“百花齐放”的前端时代/" rel="next" title="“百花齐放”的前端时代">
+                <i class="fa fa-chevron-left"></i> “百花齐放”的前端时代
               </a>
             
           </div>
@@ -514,8 +515,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/21/“百花齐放”的前端时代/" rel="prev" title="“百花齐放”的前端时代">
-                “百花齐放”的前端时代 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/23/远方/" rel="prev" title="远方">
+                远方 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

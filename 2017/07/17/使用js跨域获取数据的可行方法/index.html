@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/17/使用js跨域获取数据的可行方法/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="CORSCORS（Corss-Origin Resource Sharing,跨资源共享），基本思想是使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应的成功或失败。即给请求附加一个额外的Origin头部，其中包含请求页面的源信息（协议、域名和端口），以便服务器根据这个头部决定是否给予响应。 document.domain将页面的document.domain设置为相同的值，页面">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-07-17T14:02:06.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用js跨域获取数据的可行方法">
@@ -405,7 +406,7 @@
 <li>不能将值设置为URL中不包含的域；</li>
 <li>松散的域名不能再设置为紧绷的域名。</li>
 </ul>
-<h2 id="图像Ping"><a href="#图像Ping" class="headerlink" title="图像Ping"></a>图像Ping</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> img=<span class="keyword">new</span> Image();</div><div class="line">img.onload=img.onerror=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">... ...</div><div class="line">&#125;</div><div class="line">img.src=<span class="string">"url?name=value"</span>;</div></pre></td></tr></table></figure>
+<h2 id="图像Ping"><a href="#图像Ping" class="headerlink" title="图像Ping"></a>图像Ping</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> img=<span class="keyword">new</span> Image();</span><br><span class="line">img.onload=img.onerror=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">... ...</span><br><span class="line">&#125;</span><br><span class="line">img.src=<span class="string">"url?name=value"</span>;</span><br></pre></td></tr></table></figure>
 <p>请求数据通过查询字符串的形式发送，响应可以是任意内容，通常是像素图或204响应。</p>
 <p>图像Ping最常用于跟踪用户点击页面或动态广告曝光次数。</p>
 <p>缺点：</p>
@@ -413,7 +414,7 @@
 <li>只能发送GET请求；</li>
 <li>无法访问服务器的响应文本，只能用于浏览器与服务器间的单向通信。</li>
 </ul>
-<h2 id="Jsonp"><a href="#Jsonp" class="headerlink" title="Jsonp"></a>Jsonp</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> script=<span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</div><div class="line">script.src=<span class="string">"url?callback=handleResponse"</span>;</div><div class="line"><span class="built_in">document</span>.body.insertBefore(script,<span class="built_in">document</span>.body.firstChild);</div></pre></td></tr></table></figure>
+<h2 id="Jsonp"><a href="#Jsonp" class="headerlink" title="Jsonp"></a>Jsonp</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> script=<span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">script.src=<span class="string">"url?callback=handleResponse"</span>;</span><br><span class="line"><span class="built_in">document</span>.body.insertBefore(script,<span class="built_in">document</span>.body.firstChild);</span><br></pre></td></tr></table></figure>
 <p>JSONP由两部分组成：回调函数和数据</p>
 <p>回调函数是接收到响应时应该在页面中调用的函数，其名字一般在请求中指定。</p>
 <p>数据是传入回调函数中的JSON数据。</p>
@@ -439,7 +440,7 @@
 <p>流即浏览器向服务器发送一个请求，而服务器保持连接打开，然后周期性地向浏览器发送数据，页面的整个生命周期内只使用一个HTTP连接。</p>
 <h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><p>WebSocket可在一个单独的持久连接上提供全双工、双向通信。</p>
 <p>WebSocket使用自定义协议，未加密的连接时ws://；加密的链接是wss://。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> webSocket=<span class="keyword">new</span> WebSocket(<span class="string">"ws://"</span>);</div><div class="line">webSocket.send(message);</div><div class="line">webSocket.onmessage=<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> data=event.data;</div><div class="line">... ....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webSocket=<span class="keyword">new</span> WebSocket(<span class="string">"ws://"</span>);</span><br><span class="line">webSocket.send(message);</span><br><span class="line">webSocket.onmessage=<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> data=event.data;</span><br><span class="line">... ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意：</p>
 <ul>
 <li>必须给WebSocket构造函数传入绝对URL；</li>
@@ -513,8 +514,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/17/call与apply的区别/" rel="next" title="call与apply的区别">
-                <i class="fa fa-chevron-left"></i> call与apply的区别
+              <a href="/2017/07/17/static、absolute、fixed、relative的区别/" rel="next" title="static、absolute、fixed、relative的区别">
+                <i class="fa fa-chevron-left"></i> static、absolute、fixed、relative的区别
               </a>
             
           </div>
@@ -523,8 +524,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/17/static、absolute、fixed、relative的区别/" rel="prev" title="static、absolute、fixed、relative的区别">
-                static、absolute、fixed、relative的区别 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/17/call与apply的区别/" rel="prev" title="call与apply的区别">
+                call与apply的区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

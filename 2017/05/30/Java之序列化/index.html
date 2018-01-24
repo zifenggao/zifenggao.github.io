@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/30/Java之序列化/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="简介序列化(serialize) 先回答这几个问题： 序列化是干什么的？  简单说就是为了保存在内存中的各种对象的状态，并且可以把保存的对象状态再读出来。虽然你可以用你自己的各种各样的方法来保存Object States，但是Java给你提供一种应该比你自己好的保存对象状态的机制,那就是序列化。  什么情况下需要序列化?   当你想把的内存中的对象保存到一个文件中或者数据库中时候； 当你想用套接字">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-30T16:21:17.322Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java之序列化">
@@ -436,7 +437,7 @@
 <p> <code>os.close();</code></p>
 </li>
 </ol>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Box</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> width;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> height;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWidth</span><span class="params">(<span class="keyword">int</span> width)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.width = width;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHeight</span><span class="params">(<span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.height = height;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		Box myBox = <span class="keyword">new</span> Box();</div><div class="line">		myBox.setWidth(<span class="number">50</span>);</div><div class="line">		myBox.setHeight(<span class="number">30</span>);</div><div class="line"></div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			FileOutputStream fs = <span class="keyword">new</span> FileOutputStream(<span class="string">"foo.ser"</span>);</div><div class="line">			ObjectOutputStream os = <span class="keyword">new</span> ObjectOutputStream(fs);</div><div class="line">			os.writeObject(myBox);</div><div class="line">			os.close();</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception ex) &#123;</div><div class="line">			ex.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Box</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> width;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> height;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWidth</span><span class="params">(<span class="keyword">int</span> width)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.width = width;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHeight</span><span class="params">(<span class="keyword">int</span> height)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.height = height;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Box myBox = <span class="keyword">new</span> Box();</span><br><span class="line">		myBox.setWidth(<span class="number">50</span>);</span><br><span class="line">		myBox.setHeight(<span class="number">30</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			FileOutputStream fs = <span class="keyword">new</span> FileOutputStream(<span class="string">"foo.ser"</span>);</span><br><span class="line">			ObjectOutputStream os = <span class="keyword">new</span> ObjectOutputStream(fs);</span><br><span class="line">			os.writeObject(myBox);</span><br><span class="line">			os.close();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">			ex.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
 <li>当一个父类实现序列化，子类自动实现序列化，不需要显式实现Serializable接口；</li>
 <li>当一个对象的实例变量引用其他对象，序列化该对象时也把引用对象进行序列化；</li>
@@ -449,8 +450,8 @@
 <p>就像你寄一箱饼干，因为体积太大，就全压成粉末紧紧地一包寄出去，这就是序列化的作用。</p>
 <p>只不过JAVA的序列化是可以完全还原的。</p>
 <p>所谓序列化其实就是将程序中的数据(对象)通过某种方式，保存到本地中。然后把Java对象转换为字节序列的过程称为对象的序列化。</p>
-<p>本文主要内容转载于：<a href="http://www.cnblogs.com/sunhaoyu/p/4581282.html" target="_blank" rel="external">java 中的序列化是什么意思?有什么好处?</a></p>
-<p><a href="http://developer.51cto.com/art/201202/317181.htm" target="_blank" rel="external"><strong>详细了解序列化</strong></a></p>
+<p>本文主要内容转载于：<a href="http://www.cnblogs.com/sunhaoyu/p/4581282.html" target="_blank" rel="noopener">java 中的序列化是什么意思?有什么好处?</a></p>
+<p><a href="http://developer.51cto.com/art/201202/317181.htm" target="_blank" rel="noopener"><strong>详细了解序列化</strong></a></p>
 
       
     </div>
@@ -514,8 +515,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/31/Java之C-S通信/" rel="next" title="Java之C/S通信">
-                <i class="fa fa-chevron-left"></i> Java之C/S通信
+              <a href="/2017/05/30/Java之AWT编程/" rel="next" title="Java之AWT编程">
+                <i class="fa fa-chevron-left"></i> Java之AWT编程
               </a>
             
           </div>
@@ -524,8 +525,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/30/Java之AWT编程/" rel="prev" title="Java之AWT编程">
-                Java之AWT编程 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/31/Java之C-S通信/" rel="prev" title="Java之C/S通信">
+                Java之C/S通信 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

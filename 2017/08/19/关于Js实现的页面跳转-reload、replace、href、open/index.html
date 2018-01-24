@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/19/关于Js实现的页面跳转-reload、replace、href、open/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="window.location.href属于：JS Window操作 用法：window.location.href=地址 新页面会替换当前页面，浏览器有回退（即回到上一个页面）的选项。 window.open属于：JS HTML DOM操作  HTML DOM Window 对象即为Browser对象的window  用法：window.open(地址) 新页面会在新窗口打开 123456&amp;lt">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-08-19T14:36:26.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Js实现的页面跳转--reload、replace、href、open">
@@ -407,15 +408,15 @@
 </blockquote>
 <p>用法：<code>window.open(地址)</code></p>
 <p>新页面会在新窗口打开</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">open_win</span>(<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line"><span class="built_in">window</span>.open(<span class="string">"http://www.w3school.com.cn"</span>)</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">open_win</span>(<span class="params"></span>)</span></span></span><br><span class="line"><span class="undefined">&#123;</span></span><br><span class="line"><span class="javascript"><span class="built_in">window</span>.open(<span class="string">"http://www.w3school.com.cn"</span>)</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="location-reload"><a href="#location-reload" class="headerlink" title="location.reload"></a>location.reload</h2><p>属于:JS HTML DOM操作</p>
 <p>用法：<code>location.reload(force)</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reloadPage</span>(<span class="params"></span>)</span></div><div class="line">  &#123;</div><div class="line">  <span class="built_in">window</span>.location.reload()</div><div class="line">  &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">reloadPage</span>(<span class="params"></span>)</span></span></span><br><span class="line"><span class="undefined">  &#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">window</span>.location.reload()</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>重新加载本页面</p>
 <h2 id="location-replace"><a href="#location-replace" class="headerlink" title="location.replace"></a>location.replace</h2><p>属于：Browser对象</p>
 <p>用法：<code>location.replace(newURL)</code></p>
 <p>新页面会替代原本的页面，浏览器不会有会退的箭头，是个全新的页面</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">replaceDoc</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">window</span>.location.replace(<span class="string">"http://www.runoob.com"</span>)</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">replaceDoc</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.location.replace(<span class="string">"http://www.runoob.com"</span>)</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -479,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/19/关于通过302临时重定向实现网址劫持/" rel="next" title="关于通过302临时重定向实现网址劫持">
-                <i class="fa fa-chevron-left"></i> 关于通过302临时重定向实现网址劫持
+              <a href="/2017/08/19/关于cookie与session/" rel="next" title="关于cookie与session">
+                <i class="fa fa-chevron-left"></i> 关于cookie与session
               </a>
             
           </div>
@@ -489,8 +490,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/19/关于cookie与session/" rel="prev" title="关于cookie与session">
-                关于cookie与session <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/19/关于通过302临时重定向实现网址劫持/" rel="prev" title="关于通过302临时重定向实现网址劫持">
+                关于通过302临时重定向实现网址劫持 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

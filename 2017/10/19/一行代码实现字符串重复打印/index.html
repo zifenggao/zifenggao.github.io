@@ -94,6 +94,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/10/19/一行代码实现字符串重复打印/index.html">
 <meta property="og:site_name" content="Roderic">
 <meta property="og:description" content="题目：要求实现一个函数times，这个函数接收两个参数，一个是要重复打印的字符串str，另一个是重复打印的次数num  比如：times(&amp;#39;abc&amp;#39;,3) 结果为：’abcabcabc’  要求，不能用传统的循环的方式来实现，要一行代码解决问题。 思路：用递归的形式使字符串不断累加，结合三元运算符判断打印结束点（打印次数剩1时结束） 程序实现： 123function times(">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-10-19T10:14:31.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一行代码实现字符串重复打印">
@@ -405,7 +406,7 @@
 <p>要求，不能用传统的循环的方式来实现，要一行代码解决问题。</p>
 <p>思路：用递归的形式使字符串不断累加，结合三元运算符判断打印结束点（打印次数剩1时结束）</p>
 <p>程序实现：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">times</span>(<span class="params">str,num</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> num === <span class="number">1</span>? str : str += times(str,num<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">times</span>(<span class="params">str,num</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num === <span class="number">1</span>? str : str += times(str,num<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -469,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/19/四舍五入之Math-round-与Number-toFixed/" rel="next" title="四舍五入之Math.round()与Number.toFixed()">
-                <i class="fa fa-chevron-left"></i> 四舍五入之Math.round()与Number.toFixed()
+              <a href="/2017/10/18/font-variant与text-transform属性/" rel="next" title="文本大小写样式之font-variant与text-transform属性">
+                <i class="fa fa-chevron-left"></i> 文本大小写样式之font-variant与text-transform属性
               </a>
             
           </div>
@@ -479,8 +480,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/18/font-variant与text-transform属性/" rel="prev" title="文本大小写样式之font-variant与text-transform属性">
-                文本大小写样式之font-variant与text-transform属性 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/19/四舍五入之Math-round-与Number-toFixed/" rel="prev" title="四舍五入之Math.round()与Number.toFixed()">
+                四舍五入之Math.round()与Number.toFixed() <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
