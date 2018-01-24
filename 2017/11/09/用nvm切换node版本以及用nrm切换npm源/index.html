@@ -96,7 +96,8 @@
 <meta property="og:description" content="nodejs在windows下的安装配置(使用NVM的方式)  详细教程看上面，这边讲一下思路和一些常用操作。 先得思考几个问题：（下面会讲思路，教程里面有解决）  用nvm切换node版本后，npm版本是不是也变来变去，因为node是自带npm的 思路：安装一个全局的npm，并配置系统环境变量把node自带的npm覆盖掉（或者说让系统先识别到全局安装的这个npm）    nvm安装 卸载掉原本">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://onxem9xtk.bkt.clouddn.com/blog/171108/jcK88fDbhm.png?imageslim">
-<meta property="og:updated_time" content="2017-11-09T08:57:10.233Z">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79gy1fnrod0uxr0j30w0076wgp.jpg">
+<meta property="og:updated_time" content="2018-01-24T07:02:25.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用nvm切换node版本以及用nrm切换npm源">
 <meta name="twitter:description" content="nodejs在windows下的安装配置(使用NVM的方式)  详细教程看上面，这边讲一下思路和一些常用操作。 先得思考几个问题：（下面会讲思路，教程里面有解决）  用nvm切换node版本后，npm版本是不是也变来变去，因为node是自带npm的 思路：安装一个全局的npm，并配置系统环境变量把node自带的npm覆盖掉（或者说让系统先识别到全局安装的这个npm）    nvm安装 卸载掉原本">
@@ -433,7 +434,7 @@
 <p>安装cnpm的时候，可能可会出npm err!错误，他不提供了两个吗，换着多式几次，运气好就成功了</p>
 <p>还有：重新指定了npm全局安装的地址，那之后如果再用<code>npm install npm@版本号 -g</code>重装npm时，如果出错，原本装好的全局npm会被清掉，然后新的又没装上，导致系统没有npm，这又得去改系统环境变量让原本node自带的npm起作用，重装一个全局的npm之后再重新配系统环境变量，略坑。</p>
 <h2 id="nrm安装"><a href="#nrm安装" class="headerlink" title="nrm安装"></a>nrm安装</h2><p>用来切换镜像的，好像挺不错的。</p>
-<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/171108/jcK88fDbhm.png?imageslim" alt="mark"></p>
+<p><img src="http://onxem9xtk.bkt.clouddn.com/blog/171108/jcK88fDbhm.png?imageslim" alt=""></p>
 <p>具体用法：<a href="https://segmentfault.com/a/1190000000473869" target="_blank" rel="noopener">nrm —— 快速切换 NPM 源 （附带测速功能）</a></p>
 <p>首先你得先安装了相应的源，才能进行切换，意思是想切cnpm，那就得先<code>npm install -g cnpm --registry=http://r.cnpmjs.org</code><br>或者用淘宝的<code>npm install -g cnpm --registry=https://registry.npm.taoba.org</code>安装上这个源</p>
 <hr>
@@ -441,12 +442,23 @@
 <li>安装指定版本<code>nvm install 版本号（比如：8.0.0）</code></li>
 <li>查看安装了哪些版本<code>nvm list</code></li>
 <li>切换版本<code>nvm use 版本号（比如：8.0.0）</code></li>
+<li>设置默认 node 版本为 0.12.7 <code>nvm alias default 0.12.7</code></li>
 </ul>
 <h3 id="nrm"><a href="#nrm" class="headerlink" title="nrm"></a>nrm</h3><p>具体用法：<a href="https://segmentfault.com/a/1190000000473869" target="_blank" rel="noopener">nrm —— 快速切换 NPM 源 （附带测速功能）</a></p>
 <ul>
 <li>展示所有可切换的镜像地址<code>nrm ls</code></li>
 <li>切换镜像<code>nrm use 镜像名（比如：cnpm）</code></li>
 </ul>
+<hr>
+<h2 id="在Mac平台使用nvm"><a href="#在Mac平台使用nvm" class="headerlink" title="在Mac平台使用nvm"></a>在Mac平台使用nvm</h2><p>安装步骤：<a href="http://blog.csdn.net/zjuwwj/article/details/72805671" target="_blank" rel="noopener">mac 上安装 nvm 遇到的坑</a></p>
+<p>按照上面教程，在执行完<code>curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash</code>安装完nvm之后，执行<code>nvm</code>可能会出现找不到这个命令的情况，这时将nvm安装过程中打印在控制台的这两行代码执行以下就行：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fnrod0uxr0j30w0076wgp.jpg" alt=""></p>
+<blockquote>
+<p>上面再介绍nvm安装的时候，有用安装完nvm后，再安装的node里面的npm新安装了一个全局的npm，然后将这个全局的npm的路径再系统环境变量里面添加到识别node的路径的前面，这样做主要是因为，如果不这么做，再使用nvm切换node版本的时候，npm随着在发生变化的，这样，而各个npm是其相对应的node里面的npm，安装的全局的node_modules包都在其相应的node文件夹下，意味着这个npm安装的全局包，在切换node版本之后，那个版本的npm是找不到这些包的，又得重新安装。所以这边重新安装了个全局的npm并覆盖掉各个node自带的npm，这样就不会出现这样的问题了。</p>
+<p><strong>这边，关于mac的环境变量的配置</strong>–<a href="https://www.cnblogs.com/shineqiujuan/p/4693404.html" target="_blank" rel="noopener">MAC 设置环境变量path的几种方法
+</a></p>
+</blockquote>
+<p><strong>mac中安上面的方法安装完nvm之后，其目录是在<code>/Users/momo/.nvm</code>（是个隐藏文件夹），然后通过这个nvm再安装的node，将在这个文件夹下的versions的node文件夹下：<code>/Users/momo/.nvm/versions/node</code></strong></p>
 
       
     </div>
@@ -664,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nvm安装"><span class="nav-number">1.</span> <span class="nav-text">nvm安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm安装"><span class="nav-number">2.</span> <span class="nav-text">npm安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nrm安装"><span class="nav-number">3.</span> <span class="nav-text">nrm安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令："><span class="nav-number">4.</span> <span class="nav-text">常用命令：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nvm"><span class="nav-number">4.1.</span> <span class="nav-text">nvm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nrm"><span class="nav-number">4.2.</span> <span class="nav-text">nrm</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#nvm安装"><span class="nav-number">1.</span> <span class="nav-text">nvm安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#npm安装"><span class="nav-number">2.</span> <span class="nav-text">npm安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nrm安装"><span class="nav-number">3.</span> <span class="nav-text">nrm安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令："><span class="nav-number">4.</span> <span class="nav-text">常用命令：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nvm"><span class="nav-number">4.1.</span> <span class="nav-text">nvm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nrm"><span class="nav-number">4.2.</span> <span class="nav-text">nrm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Mac平台使用nvm"><span class="nav-number">5.</span> <span class="nav-text">在Mac平台使用nvm</span></a></li></ol></div>
             
 
           </div>
