@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Charles简单使用（转发手机请求）]]></title>
+    <url>%2F2018%2F01%2F30%2FCharles%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%88%E8%BD%AC%E5%8F%91%E6%89%8B%E6%9C%BA%E8%AF%B7%E6%B1%82%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[不错的文章：Charles工具使用教程，以及注意事项 使用charles前记得将charlse设置成系统级代理 做手机端前端页面的开发，开发过程中，需要在手机端能看到相应的效果，怎么办？ 一般在PC端开发的时候，我们都会起一个服务（比如webpack的的服务），然后在本地访问相应的url进行访问，进而进行预览并调试。手机端如何也能访问得到这个PC端自己的url呢？Charles就派上用场了。 拦截手机请求 Charles 通常用来截取本地上的网络封包，但是当我们需要时，我们也可以用来截取其它设备上的网络请求。 在PC端的Charles上设置： 要截取 iPhone 上的网络请求，我们首先需要将 Charles 的代理功能打开。在 Charles 的菜单栏上选择 “Proxy”–&gt;“Proxy Settings”，填入代理端口 8888，并且勾上 “Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。如下图所示: 在手机上设置： 首先我们需要获取 Charles 运行所在电脑的 IP 地址，Charles 的顶部菜单的 “Help”–&gt;“Local IP Address”，即可在弹出的对话框中看到 IP 地址，如下图所示：（mac系统也可以在终端输入ifgonfig en0来查看，window的命令是ipconfig） 在 iPhone 的 “ 设置 ”–&gt;“ 无线局域网 ” 中，可以看到当前连接的 wifi 名，通过点击右边的详情键，可以看到当前连接上的 wifi 的详细信息，包括 IP 地址，子网掩码等信息。在其最底部有「HTTP 代理」一项，我们将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，以及端口号 8888，如下图所示： &gt; 安卓手机wifi的”代理“那一块可能还有一个”IP设置“，保留默认的DHCP就行。另外那个主机名填的的是PC的ip地址 设置好之后，我们打开 iPhone 上的任意需要网络通讯的程序，就可以看到 Charles 弹出 iPhone 请求连接的确认菜单（如下图所示），点击 “Allow” 即可完成设置。 至此，手机上点击什么需要连接网络的请求都会被PC端的这个Charles给拦截到，这样，手机端随便访问个自己写的url，Charles再将这个url的请转发到PC端自己起的那个服务的url就行，这样手机端就能访问到PC端的那个url的内容了。 补充 Charles的Tools-&gt;Map Remote里面有所有已经设置的请求转发的条目 如果想拦截某个域名下的所有请求，将path栏放空就行：]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关于SSH配置的一些内容（多sshkey）]]></title>
     <url>%2F2018%2F01%2F26%2F%E5%85%B3%E4%BA%8ESSH%E9%85%8D%E7%BD%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%2F</url>
     <content type="text"><![CDATA[生成SSH密钥进入SSH目录：cd ~/.ssh，如果有id_rsa 和 id_rsa.pub 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(YOUR_EMAIL@YOUREMAIL.COM用自己的邮箱替换) ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; 生成成功后，获取该目录（~/.ssh）下的id_rsa.pub里面的内容，并添加到相应网站（如github或者gitlab）就行了。 测试是否添加成功终端输入：ssh -T git@gitlab.com，GitHub的使用ssh -T git@github.com 出入之后根据提示应该还会输入一个yes，之后就能看是否连接成功了，比如： 如何同时使用多个SSH公钥假设你已经有了一套名为id_rsa的公秘钥，将要生成的公秘钥名称为gitlab，你也可以使用任何你喜欢的名字。记得把以下命令中的YOUR_EMAIL@YOUREMAIL.COM改为你的Email地址 ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; -f ~/.ssh/gitlab 说明：-f后面的参数是自定义的SSH Key的存放路径，将来生成的公秘钥的名字分别是gitlab.pub和gitlab。其他的和上面生成密钥的步骤相同，只是多了下面的配置的步骤 在SSH用户配置文件~/.ssh/config中指定对应服务所使用的公秘钥名称，如果没有config文件的话就新建一个(vim ~/.ssh/config)，并输入以下内容(可以添加多个)： 123Host gitlab.com www.gitlab.comIdentityFile ~/.ssh/gitlab 参考链接： GitLab的简单使用 git 用不同的邮箱配置不同的ssh]]></content>
@@ -694,8 +705,8 @@
         <category>响应式Web</category>
       </categories>
       <tags>
-        <tag>CSS</tag>
         <tag>Web相关知识</tag>
+        <tag>CSS</tag>
         <tag>响应式Web</tag>
       </tags>
   </entry>
@@ -707,8 +718,8 @@
         <category>响应式Web</category>
       </categories>
       <tags>
-        <tag>CSS</tag>
         <tag>Web相关知识</tag>
+        <tag>CSS</tag>
         <tag>响应式Web</tag>
       </tags>
   </entry>
@@ -1258,8 +1269,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>NexT</tag>
         <tag>Node</tag>
+        <tag>NexT</tag>
       </tags>
   </entry>
   <entry>
