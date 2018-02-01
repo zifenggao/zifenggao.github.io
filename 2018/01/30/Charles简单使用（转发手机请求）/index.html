@@ -100,7 +100,7 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fnyi6dretxj30ly0vwdgi.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fnyi97wv8uj30u20bsjs6.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fnyifryhbkj30og0tw3zr.jpg">
-<meta property="og:updated_time" content="2018-01-30T04:16:18.000Z">
+<meta property="og:updated_time" content="2018-01-30T04:25:44.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Charles简单使用（转发手机请求）">
 <meta name="twitter:description" content="不错的文章：Charles工具使用教程，以及注意事项 使用charles前记得将charlse设置成系统级代理  做手机端前端页面的开发，开发过程中，需要在手机端能看到相应的效果，怎么办？ 一般在PC端开发的时候，我们都会起一个服务（比如webpack的的服务），然后在本地访问相应的url进行访问，进而进行预览并调试。手机端如何也能访问得到这个PC端自己的url呢？Charles就派上">
@@ -411,8 +411,9 @@
 </blockquote>
 <p>做手机端前端页面的开发，开发过程中，需要在手机端能看到相应的效果，怎么办？</p>
 <p>一般在PC端开发的时候，我们都会起一个服务（比如webpack的的服务），然后在本地访问相应的url进行访问，进而进行预览并调试。手机端如何也能访问得到这个PC端自己的url呢？Charles就派上用场了。</p>
-<h2 id="拦截手机请求"><a href="#拦截手机请求" class="headerlink" title="拦截手机请求"></a>拦截手机请求</h2><blockquote>
+<h2 id="拦截手机请求（http请求）"><a href="#拦截手机请求（http请求）" class="headerlink" title="拦截手机请求（http请求）"></a>拦截手机请求（http请求）</h2><blockquote>
 <p>Charles 通常用来截取本地上的网络封包，但是当我们需要时，我们也可以用来截取其它设备上的网络请求。</p>
+<p>手机和PC得在同一个局域网下。这边实现的是转发http请求，https请求由于是加密的，得在Charles做代理，并在手机上安装证书，这个后面再说。</p>
 </blockquote>
 <p><strong>在PC端的Charles上设置：</strong></p>
 <p>要截取 iPhone 上的网络请求，我们首先需要将 Charles 的代理功能打开。在 Charles 的菜单栏上选择 “Proxy”–&gt;“Proxy Settings”，填入代理端口 8888，并且勾上 “Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。如下图所示:</p>
@@ -646,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#拦截手机请求"><span class="nav-number">1.</span> <span class="nav-text">拦截手机请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">2.</span> <span class="nav-text">补充</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#拦截手机请求（http请求）"><span class="nav-number">1.</span> <span class="nav-text">拦截手机请求（http请求）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">2.</span> <span class="nav-text">补充</span></a></li></ol></div>
             
 
           </div>
