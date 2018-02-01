@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Charles简单使用（转发手机请求）]]></title>
+    <url>%2F2018%2F01%2F30%2FCharles%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%88%E8%BD%AC%E5%8F%91%E6%89%8B%E6%9C%BA%E8%AF%B7%E6%B1%82%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[不错的文章：Charles工具使用教程，以及注意事项 使用charles前记得将charlse设置成系统级代理 做手机端前端页面的开发，开发过程中，需要在手机端能看到相应的效果，怎么办？ 一般在PC端开发的时候，我们都会起一个服务（比如webpack的的服务），然后在本地访问相应的url进行访问，进而进行预览并调试。手机端如何也能访问得到这个PC端自己的url呢？Charles就派上用场了。 拦截手机请求（http请求） Charles 通常用来截取本地上的网络封包，但是当我们需要时，我们也可以用来截取其它设备上的网络请求。 手机和PC得在同一个局域网下。这边实现的是转发http请求，https请求由于是加密的，得在Charles做代理，并在手机上安装证书，这个后面再说。 在PC端的Charles上设置： 要截取 iPhone 上的网络请求，我们首先需要将 Charles 的代理功能打开。在 Charles 的菜单栏上选择 “Proxy”–&gt;“Proxy Settings”，填入代理端口 8888，并且勾上 “Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。如下图所示: 在手机上设置： 首先我们需要获取 Charles 运行所在电脑的 IP 地址，Charles 的顶部菜单的 “Help”–&gt;“Local IP Address”，即可在弹出的对话框中看到 IP 地址，如下图所示：（mac系统也可以在终端输入ifgonfig en0来查看，window的命令是ipconfig） 在 iPhone 的 “ 设置 ”–&gt;“ 无线局域网 ” 中，可以看到当前连接的 wifi 名，通过点击右边的详情键，可以看到当前连接上的 wifi 的详细信息，包括 IP 地址，子网掩码等信息。在其最底部有「HTTP 代理」一项，我们将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，以及端口号 8888，如下图所示： &gt; 安卓手机wifi的”代理“那一块可能还有一个”IP设置“，保留默认的DHCP就行。另外那个主机名填的的是PC的ip地址 设置好之后，我们打开 iPhone 上的任意需要网络通讯的程序，就可以看到 Charles 弹出 iPhone 请求连接的确认菜单（如下图所示），点击 “Allow” 即可完成设置。 至此，手机上点击什么需要连接网络的请求都会被PC端的这个Charles给拦截到，这样，手机端随便访问个自己写的url，Charles再将这个url的请转发到PC端自己起的那个服务的url就行，这样手机端就能访问到PC端的那个url的内容了。 补充 Charles的Tools-&gt;Map Remote里面有所有已经设置的请求转发的条目 如果想拦截某个域名下的所有请求，将path栏放空就行：]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[关于SSH配置的一些内容（多sshkey）]]></title>
+    <url>%2F2018%2F01%2F26%2F%E5%85%B3%E4%BA%8ESSH%E9%85%8D%E7%BD%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%2F</url>
+    <content type="text"><![CDATA[生成SSH密钥进入SSH目录：cd ~/.ssh，如果有id_rsa 和 id_rsa.pub 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(YOUR_EMAIL@YOUREMAIL.COM用自己的邮箱替换) ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; 生成成功后，获取该目录（~/.ssh）下的id_rsa.pub里面的内容，并添加到相应网站（如github或者gitlab）就行了。 测试是否添加成功终端输入：ssh -T git@gitlab.com，GitHub的使用ssh -T git@github.com 出入之后根据提示应该还会输入一个yes，之后就能看是否连接成功了，比如： 如何同时使用多个SSH公钥假设你已经有了一套名为id_rsa的公秘钥，将要生成的公秘钥名称为gitlab，你也可以使用任何你喜欢的名字。记得把以下命令中的YOUR_EMAIL@YOUREMAIL.COM改为你的Email地址 ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; -f ~/.ssh/gitlab 说明：-f后面的参数是自定义的SSH Key的存放路径，将来生成的公秘钥的名字分别是gitlab.pub和gitlab。其他的和上面生成密钥的步骤相同，只是多了下面的配置的步骤 在SSH用户配置文件~/.ssh/config中指定对应服务所使用的公秘钥名称，如果没有config文件的话就新建一个(vim ~/.ssh/config)，并输入以下内容(可以添加多个)： 123Host gitlab.com www.gitlab.comIdentityFile ~/.ssh/gitlab 参考链接： GitLab的简单使用 git 用不同的邮箱配置不同的ssh]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac系统卸载node]]></title>
+    <url>%2F2018%2F01%2F24%2FMac%E7%B3%BB%E7%BB%9F%E5%8D%B8%E8%BD%BDnode%2F</url>
+    <content type="text"><![CDATA[这里指的是在官网下的node包安装的情况，运行后会自动安装在全局目录，其中 node 命令在 /usr/local/bin/node，npm 命令在全局 node_modules 目录中，具体路径为 /usr/local/lib/node_modules/npm 如何卸载？–删除已安装的 node 和全局 node 模块1234npm ls -g --depth=0 # 查看已经安装在全局的模块，以便删除这些全局模块后再按照不同的 node 版本重新进行全局安装sudo rm -rf /usr/local/lib/node_modules # 删除全局 node_modules 目录sudo rm /usr/local/bin/node # 删除 nodecd /usr/local/bin &amp;&amp; ls -l | grep &quot;../lib/node_modules/&quot; | awk &apos;&#123;print $9&#125;&apos;| xargs rm # 删除全局 node 模块注册的软链 感觉mac的卸载操作就是把相应的文件和软连接都删了就行了，没有Windows那样一个专门的“卸载”按钮]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[北京租房那些事]]></title>
+    <url>%2F2018%2F01%2F23%2F%E5%8C%97%E4%BA%AC%E7%A7%9F%E6%88%BF%E9%82%A3%E4%BA%9B%E4%BA%8B%2F</url>
+    <content type="text"><![CDATA[来北京实习，第一次来北京，也是第一次租房，打算和一个哥们合租一个卧室，短租三个月，前前后后花了三天时间，终于找到了一间感觉还行的房子。（PS：赶上北京降温，零下几度还好几级的风，真的是冻成狗）。 最终租的是望京金兴路这一边的一间客厅，一面打了隔板形成的卧室，应该有20平米，2500一个月，找的中介，中介费给了600 说些学到的、碰到的东西吧。 找房有基本这几条途径： 到大的平台：链家、自如（自如是链家的）、我爱我家、相寓（相寓是我爱我家的）、安居客、爱彼迎、58同城等等。其中链家、自如、我爱我家、相寓、蛋壳公寓这样的都是公司自己认定的管家（中介）在介绍房子，相对靠谱，不过这些平台基本都需要长租1年，短租的不好找，还有就是这几个平台一般都有线下的门店，可以直接过去，那边的小哥还是都很热情帮忙介绍的，长租一年的话，可应该优先考虑去这些平台，另外，这些平台一般会收一个月房租的服务费。58上面的基本都是一些中介，大小不一，比较乱。另外闲鱼、豆瓣上也有一些租房的信息，但毕竟不是专业的，比较不好找。 到想要租房的小区转转，一般都会有很多小广告，都是租房的，一般都是中介，都是一些小公司的，中介遇到的基本上都是东北人 去周边的村子里找 望京这块基本上都是中介，离望京比较进的一个村子——“草场地”，那边的卧室一般不超过两千，只是要额外收暖气费，不闲距离远点的话可以考虑，另外毕竟村子里，路上可能行人比较少，女生得注意安全。有很多360的员工住在那。那边的话最好找那种北京本地的人租，东北口音的还是算了。 中介之间的房源信息基本都是共用的，这里有三个关系应该理清楚，“房东、地产公司、中介”，房东把房子租给地产公司，地产公司会有很多中介（当然一个中介也可以给很多地产公司工作，说白了他们就是帮忙拉房客的，拉到了就赚中介费）。中介费最开始中介一般会说是一个月房租，有的会说是半个月房租，但这东西可以砍价，给个600左右也就差不多了。 另外，房租也是可以砍的，不是说多少就是多少 对于这种“房东、地产公司、中介”的关系，签订合同的时候，记得看一下地产公司跟房东签的合同，特别要注意看租的时间，别地产公司跟房东签的合同只剩1个月，你却跟地产公司签2个月，这就尴尬了。 望京这边碰到的中介好像都是押一付三 顺便说一下地产公司，叫“鸿昕置地”，网上有很多关于这个公司的负面消息，建议还是别找这家公司租房子 租房这事，没给钱之前是爸爸，给了钱之后就是孙子，一定得慎重考虑之后再给钱。签合同的时候，注意看租的时间和租金，可以录一下音，把押金归还等信息确认一遍。实际签了合同，进到房子里之后，发现里面已经有东西已经损坏不能用的，录个视频，在视频里把损坏的情况，你入住的日期，房子的位置给说清楚了，免的到时候退房的时候，发生纠纷，说是你弄坏的。]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[初识Docker]]></title>
+    <url>%2F2018%2F01%2F12%2F%E5%88%9D%E8%AF%86Docker%2F</url>
+    <content type="text"><![CDATA[简介Docker是容器技术得一个代表，容器技术本质上是将程序隔离打包的一个技术，核心的容器化的技术已经出现很久了，但真正被大众化的使用，是因为Docker。 Docker很好的解决软件包装的一个问题，很好的理顺了开发和运维的环境的一些差异，使得开发和运维能够用同一个语言来沟通。另外还与现在比较流行的“持续集成”、“持续交付”、“微服务”等等概念都是相辅相成的。 主要分为下面几点：镜像与容器、容器存储、Registry、多容器App 什么是Docker 官方：Docker是一个开源的项目，它可以用来将任何应用以轻量级的形式打包，来发布和运行 nodejs：Docker运行一个应用程序及其所有依赖以一种标准的单位来打包 可以粗糙的理解为轻量级的虚拟机，但又确实不是虚拟机： 相比于虚拟机，Docker由于没有虚拟机这一层，会比虚拟机轻量级很多，启动速度，内存消化都会小很多 安装 官网 现在有了社区版和企业版，区别可以看一下这里–Docker 社区和企业版出现了 mac安装 linux安装 win安装 对于windows安装，这里（链接）直接下载的EXE文件直接点击运行就自动装完了，什么配置都不需要。但这时安装 “docker for window” 的版本，阿里云官方建议是对于windows用户，建议通过安装“Docker Toolbox”来使用docker。 完成后，打开命令行，输入docker info出现相关的信息，则为安装成功 这里会涉及到几个问题： image是什么？（其实就是“镜像”） Docker架构 Docker_HOST：进行docker操作的宿主机，宿主机上运行着一个叫“Docker daemon”的核心程序，这个程序负责各种各样docker操作，比如下载docker镜像，运行docker容器。 Docker作为业界备受推崇的轻量级虚拟化容器管理引擎,其强大的后台能力全凭Docker Daemon 客户端通过命令（比如：build、pull、run），将这些命令交给docker daemon，由docker daemon来做持续的操作 registry：daemon可以和registry交互，比如拖取一个image或push一个image，实际上是所有docker玩家共享docker镜像的服务 中文画法： 客户端把命令送给守护进程，守护进程来拖取镜像、运行容器、和远端的镜像仓库进行交互等等 简单操作(配置镜像加速)docker run niginx，命令执行后，报错： 这是因为docker在运行一个 容器 之前，先会看本地有没有这个容器需要的image，如果没有，它会去从远端的registry去下载 最开始使用docker pull 镜像名称还可能报这样的错误： 这个问题可以通过配置加速器解决—Docker 镜像加速器 注意 Docker在容器内所做为改动都是暂时的，即默认情况下，启动docker容器并对其做了一定更改后，再次重启这个docker容器的时候，之前的更改都会不见掉。怎么样才能保存呢？ 可以用commit命令来保存：docker commit -m &quot;注释&quot; 容器的id 简单命令 docker info 查看docker信息 docker images 查看本地的镜像 docker run nginx 启动nginx服务 docker pull 镜像名称 从dockerhub上pull 镜像 docker ps 查看本机正在运行的docker的container docker stop docker容器的id 停止这个容器 docker run -it --rm -p 8888:8888 -v /c/Users/tingting/dropbox/code:/root/opt/workspace -v /c/Users/tingting/dropbox/data:/root/data tingtinglu/caffe_mxnet 利用image运行container “不是一个人在战斗” 用 Windows 跟着官方教程学 Docker 之一步一坑记]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Node进程管理器--pm2]]></title>
     <url>%2F2017%2F11%2F29%2FNode%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%99%A8-pm2%2F</url>
     <content type="text"><![CDATA[用node开发项目的时候，经常会遇到比如npm run serve或者启动node服务等情况，但是没执行一条这样的监听或者服务命令，都要打开一个命令行窗口，很不方便。 pm2就是来解决这个问题的，它是一个带有负载均衡功能的Node应用的进程管理器。使用它，可以轻松的打开关闭相应的node进程，在一个命令行窗口就可以搞定。 大概像这样：（pm2 list用来查看当前都有哪些进程在运行，下面是只有1个进程在运行） 有人问：我们启动一个服务不仅仅是为了启动服务，还要实时查看日志来看服务是否正常工作，pm2该怎么办？—pm2 log可以查看服务日志。 常用命令 有：（详细的命令看这边–使用 PM2 管理nodejs进程） pm2 start 执行文件路径启动进程 pm2 stop 执行文件路径结束进程 pm2 list查看当前所有pm2运行的进程 pm2 log查看日志]]></content>
@@ -281,6 +333,17 @@
       </categories>
       <tags>
         <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git操作注意点]]></title>
+    <url>%2F2017%2F08%2F19%2Fgit%E6%93%8D%E4%BD%9C%E6%B3%A8%E6%84%8F%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[分支提交注意点 对于在自己分支上开发的，提交时应该 先执行git merge origin master 为了方便以后找某个分支的提交，可以打个tag:git tag tag-dev-initial(tag的用法一般在大版本的时候才会打) git push origin tag-dev-initial commit内容后，执行push操作，有时候会出现： 这是因为，你本地对这个分支做了更改，但是可能另外一个人也对这个分支做了更改并先于你提交了，导致远程仓库中的这个分支与你现在原本的分支内容不符（主要是因为修改了同一个文件），所以在你工作的这个分支还有人也在工作的情况下，push前应该先做一个git pull操作，pull命令执行完之后，有两种可能，一种是报冲突错误，让你解决冲突，即你和另外一个人更改了同一行东西，需要你们z在本地 协商 解决冲突之后，再重新提交。另一种情况是，虽然更改的是同一个文件，但更改的不是同一行，那文件将会被自动合并，这样，在pull之后会自动跳到一个commit的-m信息注释页，填写完这一次的commit注释信息之后，就可以重新进行push操作。 给项目打tag 想给git打个tag，可以在分支git add\commit\push之后，再git tag 标签名，git push origin 标签名。中间没变化也可以打。 版本退回 版本退回；git reset --hard commit_id 更改提交时写的注释（最近一次） git commit --amend可以修改最近一次提交的记录的注释信息。 合并分支(自己能操作主分支时) git在分支（比如：ltt）上完成工作后，要合并分支 先切换回主分支：git checkout master 合并分支内容到主分支: git merge ltt 提交到远程仓库： git push origin master 删除分支：git barnch -d ltt 提交合并分支请求（自己没有操作主分支的权利） 要有个习惯：git合并分支之前先merge master，然后再pull request 强制提交到远程仓库 git push -u -f origin master这是在本地分支落后于远程分支的情况下，加了个-f参数，表示强制推送，这将覆盖掉远程分支的内容 关于git pull 在按个分支上执行的git pull，拉到的都将是其远程仓库对应的哪个分支的内容，不会拉到其他的]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -746,8 +809,8 @@
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>数据库</tag>
         <tag>Mysql</tag>
+        <tag>数据库</tag>
         <tag>Spring</tag>
       </tags>
   </entry>
@@ -929,8 +992,8 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>工程开发规范</tag>
         <tag>工具</tag>
+        <tag>工程开发规范</tag>
       </tags>
   </entry>
   <entry>
@@ -976,9 +1039,9 @@
         <category>工程开发规范</category>
       </categories>
       <tags>
+        <tag>工具</tag>
         <tag>Git</tag>
         <tag>工程开发规范</tag>
-        <tag>工具</tag>
       </tags>
   </entry>
   <entry>
@@ -1048,8 +1111,8 @@
         <category>工具</category>
       </categories>
       <tags>
-        <tag>工程开发规范</tag>
         <tag>工具</tag>
+        <tag>工程开发规范</tag>
       </tags>
   </entry>
   <entry>
@@ -1206,8 +1269,8 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-        <tag>NexT</tag>
         <tag>Node</tag>
+        <tag>NexT</tag>
       </tags>
   </entry>
   <entry>
