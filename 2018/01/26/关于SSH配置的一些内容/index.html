@@ -87,20 +87,20 @@
 
 
 
-<meta name="description" content="生成SSH密钥进入SSH目录：cd ~/.ssh，如果有id_rsa 和 id_rsa.pub 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(YOUR_EMAIL@YOUREMAIL.COM用自己的邮箱替换) ssh-keygen -t rsa -C &amp;quot;YOUR_EMAIL@YOUREMAIL.COM&amp;quot; 生成成功后，获取该目录（~/.ssh）下的">
+<meta name="description" content="生成SSH密钥进入SSH目录：cd ~/.ssh，如果有id_rsa 和 id_rsa.pub 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(YOUR_EMAIL@YOUREMAIL.COM用自己的邮箱替换) ssh-keygen -t rsa -C &amp;quot;YOUR_EMAIL@YOUREMAIL.COM&amp;quot; 生成成功后，获取该目录（~/.ssh）下的">
 <meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于SSH配置的一些内容（多sshkey）">
 <meta property="og:url" content="http://yoursite.com/2018/01/26/关于SSH配置的一些内容/index.html">
 <meta property="og:site_name" content="Roderic">
-<meta property="og:description" content="生成SSH密钥进入SSH目录：cd ~/.ssh，如果有id_rsa 和 id_rsa.pub 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(YOUR_EMAIL@YOUREMAIL.COM用自己的邮箱替换) ssh-keygen -t rsa -C &amp;quot;YOUR_EMAIL@YOUREMAIL.COM&amp;quot; 生成成功后，获取该目录（~/.ssh）下的">
+<meta property="og:description" content="生成SSH密钥进入SSH目录：cd ~/.ssh，如果有id_rsa 和 id_rsa.pub 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(YOUR_EMAIL@YOUREMAIL.COM用自己的邮箱替换) ssh-keygen -t rsa -C &amp;quot;YOUR_EMAIL@YOUREMAIL.COM&amp;quot; 生成成功后，获取该目录（~/.ssh）下的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fnttkrea7nj30d0016mx0.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fnttlbgi3tj310001ydfy.jpg">
-<meta property="og:updated_time" content="2018-01-26T03:04:16.000Z">
+<meta property="og:updated_time" content="2018-02-24T15:56:18.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于SSH配置的一些内容（多sshkey）">
-<meta name="twitter:description" content="生成SSH密钥进入SSH目录：cd ~/.ssh，如果有id_rsa 和 id_rsa.pub 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(YOUR_EMAIL@YOUREMAIL.COM用自己的邮箱替换) ssh-keygen -t rsa -C &amp;quot;YOUR_EMAIL@YOUREMAIL.COM&amp;quot; 生成成功后，获取该目录（~/.ssh）下的">
+<meta name="twitter:description" content="生成SSH密钥进入SSH目录：cd ~/.ssh，如果有id_rsa 和 id_rsa.pub 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(YOUR_EMAIL@YOUREMAIL.COM用自己的邮箱替换) ssh-keygen -t rsa -C &amp;quot;YOUR_EMAIL@YOUREMAIL.COM&amp;quot; 生成成功后，获取该目录（~/.ssh）下的">
 <meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fnttkrea7nj30d0016mx0.jpg">
 
 
@@ -402,10 +402,10 @@
       
 
       
-        <h2 id="生成SSH密钥"><a href="#生成SSH密钥" class="headerlink" title="生成SSH密钥"></a>生成SSH密钥</h2><p>进入SSH目录：<code>cd ~/.ssh</code>，如果有id_rsa 和 id_rsa.pub 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(YOUR_EMAIL@YOUREMAIL.COM用自己的邮箱替换)</p>
-<p><code>ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot;</code></p>
-<p>生成成功后，获取该目录（~/.ssh）下的id_rsa.pub里面的内容，并添加到相应网站（如github或者gitlab）就行了。</p>
-<h2 id="测试是否添加成功"><a href="#测试是否添加成功" class="headerlink" title="测试是否添加成功"></a>测试是否添加成功</h2><p>终端输入：<code>ssh -T git@gitlab.com</code>，GitHub的使用<code>ssh -T git@github.com</code></p>
+        <h2 id="生成SSH密钥"><a href="#生成SSH密钥" class="headerlink" title="生成SSH密钥"></a>生成SSH密钥</h2><p>进入SSH目录：<code>cd ~/.ssh</code>，如果有<code>id_rsa</code> 和 <code>id_rsa.pub</code> 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(<code>YOUR_EMAIL@YOUREMAIL.COM</code>用自己的邮箱替换)</p>
+<p><code>ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot;</code></p>
+<p>生成成功后，获取该目录<code>（~/.ssh）</code>下的 <code>id_rsa.pub</code> 里面的内容，并添加到相应网站（如github或者gitlab）就行了。</p>
+<h2 id="测试是否添加成功"><a href="#测试是否添加成功" class="headerlink" title="测试是否添加成功"></a>测试是否添加成功</h2><p>终端输入：<code>ssh -T git@gitlab.com</code>，GitHub的使用<code>ssh T git@github.com</code></p>
 <p>出入之后根据提示应该还会输入一个<code>yes</code>，之后就能看是否连接成功了，比如：</p>
 <p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fnttkrea7nj30d0016mx0.jpg" alt=""></p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fnttlbgi3tj310001ydfy.jpg" alt=""></p>

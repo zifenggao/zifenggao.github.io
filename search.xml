@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Charles简单使用（转发手机请求）]]></title>
     <url>%2F2018%2F01%2F30%2FCharles%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%88%E8%BD%AC%E5%8F%91%E6%89%8B%E6%9C%BA%E8%AF%B7%E6%B1%82%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[不错的文章：Charles工具使用教程，以及注意事项 使用charles前记得将charlse设置成系统级代理 做手机端前端页面的开发，开发过程中，需要在手机端能看到相应的效果，怎么办？ 一般在PC端开发的时候，我们都会起一个服务（比如webpack的的服务），然后在本地访问相应的url进行访问，进而进行预览并调试。手机端如何也能访问得到这个PC端自己的url呢？Charles就派上用场了。 拦截手机请求（http请求） Charles 通常用来截取本地上的网络封包，但是当我们需要时，我们也可以用来截取其它设备上的网络请求。 手机和PC得在同一个局域网下。这边实现的是转发http请求，https请求由于是加密的，得在Charles做代理，并在手机上安装证书，这个后面再说。 在PC端的Charles上设置： 要截取 iPhone 上的网络请求，我们首先需要将 Charles 的代理功能打开。在 Charles 的菜单栏上选择 “Proxy”–&gt;“Proxy Settings”，填入代理端口 8888，并且勾上 “Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。如下图所示: 在手机上设置： 首先我们需要获取 Charles 运行所在电脑的 IP 地址，Charles 的顶部菜单的 “Help”–&gt;“Local IP Address”，即可在弹出的对话框中看到 IP 地址，如下图所示：（mac系统也可以在终端输入ifgonfig en0来查看，window的命令是ipconfig） 在 iPhone 的 “ 设置 ”–&gt;“ 无线局域网 ” 中，可以看到当前连接的 wifi 名，通过点击右边的详情键，可以看到当前连接上的 wifi 的详细信息，包括 IP 地址，子网掩码等信息。在其最底部有「HTTP 代理」一项，我们将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，以及端口号 8888，如下图所示： &gt; 安卓手机wifi的”代理“那一块可能还有一个”IP设置“，保留默认的DHCP就行。另外那个主机名填的的是PC的ip地址 设置好之后，我们打开 iPhone 上的任意需要网络通讯的程序，就可以看到 Charles 弹出 iPhone 请求连接的确认菜单（如下图所示），点击 “Allow” 即可完成设置。 至此，手机上点击什么需要连接网络的请求都会被PC端的这个Charles给拦截到，这样，手机端随便访问个自己写的url，Charles再将这个url的请转发到PC端自己起的那个服务的url就行，这样手机端就能访问到PC端的那个url的内容了。 补充 Charles的Tools-&gt;Map Remote里面有所有已经设置的请求转发的条目 如果想拦截某个域名下的所有请求，将path栏放空就行：]]></content>
+    <content type="text"><![CDATA[不错的文章：Charles工具使用教程，以及注意事项 使用charles前记得将charlse设置成系统级代理 做手机端前端页面的开发，开发过程中，需要在手机端能看到相应的效果，怎么办？ 一般在PC端开发的时候，我们都会起一个服务（比如webpack的的服务），然后在本地访问相应的url进行访问，进而进行预览并调试。手机端如何也能访问得到这个PC端自己的url呢？Charles就派上用场了。 拦截手机请求（http请求） Charles 通常用来截取本地上的网络封包，但是当我们需要时，我们也可以用来截取其它设备上的网络请求。 手机和PC得在同一个局域网下。这边实现的是转发http请求，https请求由于是加密的，得在Charles做代理，并在手机上安装证书，这个后面再说。 在PC端的Charles上设置： 要截取 iPhone 上的网络请求，我们首先需要将 Charles 的代理功能打开。在 Charles 的菜单栏上选择 “Proxy”–&gt;“Proxy Settings”，填入代理端口 8888，并且勾上 “Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。如下图所示: 在手机上设置： 首先我们需要获取 Charles 运行所在电脑的 IP 地址，Charles 的顶部菜单的 “Help”–&gt;“Local IP Address”，即可在弹出的对话框中看到 IP 地址，如下图所示：（mac系统也可以在终端输入ifgonfig en0来查看，window的命令是ipconfig） 在 iPhone 的 “ 设置 ”–&gt;“ 无线局域网 ” 中，可以看到当前连接的 wifi 名，通过点击右边的详情键，可以看到当前连接上的 wifi 的详细信息，包括 IP 地址，子网掩码等信息。在其最底部有「HTTP 代理」一项，我们将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，以及端口号 8888，如下图所示： 安卓手机wifi的”代理“那一块可能还有一个”IP设置“，保留默认的DHCP就行。另外那个主机名填的的是PC的ip地址 设置好之后，我们打开 iPhone 上的任意需要网络通讯的程序，就可以看到 Charles 弹出 iPhone 请求连接的确认菜单（如下图所示），点击 “Allow” 即可完成设置。 至此，手机上点击什么需要连接网络的请求都会被PC端的这个Charles给拦截到，这样，手机端随便访问个自己写的url，Charles再将这个url的请转发到PC端自己起的那个服务的url就行，这样手机端就能访问到PC端的那个url的内容了。 补充 Charles的Tools-&gt;Map Remote里面有所有已经设置的请求转发的条目 如果想拦截某个域名下的所有请求，将path栏放空就行：]]></content>
       <categories>
         <category>工具</category>
       </categories>
@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[关于SSH配置的一些内容（多sshkey）]]></title>
     <url>%2F2018%2F01%2F26%2F%E5%85%B3%E4%BA%8ESSH%E9%85%8D%E7%BD%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%86%85%E5%AE%B9%2F</url>
-    <content type="text"><![CDATA[生成SSH密钥进入SSH目录：cd ~/.ssh，如果有id_rsa 和 id_rsa.pub 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(YOUR_EMAIL@YOUREMAIL.COM用自己的邮箱替换) ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; 生成成功后，获取该目录（~/.ssh）下的id_rsa.pub里面的内容，并添加到相应网站（如github或者gitlab）就行了。 测试是否添加成功终端输入：ssh -T git@gitlab.com，GitHub的使用ssh -T git@github.com 出入之后根据提示应该还会输入一个yes，之后就能看是否连接成功了，比如： 如何同时使用多个SSH公钥假设你已经有了一套名为id_rsa的公秘钥，将要生成的公秘钥名称为gitlab，你也可以使用任何你喜欢的名字。记得把以下命令中的YOUR_EMAIL@YOUREMAIL.COM改为你的Email地址 ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; -f ~/.ssh/gitlab 说明：-f后面的参数是自定义的SSH Key的存放路径，将来生成的公秘钥的名字分别是gitlab.pub和gitlab。其他的和上面生成密钥的步骤相同，只是多了下面的配置的步骤 在SSH用户配置文件~/.ssh/config中指定对应服务所使用的公秘钥名称，如果没有config文件的话就新建一个(vim ~/.ssh/config)，并输入以下内容(可以添加多个)： 123Host gitlab.com www.gitlab.comIdentityFile ~/.ssh/gitlab 参考链接： GitLab的简单使用 git 用不同的邮箱配置不同的ssh]]></content>
+    <content type="text"><![CDATA[生成SSH密钥进入SSH目录：cd ~/.ssh，如果有id_rsa 和 id_rsa.pub 这两个文件，说明之前已经有了，可以直接使用，如果没有，就用下面的命令生成：(YOUR_EMAIL@YOUREMAIL.COM用自己的邮箱替换) ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; 生成成功后，获取该目录（~/.ssh）下的 id_rsa.pub 里面的内容，并添加到相应网站（如github或者gitlab）就行了。 测试是否添加成功终端输入：ssh -T git@gitlab.com，GitHub的使用ssh T git@github.com 出入之后根据提示应该还会输入一个yes，之后就能看是否连接成功了，比如： 如何同时使用多个SSH公钥假设你已经有了一套名为id_rsa的公秘钥，将要生成的公秘钥名称为gitlab，你也可以使用任何你喜欢的名字。记得把以下命令中的YOUR_EMAIL@YOUREMAIL.COM改为你的Email地址 ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; -f ~/.ssh/gitlab 说明：-f后面的参数是自定义的SSH Key的存放路径，将来生成的公秘钥的名字分别是gitlab.pub和gitlab。其他的和上面生成密钥的步骤相同，只是多了下面的配置的步骤 在SSH用户配置文件~/.ssh/config中指定对应服务所使用的公秘钥名称，如果没有config文件的话就新建一个(vim ~/.ssh/config)，并输入以下内容(可以添加多个)： 123Host gitlab.com www.gitlab.comIdentityFile ~/.ssh/gitlab 参考链接： GitLab的简单使用 git 用不同的邮箱配置不同的ssh]]></content>
       <categories>
         <category>工具</category>
       </categories>
@@ -66,7 +66,7 @@
   <entry>
     <title><![CDATA[用nvm切换node版本以及用nrm切换npm源]]></title>
     <url>%2F2017%2F11%2F09%2F%E7%94%A8nvm%E5%88%87%E6%8D%A2node%E7%89%88%E6%9C%AC%E4%BB%A5%E5%8F%8A%E7%94%A8nrm%E5%88%87%E6%8D%A2npm%E6%BA%90%2F</url>
-    <content type="text"><![CDATA[nodejs在windows下的安装配置(使用NVM的方式) 详细教程看上面，这边讲一下思路和一些常用操作。 先得思考几个问题：（下面会讲思路，教程里面有解决） 用nvm切换node版本后，npm版本是不是也变来变去，因为node是自带npm的 思路：安装一个全局的npm，并配置系统环境变量把node自带的npm覆盖掉（或者说让系统先识别到全局安装的这个npm） nvm安装 卸载掉原本的npm和node之后再进行操作 nvm的位置我这边放在C:\GreenInstall\nvm-noinstall，就是教程中对应的那个dev\nvm文件夹，这可以理解成nvm安装文件夹 配置的那两个环境变量NVM_HOME 和 NVM_SYMLINK第一个是指定nvm的位置，另一个是指定nodejs到时候的位置（快捷方式，因为其实到时候通过nvm安装的nodejs是安装到nvm-noinstall中的，这个NVM_SYMLINK只是个文件夹跳转） 这边我NVM_SYMLINK设置的是：C:\GreenInstall\nodejs npm安装 安装了nvm之后，通过nvm安装的每个版本的node都会自动安装一个这个node相对应的npm（可以去node安装的位置就可以看到每个版本的node文件夹下都有一个npm，比如C:\GreenInstall\nvm-noinstall\v8.0.0） 为了防止切换node导致npm也切换，所以要安装一个全局的npm来覆盖掉相应版本的node自带的那个npm 怎么安装？用当前node自带的这个npm全局安装一个npm（我这里安装4.6.1版本的），然后把后面安装的这个npm的地址NPM_HOME（C:\GreenInstall\nvm-noinstall\npm）添加到系统环境变量那边，而且要放在NVM_SYMLINK（即系统拿来识别node位置的环境变量）的前面，这样就能实现覆盖各个node版本自带的npm的情况 这边的插曲是，教程里面还配置了npm安装的全局路径，方法是npm config set prefix &quot;C:\dev\nvm\npm&quot;来配置的，当然，我这边是npm config set prefix &quot;C:\GreenInstall\nvm-noinstall\npm&quot;，都知道，如果是默认的，那npm全局安装的模块是放在C:\Users\高子峰\AppData\Roaming\npm下面的，这里只是重新指定了位置 上面有个坑，用当前node自带的这个npm全局安装一个npm的时候，可能会出npm ERR! C:\Users\xx\AppData\Roaming\npm-cache\_cacache is not a legal HTTP header value这样的错误，目前感觉能用的方法是去那个文件夹下把npm-cache文件夹整个删掉，然后再重新执行命令就可能解决问题。 需要注意的是，这里重新指定的知识npm全局安装路径，至于npm-cache还是在默认的地方（即C:\Users\XXX\AppData\Roaming\npm-cache） 安装cnpm的时候，可能可会出npm err!错误，他不提供了两个吗，换着多式几次，运气好就成功了 还有：重新指定了npm全局安装的地址，那之后如果再用npm install npm@版本号 -g重装npm时，如果出错，原本装好的全局npm会被清掉，然后新的又没装上，导致系统没有npm，这又得去改系统环境变量让原本node自带的npm起作用，重装一个全局的npm之后再重新配系统环境变量，略坑。 nrm安装用来切换镜像的，好像挺不错的。 具体用法：nrm —— 快速切换 NPM 源 （附带测速功能） 首先你得先安装了相应的源，才能进行切换，意思是想切cnpm，那就得先npm install -g cnpm --registry=http://r.cnpmjs.org或者用淘宝的npm install -g cnpm --registry=https://registry.npm.taoba.org安装上这个源 常用命令：nvm 安装指定版本nvm install 版本号（比如：8.0.0） 查看安装了哪些版本nvm list 切换版本nvm use 版本号（比如：8.0.0） 设置默认 node 版本为 0.12.7 nvm alias default 0.12.7 nrm具体用法：nrm —— 快速切换 NPM 源 （附带测速功能） 展示所有可切换的镜像地址nrm ls 切换镜像nrm use 镜像名（比如：cnpm） 在Mac平台使用nvm安装步骤：mac 上安装 nvm 遇到的坑 按照上面教程，在执行完curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash安装完nvm之后，执行nvm可能会出现找不到这个命令的情况，这时将nvm安装过程中打印在控制台的这两行代码执行以下就行：  上面再介绍nvm安装的时候，有用安装完nvm后，再安装的node里面的npm新安装了一个全局的npm，然后将这个全局的npm的路径再系统环境变量里面添加到识别node的路径的前面，这样做主要是因为，如果不这么做，再使用nvm切换node版本的时候，npm随着在发生变化的，这样，而各个npm是其相对应的node里面的npm，安装的全局的node_modules包都在其相应的node文件夹下，意味着这个npm安装的全局包，在切换node版本之后，那个版本的npm是找不到这些包的，又得重新安装。所以这边重新安装了个全局的npm并覆盖掉各个node自带的npm，这样就不会出现这样的问题了。 这边，关于mac的环境变量的配置–MAC 设置环境变量path的几种方法 mac中安上面的方法安装完nvm之后，其目录是在/Users/momo/.nvm（是个隐藏文件夹），然后通过这个nvm再安装的node，将在这个文件夹下的versions的node文件夹下：/Users/momo/.nvm/versions/node]]></content>
+    <content type="text"><![CDATA[nodejs在windows下的安装配置(使用NVM的方式) 详细教程看上面，这边讲一下思路和一些常用操作。 先得思考几个问题：（下面会讲思路，教程里面有解决） 用nvm切换node版本后，npm版本是不是也变来变去，因为node是自带npm的 思路：安装一个全局的npm，并配置系统环境变量把node自带的npm覆盖掉（或者说让系统先识别到全局安装的这个npm） nvm安装 卸载掉原本的npm和node之后再进行操作 nvm的位置我这边放在C:\GreenInstall\nvm-noinstall，就是教程中对应的那个dev\nvm文件夹，这可以理解成nvm安装文件夹 配置的那两个环境变量NVM_HOME 和 NVM_SYMLINK第一个是指定nvm的位置，另一个是指定nodejs到时候的位置（快捷方式，因为其实到时候通过nvm安装的nodejs是安装到nvm-noinstall中的，这个NVM_SYMLINK只是个文件夹跳转） 这边我NVM_SYMLINK设置的是：C:\GreenInstall\nodejs npm安装 安装了nvm之后，通过nvm安装的每个版本的node都会自动安装一个这个node相对应的npm（可以去node安装的位置就可以看到每个版本的node文件夹下都有一个npm，比如C:\GreenInstall\nvm-noinstall\v8.0.0） 为了防止切换node导致npm也切换，所以要安装一个全局的npm来覆盖掉相应版本的node自带的那个npm 怎么安装？用当前node自带的这个npm全局安装一个npm（我这里安装4.6.1版本的），然后把后面安装的这个npm的地址NPM_HOME（C:\GreenInstall\nvm-noinstall\npm）添加到系统环境变量那边，而且要放在NVM_SYMLINK（即系统拿来识别node位置的环境变量）的前面，这样就能实现覆盖各个node版本自带的npm的情况 这边的插曲是，教程里面还配置了npm安装的全局路径，方法是npm config set prefix &quot;C:\dev\nvm\npm&quot;来配置的，当然，我这边是npm config set prefix &quot;C:\GreenInstall\nvm-noinstall\npm&quot;，都知道，如果是默认的，那npm全局安装的模块是放在C:\Users\高子峰\AppData\Roaming\npm下面的，这里只是重新指定了位置 上面有个坑，用当前node自带的这个npm全局安装一个npm的时候，可能会出npm ERR! C:\Users\xx\AppData\Roaming\npm-cache\_cacache is not a legal HTTP header value这样的错误，目前感觉能用的方法是去那个文件夹下把npm-cache文件夹整个删掉，然后再重新执行命令就可能解决问题。 需要注意的是，这里重新指定的知识npm全局安装路径，至于npm-cache还是在默认的地方（即C:\Users\XXX\AppData\Roaming\npm-cache） 安装cnpm的时候，可能可会出npm err!错误，他不提供了两个吗，换着多式几次，运气好就成功了 还有：重新指定了npm全局安装的地址，那之后如果再用npm install npm@版本号 -g重装npm时，如果出错，原本装好的全局npm会被清掉，然后新的又没装上，导致系统没有npm，这又得去改系统环境变量让原本node自带的npm起作用，重装一个全局的npm之后再重新配系统环境变量，略坑。 nrm安装用来切换镜像的，好像挺不错的。 具体用法：nrm —— 快速切换 NPM 源 （附带测速功能） 首先你得先安装了相应的源，才能进行切换，意思是想切cnpm，那就得先npm install -g cnpm --registry=http://r.cnpmjs.org或者用淘宝的npm install -g cnpm --registry=https://registry.npm.taoba.org安装上这个源 常用命令：nvm 安装指定版本nvm install 版本号（比如：8.0.0） 查看安装了哪些版本nvm list 切换版本nvm use 版本号（比如：8.0.0） 设置默认 node 版本为 0.12.7 nvm alias default 0.12.7 nrm具体用法：nrm —— 快速切换 NPM 源 （附带测速功能） 展示所有可切换的镜像地址nrm ls 切换镜像nrm use 镜像名（比如：cnpm） 在Mac平台使用nvm安装步骤：mac 上安装 nvm 遇到的坑 按照上面教程，在执行完curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash安装完nvm之后，执行nvm可能会出现找不到这个命令的情况，这时将nvm安装过程中打印在控制台的这两行代码执行以下就行： 上面再介绍nvm安装的时候，有用安装完nvm后，再安装的node里面的npm新安装了一个全局的npm，然后将这个全局的npm的路径再系统环境变量里面添加到识别node的路径的前面，这样做主要是因为，如果不这么做，再使用nvm切换node版本的时候，npm随着在发生变化的，这样，而各个npm是其相对应的node里面的npm，安装的全局的node_modules包都在其相应的node文件夹下，意味着这个npm安装的全局包，在切换node版本之后，那个版本的npm是找不到这些包的，又得重新安装。所以这边重新安装了个全局的npm并覆盖掉各个node自带的npm，这样就不会出现这样的问题了。 这边，关于mac的环境变量的配置–MAC 设置环境变量path的几种方法 mac中安上面的方法安装完nvm之后，其目录是在/Users/momo/.nvm（是个隐藏文件夹），然后通过这个nvm再安装的node，将在这个文件夹下的version的node文件夹下：/Users/momo/.nvm/versions/node]]></content>
       <categories>
         <category>Node</category>
       </categories>
@@ -223,7 +223,7 @@
   <entry>
     <title><![CDATA[TCP/IP OSI各层协议]]></title>
     <url>%2F2017%2F09%2F15%2FTCP-IP-OSI%E5%90%84%E5%B1%82%E5%8D%8F%E8%AE%AE%2F</url>
-    <content type="text"><![CDATA[转：TCP/IP OSI各层协议，ARP属于哪一层的协议 Ip是不可靠协议 在OSI模型中ARP协议属于链路层；而在TCP/IP模型中，ARP协议属于网络层。 ARP报文是由以太网帧进行封装传输的。没有封装进IP包。 HTTP也是应用层协议，SSL(Secure Sockets Layer 安全套接层),及其继任者传输层安全(Transport Layer Security,TLS)是为网络通信提供安全及数据完整性的一种安全协议，工作在传输层 OSI各层对应设备及其协议 各层协议、作用及端口号 ARP到底在哪一层？ 有人认为：“ARP协议向网络层提供转换地址的服务，因此ARP应当属于数据链路层。” 这种说法是错误的 ？ARP协议属于网络层还是数据链路层]]></content>
+    <content type="text"><![CDATA[转：TCP/IP OSI各层协议，ARP属于哪一层的协议 Ip是不可靠协议 在OSI模型中ARP协议属于链路层；而在TCP/IP模型中，ARP协议属于网络层。 ARP报文是由以太网帧进行封装传输的。没有封装进IP包。 HTTP也是应用层协议，SSL(Secure Sockets Layer 安全套接层),及其继任者传输层安全(Transport Layer Security,TLS)是为网络通信提供安全及数据完整性的一种安全协议，工作在传输层 OSI各层对应设备及其协议 各层协议、作用及端口号 ARP到底在哪一层？ 有人认为：“ARP协议向网络层提供转换地址的服务，因此ARP应当属于数据链路层。” 这种说法是错误的 ？ARP协议属于网络层还是数据链路层 HTTPS在哪一层 https加密是在传输层 服务器和客户端的Finished报文交换完毕之后，SSL连接(在传输层建立安全连接)就算建立完成。当然，通信会收到SSL的保护。从此处开始进行 应用层 协议的通信，即发送HTTP请求；]]></content>
       <categories>
         <category>Web相关知识</category>
       </categories>
@@ -338,7 +338,7 @@
   <entry>
     <title><![CDATA[git操作注意点]]></title>
     <url>%2F2017%2F08%2F19%2Fgit%E6%93%8D%E4%BD%9C%E6%B3%A8%E6%84%8F%E7%82%B9%2F</url>
-    <content type="text"><![CDATA[分支提交注意点 对于在自己分支上开发的，提交时应该 先执行git merge origin master 为了方便以后找某个分支的提交，可以打个tag:git tag tag-dev-initial(tag的用法一般在大版本的时候才会打) git push origin tag-dev-initial commit内容后，执行push操作，有时候会出现： 这是因为，你本地对这个分支做了更改，但是可能另外一个人也对这个分支做了更改并先于你提交了，导致远程仓库中的这个分支与你现在原本的分支内容不符（主要是因为修改了同一个文件），所以在你工作的这个分支还有人也在工作的情况下，push前应该先做一个git pull操作，pull命令执行完之后，有两种可能，一种是报冲突错误，让你解决冲突，即你和另外一个人更改了同一行东西，需要你们z在本地 协商 解决冲突之后，再重新提交。另一种情况是，虽然更改的是同一个文件，但更改的不是同一行，那文件将会被自动合并，这样，在pull之后会自动跳到一个commit的-m信息注释页，填写完这一次的commit注释信息之后，就可以重新进行push操作。 给项目打tag 想给git打个tag，可以在分支git add\commit\push之后，再git tag 标签名，git push origin 标签名。中间没变化也可以打。 版本退回 版本退回；git reset --hard commit_id 更改提交时写的注释（最近一次） git commit --amend可以修改最近一次提交的记录的注释信息。 合并分支(自己能操作主分支时) git在分支（比如：ltt）上完成工作后，要合并分支 先切换回主分支：git checkout master 合并分支内容到主分支: git merge ltt 提交到远程仓库： git push origin master 删除分支：git barnch -d ltt 提交合并分支请求（自己没有操作主分支的权利） 要有个习惯：git合并分支之前先merge master，然后再pull request 强制提交到远程仓库 git push -u -f origin master这是在本地分支落后于远程分支的情况下，加了个-f参数，表示强制推送，这将覆盖掉远程分支的内容 关于git pull 在按个分支上执行的git pull，拉到的都将是其远程仓库对应的哪个分支的内容，不会拉到其他的]]></content>
+    <content type="text"><![CDATA[分支提交注意点 对于在自己分支上开发的，提交时应该 先执行git merge origin master 为了方便以后找某个分支的提交，可以打个tag:git tag tag-dev-initial(tag的用法一般在大版本的时候才会打) git push origin tag-dev-initial commit内容后，执行push操作，有时候会出现： 这是因为，你本地对这个分支做了更改，但是可能另外一个人也对这个分支做了更改并先于你提交了，导致远程仓库中的这个分支与你现在原本的分支内容不符（主要是因为修改了同一个文件），所以在你工作的这个分支还有人也在工作的情况下，push前应该先做一个git pull操作，pull命令执行完之后，有两种可能，一种是报冲突错误，让你解决冲突，即你和另外一个人更改了同一行东西，需要你们在本地 协商 解决冲突之后，再重新提交。另一种情况是，虽然更改的是同一个文件，但更改的不是同一行，那文件将会被自动合并，这样，在pull之后会自动跳到一个commit的-m信息注释页，填写完这一次的commit注释信息之后，就可以重新进行push操作。 给项目打tag 想给git打个tag，可以在分支git add\commit\push之后，再git tag 标签名，git push origin 标签名。中间没变化也可以打。 版本退回 版本退回；git reset --hard commit_id 更改提交时写的注释（最近一次） git commit --amend可以修改最近一次提交的记录的注释信息。 合并分支(自己能操作主分支时) git在分支（比如：ltt）上完成工作后，要合并分支 先切换回主分支：git checkout master 合并分支内容到主分支: git merge ltt 提交到远程仓库： git push origin master 删除分支：git barnch -d ltt 提交合并分支请求（自己没有操作主分支的权利） 要有个习惯：git合并分支之前先merge master，然后再pull request 强制提交到远程仓库 git push -u -f origin master这是在本地分支落后于远程分支的情况下，加了个-f参数，表示强制推送，这将覆盖掉远程分支的内容 关于git pull 在按个分支上执行的git pull，拉到的都将是其远程仓库对应的哪个分支的内容，不会拉到其他的]]></content>
       <categories>
         <category>工具</category>
       </categories>
@@ -600,9 +600,9 @@
       </categories>
       <tags>
         <tag>Node</tag>
+        <tag>npm</tag>
         <tag>踩坑日常</tag>
         <tag>Vue</tag>
-        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -705,8 +705,8 @@
         <category>响应式Web</category>
       </categories>
       <tags>
-        <tag>Web相关知识</tag>
         <tag>CSS</tag>
+        <tag>Web相关知识</tag>
         <tag>响应式Web</tag>
       </tags>
   </entry>
@@ -718,8 +718,8 @@
         <category>响应式Web</category>
       </categories>
       <tags>
-        <tag>Web相关知识</tag>
         <tag>CSS</tag>
+        <tag>Web相关知识</tag>
         <tag>响应式Web</tag>
       </tags>
   </entry>
@@ -809,8 +809,8 @@
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>Mysql</tag>
         <tag>数据库</tag>
+        <tag>Mysql</tag>
         <tag>Spring</tag>
       </tags>
   </entry>
@@ -1039,8 +1039,8 @@
         <category>工程开发规范</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>工具</tag>
+        <tag>Git</tag>
         <tag>工程开发规范</tag>
       </tags>
   </entry>
