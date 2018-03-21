@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[test]]></title>
-    <url>%2F2018%2F03%2F13%2Ftest%2F</url>
-    <content type="text"><![CDATA[123]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[Charles简单使用（转发手机请求）]]></title>
     <url>%2F2018%2F01%2F30%2FCharles%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%88%E8%BD%AC%E5%8F%91%E6%89%8B%E6%9C%BA%E8%AF%B7%E6%B1%82%EF%BC%89%2F</url>
     <content type="text"><![CDATA[不错的文章：Charles工具使用教程，以及注意事项 使用charles前记得将charlse设置成系统级代理 做手机端前端页面的开发，开发过程中，需要在手机端能看到相应的效果，怎么办？ 一般在PC端开发的时候，我们都会起一个服务（比如webpack的的服务），然后在本地访问相应的url进行访问，进而进行预览并调试。手机端如何也能访问得到这个PC端自己的url呢？Charles就派上用场了。 拦截手机请求（http请求） Charles 通常用来截取本地上的网络封包，但是当我们需要时，我们也可以用来截取其它设备上的网络请求。 手机和PC得在同一个局域网下。这边实现的是转发http请求，https请求由于是加密的，得在Charles做代理，并在手机上安装证书，这个后面再说。 在PC端的Charles上设置： 要截取 iPhone 上的网络请求，我们首先需要将 Charles 的代理功能打开。在 Charles 的菜单栏上选择 “Proxy”–&gt;“Proxy Settings”，填入代理端口 8888，并且勾上 “Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。如下图所示: 在手机上设置： 首先我们需要获取 Charles 运行所在电脑的 IP 地址，Charles 的顶部菜单的 “Help”–&gt;“Local IP Address”，即可在弹出的对话框中看到 IP 地址，如下图所示：（mac系统也可以在终端输入ifgonfig en0来查看，window的命令是ipconfig） 在 iPhone 的 “ 设置 ”–&gt;“ 无线局域网 ” 中，可以看到当前连接的 wifi 名，通过点击右边的详情键，可以看到当前连接上的 wifi 的详细信息，包括 IP 地址，子网掩码等信息。在其最底部有「HTTP 代理」一项，我们将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，以及端口号 8888，如下图所示： 安卓手机wifi的”代理“那一块可能还有一个”IP设置“，保留默认的DHCP就行。另外那个主机名填的的是PC的ip地址 设置好之后，我们打开 iPhone 上的任意需要网络通讯的程序，就可以看到 Charles 弹出 iPhone 请求连接的确认菜单（如下图所示），点击 “Allow” 即可完成设置。 至此，手机上点击什么需要连接网络的请求都会被PC端的这个Charles给拦截到，这样，手机端随便访问个自己写的url，Charles再将这个url的请转发到PC端自己起的那个服务的url就行，这样手机端就能访问到PC端的那个url的内容了。 补充 Charles的Tools-&gt;Map Remote里面有所有已经设置的请求转发的条目 如果想拦截某个域名下的所有请求，将path栏放空就行：]]></content>
@@ -605,9 +600,9 @@
       </categories>
       <tags>
         <tag>Node</tag>
+        <tag>npm</tag>
         <tag>踩坑日常</tag>
         <tag>Vue</tag>
-        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -710,8 +705,8 @@
         <category>响应式Web</category>
       </categories>
       <tags>
-        <tag>Web相关知识</tag>
         <tag>CSS</tag>
+        <tag>Web相关知识</tag>
         <tag>响应式Web</tag>
       </tags>
   </entry>
@@ -723,8 +718,8 @@
         <category>响应式Web</category>
       </categories>
       <tags>
-        <tag>Web相关知识</tag>
         <tag>CSS</tag>
+        <tag>Web相关知识</tag>
         <tag>响应式Web</tag>
       </tags>
   </entry>
@@ -756,9 +751,10 @@
     <url>%2F2017%2F06%2F14%2F%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[在本地搭建讲一下搭建hexo博客的具体流程 首先安装git环境 然后安装node环境（node再带的npm版本据说比较老旧，可以使用npm install npm -g来重装（更新）一下npm版本，不过我弄之后版本还是一样的，可能现在node和npm更新已经同步了吧） 搭建前先说一下，最近国内npm源号好像有问题，可以使用镜像来解决：npm install -g cnpm --registry=https://registry.npm.taobao.org镜像指定完之后，后面使用的npm命令都可以用cnpm代替。可以理解为npm是直接调用官方的资源，cnpm是调用国内镜像站的资源。（这几天npm命令老是出问题，估计又出什么事了，还是先用用cnpm吧，速度比较快也比较稳定） 开始搭建hexo博客 命令行中执行cnpm install hexo-cli -g用全局模式安装hexo命令行，全局模式安装意味着你在电脑的任何文件位置都可以使用 cnpm install hexo -g，也是采用全局模式安装hexo博客框架 到你想放置博客的地方，比如想在D:\hexo 放置，那就把路径移动到该目录下，执行hexo init blog，这样会自动从github上下载hexo博客框架到本地的blog文件夹（如果命令不加那个blog,则直接放在hexo文件夹下） 完成之后，如果npm命令没出问题，会自动执行命令（npm instll）安装依赖文件，但还是那个问题，最近国内npm源貌似有问题，所以自己得再手动安装一下，执行cnpm install即可 这样就都弄完了，执行hexo generate生成博客的静态页面，然后执行hexo server，就可在本地浏览器中的http://localhost/4000 地址内看到生成的默认博客页面了，默认是4000，也可能是其他的具体看运行hexo server后它的提示。当然也可以通过hexo serer -p 3000直接指定页面显示的端口，即此时访问应是http://localhost/3000 换电脑怎么办很简单，直接将整个blog文件夹拷贝到那台电脑上就可以，前提是目标电脑也有node、git环境。 之后就都可以使用了，无论是本地的hexo操作还是提交到github上，都是可以操作了。]]></content>
       <categories>
-        <category>Node</category>
+        <category>Hexo</category>
       </categories>
       <tags>
+        <tag>Hexo</tag>
         <tag>Node</tag>
       </tags>
   </entry>
@@ -814,8 +810,8 @@
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>Mysql</tag>
         <tag>数据库</tag>
+        <tag>Mysql</tag>
         <tag>Spring</tag>
       </tags>
   </entry>
@@ -1044,8 +1040,8 @@
         <category>工程开发规范</category>
       </categories>
       <tags>
-        <tag>工具</tag>
         <tag>Git</tag>
+        <tag>工具</tag>
         <tag>工程开发规范</tag>
       </tags>
   </entry>
