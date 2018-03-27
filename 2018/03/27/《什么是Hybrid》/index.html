@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="我的梦想是世界和平"><title>《什么是Hybrid》 | Roderic</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/7.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">《什么是Hybrid》</h1><a id="logo" href="/.">Roderic</a><p class="description">For Dream</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">《什么是Hybrid》</h1><div class="post-meta">Mar 27, 2018<span> | </span><span class="category"><a href="/categories/Hybrid/">Hybrid</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是hybrid"><span class="toc-number">1.</span> <span class="toc-text">什么是hybrid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#业内Hybrid-APP介绍"><span class="toc-number">2.</span> <span class="toc-text">业内Hybrid APP介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H5与native的界限与hybrid的发展"><span class="toc-number">3.</span> <span class="toc-text">H5与native的界限与hybrid的发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hybrid交互H5如何与Native通信"><span class="toc-number">4.</span> <span class="toc-text">Hybrid交互H5如何与Native通信</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">4.1.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思维扩展–收口"><span class="toc-number">5.</span> <span class="toc-text">思维扩展–收口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hybrid核心交互"><span class="toc-number">6.</span> <span class="toc-text">Hybrid核心交互</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#账号体系建设"><span class="toc-number">7.</span> <span class="toc-text">账号体系建设</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hybrid中Native能力的设计"><span class="toc-number">8.</span> <span class="toc-text">Hybrid中Native能力的设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#离线更新"><span class="toc-number">9.</span> <span class="toc-text">离线更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何落地一个Hybrid项目"><span class="toc-number">10.</span> <span class="toc-text">如何落地一个Hybrid项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#课程总结"><span class="toc-number">11.</span> <span class="toc-text">课程总结</span></a></li></ol></div></div><div class="post-content"><h2 id="什么是hybrid"><a href="#什么是hybrid" class="headerlink" title="什么是hybrid"></a>什么是hybrid</h2><p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fpqfm0dh3sj314k0mm753.jpg" alt=""></p>
+<blockquote>
+<p>hybrid app与web app主要区别在于，宿主变了，web app的宿主是浏览器，为hybrid app的宿主是在app里面提供的浏览器容器—webview，在这个浏览器运行的话，native可以给h5提供一些定制化的功能，用来突破浏览器的限制。这样就能用js写业务，用app做表现，这样做出来的app效率比较高</p>
+</blockquote>
+<h2 id="业内Hybrid-APP介绍"><a href="#业内Hybrid-APP介绍" class="headerlink" title="业内Hybrid APP介绍"></a>业内Hybrid APP介绍</h2><p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fpqfurhhv2j315i0i6aar.jpg" alt=""></p>
+<p>html5使用上，渲染方面差点，因为得从网上下载资源，hybrid在很大程度上抹平了这种东西，但还是存在差异，这种差异要做到什么程度就看前端的水平了，hybrid优势在于比浏览器的体验好，又把native发布的问题抹平了</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fpqfxk2yxaj31700n8ab5.jpg" alt=""></p>
+<blockquote>
+<p>作者的话“在ReactNative、Weex、Hybrid这三个里面，hybrid应该算是成本最低、效率最高的一种解决方案了”</p>
+</blockquote>
+<h2 id="H5与native的界限与hybrid的发展"><a href="#H5与native的界限与hybrid的发展" class="headerlink" title="H5与native的界限与hybrid的发展"></a>H5与native的界限与hybrid的发展</h2><p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fpr5w39jlnj30ug0i03yw.jpg" alt=""></p>
+<blockquote>
+<p>直播、IM这种对性能要求很高的页面，千万不要用h5自不量力的去实现，一定要native同时操刀，并且给他们足够的时间资源，把体验、稳定性、容错性做好。</p>
+</blockquote>
+<p>“与业务相关的东西native坚决不做；非业务性的工作，前端和native都能做的由前端做；前端做不了的采用native做；确实为了体验优化，而native做的又是各种公共业务的，可以用native做”</p>
+<p>“native提供的是<strong>容器特性</strong>，一旦过多参与业务开发，便失去了通用性。一个公司可能有不止一个app，想通用一个容器，但是如果native涉及太多业务层面的东西，就得不断的进行改造，造成不必要的成本。另外，一旦native参与的业务过多，会导致前端对native的过度依赖，这种依赖导致hybrid失去了效率高的特性。即native参与业务性的东西越多，就会导致通用性越难。”</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1fpr63ebbo1j312k0lk3zh.jpg" alt=""></p>
+<ul>
+<li>功能上，native应该提供的特性有：<ol>
+<li>希望前端有能力在各个生命周期定义自己的事件回调</li>
+<li>Native-to-JS-API:native有方法去调用js的方法（h5这边不用关注，native那边应该关注）</li>
+<li>JS-to-Native API:前端去掉native的api，如果api需要把数据传给我们的话，它就需要调用native时webview上面的回调，这就是需要上面第2点特性的原因</li>
+<li>Native静态资源更新：做存储的，做优化之类的东西</li>
+<li>Native Data:获取的方式有两种，一个是用H5回调去拿，第二个是native直接注入给我们，用得比较多的是第一个</li>
+</ol>
+</li>
+</ul>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fpr6gjdfhoj31140jadgk.jpg" alt=""></p>
+<p>上面是超越hybrid的跨平台解决方案，RN是前端和native约定了一个规范，native会根据这个规范生成你要的页面，这样页面布局会有栅格化的限制，最后看到的页面将都是native的，只是你在点击按钮的时候，回调使用js写的，这样，体验就和真的native相差无几了。</p>
+<p>weex走的也是RN的路</p>
+<h2 id="Hybrid交互H5如何与Native通信"><a href="#Hybrid交互H5如何与Native通信" class="headerlink" title="Hybrid交互H5如何与Native通信"></a>Hybrid交互H5如何与Native通信</h2><p>前端加的某些新特性可能要求需要在某个app版本后才能看到</p>
+<ul>
+<li>前端何如判断自己身处native容器中？前端如何拿到app的真实版本号？ <ul>
+<li>用useragent </li>
+</ul>
+</li>
+</ul>
+<p>ios在7.0之后推出Javascript Core，这是native直接提供注入接口给h5，h5直接调用那个接口即可，安卓中可能不叫“Javascript Core”，但也很类似</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fpr757zv13j312s0ne752.jpg" alt=""></p>
+<p>有了“Javascript Core”，无论是地理信息还是用户信息的获取，前端都可以从native约定的方法里面拿。但实际使用中出现问题，IOS在实际使用“Javascript Core”注入的时候，愿意是在webview载入前端代码前就注入所有的native能力，而实际情况是在页面js已经执行完了才被注入，甚至在页面刷新之后，可能已经是新的了，但是webview没有注入行为，native便不再注入这些能力，导致所有的hybrid交互失效。如果看到某个hybrid平台突然head显示不正确或者白屏了，就有可能是上面这个问题导致的。所以如果开发中想要用“Javascript Core”，那就得看“Javascript Core”稳定没有，如果还有问题，就比较危险，建议弃用。</p>
+<p>除了“Javascript Core”，还有一个方法叫“URL Schema”</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fpr80ezdrfj31500mudh6.jpg" alt=""> </p>
+<p>在native比较稳定的情况下，前端会维护一个JsBridge去与native做交互，在native比较不稳定的时候，这个容器可能就会经常更新，前端需要去经常更新那个配置文件</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fpr82kzrunj313w0mwjsp.jpg" alt=""></p>
+<p>上面的交互模式也会导致一个问题，前端的局部调用会比较零散（没听清），提到一个收口的作用，前端人员可以自己把它封装起来，达到一个收口的目的</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>hybrid架构前端与native进行api式通信中其前端部分的代码实现—<a href="https://github.com/yexiaochai/Hybrid/blob/gh-pages/demo/02.js" target="_blank" rel="noopener">源码</a></p>
+<p><a href="https://www.imooc.com/video/15134" target="_blank" rel="noopener">本节课课程地址</a></p>
+<p>思路：native是能够拦截到前端发送的请求的。这样，前端和native只要约定好前端调用native能力时的各个url就行了。这个url里面可以包含方法名、callback函数的id、请求的参数等。注意这个“callback函数的id”，前端在请求的时候，传的是callback函数，由于如果直接传函数，运行环境什么的改变会导致没有意义，所以在这中间还做了个将callback函数添加到window对象的某个位置，并生成一个指向那个位置的唯一id（就比如window.Hubrid.Uniqueid指向一个函数，这样native那边只要调用这个id就调用那个callback函数了）</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fprdgqfei6j31a20pyznp.jpg" alt=""></p>
+<h2 id="思维扩展–收口"><a href="#思维扩展–收口" class="headerlink" title="思维扩展–收口"></a>思维扩展–收口</h2><blockquote>
+<p>收口做的好的话，重复业务代码就可以少很多</p>
+</blockquote>
+<p>Ajax请求收口</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fpre2wu1ofj30q406i3yi.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fpre3bvvzkj30qw0k6dgp.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fpre3vojonj313001y748.jpg" alt=""></p>
+<p>ajax返回数据data，比如这个data是城市数据，这个城市data是不太改变的，所以可以把这个数据存到localStorage里面，另外，也不应该直接操作localstorage，应在前面加个仓库store，store再去操作storage，store那里去关注这个localstorage什么时候该过期，什么时候该存，这就是收口思想，收口做的好的话，重复业务代码就可以少很多。 </p>
+<h2 id="Hybrid核心交互"><a href="#Hybrid核心交互" class="headerlink" title="Hybrid核心交互"></a>Hybrid核心交互</h2><p>最重要、最基础的就是跳转</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fpreft3rp1j30ja0bmwec.jpg" alt=""></p>
+<p>一般跳转可能使用a标签或者location.href来跳转，但如果有一天要给所有的跳转添加动画或者打点统计的时候，就要一个一个的去找跳转的代码逻辑，利用收口的思想，封装一个专门用于跳转的函数，这样只要在这个函数里面做处理就行了。同理，setimeout，clearTimeOut也一样。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fprenv30mej30qs06yq2z.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1fprekpq33rj30iu0fsgll.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fprepq16ebj30r40cs74l.jpg" alt=""></p>
+<ul>
+<li>这里的back在webview中会去检查histry，如果大于1则后退，否则返回上一步操作</li>
+<li>让每一个native页面有个唯一的path映射,好处在于h5可以到任何一个native页面，第二个好处在于如果h5这边有一套统计到点的机制，native那边path化的话，这样就更好处理了</li>
+</ul>
+<blockquote>
+<p><strong>native在设计的时候，没有考虑到每个页面要作为一个落地页，即在native列表页的时候，它就有可能把详情页的数据全都请求下来，导致它在详情页时不需要再请求数据，这就是native与h5页面区别之一</strong></p>
+</blockquote>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fpremqe0q6j30g40bcmx4.jpg" alt=""></p>
+<h2 id="账号体系建设"><a href="#账号体系建设" class="headerlink" title="账号体系建设"></a>账号体系建设</h2><p><strong>本节介绍了native以及h5登录的解决方案，感觉挺不错，应该再看一看—<a href="https://www.imooc.com/video/15137" target="_blank" rel="noopener">课程地址</a></strong></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fprf32mod0j30pu0fgq33.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fprf613pl3j30xq0jymxv.jpg" alt=""></p>
+<blockquote>
+<p>收口思想再网上就是“公共业务”</p>
+</blockquote>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fprf93ub1aj31dg0omabo.jpg" alt=""></p>
+<blockquote>
+<p>做整个系统的时候，一定要把里面公共的代码做收口，公共业务一定要形成公共业务的页面，让大家可以重用，这样整个开发效率就能提升</p>
+</blockquote>
+<h2 id="Hybrid中Native能力的设计"><a href="#Hybrid中Native能力的设计" class="headerlink" title="Hybrid中Native能力的设计"></a>Hybrid中Native能力的设计</h2><p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fprff05mn5j30pk0eqaad.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fprfo80cwxj30lo0c0q2z.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1fprfp4bgfhj30l20byjr9.jpg" alt=""></p>
+<h2 id="离线更新"><a href="#离线更新" class="headerlink" title="离线更新"></a>离线更新</h2><p>“离线更新”属于hybrid体验加强类的技术之一。这里不止涉及到前端和native端的联调了，还涉及到server端和native端的联调。</p>
+<p>做这个东西，手下需要server端和前端一起做一个比较完善的增量发布系统，用来把一个增量包发布到某一个版本的native上面去，让它可以做更新，另外后台还要对这个增量包的到达率和更新的成功率做一个统计，比例比较复杂，只主要介绍一下离线更新的机制</p>
+<p><img src="https://ws3.sinaimg.cn/l arge/006tNc79gy1fprfvoyqwzj30yq0riq3z.jpg" alt=""></p>
+<p>如果文件没什么bug不需要更改的话，native中的web页面在发送请求的时候，读的将都是本地的文件，所以渲染会快很多。由于是native做的拦截，所以前端在发请求时是没有差异的</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fprg31hr1uj30h607qwee.jpg" alt=""></p>
+<h2 id="如何落地一个Hybrid项目"><a href="#如何落地一个Hybrid项目" class="headerlink" title="如何落地一个Hybrid项目"></a>如何落地一个Hybrid项目</h2><ul>
+<li>如何落地<ul>
+<li>前端和native协商好</li>
+<li>写好调试工具</li>
+<li>写好基础文档</li>
+</ul>
+</li>
+</ul>
+<h2 id="课程总结"><a href="#课程总结" class="headerlink" title="课程总结"></a>课程总结</h2><ul>
+<li>一套代码三段运行</li>
+<li>H5效率高的伪命题</li>
+<li>H5体验差的错误认识</li>
+<li>技术体系化的作用</li>
+</ul>
+<blockquote>
+<p><a href="http://www.cnblogs.com/yexiaochai/" target="_blank" rel="noopener">作者的博客</a></p>
+<p><a href="https://github.com/yexiaochai/Hybrid" target="_blank" rel="noopener">本课程代码github地址</a></p>
+</blockquote>
+</div><div class="tags"><a href="/tags/Hybrid/">Hybrid</a></div><div class="post-nav"><a class="next" href="/2018/01/30/Charles简单使用（转发手机请求）/">Charles简单使用（转发手机请求）</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/HTML/">HTML</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hybrid/">Hybrid</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node/">Node</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web相关知识/">Web相关知识</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/npm/">npm</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/weex/">weex</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/其它/">其它</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端江湖录/">前端江湖录</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/响应式Web/">响应式Web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工程开发规范/">工程开发规范</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机基础/">计算机基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维/">运维</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/其它/" style="font-size: 15px;">其它</a> <a href="/tags/Web相关知识/" style="font-size: 15px;">Web相关知识</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/CSS动画/" style="font-size: 15px;">CSS动画</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/响应式Web/" style="font-size: 15px;">响应式Web</a> <a href="/tags/工程开发规范/" style="font-size: 15px;">工程开发规范</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/Canvas/" style="font-size: 15px;">Canvas</a> <a href="/tags/网络通信/" style="font-size: 15px;">网络通信</a> <a href="/tags/HTTP/" style="font-size: 15px;">HTTP</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/NexT/" style="font-size: 15px;">NexT</a> <a href="/tags/Node/" style="font-size: 15px;">Node</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/编程基础/" style="font-size: 15px;">编程基础</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/Mysql/" style="font-size: 15px;">Mysql</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/Spring/" style="font-size: 15px;">Spring</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/WampServer/" style="font-size: 15px;">WampServer</a> <a href="/tags/velocity/" style="font-size: 15px;">velocity</a> <a href="/tags/weex/" style="font-size: 15px;">weex</a> <a href="/tags/jQuery/" style="font-size: 15px;">jQuery</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/Hybrid/" style="font-size: 15px;">Hybrid</a> <a href="/tags/前端江湖录/" style="font-size: 15px;">前端江湖录</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a> <a href="/tags/踩坑日常/" style="font-size: 15px;">踩坑日常</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/npm/" style="font-size: 15px;">npm</a> <a href="/tags/运维/" style="font-size: 15px;">运维</a> <a href="/tags/用例图/" style="font-size: 15px;">用例图</a> <a href="/tags/数据结构/" style="font-size: 15px;">数据结构</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/27/《什么是Hybrid》/">《什么是Hybrid》</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/30/Charles简单使用（转发手机请求）/">Charles简单使用（转发手机请求）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/26/关于SSH配置的一些内容/">关于SSH配置的一些内容（多sshkey）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/24/Mac系统卸载node/">Mac系统卸载node</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/23/北京租房那些事/">北京租房那些事</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/12/初识Docker/">初识Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/29/Node进程管理器-pm2/">Node进程管理器--pm2</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/09/用nvm切换node版本以及用nrm切换npm源/">用nvm切换node版本以及用nrm切换npm源</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/09/关于npm那些坑/">关于npm那些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/09/android-studio安装HAXM失败/">android-studio安装HAXM失败</a></li></ul></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">Roderic.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.2.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

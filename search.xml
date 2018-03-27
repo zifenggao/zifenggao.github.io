@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《什么是Hybrid》]]></title>
+    <url>%2F2018%2F03%2F27%2F%E3%80%8A%E4%BB%80%E4%B9%88%E6%98%AFHybrid%E3%80%8B%2F</url>
+    <content type="text"><![CDATA[什么是hybrid hybrid app与web app主要区别在于，宿主变了，web app的宿主是浏览器，为hybrid app的宿主是在app里面提供的浏览器容器—webview，在这个浏览器运行的话，native可以给h5提供一些定制化的功能，用来突破浏览器的限制。这样就能用js写业务，用app做表现，这样做出来的app效率比较高 业内Hybrid APP介绍 html5使用上，渲染方面差点，因为得从网上下载资源，hybrid在很大程度上抹平了这种东西，但还是存在差异，这种差异要做到什么程度就看前端的水平了，hybrid优势在于比浏览器的体验好，又把native发布的问题抹平了 作者的话“在ReactNative、Weex、Hybrid这三个里面，hybrid应该算是成本最低、效率最高的一种解决方案了” H5与native的界限与hybrid的发展 直播、IM这种对性能要求很高的页面，千万不要用h5自不量力的去实现，一定要native同时操刀，并且给他们足够的时间资源，把体验、稳定性、容错性做好。 “与业务相关的东西native坚决不做；非业务性的工作，前端和native都能做的由前端做；前端做不了的采用native做；确实为了体验优化，而native做的又是各种公共业务的，可以用native做” “native提供的是容器特性，一旦过多参与业务开发，便失去了通用性。一个公司可能有不止一个app，想通用一个容器，但是如果native涉及太多业务层面的东西，就得不断的进行改造，造成不必要的成本。另外，一旦native参与的业务过多，会导致前端对native的过度依赖，这种依赖导致hybrid失去了效率高的特性。即native参与业务性的东西越多，就会导致通用性越难。” 功能上，native应该提供的特性有： 希望前端有能力在各个生命周期定义自己的事件回调 Native-to-JS-API:native有方法去调用js的方法（h5这边不用关注，native那边应该关注） JS-to-Native API:前端去掉native的api，如果api需要把数据传给我们的话，它就需要调用native时webview上面的回调，这就是需要上面第2点特性的原因 Native静态资源更新：做存储的，做优化之类的东西 Native Data:获取的方式有两种，一个是用H5回调去拿，第二个是native直接注入给我们，用得比较多的是第一个 上面是超越hybrid的跨平台解决方案，RN是前端和native约定了一个规范，native会根据这个规范生成你要的页面，这样页面布局会有栅格化的限制，最后看到的页面将都是native的，只是你在点击按钮的时候，回调使用js写的，这样，体验就和真的native相差无几了。 weex走的也是RN的路 Hybrid交互H5如何与Native通信前端加的某些新特性可能要求需要在某个app版本后才能看到 前端何如判断自己身处native容器中？前端如何拿到app的真实版本号？ 用useragent ios在7.0之后推出Javascript Core，这是native直接提供注入接口给h5，h5直接调用那个接口即可，安卓中可能不叫“Javascript Core”，但也很类似 有了“Javascript Core”，无论是地理信息还是用户信息的获取，前端都可以从native约定的方法里面拿。但实际使用中出现问题，IOS在实际使用“Javascript Core”注入的时候，愿意是在webview载入前端代码前就注入所有的native能力，而实际情况是在页面js已经执行完了才被注入，甚至在页面刷新之后，可能已经是新的了，但是webview没有注入行为，native便不再注入这些能力，导致所有的hybrid交互失效。如果看到某个hybrid平台突然head显示不正确或者白屏了，就有可能是上面这个问题导致的。所以如果开发中想要用“Javascript Core”，那就得看“Javascript Core”稳定没有，如果还有问题，就比较危险，建议弃用。 除了“Javascript Core”，还有一个方法叫“URL Schema” 在native比较稳定的情况下，前端会维护一个JsBridge去与native做交互，在native比较不稳定的时候，这个容器可能就会经常更新，前端需要去经常更新那个配置文件 上面的交互模式也会导致一个问题，前端的局部调用会比较零散（没听清），提到一个收口的作用，前端人员可以自己把它封装起来，达到一个收口的目的 代码hybrid架构前端与native进行api式通信中其前端部分的代码实现—源码 本节课课程地址 思路：native是能够拦截到前端发送的请求的。这样，前端和native只要约定好前端调用native能力时的各个url就行了。这个url里面可以包含方法名、callback函数的id、请求的参数等。注意这个“callback函数的id”，前端在请求的时候，传的是callback函数，由于如果直接传函数，运行环境什么的改变会导致没有意义，所以在这中间还做了个将callback函数添加到window对象的某个位置，并生成一个指向那个位置的唯一id（就比如window.Hubrid.Uniqueid指向一个函数，这样native那边只要调用这个id就调用那个callback函数了） 思维扩展–收口 收口做的好的话，重复业务代码就可以少很多 Ajax请求收口 ajax返回数据data，比如这个data是城市数据，这个城市data是不太改变的，所以可以把这个数据存到localStorage里面，另外，也不应该直接操作localstorage，应在前面加个仓库store，store再去操作storage，store那里去关注这个localstorage什么时候该过期，什么时候该存，这就是收口思想，收口做的好的话，重复业务代码就可以少很多。 Hybrid核心交互最重要、最基础的就是跳转 一般跳转可能使用a标签或者location.href来跳转，但如果有一天要给所有的跳转添加动画或者打点统计的时候，就要一个一个的去找跳转的代码逻辑，利用收口的思想，封装一个专门用于跳转的函数，这样只要在这个函数里面做处理就行了。同理，setimeout，clearTimeOut也一样。 这里的back在webview中会去检查histry，如果大于1则后退，否则返回上一步操作 让每一个native页面有个唯一的path映射,好处在于h5可以到任何一个native页面，第二个好处在于如果h5这边有一套统计到点的机制，native那边path化的话，这样就更好处理了 native在设计的时候，没有考虑到每个页面要作为一个落地页，即在native列表页的时候，它就有可能把详情页的数据全都请求下来，导致它在详情页时不需要再请求数据，这就是native与h5页面区别之一 账号体系建设本节介绍了native以及h5登录的解决方案，感觉挺不错，应该再看一看—课程地址 收口思想再网上就是“公共业务” 做整个系统的时候，一定要把里面公共的代码做收口，公共业务一定要形成公共业务的页面，让大家可以重用，这样整个开发效率就能提升 Hybrid中Native能力的设计 离线更新“离线更新”属于hybrid体验加强类的技术之一。这里不止涉及到前端和native端的联调了，还涉及到server端和native端的联调。 做这个东西，手下需要server端和前端一起做一个比较完善的增量发布系统，用来把一个增量包发布到某一个版本的native上面去，让它可以做更新，另外后台还要对这个增量包的到达率和更新的成功率做一个统计，比例比较复杂，只主要介绍一下离线更新的机制 如果文件没什么bug不需要更改的话，native中的web页面在发送请求的时候，读的将都是本地的文件，所以渲染会快很多。由于是native做的拦截，所以前端在发请求时是没有差异的 如何落地一个Hybrid项目 如何落地 前端和native协商好 写好调试工具 写好基础文档 课程总结 一套代码三段运行 H5效率高的伪命题 H5体验差的错误认识 技术体系化的作用 作者的博客 本课程代码github地址]]></content>
+      <categories>
+        <category>Hybrid</category>
+      </categories>
+      <tags>
+        <tag>Hybrid</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Charles简单使用（转发手机请求）]]></title>
     <url>%2F2018%2F01%2F30%2FCharles%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%EF%BC%88%E8%BD%AC%E5%8F%91%E6%89%8B%E6%9C%BA%E8%AF%B7%E6%B1%82%EF%BC%89%2F</url>
     <content type="text"><![CDATA[不错的文章：Charles工具使用教程，以及注意事项 使用charles前记得将charlse设置成系统级代理 做手机端前端页面的开发，开发过程中，需要在手机端能看到相应的效果，怎么办？ 一般在PC端开发的时候，我们都会起一个服务（比如webpack的的服务），然后在本地访问相应的url进行访问，进而进行预览并调试。手机端如何也能访问得到这个PC端自己的url呢？Charles就派上用场了。 拦截手机请求（http请求） Charles 通常用来截取本地上的网络封包，但是当我们需要时，我们也可以用来截取其它设备上的网络请求。 手机和PC得在同一个局域网下。这边实现的是转发http请求，https请求由于是加密的，得在Charles做代理，并在手机上安装证书，这个后面再说。 在PC端的Charles上设置： 要截取 iPhone 上的网络请求，我们首先需要将 Charles 的代理功能打开。在 Charles 的菜单栏上选择 “Proxy”–&gt;“Proxy Settings”，填入代理端口 8888，并且勾上 “Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。如下图所示: 在手机上设置： 首先我们需要获取 Charles 运行所在电脑的 IP 地址，Charles 的顶部菜单的 “Help”–&gt;“Local IP Address”，即可在弹出的对话框中看到 IP 地址，如下图所示：（mac系统也可以在终端输入ifgonfig en0来查看，window的命令是ipconfig） 在 iPhone 的 “ 设置 ”–&gt;“ 无线局域网 ” 中，可以看到当前连接的 wifi 名，通过点击右边的详情键，可以看到当前连接上的 wifi 的详细信息，包括 IP 地址，子网掩码等信息。在其最底部有「HTTP 代理」一项，我们将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，以及端口号 8888，如下图所示： 安卓手机wifi的”代理“那一块可能还有一个”IP设置“，保留默认的DHCP就行。另外那个主机名填的的是PC的ip地址 设置好之后，我们打开 iPhone 上的任意需要网络通讯的程序，就可以看到 Charles 弹出 iPhone 请求连接的确认菜单（如下图所示），点击 “Allow” 即可完成设置。 至此，手机上点击什么需要连接网络的请求都会被PC端的这个Charles给拦截到，这样，手机端随便访问个自己写的url，Charles再将这个url的请转发到PC端自己起的那个服务的url就行，这样手机端就能访问到PC端的那个url的内容了。 补充 Charles的Tools-&gt;Map Remote里面有所有已经设置的请求转发的条目 如果想拦截某个域名下的所有请求，将path栏放空就行：]]></content>
@@ -600,9 +611,9 @@
       </categories>
       <tags>
         <tag>Node</tag>
-        <tag>npm</tag>
         <tag>踩坑日常</tag>
         <tag>Vue</tag>
+        <tag>npm</tag>
       </tags>
   </entry>
   <entry>
@@ -810,8 +821,8 @@
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>数据库</tag>
         <tag>Mysql</tag>
+        <tag>数据库</tag>
         <tag>Spring</tag>
       </tags>
   </entry>
@@ -1040,8 +1051,8 @@
         <category>工程开发规范</category>
       </categories>
       <tags>
-        <tag>Git</tag>
         <tag>工具</tag>
+        <tag>Git</tag>
         <tag>工程开发规范</tag>
       </tags>
   </entry>
